@@ -1,0 +1,198 @@
+<html>
+<head>
+<title>弹出式窗口代码产生器</title>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<STYLE type=text/css>
+#scriptwiz {position:absolute; width:400px; top:182px; left:143px; z-index:1; clip:rect(0,400,0,0); visibility:visible}
+.nu {font-family: arial; font-size: 8pt}
+.9pt{font-size:9pt;}
+</STYLE>
+</head>
+<body bgcolor="#FFFFFF">
+<table border=0 cellpadding=0 cellspacing=0 width="63%" align="center">
+  <tbody>
+  <tr>
+    <td width="0">
+      <table border=0 cellpadding=0 cellspacing=0 width="76%">
+        <tbody>
+        <tr>
+          <td width="464">
+            <div align="center"><b><font color=#7b9431 face=Arial
+                  size=3>
+              <script language="JavaScript">
+function uncode() {
+smut="&lt;";
+replacewords="< ";
+txt=document.mail.source2.value;
+tstx="";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+smut="&gt;";
+replacewords="> ";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+document.mail.source2.value=txt;
+}
+function generate(form){
+page = document.inputForm.page.value;
+toolbars = document.inputForm.toolbars.checked;
+scrollprops = document.inputForm.scrollit.checked;
+locations = document.inputForm.locations.checked;
+statusbars = document.inputForm.statusbars.checked;
+menubars = document.inputForm.menubars.checked;
+resizeable = document.inputForm.resizeable.checked;
+width = document.inputForm.width.value;
+if (!width) width = screen.width;
+height = document.inputForm.height.value;
+if (!height) height = screen.height;
+howto = document.inputForm.howtoopen.options[document.inputForm.howtoopen.selectedIndex].value;
+center = document.inputForm.center.checked;
+start = "<";
+if(howto == 'body') {
+otherOutput = start + "!-- 步骤二: 将Onload事件处理器粘贴在<body>标签内-->\n" + start + "BODY onLoad=\"javascript:popUp()\">";
+}
+if(howto == 'link') {
+otherOutput = start + "!-- 步骤二: 用以下的链接打开一个新窗口 -->\n" + start + "A HREF=\"javascript:popUp()\">Open the Popup Window" + start + "/A>";
+}
+if(howto == 'button') {
+otherOutput = start + "!-- 步骤二: 用以下的按钮代码打开一个新窗口-->\n" + start + "form>\n" + start + "input type=button value=\"Open the Popup Window\" onClick=\"javascript:popUp()\">\n" + start + "/form>";
+}
+scriptOutput = start + '!-- 请照以下步骤进行:\r\n\r\n'
++ '<!-- STEP ONE: 将以下代码粘贴在<head>区 -->\r\n\r\n'
++ '<HEAD>\r\n\r\n' + start + 'SCRIPT LANGUAGE="JavaScript">\r\n'
++ 'function pop' + 'Up() {\n';
+scriptOutput += "props=window.open('" + page + "', 'poppage', '" +
+((toolbars) ? "toolbars=1, " : "toolbars=0, ") +
+((scrollprops) ? "scrollbars=1, " : "scrollbars=0, ") +
+((locations) ? "location=1, " : "location=0, ") +
+((statusbars) ? "statusbars=1, " : "statusbars=0, ") +
+((menubars) ? "menubars=1, " : "menubars=0, ") +
+((resizeable) ? "resizable=1" : "resizable=0") +
+((width) ? ", width=" + width : "") +
+((height) ? ", height=" + height : "") +
+((center) ? ", left = " + ((screen.width - width) / 2) : "") +
+((center) ? ", top = " + ((screen.height - height) / 2) : "") +
+"');\n}\n// End -->\n" + start + "/sc" + "ript>\n";
+output = scriptOutput + "\n\n" + otherOutput + '\n\n' + start +'!--代码结束--'+'>';
+document.mail.source.value = output;
+document.mail.source2.value = output;
+uncode();
+}
+</script>
+<font size="4"><br>
+</font></font></b>
+<font size=3><b>弹出窗口代码生成器</b></font> </div>
+<p> <b><font size="2"></font></b></p>
+<form name=inputForm>
+ <table width="100%" border="0" cellspacing="0" cellpadding="1" bgcolor="#000000">
+  <tr><td>
+   <table border=0 width=100% cellpadding="2" cellspacing="0" bgcolor="#bde6fd">
+    <tr> <td colspan="2"><font size="2" color=red><b>在新窗口里要打开的文件</b></font>
+        <input type=text name=page size=40><br>
+        <font size="2"><font size="1" color=red>(文件的名字或URL地址...) </font></font></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td colspan="2"><font size="2" color=red><b>请选择要显示的<font size="2"><b>窗口</b></font>元素</b></font></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+       <td width="43%"> <input type=checkbox name=toolbars>
+         <b><font face="Arial" size="2">toolbars</font></b></td>
+       <td width="57%"> <input type=checkbox name=statusbars>
+         <font face="Arial" size="2"><b>status bar</b></font></td>
+   </tr><tr bgcolor="#FFFFFF"><td width="43%">
+                          <input type=checkbox name=scrollit>
+                          <b><font face="Arial" size="2">scrollbars</font> </b></td>
+                        <td width="57%">
+                          <input type=checkbox name=menubars>
+                          <b><font face="Arial" size="2">menu bar</font></b></td>
+                      </tr>
+                      <tr bgcolor="#FFFFFF">
+                        <td width="43%">
+                          <input type=checkbox name=locations>
+                          <b><font face="Arial" size="2">location bar</font> </b></td>
+                        <td width="57%">
+                          <input type=checkbox name=resizeable>
+                          <b><font face="Arial" size="2">resizeable</font> </b></td>
+                      </tr>
+                      <tr>
+                        <td colspan="2"><font size="2" color=red><b>输入窗口的大小(缺省是满屏打开)</b></font></td>
+                      </tr>
+                      <tr>
+                        <td width="43%"><font face="Arial" size="2"><b> Witdh
+                          <input type=text name=width size=4>
+                          </b> <font face="Verdana" size="1"> (in pixels)</font></font></td>
+                        <td width="57%"> <font face="Arial" size="2"><b>Height</b></font>
+                          <input type=text name=height size=4>
+                          <font face="Verdana" size="1">(in pixels)</font> </td>
+                      </tr>
+                      <tr bgcolor="#FFFFFF">
+                        <td colspan="2"><font size="2" color=red><b>窗口打开方式</b></font></td>
+                      </tr>
+                      <tr bgcolor="#FFFFFF">
+                        <td width="100%" colspan="2"><font face="Arial" size="2"></font>
+                          <select name=howtoopen>
+                            <option value="button" selected>点按钮</option>
+                            <option value="link">点超链</option>
+                            <option value="body">自动</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="100%" colspan="2"><font face="Arial" size="2"></font>
+                          <input type=checkbox name=center>
+                          <font size="2" color=red><b>让窗口出现在屏幕正中间？</b></font></td>
+                      </tr>
+                      <tr>
+                        <td colspan=2>
+                          <center>
+                            <input type=button value="产生代码!" onClick="javascript:generate();" name="button">
+                          </center>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <form name="mail" action="" method="POST" onSubmit="return checkCodeMail()">
+              <table width="100%" border="0" cellspacing="0" cellpadding="1" bgcolor="#000000">
+                <tr>
+                  <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#BBB7F4">
+                      <tr align="center">
+                        <td> <font size="2" color=#FFFFCC><b>把下面代码Copy到程序中:</b></font><br>
+                          <input type=hidden name=scriptname value="Popup Window Maker">
+                          <textarea name="source" rows=6 cols=50 class=9pt></textarea>
+                          <br>
+                          <input type=hidden name="source2">
+                          <br>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <br>
+              <center>
+              </center>
+            </form>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
