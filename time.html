@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>ChuHo|Republic Of China</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../zhuhestyle.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../zhuhelight.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ChuHo</h1>
+      <h2 class="project-tagline">chuho|Republic Of China</h2>
+      <a href="http://t.zhuhe.tw" class="btn">導航</a>
+      <a href="http://blog.zhuhe.tw" class="btn">部落</a>
+      <a href="../dll" class="btn">文檔</a>
+      <a href="../tool" class="btn">工具</a>
+    </section>
+    <section class="main-content">
+<h3><span aria-hidden="true"></span>日期計算器</h3>
+<script>
+
+var hzWeek= new Array("日","一","二","三","四","五","六","日");function cweekday(wday){return hzWeek[wday];}
+
+function cala()
+{
+y=document.getElementById("SY").value;
+m=document.getElementById("SM").value;
+d=document.getElementById("SD").value;
+ddd=document.getElementById("decday").value;
+
+ttt=new Date(y,m-1,d).getTime()+ddd*24000*3600;
+
+theday=new Date();
+theday.setTime(ttt);
+
+document.getElementById("result1").innerHTML=theday.getFullYear()+"年"+(1+theday.getMonth())+"月"+theday.getDate()+"日"+"星期"+cweekday(theday.getDay());
+
+
+}
+
+
+function calb()
+{
+
+y2=document.getElementById("SY2").value;
+m2=document.getElementById("SM2").value;
+d2=document.getElementById("SD2").value;
+
+
+y3=document.getElementById("SY3").value;
+m3=document.getElementById("SM3").value;
+d3=document.getElementById("SD3").value;
+
+
+day2=new Date(y2,m2-1,d2);
+day3=new Date(y3,m3-1,d3);
+
+document.getElementById("result2").innerHTML=(day3-day2)/86400000;
+
+
+}
+</script>
+</head>
+<body>
+<a style="text-decoration: none" href="http://zhuheroc-zhuhe.stor.sinaapp.com/dll/time.exe">時間校對軟件</a>   
+    
+    
+<br><br>
+<b>推算幾天后的日期：</b>
+<br>
+　和
+<input size=8 id=SY value=2015>年
+<input size=4 id=SM value=4>月
+<input size=4 id=SD value=18>日
+（缺省为今天）
+<br>相差
+<input size=8 id=decday value=100>天
+（輸入負數則往前計算）
+<br>是：
+<span id=result1></span>
+<br>
+<input type=button value="计算" onclick="cala()">
+
+<br><br>
+
+<b>計算日期差：</b>
+<br>
+
+　　<input size=8 id=SY2 value=2015>年
+<input size=4 id=SM2 value=4>月
+<input size=4 id=SD2 value=18>日
+
+<br>
+和　<input size=8 id=SY3  value=2016 >年
+<input size=4 id=SM3 value=1>月
+<input size=4 id=SD3 value=1>日
+<br>相差：
+<span id=result2></span>天
+<br>
+<input type=button value="计算" onclick="calb()">
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer class="site-footer">
+<span class="site-footer-owner"><a href="/">ChuHo</a> is maintained by <a href="/zhuhe">zhuhe</a>.</span>
+Republic Of China 105</a>.</span>
+</footer>
+    </section>
+  </body>
+</html>
