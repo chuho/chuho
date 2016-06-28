@@ -17,8 +17,8 @@ a {
 div{
   height:400px;writing-mode:tb-rl;
   writing-mode: vertical-rl;
-  -webkit-writing-mode: vertical-rl;
-  float:right; }
+  -webkit-writing-mode: vertical-rl;/* float:right; div靠右 */ 
+  }
 
 .btn {
   display: inline-block;
