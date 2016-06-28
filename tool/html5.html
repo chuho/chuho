@@ -1,0 +1,77 @@
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>ChuHo|Republic Of China</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../zhuhestyle.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../zhuhelight.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ChuHo</h1>
+      <h2 class="project-tagline">chuho|Republic Of China</h2>
+      <a href="http://t.zhuhe.tw" class="btn">導航</a>
+      <a href="http://blog.zhuhe.tw" class="btn">部落</a>
+      <a href="../dll" class="btn">文檔</a>
+      <a href="../tool" class="btn">工具</a>
+    </section>
+    <section class="main-content">
+<h3><span aria-hidden="true"></span>檢測您的瀏覽器是否支援 HTML5 視頻</h3>
+<script type="text/javascript"> 
+function checkVideo()
+{
+if(!!document.createElement('video').canPlayType)
+  {
+  var vidTest=document.createElement("video");
+  oggTest=vidTest.canPlayType('video/ogg; codecs="theora, vorbis"');
+  if (!oggTest)
+    {
+    h264Test=vidTest.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+    if (!h264Test)
+      {
+      document.getElementById("checkVideoResult").innerHTML="Sorry. No video support."
+      }
+    else
+      {
+      if (h264Test=="probably")
+        {
+        document.getElementById("checkVideoResult").innerHTML="Yes! Full support!";
+        }
+      else
+        {
+        document.getElementById("checkVideoResult").innerHTML="Well. Some support.";
+        }
+      }
+    }
+  else
+    {
+    if (oggTest=="probably")
+      {
+      document.getElementById("checkVideoResult").innerHTML="Yes! Full support!";
+      }
+    else
+      {
+      document.getElementById("checkVideoResult").innerHTML="Well. Some support.";
+      }
+    }
+  }
+else
+  {
+  document.getElementById("checkVideoResult").innerHTML="Sorry. No video support."
+  }
+}
+</script>
+
+<div id="intro">
+<p><strong>許多時髦的網站都提供視頻。 HTML5 提供了展示視頻的標準。</strong></p>
+<p>檢測您的瀏覽器是否支援 HTML5 視頻：</p>
+<div id="checkVideoResult" style="margin:10px 0 0 0; border:0; padding:0;">
+<button onclick="checkVideo()" style="font-family:Arial, Helvetica, sans-serif;">點擊檢測您的瀏覽器</button>
+</div>
+<footer class="site-footer">
+<span class="site-footer-owner"><a href="/">ChuHo</a> is maintained by <a href="/zhuhe">zhuhe</a>.</span>
+Republic Of China 105</a>.</span>
+</footer>
+    </section>
+  </body>
+</html>
