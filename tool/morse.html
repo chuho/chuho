@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>ChuHo|Republic Of China</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../zhuhestyle.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../zhuhelight.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ChuHo</h1>
+      <h2 class="project-tagline">chuho|Republic Of China</h2>
+    </section>
+    <section class="main-content">
+<h3><span aria-hidden="true"></span>摩斯密碼翻譯器</h3>
+   <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+   <meta name="ProgId" content="FrontPage.Editor.Document">
+<script LANGUAGE="JavaScript">
+var respecterCasse = true;
+var ignorerCasse = false;
+var motsEntiers = true;
+var touteSousChaine = false;
+
+function rechercher(cible,terme,respecterCasse,motSeulement) {
+
+  var ind = 0;
+  var suivant = 0;
+  if (!respecterCasse) {
+    terme = terme.toLowerCase();
+    cible = cible.toLowerCase();
+  }
+  while ((ind = cible.indexOf(terme,suivant)) >= 0) {
+    if (motSeulement) {
+      var avant = ind - 1;
+      var apres = ind + terme.length;
+      if (!(espace(cible.charAt(avant)) && espace(cible.charAt(apres)))) {
+        suivant = ind + terme.length;
+        continue;
+      }
+    }
+    return true;
+  }
+  return false;
+}
+
+
+function remplacer(cible, ancienTerme,nouveauTerme,respecterCasse,motSeulement) {
+  var travail = cible;
+  var ind = 0;
+  var suivant = 0;
+  if (!respecterCasse) {
+    ancienTerme = ancienTerme.toLowerCase();
+    travail = cible.toLowerCase();
+  }
+  while ((ind = travail.indexOf(ancienTerme,suivant)) >= 0) {
+    if (motSeulement) {
+      var avant = ind - 1;
+      var apres = ind + ancienTerme.length;
+      if (!(espace(travail.charAt(avant)) && espace(travail.charAt(apres)))) {
+        suivant = ind + ancienTerme.length;
+        continue;
+      }
+    }
+    cible = cible.substring(0,ind) + nouveauTerme + 
+cible.substring(ind+ancienTerme.length,cible.length);
+    travail = travail.substring(0,ind) + nouveauTerme + 
+travail.substring(ind+ancienTerme.length,travail.length);
+    suivant = ind + nouveauTerme.length;
+    if (suivant >= travail.length) { break; }
+  }
+  return cible;
+}
+
+
+
+function espace(check) {
+  var espace = " ,/<>?!`';:%^&()=|{}" + '"' + "\\\n\t";
+  for (var i = 0; i < espace.length; i++)
+    if (check == espace.charAt(i)) { return true; }
+    if (check == "") { return true; }
+    if (check == null) { return true; }
+  return false;
+}
+
+// STOP HIDING -->
+function creerMatrice(num) {  for (var i=1; i <= num; i++)    this[i] = "";  this.length = num;}
+var MORSE = new creerMatrice(26+6);
+var AVIATION = new creerMatrice(26+6);
+
+MORSE[01] = ".-"
+MORSE[02] = "-..." 
+MORSE[03] = "-.-."
+MORSE[04] = "-.."
+MORSE[05] = "."
+MORSE[06] = "..-."
+MORSE[07] = "--."
+MORSE[08] = "...."
+MORSE[09] = ".."
+MORSE[10] = ".---"
+MORSE[11] = "-.-"
+MORSE[12] = ".-.."
+MORSE[13] = "--"
+MORSE[14] = "-."
+MORSE[15] = "---"
+MORSE[16] = ".--."
+MORSE[17] = "--.-"
+MORSE[18] = ".-."
+MORSE[19] = "..."
+MORSE[20] = "-"
+MORSE[21] = "..-"
+MORSE[22] = "...-"
+MORSE[23] = ".--"
+MORSE[24] = "-..-"
+MORSE[25] = "-.--"
+MORSE[26] = "--.."
+MORSE[27] = "-.-.."
+MORSE[28] = "--.-."
+MORSE[29] = "----"
+MORSE[30] = ".---."
+MORSE[31] = "...-."
+MORSE[32] = "..--"
+
+CARACTERES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ[@*]$#"
+
+function CODE(LETTRE){
+
+if(LETTRE == " "){
+
+return " " 
+
+}
+
+for(tg=0; tg<=26+6; tg++) {
+
+var LT = CARACTERES.charAt(tg)
+if(LT == LETTRE){
+return MORSE[tg +1] 
+
+}
+
+}
+
+return ""
+
+}
+
+function GO() {
+var text = document.forms[0].valeur.value
+text = text.toUpperCase()
+var MSG = ""
+var LTR = ""
+NUM = text.length
+for(t = 0; t <= NUM-1; t++){
+
+if (text.charAt(t) == '^') {
+	LTR = text.charAt(++t)
+	switch (LTR) {
+		case 'C': case 'c': LTR = "["; break;
+		case 'G': case 'g': LTR = "@"; break;
+		case 'H': case 'h': LTR = "*"; break;
+		case 'J': case 'j': LTR = "]"; break;
+		case 'S': case 's': LTR = "$"; break;
+		case 'U': case 'u': LTR = "#"; break;
+	}
+} else {
+	LTR = text.charAt(t)
+}
+
+MSG = MSG + ( CODE(LTR) + " ") ;
+
+}
+
+document.forms[0].OUTPUT.value = MSG
+
+}
+
+function UNGO(){
+var text = document.forms[0].OUTPUT.value
+text = text.toUpperCase()
+var MSG = text + " "
+
+for(th=0;th<=25+6;th++){
+
+AA = MORSE[th +1]
+
+BB = CARACTERES.charAt(th)
+MSG = remplacer(MSG,AA,BB,false, true)}
+MSG = remplacer(MSG,"  ","%")
+MSG = remplacer(MSG," ","")
+MSG = remplacer(MSG,"%"," ")
+document.forms[0].valeur.value = MSG
+
+}
+   </script>
+   <base target="_self">
+</head>
+<form NAME=entree>
+<tr>
+<td ><b>字母文字:</b></td>
+</tr>
+<tr>
+<td ><input TYPE=TEXT NAME='valeur'><input VALUE='翻译至摩斯密码' TYPE=button NAME='ok' onClick="GO()"></td>
+</tr>
+</p>
+<tr>
+<td ><b>翻譯密文:</font></b></td>
+</tr>
+<tr>
+<td><input TYPE=TEXT NAME=OUTPUT><input TYPE=button NAME=decode onClick='UNGO()' value='翻译至字母' size=15%></td>
+</tr>
+<p>
+<input TYPE=reset VALUE='&#20840;&#37096;&#28165;&#38500;'>
+</p>
+<a href="/">ChuHo</a> is maintained by <a href="/zhuhe">zhuhe</a>.
+Republic Of China 105</a>.
+</body>
+</html>
