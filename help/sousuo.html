@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>ChuHo|Republic Of China</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../zhuhestyle.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../zhuhelight.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ChuHo</h1>
+      <h2 class="project-tagline">chuho|Republic Of China</h2>
+      <a href="http://t.zhuhe.tw" class="btn">導航</a>
+      <a href="http://blog.zhuhe.tw" class="btn">部落</a>
+      <a href="../dll" class="btn">文檔</a>
+      <a href="../tool" class="btn">工具</a>
+    </section>
+    <section class="main-content">
+<h3><span aria-hidden="true"></span>朱賀搜索歡迎您...</h3>
+<style>
+td,body{font-size:16px;height:20px;}
+</style>
+<script language=javascript>
+function insite(){
+if(document.getElementById("insite").checked==true){
+document.getElementById("insite").checked=false;
+	return "+site%3Azhuhe.tw"
+}
+else{
+return "";
+}
+}
+function gotobaidu()
+{
+ window.open("http://www.baidu.com/baidu?word="+encodeURI(document.theForm.q.value)+insite(),"_blank");
+ return false;
+}
+function gotobing()
+{
+ window.open("http://www.bing.com/search?q="+encodeURI(document.theForm.q.value)+insite(),"_blank");
+ return false;
+}
+function gotogoogle()
+{
+ window.open("http://www.google.com/search?q="+encodeURI(document.theForm.q.value)+insite(),"_blank");
+ return false;
+}
+function gotociba()
+{
+ window.open("http://www.iciba.com/search?s="+encodeURI(document.theForm.q.value),"_blank");
+ return false;
+}
+function gototaobao()
+{
+// window.open("http://s8.taobao.com/search?q="+encodeURI(document.theForm.q.value)+"&cat=0&pid=mm_10060779_3147107_10430592&mode=23&commend=1%2C2","_blank");
+ window.open("http://s.taobao.com/search?q="+encodeURI(document.theForm.q.value),"_blank");
+ return false;
+}
+
+</script>
+
+</head>
+
+<body leftmargin=0 topmargin=0 >
+
+<form name=theForm onsubmit="return gotobaidu()">
+
+搜索<input type="text" name="q" size="25" maxlength="255" value=""></input><input type="button" name="bd" value="百 度" onclick="gotobaidu()"></input><input type="button" name="bing" value="bing" onclick="gotobing()"></input><input type="button" name="gg" value="google" onclick="gotogoogle()"></input><input type="button" name="ciba" value="查 词" onclick="gotociba()"></input><input type="button" name="taobao" value="淘 宝" onclick="gototaobao()"></input>
+<input type="checkbox" name="site" id=insite>站内
+</form>
+<footer class="site-footer">
+<span class="site-footer-owner"><a href="/">ChuHo</a> is maintained by <a href="/zhuhe">zhuhe</a>.</span>
+Republic Of China 105</a>.</span>
+</footer>
+    </section>
+  </body>
+</html>
