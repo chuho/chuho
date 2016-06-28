@@ -14,6 +14,11 @@ a {
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
+div{
+  height:400px;writing-mode:tb-rl;
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  float:right; }
 
 .btn {
   display: inline-block;
