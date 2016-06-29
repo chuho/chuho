@@ -1,4 +1,4 @@
-﻿<!-- 感謝www.openrise.com/lab/FlowerPower/# 源代碼由朱賀漢化 -->
+<!-- 感謝www.openrise.com/lab/FlowerPower/# 源代碼由朱賀漢化 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>zhuhe&wangchun</title>
     <meta name="description" content="FlowerPower是一個JavaScript實驗由mhepekka使用JavaScript和Canvas開發。繪製的花朵!">

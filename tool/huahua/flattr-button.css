@@ -1,0 +1,25 @@
+* { outline: 0; }
+body { margin: 0; background-color:transparent; }
+
+.flattr-button, .flattr-dummy-button { font: 12px 'Lucida Sans Unicode','Lucida Grande',sans-serif; height: 62px; width: 55px; text-align: center; }
+.flattr-button span, .flattr-dummy-button span { display:block; height: 20px; }
+.flattr-button a, .flattr-dummy-button a { text-decoration: none; }
+
+.flattr-button a .flattr-count, .flattr-dummy-button a .flattr-count { color: #666; text-shadow: #fff 0 0 4px; }
+.flattr-button .flattr-count, .flattr-dummy-button .flattr-count { font-size: 14px; letter-spacing: -1px; line-height: 37px; height: 42px; background: url('flattr-button.png') no-repeat ; }
+.flattr-button .flattr-count:hover, .flattr-dummy-button .flattr-count:hover { background: url('flattr-button.png') 0px -42px no-repeat; }
+
+.compact .flattr-button, .compact .flattr-dummy-button { width: 110px; }
+.compact .flattr-button .flattr-count, .compact .flattr-dummy-button .flattr-count { line-height: 20px; width: 51px; height: 20px; background: url('flattr-button.png') 0px -84px no-repeat; float: right; padding-left: 4px;}
+.compact .flattr-button .flattr-count:hover , .compact .flattr-dummy-button .flattr-count:hover{ background: url('flattr-button.png') 0px -104px no-repeat; }
+
+.flattr-link {  background: url('flattr-button.png') 0px -124px no-repeat; }
+.flattr-link:hover {  background: url('flattr-button.png') 0px -144px no-repeat; }
+.flattr-flattred { background: url('flattr-button.png') 0px -164px no-repeat; }
+.flattr-flattred:hover { background: url('flattr-button.png') 0px -244px no-repeat; }
+.flattr-error { background: url('flattr-button.png') 0px -224px no-repeat; }
+.flattr-inactive { background: url('flattr-button.png') 0px -204px no-repeat; }
+.flattr-mything { background: url('flattr-button.png') 0px -184px no-repeat; }
+.flattr-subscribed { background: url('flattr-button.png') 0px -264px no-repeat; }
+
+.flattr-pending { background: url('flattr-button.png') 0px -284px no-repeat;}
