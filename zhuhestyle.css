@@ -16,7 +16,7 @@ a {
     text-decoration: underline; }
 div{
   height:400px;writing-mode:tb-rl;
-  width: 100%;
+  width: 100PX;
   writing-mode: vertical-rl;
   -webkit-writing-mode: vertical-rl;/* float:right; div靠右 */ 
   }
