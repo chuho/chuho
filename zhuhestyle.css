@@ -195,6 +195,10 @@ div{
     width:100%;
     padding: 0.5rem 1rem;
     border: 1px solid #e9ebec; }
+  .main-content table th, .main-content table tr {
+    height:400px;
+    width:100%;
+ }
 .main-content dl {
   padding: 0; }
   .main-content dl dt {
