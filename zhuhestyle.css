@@ -197,7 +197,7 @@ div{
     border: 1px solid #e9ebec; }
   .main-content table th, .main-content table tr {
     height:400px;
-    width:100%;
+    width:400px;
  }
 .main-content dl {
   padding: 0; }
