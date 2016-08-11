@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/* reset */
+.nehan-body,
+.nehan-body div,
+.nehan-body span,
+.nehan-body br,
+.nehan-body a,
+.nehan-body img{
+  margin:0;
+  padding:0;
+  border:0;
+  font-size:100%;
+  font:inherit;
+  vertical-align:baseline;
+  text-align:inherit;
+  letter-spacing:0;
+}
+.nehan-body a img {
+  border:none;
+}
+/* box-sizing */
+.nehan-body div,
+.nehan-body div::before,
+.nehan-body div::after,
+.nehan-body span,
+.nehan-body span::before,
+.nehan-body span::after,
+.nehan-body a,
+.nehan-body a::before,
+.nehan-body a::after,
+.nehan-block,
+.nehan-inline,
+.nehan-text-block,
+.nehan-img-char,
+.nehan-vert-glyph {
+  -o-box-sizing:content-box !important;
+  -ms-box-sizing:content-box !important;
+  -moz-box-sizing:content-box !important;
+  -webkit-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+  white-space:nowrap;
+}
+.nehan-inline span{
+  white-space:nowrap;
+}
+/* for MS Edge brosser */
+@supports (-ms-accelerator:true) {
+  .nehan-vert-glyph {
+    height:1em;
+    max-height:1em;
+  }
+}
+.nehan-inline.nehan-inline-tb-rl,
+.nehan-inline.nehan-inline-tb-lr{
+  -webkit-locale:'ja';
+}
+.nehan-inline.nehan-inline-lr-tb{
+  float:left;
+  white-space:nowrap;
+  text-overflow:clip;
+  -webkit-text-overflow:clip;
+  -o-text-overflow:clip;
+}
+.nehan-inline-tb-rl a,
+.nehan-inline-tb-lr a {
+  overflow:visible;
+  text-decoration:none !important;
+}
+.nehan-body a{
+  word-wrap:normal !important;
+}
+.nehan-vert-glyph{
+  -ms-writing-mode:tb-rl;
+  -webkit-writing-mode:vertical-rl;
+  writing-mode:vertical-rl;
+}
+.nehan-rotate-90{
+  word-break:normal;
+  word-wrap:normal;
+  overflow:visible;
+  white-space:pre; /* avoid line break */
+  -webkit-transform : rotate(90deg);
+  -webkit-transform-origin : 50% 50%;
+  -moz-transform : rotate(90deg);
+  -moz-transform-origin : 50% 50%;
+  -o-transform : rotate(90deg);
+  -o-transform-origin : 50% 50%;
+  -ms-transform : rotate(90deg);
+  -ms-transform-origin : 50% 50%;
+  transform : rotate(90deg);
+  transform-origin : 50% 50%;
+  -webkit-hyphens: none; // not line-break
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+.nehan-vert-ie{
+  writing-mode:tb-rl;
+  float:left;
+}
+.nehan-text-combine-upright{
+  writing-mode:vertical-rl;
+  -webkit-writing-mode:vertical-rl;
+
+  text-combine-upright:all;
+  -webkit-text-combine-upright:all;
+  -ms-text-combine-horizontal:all;
+
+  /* for backward compatibility */
+  -webkit-text-combine:horizontal;
+  text-combine:horizontal;
+  text-combine-horizontal:all;
+}
