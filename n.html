@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh">
+<html lang="ja">
   <head>
     <title>nehan5 page-element test</title>
     <meta content="ja" name="content-language">
@@ -8,7 +8,9 @@
     <meta http-equiv="Content-Script-Type" content="text/javascript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-   </head>
+    <!-- styles -->
+    <link href="../css/nehan.css" rel="stylesheet">
+  </head>
   <body>
     <h1>simple reader</h1>
     <p>
@@ -18,7 +20,7 @@
     <div id="result"></div>
 
     <!-- scripts -->
-    <script type="text/javascript" src="sys/.js"></script>
+    <script type="text/javascript" src="../dist/nehan.js"></script>
     <script type="text/javascript">
     var page_document = new Nehan.Document();
     var target = document.getElementById("result");
