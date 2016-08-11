@@ -21,9 +21,11 @@ var linkModule = "Share";
 var linkPage = "0937a";
 var showLastPage = null;
 </script>
+<script language="javascript" type="text/javascript" src="http://haodoo.net/cookie.js"></script>
 <script language="javascript" type="text/javascript" src="http://haodoo.net/v.js"></script>
 <script language="javascript" type="text/javascript" src="http://haodoo.net/u.js"></script>
 </head>
+
 <body onLoad="Init();" onkeydown="HandleKey(event)">
 <pre id="SourceText">第二八章　代理驛丞
 
@@ -111,6 +113,49 @@ var showLastPage = null;
 　　楊凌說道：﹁卑職雞鳴縣代理驛丞楊凌。﹂
 
 　　畢都司點了點頭，坐直了身子呵呵笑道：﹁好，好一個代理驛丞楊凌，本將記住了。邱大鵬，你快馬追上關受英，叫他們規規矩矩的不許搶糧，就說楊驛丞馬上就去開倉，本將回大營等你們的消息，呵呵呵呵︙︙﹂</pre>
+<div id=V></div>
+<div id="Settings">
+    <div class="Category">&nbsp;</div>
+
+    <div class="Category">&bull; 字體大小：<input type="hidden" name="FontSize" id="FontSize" value="" /> 
+   <span class="Picker" id="Size0"
+      onclick="SelectFontSize(this);">16</span>
+   <span class="Picker" id="Size1"
+      onclick="SelectFontSize(this);">20</span>
+   <span class="Picker" id="Size2"
+      onclick="SelectFontSize(this);">24</span>
+   <span class="Picker" id="Size3"
+      onclick="SelectFontSize(this);">28</span>
+   <span class="Picker" id="Size4"
+      onclick="SelectFontSize(this);">32</span>
+   <span class="Picker" id="Size5"
+      onclick="SelectFontSize(this);">36</span>
+   <span class="Picker" id="Size6"
+      onclick="SelectFontSize(this);">40</span>
+   <span class="Picker" id="Size7"
+      onclick="SelectFontSize(this);">44</span>
+   <span class="Picker" id="Size8"
+      onclick="SelectFontSize(this);">48</span>
+   <span class="Picker" id="Size9"
+      onclick="SelectFontSize(this);">52</span>
+
+   </div>
+
+   <div class="Category">&bull; 字型名稱：<input type="text" name="FontName" id="FontName" size="20" value="" /></div>
+   <div class="Category">&bull; 背景顏色：<input type="hidden" name="BgColor" id="BgColor" value="" />
+   <span class="Picker" style="background-color:#FFFFFF" id="Color0"
+      onclick="SelectBgColor(this);">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+   <span class="Picker" style="background-color:#EEEBC4" id="Color1"
+      onclick="SelectBgColor(this);">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+   <span class="Picker" style="background-color:#E3EEC4" id="Color2"
+      onclick="SelectBgColor(this);">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+   <span class="Picker" style="background-color:#D9E8FB" id="Color3"
+      onclick="SelectBgColor(this);">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+   <span class="Picker" style="background-color:#F1DAB6" id="Color4"
+         onclick="SelectBgColor(this);">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+   </div>
+   <div align="center"><input name="ApplySettings" type="button" id="ApplySettings" value=" &#22871;&#29992; " onclick="ApplySettings();" class="CloseButton" />&nbsp;&nbsp;<input name="CloseSettings" type="button" id="CloseSettings" value=" &#21462;&#28040; " onclick="CloseSettings();" class="CloseButton" /></div>
+</div>
 
 <div id="LoadingBar">資料載入中……</div>
 </body>
