@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>自适应屏幕宽度轮播图</title>
+<style>
+*{margin: 0;padding: 0;}
+ul,ol,li{list-style: none;}
+#slide{min-width:1000px;height: 396px;position: relative;overflow: hidden;}
+#slide ul{position: absolute;left: 0;}
+#slide ul li{float: left;}
+#slide ul li img{position: relative;left: 0;}
+
+#slide ol{width:100%;position: absolute;bottom: 0;text-align: center;}
+#slide ol li{width: 11px;height: 11px;background: #666;display: inline-block;font-size: 0;-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;}
+#slide ol li.selected{background: #F60;}
+#slide ol li a{height: 11px;display: block;}
+</style>
+<script src="move.js"></script>
+<script>
+window.onload=function (){
+    var oSlide=document.getElementById("slide");
+    var oUl=oSlide.getElementsByTagName("ul")[0];
+    var aLi=oUl.getElementsByTagName("li"); 
+    var aImg=oUl.getElementsByTagName("img"); //获取图片
+
+    var oOl=oSlide.getElementsByTagName("ol")[0];
+    var aLiOl=oOl.getElementsByTagName("li"); //获取按钮
+
+    var imgWidth=1920;
+
+    var iNow=0;
+
+    oUl.style.width=aImg.length * imgWidth + "px";
+
+    //让图片居中
+    function toResize(){
+        var viewWidth=document.documentElement.clientWidth;
+
+        if(viewWidth>1000){
+            for(var i=0;i<aImg.length;i++){
+                aImg[i].style.left = -(imgWidth - viewWidth)/2 + "px";
+            }
+        }
+    }
+
+    toResize();
+    
+    window.onresize=function (){
+        toResize();    
+    }
+
+    // 轮播开始
+    for(var i=0;i<aLiOl.length;i++){
+        aLiOl[i].index=i;
+        aLiOl[i].onmouseover=function (){
+            for(var i=0;i<aLiOl.length;i++){
+                aLiOl[i].className="";
+            }
+            this.className="selected";
+            startMove(oUl,{left:-this.index * imgWidth});
+        }
+    }
+
+    setInterval(function toRun(){
+        if(iNow==aLi.length-1){
+            iNow=0;
+        }else{
+            iNow++;    
+        }
+
+        for(var i=0;i<aLiOl.length;i++){
+            aLiOl[i].className="";
+        }
+
+        aLiOl[iNow].className="selected";
+        startMove(oUl,{left:-iNow * imgWidth});
+
+    },3000);
+};
+</script>
+</head>
+<body>
+<div id="slide">
+    <ul>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/01.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/02.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/03.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/04.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/05.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/06.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/07.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/08.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/09.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/10.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/11.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/12.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/13.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/14.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/15.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/16.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/17.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/18.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/19.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/20.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/21.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/22.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/23.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/24.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/25.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/26.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/27.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/28.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/29.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/30.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/31.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/32.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/33.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/34.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/35.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/36.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/37.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/38.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/39.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/40.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/41.jpg" alt=""Photo by: ChuHo></li>
+<li><img src="http://oa.zhuhe.tw:9000/pic/SunBing105/42.jpg" alt=""Photo by: ChuHo></li>
+    </ul>
+    <ol>
+        <li class="selected"><a href="javascript:;">1</a></li>
+        <li><a href="javascript:;">2</a></li>
+        <li><a href="javascript:;">3</a></li>
+    </ol>
+</div>
+</body>
+</html>
