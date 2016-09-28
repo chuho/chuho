@@ -142,27 +142,31 @@
     </script>
     
     </head>
-    <body onload="init();" >        
+<body onload="init();" >        
 <video id="Video1" controls style="border: 1px solid blue;" width=100% title="video element">您的瀏覽器不支援HTML5</video>
-        <button id="restart" title="Restart button">重置</button> 
-        <button id="slower" title="Slower playback button">減音</button> 
-        <button id="rew" title="Rewind button" >後退</button>
-        <button id="play" title="Play button">播放</button>
-        <button id="fwd" title="Forward button" >前進</button>
-        <button id="faster" title="Faster playback button">增音</button>
-        <button id="Button2" title="Mute button" ><img alt="Volume on button" src="vol2.png" /></button>     
+ <button id="restart" title="Restart button">重置</button> 
+ <button id="rew" title="Rewind button" >後退</button>
+ <button id="play" title="Play button">播放</button>
+ <button id="fwd" title="Forward button" >前進</button>
+</p>
+ <button id="slower" title="Slower playback button">減音</button> 
+ <button id="faster" title="Faster playback button">增音</button>
+</p>
+ <button id="Button2" title="Mute button" ><img alt="Volume on button" src="vol2.png" /></button>     
 </p>
 <label>播放：</label>
-            <label>播放重置播放速率︰</label><button id="normal" title="重置播放率">=</button>    
-<label>音量</label>
-            <button id="volDn"  title="Volume down button">減音</button>
-            <button id="volUp"  title="Volume up button">增音</button>
-            <button id="mute" title="Mute button" ><img alt="Volume on button" src="vol2.png" /></button>        
+ <label>播放重置播放速率︰</label><button id="normal" title="Reset playback rate button">重置播放率</button>
 </p>
-        <label>鍵入或粘貼視頻的 URL:<br/>
-        <input type="text" id="videoFile" style="width: 300px;"  title="video file input field" value="http://oa.zhuhe.tw:9000/video/d/YongYuan'JiYi.mp4" />        
-        <button id="loadVideo" title="Load video button" >播放</button>
-        </label>
+<label>音量</label>
+ <button id="volDn"  title="Volume down button">減音</button>
+ <button id="volUp"  title="Volume up button">增音</button>
+</p>
+ <button id="mute" title="Mute button" ><img alt="Volume on button" src="vol2.png" /></button>        
+</p>
+ <label>鍵入或粘貼視頻的 URL:<br/>
+ <input type="text" id="videoFile" style="width: 300px;"  title="video file input field" value="" />        
+ <button id="loadVideo" title="Load video button" >播放</button>
+ </label>
     <div title="Error message area" id="errorMsg" style="color:Red;"></div>  
 <h3><span aria-hidden="true"></span>朱賀的聯絡方式</h3>
 <p>電子郵箱：zhuhe@zhuhe.tw</p>
