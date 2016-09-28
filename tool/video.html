@@ -32,10 +32,10 @@
                     button = evt.target; //  get the button id to swap the text based on the state                                    
                     if (video.paused) {   // play the file, and display pause symbol
                         video.play();
-                        button.textContent = "||";
+                        button.textContent = "暫停";
                     } else {              // pause the file, and display play symbol  
                         video.pause();
-                        button.textContent = ">";
+                        button.textContent = "播放";
                     }
                 }
                 //  load video file from input field
@@ -143,10 +143,7 @@
     
     </head>
     <body onload="init();" >        
-    
-    <video id="Video1" controls style="border: 1px solid blue;" width=100% title="video element">您的瀏覽器不支援HTML5
-    </video>
-    
+<video id="Video1" controls style="border: 1px solid blue;" width=100% title="video element">您的瀏覽器不支援HTML5    </video>
     <div id="buttonbar" style="display: none;")>
         <button id="restart" title="Restart button">重置</button> 
         <button id="slower" title="Slower playback button">減音</button> 
