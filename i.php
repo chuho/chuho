@@ -1,6 +1,5 @@
 <title>zhuhe</title>
 <meta name="keywords" content="zhuhe,朱贺,chuho,朱賀" />
-<script src="/m/uaredirect.js" type="text/javascript"></script><script type="text/javascript">uaredirect("/m");</script>
 <META http-equiv="content-type" content="text/html; charset=utf-8"><div align="center">
 <body bgcolor="#023665" text="White" link="White" alink="White" vlink="White">
 <table border="0" cellpadding="0" cellspacing="0" width="924" height="525">
