@@ -774,7 +774,7 @@ function drawCld(SY,SM) {
    var i,sD,s,size;
    cld = new calendar(SY,SM);
 
-   if(SY>1627) yDisplay = '崇禎' + (((SY-1627)==1)?'元':SY-1627);
+   if(SY>1627) yDisplay = '崇禎後' + (((SY-1627)==1)?'元':SY-1627);
 
    document.getElementById("GZ").innerHTML = yDisplay +'年 皇明歲次' + cyclical(SY-1900+36) + '年 【'+Animals[(SY-4)%12]+'】';
 
@@ -1302,7 +1302,7 @@ style="Z-INDEX: 3; FILTER: shadow(color=#333333,direction=135); WIDTH: 140px; PO
         <TBODY>
         <TR>
           <TD align=middle bgColor=#000080 colSpan=7><FONT 
-            style="FONT-SIZE: 16pt" face=標楷體 color=#ffffff size=2>西曆<SELECT 
+            style="FONT-SIZE: 14pt" face=標楷體 color=#ffffff size=2>西曆<SELECT 
             style="FONT-SIZE: 9pt" onchange=changeCld() name=SY> 
               <SCRIPT language=Javascript><!--
           for(i=1900;i<2101;i++) document.write('<option>'+i)
