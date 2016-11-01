@@ -10,8 +10,6 @@
 <a style="text-decoration: none" href="http://zhuhe.tw">首頁</a>
 <a style="text-decoration: none" title="租用谷歌服務器" href="http://blog.zhuhe.tw">博客</a>
 <a href="http://zhuhe.tw/video" title="新服務" style="text-decoration: none">視頻</a>
-<a style="text-decoration: none" title="朱賀的文檔" href="http://zhuhe.tw/doc">文檔</a>
-<a style="text-decoration: none" title="未加密的愛" href="http://zhuhe.tw/love">永遠</a>
 <a style="text-decoration: none" title="給我電郵" href="mailto:zhuhe@zhuhe.tw">我的郵箱</a>
 <a style="text-decoration: none" title="朱賀的自我簡介" href="http://zhuhe.tw/zhuhe">朱賀簡介</a>&nbsp;&nbsp;&nbsp;
 <a style="text-decoration: none" target="_blank" title="朱賀寫的代碼" href="http://zhuhe.tw/tool">工具</a>
@@ -778,7 +776,7 @@ function drawCld(SY,SM) {
 
    if(SY>1627) yDisplay = '崇禎' + (((SY-1627)==1)?'元':SY-1627);
 
-   document.getElementById("GZ").innerHTML = yDisplay +'年 農曆歲次' + cyclical(SY-1900+36) + '年 【'+Animals[(SY-4)%12]+'】';
+   document.getElementById("GZ").innerHTML = yDisplay +'年 皇明歲次' + cyclical(SY-1900+36) + '年 【'+Animals[(SY-4)%12]+'】';
 
    document.getElementById("YMBG").innerHTML = "&nbsp;" + SY + "<BR>&nbsp;" + monthName[SM];
 
@@ -1304,7 +1302,7 @@ style="Z-INDEX: 3; FILTER: shadow(color=#333333,direction=135); WIDTH: 140px; PO
         <TBODY>
         <TR>
           <TD align=middle bgColor=#000080 colSpan=7><FONT 
-            style="FONT-SIZE: 9pt" face=標楷體 color=#ffffff size=2>西曆<SELECT 
+            style="FONT-SIZE: 16pt" face=標楷體 color=#ffffff size=2>西曆<SELECT 
             style="FONT-SIZE: 9pt" onchange=changeCld() name=SY> 
               <SCRIPT language=Javascript><!--
           for(i=1900;i<2101;i++) document.write('<option>'+i)
@@ -1372,5 +1370,5 @@ style="Z-INDEX: 3; FILTER: shadow(color=#333333,direction=135); WIDTH: 140px; PO
       <P></P></TD></FORM></TR></TBODY></TABLE></CENTER></BODY>
 <p align="center">
 <a style="text-decoration: none" href="http://zhuhe.tw/">
-<font color="#000000">Republic Of China 104</font></a></p>
+<font color="#000000">Republic Of China 105</font></a></p>
 <p align="center">建議使用[<a target="_blank" style="text-decoration: none" href="http://www.google.com.hk/chrome?hl=zh-TW&brand=CHMI"><font color="#000000">Google</font></a>]瀏覽器或者[<a target="_blank" style="text-decoration: none" href="http://firefox.com.cn/download/"><font color="#000000">火狐</font></a>]瀏覽器效果好一些
