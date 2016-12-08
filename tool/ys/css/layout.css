@@ -1,0 +1,76 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #191919 url("layout/bg_gradient.gif") repeat-y center top;	
+	color: #FFF;
+	text-align: center;
+	font: 14px/18px Arial, Helvetica, sans-serif;
+	}	
+a {
+	color: #33F;	
+	}
+#logo {
+	display: block;
+	position: absolute;
+	height: 80px;
+	width: 90px;
+	top: 0;
+	left: 0;
+	background: url("layout/logo.png") no-repeat 0px 0px;
+	}
+#hexcode {
+	height: 30px;
+	text-align: right;
+	margin: 0 10px 0 90px;
+	font: 18px/30px "Courier New", Courier, monospace;
+	}
+#colorname {
+	text-align: right;
+	margin: 0 10px 0 90px;
+	font: 24px/30px Tahoma, Geneva, sans-serif;
+	}
+#swatch {
+	display: block;
+	height: 300px;
+	background: #808080;
+	}
+#cube {
+	height: 320px;
+	background: url("layout/loading.gif") no-repeat center center;
+	}
+/*
+#swatchesLeft {
+	float: left;
+	height: 40px;
+	width: 40px;
+	background: #191919 url("layout/scroll_left.gif") no-repeat 0px 0px;
+	}
+#swatchesRight {
+	float: right;
+	height: 40px;
+	width: 40px;
+	background: #191919 url("layout/scroll_right.gif") no-repeat 0px 0px;
+	}
+	*/
+#swatches {
+	margin: 5px 40px;	
+	margin: 5px 0;
+	height: 30px;
+	/*overflow: hidden;*/
+	position: relative;
+	}
+#swatches .sect {
+	/*
+	position: absolute; 
+	top: 0;
+	left: 0;
+	*/
+	}
+.swatch {
+	display: block;
+	float: left;
+	height: 30px;
+	width: 30px;
+	margin: 0 0 5px 5px;
+	cursor: pointer;
+	}
