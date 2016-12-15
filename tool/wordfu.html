@@ -1,0 +1,436 @@
+<h1>Word代码和通配符一览表</h1>
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <td rowSpan=2 >序号</td>
+                        <td colSpan=2>清除使用通配符复选框</td>
+                        <td colSpan=2>勾选使用通配符复选框</td>
+                    </tr>
+                    <tr>
+                        <td>特殊字符</td>
+                        <td>代码</td>
+                        <td>特殊字符</td>
+                        <td>代码or通配符</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>任意单个字符</td>
+                        <td>^?</td>
+                        <td>任意单个字符</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>任意数字</td>
+                        <td>^#</td>
+                        <td>任意数字（单个）</td>
+                        <td>[0-9]</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>任意英文字母</td>
+                        <td>^$</td>
+                        <td>任意英文字母</td>
+                        <td>[a-zA-Z]</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>段落标记</td>
+                        <td>^p</td>
+                        <td>段落标记</td>
+                        <td>^13</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>手动换行符</td>
+                        <td>^l</td>
+                        <td>手动换行符</td>
+                        <td>^l or ^11</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>图形</td>
+                        <td>^g</td>
+                        <td>or</td>
+                        <td>^1图形^g</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>1/4长划线</td>
+                        <td>^+</td>
+                        <td>1/4长划线</td>
+                        <td>^q</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>长划线</td>
+                        <td>^j</td>
+                        <td>长划线</td>
+                        <td>^+</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>短划线</td>
+                        <td>^q</td>
+                        <td>短划线</td>
+                        <td>^=</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>制表符</td>
+                        <td>^t</td>
+                        <td>制表符</td>
+                        <td>^t</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>脱字号</td>
+                        <td>^</td>
+                        <td>脱字号</td>
+                        <td>^^</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>分栏符</td>
+                        <td>^v</td>
+                        <td>分栏符</td>
+                        <td>^n or ^14</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>分节符</td>
+                        <td>^b</td>
+                        <td>分节符/分页符</td>
+                        <td>^m</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>省略号</td>
+                        <td>^n</td>
+                        <td>省略号</td>
+                        <td>^i</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>全角省略号</td>
+                        <td>^i</td>
+                        <td>全角省略号</td>
+                        <td>^j</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>无宽非分隔符</td>
+                        <td>^z</td>
+                        <td>无宽非分隔符</td>
+                        <td>^z</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>无宽可选分隔符</td>
+                        <td>^x</td>
+                        <td>无宽可选分隔符</td>
+                        <td>^x</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>不间断空格</td>
+                        <td>^s</td>
+                        <td>不间断空格</td>
+                        <td>^s</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>不间断连字符</td>
+                        <td>^~</td>
+                        <td>不间断连字符</td>
+                        <td>^~</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>&amp;para;段落符号</td>
+                        <td>^%</td>
+                        <td>表达式</td>
+                        <td>( )</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>&#167;分节符</td>
+                        <td>^</td>
+                        <td>单词结尾</td>
+                        <td>&lt;</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>脚注标记</td>
+                        <td>^f or ^2</td>
+                        <td>单词开头</td>
+                        <td>&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>可选连字符</td>
+                        <td>^-</td>
+                        <td>任意字符串</td>
+                        <td>*</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>空白区域</td>
+                        <td>^w</td>
+                        <td>指定范围外任意单个字符</td>
+                        <td>[!x-z]</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>手动分页符</td>
+                        <td>^m</td>
+                        <td>指定范围内任意单个字符</td>
+                        <td>[ - ]</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>尾注标记</td>
+                        <td>^e</td>
+                        <td>1个以上前一字符或表达式</td>
+                        <td>@</td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>域</td>
+                        <td>^d</td>
+                        <td>n个前一字符或表达式</td>
+                        <td>{ n }</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>Unicode 字符</td>
+                        <td>^Unnnn</td>
+                        <td>n个以上前一字符或表达式</td>
+                        <td>{ n, }</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>全角空格</td>
+                        <td>^u8195</td>
+                        <td>n到m个前一字符或表达式</td>
+                        <td>{ n,m }</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>半角空格</td>
+                        <td>^32 or ^u8194</td>
+                        <td>所有小写英文字母</td>
+                        <td>[a-z]</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>批注</td>
+                        <td>^a or ^5</td>
+                        <td>所有大写英文字母</td>
+                        <td>[A-Z]</td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>　</td>
+                        <td>　</td>
+                        <td>所有西文字符</td>
+                        <td>[^1-^127]</td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td>　</td>
+                        <td>　</td>
+                        <td>所有中文汉字和中文标点</td>
+                        <td>[!^1-^127]</td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>　</td>
+                        <td>　</td>
+                        <td>所有中文汉字（CJK统一字符）</td>
+                        <td>[一-龥]or[一-﨩]</td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>　</td>
+                        <td>　</td>
+                        <td>所有中文标点</td>
+                        <td>[!一-龥^1-^127]</td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>　</td>
+                        <td>　</td>
+                        <td>所有非数字字符</td>
+                        <td>[!0-9]</td>
+                    </tr>
+                    <tr>
+                        <td>　</td>
+                        <td>　</td>
+                        <td>　</td>
+                        <td>　</td>
+                        <td>　</td>
+                    </tr>
+                    <tr>
+                        <td rowSpan=2>序号</td>
+                        <td colSpan=2><strong>清除使用通配符复选框</strong></td>
+                        <td colSpan=2><strong>勾选使用通配符复选框</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>特殊字符</strong></td>
+                        <td><strong>代码</strong></td>
+                        <td><strong>特殊字符</strong></td>
+                        <td><strong>代码or通配符</strong></td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>　</td>
+                        <td>　</td>
+                        <td>要查找的表达式 \n</td>
+                        <td>\</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>段落标记&#8629;</td>
+                        <td>^p</td>
+                        <td>段落标记&#8629;</td>
+                        <td>^p</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>手动换行符&#8595;</td>
+                        <td>^l</td>
+                        <td>手动换行符&#8595;</td>
+                        <td>^l</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>查找的内容</td>
+                        <td>^&amp;</td>
+                        <td>查找的内容</td>
+                        <td>^&amp;</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>剪贴板内容</td>
+                        <td>^c</td>
+                        <td>剪贴板内容</td>
+                        <td>^c</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>省略号</td>
+                        <td>^i</td>
+                        <td>省略号</td>
+                        <td>^i</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>全角省略号</td>
+                        <td>^j</td>
+                        <td>全角省略号</td>
+                        <td>^j</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>制表符</td>
+                        <td>^t</td>
+                        <td>制表符</td>
+                        <td>^t</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>长划线</td>
+                        <td>^+</td>
+                        <td>长划线</td>
+                        <td>^+</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>1/4长划线( — )</td>
+                        <td>^q</td>
+                        <td>1/4长划线( — )</td>
+                        <td>^q</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>短划线( - )</td>
+                        <td>^=</td>
+                        <td>短划线( - )</td>
+                        <td>^=</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>脱字号</td>
+                        <td>^^</td>
+                        <td>脱字号</td>
+                        <td>^^</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>手动分页符</td>
+                        <td>^m or ^12</td>
+                        <td>手动分页符/分节符</td>
+                        <td>^m</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>可选连字符（_）</td>
+                        <td>^-</td>
+                        <td>可选连字符（_）</td>
+                        <td>^-</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>不间断连字符（-）</td>
+                        <td>^~</td>
+                        <td>不间断连字符（-）</td>
+                        <td>^~</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>不间断空格</td>
+                        <td>^s</td>
+                        <td>不间断空格</td>
+                        <td>^s</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>无宽非分隔符</td>
+                        <td>^z</td>
+                        <td>无宽非分隔符</td>
+                        <td>^z</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>无宽可选分隔符</td>
+                        <td>^x</td>
+                        <td>无宽可选分隔符</td>
+                        <td>^x</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>分栏符</td>
+                        <td>^n</td>
+                        <td>分栏符</td>
+                        <td>^n</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>&#167;分节符</td>
+                        <td>^%</td>
+                        <td>&#167;分节符</td>
+                        <td>^%</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>&amp;para;段落符号</td>
+                        <td>^v</td>
+                        <td>&amp;para;段落符号</td>
+                        <td>^v</td>
+                    </tr>
+                    <tr>
+                        <td colSpan=5>注：要<strong>查找</strong>已被定义为通配符的字符，该字符前键入反斜杠 \ 。<strong>查找</strong>？、*、（、）、[ 、] 等的代码分别是\？、\*、\(、\)、\[、\] 。</td>
+                    </tr>
+                </tbody>
+            </table>
