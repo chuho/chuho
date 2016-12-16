@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="utf-8" />
+	<title>人民币汇率中间价 曲线图</title>
+	<link href="styles.css" rel="stylesheet">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/prettify.js"></script>
+	<script src="js/Chart.js"></script>
+	</head>
+	<body>
+	<div class="redBorder"></div>
+	<div class="greenBorder"></div>
+	<div class="yellowBorder"></div>
+	<div id="wrapper">
+		<nav>	
+			<dl>
+			</dl>
+		</nav>
+		<div id="contentWrapper">
+			<h1 id="mainHeader">人民币汇率中间价 曲线图</h1>
+			<h2 id="introText">此文档包含了西元2016人民币汇率中间价曲线图的标识。</h2>
+			<article id="gettingStarted">
+				<h1>说明</h1>
+				<h2>央行官方数据</h2>
+				<p>中国人民银行于每个工作日闭市后公布当日银行间外汇市场美元等交易货币对人民币的收盘价，作为下一个工作日该货币对人民币交易的中间价。它是即期银 行间外汇交易市场和银行挂牌汇价的最重要参考指标。</p>
+				<pre data-type="html"><code>人民币汇率中间价</code></pre>
+			</article>			
+<article id="lineChart">
+				<h1>曲线图</h1>
+				<h2>简介</h2>
+				<p>曲线图就是将数据标于曲线上的一种图表。</p>
+				<p>一般用于展示趋势数据，和比较两组数据集。</p>
+				<h2>使用案例</h2>
+				<canvas id="line" data-type="Line" width="600" height="400"></canvas>
+				<pre data-type="javascript"><code>new Chart(ctx).Line(data,options);</code></pre>
+				<h2>数据结构</h2>	
+				<pre data-type="javascript"><code data-for="line">var data = {
+	labels : ["01","02","03","04","05","06","07","08","09","10","11","12"],
+	datasets : [
+		{
+			fillColor : "rgba(220,220,220,0.5)",
+			strokeColor : "rgba(220,220,220,1)",
+			pointColor : "rgba(220,220,220,1)",
+			pointStrokeColor : "#fff",
+			data : [6.5516,6.5452,6.4612,6.4589,6.5790,6.6312,6.6511,6.6908,6.6778,6.7641,6.8865,]
+		},
+		{
+			fillColor : "rgba(151,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			pointColor : "rgba(151,187,205,1)",
+			pointStrokeColor : "#fff",
+			data : [28,48,40,19,96,27,100]
+		}
+	]
+}</code></pre>
+				<p>这里些废话</p>
+				<h2>浏览器支持</h2>
+				<p>所有现代浏览器和大部分手机浏览器都支持canvas(<a href="http://caniuse.com/canvas" target="_blank">caniuse.com/canvas</a>)。</p>
+				<p>对于IE8及以下版本的浏览器，建议使用ExplorerCanvas - 见 <a href="https://code.google.com/p/explorercanvas/" target="_blank">https://code.google.com/p/explorercanvas/</a>。对于不支持canvas的IE会自动降级为VML格式。使用方法: </p>
+				<pre data-type="html"><code>&lt;head&gt;
+	&lt;!--[if lte IE 8]&gt;
+		&lt;script src=&quot;excanvas.js&quot;&gt;&lt;/script&gt;
+	&lt;![endif]--&gt;
+&lt;/head&gt;</code></pre>
+				<p>Usually I would recommend feature detection to choose whether or not to load a polyfill, rather than IE conditional comments, however in this case, VML is a Microsoft proprietary format, so it will only work in IE.</p>
+				<p>Some important points to note in my experience using ExplorerCanvas as a fallback.</p>
+				<ul>
+					<li>说明一</li>
+					<li>说明二</li>
+					<li>说明三</li>
+					
+				</ul>
+			</article>
+		</div>
+	</div>
+	</body>
+
+	<script>
+	$(document).ready(function(){
+	
+		var $nav = $("nav dl");
+		
+		$("article").each(function(){
+			var $el = $(this);
+			var $h1 = $el.find("h1");
+			var sectionTitle = $h1.html();
+			var articleId = $el.attr("id");
+			var $dt = $("<dt><a href=\"#"+articleId +"\">"+sectionTitle+"</a></dt>");
+			
+			$dt.find("a").on("click",function(e){
+				e.preventDefault();
+				$('html,body').animate({scrollTop: $h1.offset().top},400);
+			});
+			
+			$nav.append($dt);
+			
+			var $subtitles = $el.find("h2");
+			
+			$subtitles.each(function(){
+				var $h2 = $(this);
+				var title = $h2.text();
+				var newID = articleId + "-" +camelCase(title);
+				$h2.attr("id",newID);
+				var $dd = $("<dd><a href=\"#" +newID + "\">" + title + "</a></dd>");
+				
+				$dd.find("a").on("click",function(e){
+					e.preventDefault();
+					$('html,body').animate({scrollTop: $h2.offset().top},400);
+				})
+				$nav.append($dd);
+				
+			});
+			
+			var $articles = $el.find("article");
+			
+		});	
+		
+		$("canvas").each(function(){
+			var $canvas = $(this);
+			var ctx = this.getContext("2d");
+			
+			
+			
+			eval($("code[data-for='" + $canvas.attr("id") + "']").text());
+			
+			
+			var evalString = "new Chart(ctx)." + $canvas.data("type") + "(data);";
+			
+			eval(evalString);
+						
+		});
+		prettyPrint();			
+		
+		function camelCase(str){			
+			var splitString = str.split(" ");
+			
+			var returnedCamel = splitString[0].toLowerCase();
+			
+			for (var i=1; i<splitString.length; i++){
+				returnedCamel += splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1).toLowerCase();
+			}
+			
+			return returnedCamel;
+			
+		} 
+	});
+	</script>
+	
+</html>
