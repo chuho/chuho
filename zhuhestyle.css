@@ -13,8 +13,7 @@ a {
   color: #1e6bb8;
   text-decoration: none; }
   a:hover {
-    text-decoration: underline; }
-  line-height: 1.;
+    text-decoration: underline;}
 div{
   height:400px;writing-mode:tb-rl;
   width:100%;
