@@ -198,7 +198,7 @@ textarea{
     font-weight: bold; }
   .main-content table th, .main-content table td {
     height:400px;
-    padding: 0.5rem 1rem;
+    padding: 0.1rem 1rem;
     border: 1px solid #e9ebec; }
 .main-content dl {
   padding: 0; }
