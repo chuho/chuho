@@ -217,7 +217,7 @@ textarea{
   background-color: #eff0f1;
   border: 0; }
 
-@media screen and (min-width: 64em) {
+@media screen and (min-width: 64em) {/*最大 */ 
   .main-content {
     max-width: 64rem;
     padding: 2rem 6rem;
