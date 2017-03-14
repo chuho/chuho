@@ -1,5 +1,12 @@
-<video width="320" height="240" controls="controls">
-<source src="http://oa.zhuhe.tw:9000/video/d/XiangYu/01%e9%9c%b8%e7%8e%8b%e5%87%ba%e4%b8%96.mp4" type="video/ogg">
-<source src="http://oa.zhuhe.tw:9000/video/d/XiangYu/02%e9%a0%85%e7%be%bd%e5%85%a5%e9%97%9c.mp4" type="video/mp3">
-Your browser does not support the video tag.
+<video id="video" controls="controls">
+  <source src="http://oa.zhuhe.tw:9000/video/d/XiangYu/01%e9%9c%b8%e7%8e%8b%e5%87%ba%e4%b8%96.mp4" type="video/mp4">
 </video>
+<script>
+	var nextURL = 'http://oa.zhuhe.tw:9000/video/d/XiangYu/02%e9%a0%85%e7%be%bd%e5%85%a5%e9%97%9c.mp4'
+	myVid=document.getElementById("video");
+	myVid.addEventListener("ended", function()
+		{
+		  window.location.href=nextURL;
+		}
+	);
+</script>
