@@ -23,12 +23,13 @@ function Check(txt)
     div1.innerText=TextCount;
 //将长度显示在div中
     div2.innerText=document.getElementById('txt1').value;
-//将内容显示在div中(这里不成功)
+//将内容显示在div中
 }
 </script>
 </head>
 <div><textarea type=text id=txt1 onkeyup="Check(this) " onKeyDown="Check(this)"></textarea>
-</div>
-<div id="div2"></div><hr>当前字符数？<div id="div1"></div>
+</div><hr>
+<div id="div2"></div><hr>
+<div>當前字符數<div id="div1"></div>
 </body>
 </html>
