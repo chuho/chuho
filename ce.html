@@ -1,0 +1,18 @@
+<html>
+ <head>
+  <script type="text/javascript">
+   function go(){
+                               var one = document.getElementById("inputOne");
+                                var two = document.getElementById("inputTwo");
+                                //获得两个文本框对象
+                               two.value=one.value
+                               //把文本框one中的内容赋值给文本框two
+   }
+  </script>
+ </head>
+ <body>
+  <input type="text" id="inputOne"/>
+  <input type="text" id="inputTwo" />
+<button onclick="go();">转化</button>  //onclick为单击事件
+ </body>
+</html>
