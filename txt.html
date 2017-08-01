@@ -20,7 +20,7 @@ function Check(txt)
 {
     TextCount=txt.value.length;  
 //获取文本框的长度
-    div0.innerText=txt.value;
+    div0.getElementById("txt1"); 
     div1.innerText=TextCount;
 //将长度显示在div中
 }
@@ -30,7 +30,7 @@ function Check(txt)
 <textarea type=text id=txt1 onkeyup="Check(this) " 
 onKeyDown="Check(this)">
 </textarea></div>
-<div id="txt1"></div>
+<div id="div0"></div>
 <div>当前字符数？<div id="div1"></div>
 </body>
 </html>
