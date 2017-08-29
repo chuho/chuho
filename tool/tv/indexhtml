@@ -1,0 +1,48 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Amo TV 網頁版 - 64MA</title>
+
+
+</head>
+
+<body>
+<!-- [FC2 Analyzer] http://analyzer.fc2.com/  -->
+<script language="javascript" src="http://analyzer55.fc2.com/ana/processor.php?uid=2145870" type="text/javascript"></script>
+<noscript><div align="right"><img src="http://analyzer55.fc2.com/ana/icon.php?uid=2145870&ref=&href=&wid=0&hei=0&col=0" /></div></noscript>
+<!-- [FC2 Analyzer]  -->
+<div id="box">
+<script> 
+var w = '960'; //宽度
+var h = '488'; //高度
+var s = 'yes'; //是否显示滚动条，yes显示，no不显示
+document.write('<iframe width='+w+' height='+h+' src="http://live.64ma.com/tv/live.html" frameborder=0 border=0 marginwidth=0 marginheight=0 scrolling='+s+'></iframe>');
+</script>
+</div>
+<br>
+須外掛 SOP, 原力 插件的頻道，請用 IE 觀看
+<br>
+<br>
+<!-- FC2計數器 開始 -->
+2013.01.18起<script language="javascript" type="text/javascript" src="http://counter1.fc2.com/counter.php?id=89260816"></script><noscript><img src="http://counter1.fc2.com/counter_img.php?id=89260816" /></noscript>
+<!-- FC2計數器 結束 -->
+<br>
+<!-- FC2計數器 開始 -->
+在線人數<script language="javascript" type="text/javascript" src="http://counter1.fc2.com/views.php?id=89260816"></script><noscript><img src="http://counter1.fc2.com/counter_now.php?id=89260816" /></noscript>
+<!-- FC2計數器 結束 -->
+
+<script type="text/javascript">
+  var vglnk = { api_url: '//api.viglink.com/api',
+                key: 'f1c9057646e01ad46dc1b6dad5f8388f' };
+
+  (function(d, t) {
+    var s = d.createElement(t); s.type = 'text/javascript'; s.async = true;
+    s.src = ('https:' == document.location.protocol ? vglnk.api_url :
+             '//cdn.viglink.com/api') + '/vglnk.js';
+    var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);
+  }(document, 'script'));
+</script>
+</body>
+</html>
