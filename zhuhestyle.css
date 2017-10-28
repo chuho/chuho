@@ -31,7 +31,7 @@ textarea{
 .btn {
   display: inline-block;
   margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.7);
+ color: rgba(255, 255, 255, 0.7);
   background-color: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
   border-style: solid;
@@ -41,7 +41,7 @@ textarea{
   .btn + .btn {
     margin-left: 1rem; }
 
-.btn:hover {
+btn:hover {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.2);
@@ -74,12 +74,13 @@ textarea{
 
 @media screen and (min-width: 64em) {
   .page-header {
-    padding: 3rem 4rem; } }
-
+    padding: 5rem 6rem; } }
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
+    padding: 3rem 4rem; } }
+@media screen and (max-width: 42em) {
+  .page-header {
     padding: 2rem 1rem; } }
-
 
 .project-name {
   margin-top: 0;
@@ -178,8 +179,7 @@ textarea{
   margin-top: 0; }
 .main-content blockquote {
   padding: 0 1rem;
-  margin-left: 0;
-  color: #819198;
+  margin-left: 0;  color: #819198;
   border-left: 0.3rem solid #dce6f0; }
   .main-content blockquote > :first-child {
     margin-top: 0; }
