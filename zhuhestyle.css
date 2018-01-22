@@ -15,8 +15,10 @@ a {
   a:hover {
     text-decoration: underline;}
 div{
-  height:400px;writing-mode:tb-rl;
-  width:100%;
+  float: right;
+  width:auto;
+  height: 422px;writing-mode:tb-rl;
+  border-bottom:22px solid white;
   writing-mode: vertical-rl;
   -webkit-writing-mode: vertical-rl;/* float:right; div靠右 */ 
   }
