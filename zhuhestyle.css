@@ -4,7 +4,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: DFKai-sb,"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:kaiu, DFKai-sb,"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   src: url('/kaiu.ttf'); 
   font-size: 16px;
   line-height: 1.2;
