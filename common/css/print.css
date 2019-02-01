@@ -1,0 +1,116 @@
+@charset "utf-8";
+/* CSS Document */
+.fontSize {display:none; \0 display:none; \9 display:none !important;
+}
+.Header{
+display:none; \0 display:none; \9 display:none !important;
+}
+.top {display:none; \0 display:none; \9 display:none !important;
+}
+
+
+
+/*@media print {*/
+
+	.floorAll .floorMap{height: 500px}
+    /*活動*/
+    .grid li {
+        opacity: 1 !important;
+        width: 50% !important;
+        position:initial !important;
+        float: left !important;
+    }
+
+	.Main {
+		height: auto;
+	}
+	.Main .leftArea {
+		background-color: #FFF;
+		width: 100%;
+		height: auto;
+		padding: 15px 22px;
+		float: none;
+	}
+	.list_page .leftArea,.list1B .leftArea,body.list2 .leftArea,.Header{display: none;}
+	.Main . {
+		width: 100% !important;
+		height: auto !important;
+		float: none !important;
+		margin-left:0 !important;
+		padding-left:0 !important;
+  	}
+	body.list_page . h3, .wideList. h3{
+		/*height: 50px;*/
+	}
+	body.list_page ., body.pageSpecial .{
+		width: 100% !important;
+		margin-left:0 !important;
+	}
+	.imgLiquid img {
+	    visibility: visible !important;
+	    display: block !important;
+	    width: 100%;
+	}
+	.grid li{
+		width: 100% !important;
+	}
+	.Main {
+		width: 100% !important;
+		padding-left:0 !important;
+	}
+	.list1B .halfBtn>.words, .list2.exhibition .halfBtn>.words{font-size: 80%}
+	.threeBlock .grid > li{
+		width: 50% !important;
+	}
+	.list2.service.wallpaper li .halfBtn .pic {
+	    height: auto !important;
+	}
+
+	.pageB.learn . .image-row img{
+		display: block !important;
+	}
+
+
+	.floorAll .floorMap img,
+	.floorAll .floorIcon img{
+		display: block !important;	
+	}
+
+	.pageB .leftArea{
+		background: #FFF !important;
+	}
+	.path,.path a,.pageB .leftArea h2, .pageB .leftArea h3, .pageB .textArea ,ul.info{
+	    color: #000 !important;
+	}
+	.linkOut a {
+	    border: 1px solid #000;
+	    color: #000;
+		padding-left: 0 !important;
+	}
+	.linkOut a span{
+		padding-left: 0;
+	}
+	.pageB.exhibition .picShow, .pageB.visit .picShow{
+		width: 50%;
+		float: left;
+	}
+	.pageB.learn . .image-row {
+	    width: 50%;
+	    height: auto;
+	}
+	.pageB.learn . .image-row{
+		background: none;
+	}
+	.pageB.learn . .image-row img{
+		width: 100%;
+	}
+	.pageB.learn . .mCSB_container {
+	    height: auto;
+	}
+	.mCSB_draggerContainer {display: none;}
+	.{background: none;}
+	body{font-size: 90%;}
+	.pageB .textWrapper {
+	    border-top: 1px solid #000;
+	}
+/*}*/

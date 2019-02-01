@@ -1,0 +1,696 @@
+.fotorama__arr:focus:after,.fotorama__fullscreen-icon:focus:after,.fotorama__html,.fotorama__img,.fotorama__nav__frame:focus .fotorama__dot:after,.fotorama__nav__frame:focus .fotorama__thumb:after,.fotorama__stage__frame,.fotorama__stage__shaft,.fotorama__video iframe{
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+}
+.fotorama--fullscreen,.fotorama__img{
+	border-radius: 0!important;
+	box-shadow: none!important;
+	max-height: 99999px!important;
+	max-width: 99999px!important;
+	min-height: 0!important;
+	min-width: 0!important;
+	padding: 0!important;
+}
+
+/* 20161205 惟夫 新增 */
+/*
+.fotorama__grab > div:nth-child(1) > .fotorama__img{
+    left: 0 !important;
+    width: 100% !important; 20170520 
+}
+
+giini 拿掉  因為部分圖形會變形 20170518問題單*/
+
+/* 結束 */
+
+.fotorama__wrap .fotorama__grab{
+	cursor: grab;
+	cursor: move;
+	cursor: -ms-grab;
+	cursor: -o-grab;
+	cursor: -webkit-grab;
+}
+.fotorama__grabbing *{
+	cursor: grabbing;
+	cursor: move;
+	cursor: -ms-grabbing;
+	cursor: -o-grabbing;
+	cursor: -webkit-grabbing;
+}
+.fotorama__spinner{
+	left: 50%!important;
+	position: absolute!important;
+	top: 50%!important;
+}
+.fotorama__wrap--css3 .fotorama__arr,.fotorama__wrap--css3 .fotorama__fullscreen-icon,.fotorama__wrap--css3 .fotorama__nav__shaft,.fotorama__wrap--css3 .fotorama__stage__shaft,.fotorama__wrap--css3 .fotorama__thumb-border,.fotorama__wrap--css3 .fotorama__video-close,.fotorama__wrap--css3 .fotorama__video-play{
+	transform: translate3d(0,0,0);
+	webkit-transform: translate3d(0,0,0);
+}
+.fotorama__caption,.fotorama__nav:after,.fotorama__nav:before,.fotorama__stage:after,.fotorama__stage:before,.fotorama__wrap--css3 .fotorama__html,.fotorama__wrap--css3 .fotorama__nav,.fotorama__wrap--css3 .fotorama__spinner,.fotorama__wrap--css3 .fotorama__stage,.fotorama__wrap--css3 .fotorama__stage .fotorama__img,.fotorama__wrap--css3 .fotorama__stage__frame{
+	transform: translateZ(0);
+	webkit-transform: translateZ(0);
+}
+.fotorama__arr:focus,.fotorama__fullscreen-icon:focus,.fotorama__nav__frame{
+	outline: 0;
+}
+.fotorama__arr:focus:after,.fotorama__fullscreen-icon:focus:after,.fotorama__nav__frame:focus .fotorama__dot:after,.fotorama__nav__frame:focus .fotorama__thumb:after{
+	background-color: rgba(0,175,234,.5);
+	border-radius: inherit;
+	content: '';
+}
+.fotorama__wrap--video .fotorama__stage,.fotorama__wrap--video .fotorama__stage__frame--video,.fotorama__wrap--video .fotorama__stage__frame--video .fotorama__html,.fotorama__wrap--video .fotorama__stage__frame--video .fotorama__img,.fotorama__wrap--video .fotorama__stage__shaft{
+	transform: none!important;
+	webkit-transform: none!important;
+}
+.fotorama__wrap--css3 .fotorama__nav__shaft,.fotorama__wrap--css3 .fotorama__stage__shaft,.fotorama__wrap--css3 .fotorama__thumb-border{
+	transition-duration: 0ms;
+	transition-property: transform,width;
+	transition-property: -webkit-transform,width;
+	transition-timing-function: cubic-bezier(0.1,0,.25,1);
+}
+.fotorama__arr,.fotorama__fullscreen-icon,.fotorama__no-select,.fotorama__video-close,.fotorama__video-play,.fotorama__wrap{
+	moz-user-select: none;
+	ms-user-select: none;
+	user-select: none;
+	webkit-user-select: none;
+}
+.fotorama__select{
+	moz-user-select: text;
+	ms-user-select: text;
+	user-select: text;
+	webkit-user-select: text;
+}
+.fotorama__nav,.fotorama__nav__frame{
+	margin: auto;
+	padding: 0;
+}
+.fotorama__caption__wrap,.fotorama__nav__frame,.fotorama__nav__shaft{
+	display: inline;
+	display: inline-block;
+	moz-box-orient: vertical;
+	vertical-align: middle;
+	zoom: 1;
+}
+.fotorama__nav__frame,.fotorama__thumb-border{
+	box-sizing: content-box;
+}
+.fotorama__caption__wrap{
+	box-sizing: border-box;
+}
+.fotorama--hidden,.fotorama__load{
+	left: -99999px;
+	position: absolute;
+	top: -99999px;
+	z-index: -1;
+}
+.fotorama__arr,.fotorama__fullscreen-icon,.fotorama__nav,.fotorama__nav__frame,.fotorama__nav__shaft,.fotorama__stage__frame,.fotorama__stage__shaft,.fotorama__video-close,.fotorama__video-play{
+	webkit-tap-highlight-color: transparent;
+}
+.fotorama__arr,.fotorama__fullscreen-icon,.fotorama__video-close,.fotorama__video-play{
+	background: url(fotorama.png) no-repeat;
+}
+@media (-webkit-min-device-pixel-ratio:1.5),(min-resolution:2dppx){
+	.fotorama__arr,.fotorama__fullscreen-icon,.fotorama__video-close,.fotorama__video-play{
+		background: url(fotorama@2x.png) 0 0/96px 160px no-repeat;
+	}
+}
+.fotorama__thumb{
+	background-color: #7f7f7f;
+	background-color: rgba(127,127,127,.2);
+}
+@media print{
+	.fotorama__arr,.fotorama__fullscreen-icon,.fotorama__thumb-border,.fotorama__video-close,.fotorama__video-play{
+		background: none!important;
+	}
+}
+.fotorama{
+	min-width: 1px;
+	overflow: hidden;
+}
+.fotorama:not(.fotorama--unobtrusive)>*:not(:first-child){
+	display: none;
+}
+.fullscreen{
+	background: #000;
+	height: 100%!important;
+	margin: 0!important;
+	max-height: 100%!important;
+	max-width: 100%!important;
+	overflow: hidden!important;
+	padding: 0!important;
+	width: 100%!important;
+}
+.fotorama--fullscreen{
+	background: #000;
+	bottom: 0!important;
+	float: none!important;
+	height: 100%!important;
+	left: 0!important;
+	margin: 0!important;
+	position: absolute!important;
+	right: 0!important;
+	top: 0!important;
+	width: 100%!important;
+	z-index: 2147483647!important;
+}
+.fotorama--fullscreen .fotorama__nav,.fotorama--fullscreen .fotorama__stage{
+	background: #000;
+}
+.fotorama__wrap{
+	direction: ltr;
+	position: relative;
+	webkit-text-size-adjust: 100%;
+	z-index: 0;
+}
+.fotorama__wrap--rtl .fotorama__stage__frame{
+	direction: rtl;
+}
+.fotorama__nav,.fotorama__stage{
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.fotorama__wrap--pan-y{
+	ms-touch-action: pan-y;
+}
+.fotorama__wrap .fotorama__pointer{
+	/*cursor: pointer;*/
+}
+.fotorama__wrap--slide .fotorama__stage__frame{
+	opacity: 1!important;
+}
+.fotorama__stage__frame{
+	overflow: hidden;
+}
+.fotorama__stage__frame.fotorama__active{
+	z-index: 8;
+}
+.fotorama__wrap--fade .fotorama__stage__frame{
+	display: none;
+}
+.fotorama__wrap--fade .fotorama__fade-front,.fotorama__wrap--fade .fotorama__fade-rear,.fotorama__wrap--fade .fotorama__stage__frame.fotorama__active{
+	display: block;
+	left: 0;
+	top: 0;
+}
+.fotorama__wrap--fade .fotorama__fade-front{
+	z-index: 8;
+}
+.fotorama__wrap--fade .fotorama__fade-rear{
+	z-index: 7;
+}
+.fotorama__wrap--fade .fotorama__fade-rear.fotorama__active{
+	z-index: 9;
+}
+.fotorama__wrap--fade .fotorama__stage .fotorama__shadow{
+	display: none;
+}
+.fotorama__img{
+	border: none!important;
+	filter: alpha(opacity=0);
+	ms-filter: "alpha(Opacity=0)";
+	opacity: 0;
+}
+.fotorama__error .fotorama__img,.fotorama__loaded .fotorama__img{
+	filter: alpha(opacity=100);
+	ms-filter: "alpha(Opacity=100)";
+	opacity: 1;
+}
+.fotorama--fullscreen .fotorama__loaded--full .fotorama__img,.fotorama__img--full{
+	display: none;
+}
+.fotorama--fullscreen .fotorama__loaded--full .fotorama__img--full{
+	display: block;
+}
+.fotorama__wrap--only-active .fotorama__nav,.fotorama__wrap--only-active .fotorama__stage{
+	max-width: 99999px!important;
+}
+.fotorama__wrap--only-active .fotorama__stage__frame{
+	visibility: hidden;
+}
+.fotorama__wrap--only-active .fotorama__stage__frame.fotorama__active{
+	visibility: visible;
+}
+.fotorama__nav{
+	display: none;
+	font-size: 0;
+	line-height: 0;
+	text-align: center;
+	white-space: nowrap;
+	z-index: 5;
+}
+.fotorama__nav__shaft{
+	left: 0;
+	position: relative;
+	text-align: left;
+	top: 0;
+}
+.fotorama__nav__frame{
+	cursor: pointer;
+	position: relative;
+}
+.fotorama__nav--dots{
+	display: block;
+}
+/*調點點距離*/
+.fotorama__nav--dots .fotorama__nav__frame{
+	height: 24px;
+	width:26px;
+}
+.fotorama__nav--dots .fotorama__nav__frame--thumb,.fotorama__nav--dots .fotorama__thumb-border{
+	display: none;
+}
+.fotorama__nav--thumbs{
+	display: block;
+}
+.fotorama__nav--thumbs .fotorama__nav__frame{
+	padding-left: 0!important;
+}
+.fotorama__nav--thumbs .fotorama__nav__frame:last-child{
+	padding-right: 0!important;
+}
+.fotorama__nav--thumbs .fotorama__nav__frame--dot{
+	display: none;
+}/*
+.fotorama__dot{
+	border-radius: 6px;
+	display: block;
+	height: 4px;
+	left: 6px;
+	position: relative;
+	top: 12px;
+	width: 4px;
+}*/
+.fotorama__nav__frame:focus .fotorama__dot:after{
+	left: -1px;
+	padding: 1px;
+	top: -1px;
+}
+/*.fotorama__nav__frame.fotorama__active .fotorama__dot{
+	border-width: 3px;
+	height: 0;
+	width: 0;
+}*/
+.fotorama__nav__frame.fotorama__active .fotorama__dot:after{
+	left: -3px;
+	padding: 3px;
+	top: -3px;
+}
+.fotorama__thumb{
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.fotorama__nav__frame:focus .fotorama__thumb{
+	z-index: 2;
+}
+.fotorama__thumb-border{
+	background-image: linear-gradient(to bottom right,rgba(255,255,255,.25),rgba(64,64,64,.1));
+	border-color: #00afea;
+	border-style: solid;
+	left: 0;
+	position: absolute;
+	top: 0;
+	z-index: 9;
+}
+.fotorama__caption{
+	bottom: 14%;
+	color: #FFF;
+	text-shadow: 1px 1px 3px #000;
+	font-family: "微軟正黑體",'Helvetica Neue',Arial,sans-serif;
+	font-size: 115%;
+	left: 0;
+	line-height: 1.5;
+	position: absolute;
+	right: 0;
+	z-index: 12;
+	text-align: center;
+}
+.fotorama__caption a{
+	border-bottom: 1px solid;
+	border-color: rgba(0,0,0,.5);
+	color: #000;
+	text-decoration: none;
+}
+.fotorama__caption a:hover{
+	border-color: rgba(51,51,51,.5);
+	color: #333;
+}
+.fotorama__wrap--rtl .fotorama__caption{
+	left: auto;
+	right: 0;
+}
+.fotorama__wrap--no-captions .fotorama__caption,.fotorama__wrap--video .fotorama__caption{
+	/*display: none !important;
+*/}
+.fotorama__caption__wrap{
+	/*background-color: #fff;
+	background-color: rgba(255,255,255,.9);*/
+	padding: 5px 26px;
+}
+@-webkit-keyframes spinner{
+	0%{
+		transform: rotate(0);
+		webkit-transform: rotate(0);
+	}
+	100%{
+		transform: rotate(360deg);
+		webkit-transform: rotate(360deg);
+	}
+}
+@keyframes spinner{
+	0%{
+		transform: rotate(0);
+		webkit-transform: rotate(0);
+	}
+	100%{
+		transform: rotate(360deg);
+		webkit-transform: rotate(360deg);
+	}
+}
+.fotorama__wrap--css3 .fotorama__spinner{
+	animation: spinner 24s infinite linear;
+	webkit-animation: spinner 24s infinite linear;
+}
+.fotorama__wrap--css3 .fotorama__html,.fotorama__wrap--css3 .fotorama__stage .fotorama__img{
+	transition-duration: .3s;
+	transition-property: opacity;
+	transition-timing-function: linear;
+}
+.fotorama__wrap--video .fotorama__stage__frame--video .fotorama__html,.fotorama__wrap--video .fotorama__stage__frame--video .fotorama__img{
+	filter: alpha(opacity=0);
+	ms-filter: "alpha(Opacity=0)";
+	opacity: 0;
+}
+.fotorama__select{
+	cursor: auto;
+}
+.fotorama__video{
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 10;
+}
+@-moz-document url-prefix(){
+	.fotorama__active{
+		box-shadow: 0 0 0 transparent;
+	}
+}
+.fotorama__arr,.fotorama__fullscreen-icon,.fotorama__video-close,.fotorama__video-play{
+	cursor: pointer;
+	position: absolute;
+	z-index: 11;
+}
+.fotorama__arr{
+	height: 32px;
+	margin-top: -16px;
+	position: absolute;
+	top: 50%;
+	width: 32px;
+}
+.fotorama__arr--prev{
+	/*background-position: 0 0;*/
+	left: 12px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	opacity: 0.6;
+	background:rgba(0, 0, 0, 0.8) url(../../images/icon/foto_left.svg) no-repeat center/50%;
+}
+.fotorama__arr--next{
+	/*background-position: -32px 0;*/
+	right:12px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	opacity: 0.6;
+	background:rgba(0, 0, 0, 0.8) url(../../images/icon/foto_right.svg) no-repeat center/50%;
+}
+.fotorama__arr--prev:hover,.fotorama__arr--next:hover{
+	opacity: 1;
+}
+section.publicize .fotorama__arr--prev{
+	left: 12px;
+	width: 60px;
+	height: 60px;
+}
+section.publicize .fotorama__arr--next{
+	/*background-position: -32px 0;*/
+	right:12px;
+	width: 60px;
+	height: 60px;
+}
+.fotorama__arr--disabled{
+	cursor: default;
+	display: none;
+	opacity: .1;
+	pointer-events: none;
+}
+.fotorama__fullscreen-icon{
+	background-position: 0 -32px;
+	height: 32px;
+	right: 2px;
+	top: 2px;
+	width: 32px;
+	z-index: 20;
+}
+.fotorama__arr:focus,.fotorama__fullscreen-icon:focus{
+	border-radius: 50%;
+}
+.fotorama--fullscreen .fotorama__fullscreen-icon{
+	background-position: -32px -32px;
+}
+.fotorama__video-play{
+	background-position: 0 -64px;
+	height: 96px;
+	left: 50%;
+	margin-left: -48px;
+	margin-top: -48px;
+	opacity: 0;
+	top: 50%;
+	width: 96px;
+}
+.fotorama__wrap--css2 .fotorama__video-play,.fotorama__wrap--video .fotorama__stage .fotorama__video-play{
+	display: none;
+}
+.fotorama__error .fotorama__video-play,.fotorama__loaded .fotorama__video-play,.fotorama__nav__frame .fotorama__video-play{
+	display: block;
+	opacity: 1;
+}
+.fotorama__nav__frame .fotorama__video-play{
+	background-position: -64px -32px;
+	height: 32px;
+	margin-left: -16px;
+	margin-top: -16px;
+	width: 32px;
+}
+.fotorama__video-close{
+	background-position: -64px 0;
+	height: 32px;
+	opacity: 0;
+	top: 60px;
+	right: 20px;
+	width: 32px;
+	z-index: 20;
+}
+.fotorama__wrap--css2 .fotorama__video-close{
+	display: none;
+}
+.fotorama__wrap--css3 .fotorama__video-close{
+	transform: translate3d(32px,-32px,0);
+	webkit-transform: translate3d(32px,-32px,0);
+}
+.fotorama__wrap--video .fotorama__video-close{
+	display: block;
+	opacity: 1;
+}
+.fotorama__wrap--css3.fotorama__wrap--video .fotorama__video-close{
+	transform: translate3d(0,0,0);
+	webkit-transform: translate3d(0,0,0);
+}
+.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__arr,.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__fullscreen-icon{
+	opacity: 0;
+}
+.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__arr:focus,.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__fullscreen-icon:focus{
+	opacity: 1;
+}
+.fotorama__wrap--video .fotorama__arr,.fotorama__wrap--video .fotorama__fullscreen-icon{
+	opacity: 0!important;
+}
+.fotorama__wrap--css2.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__arr,.fotorama__wrap--css2.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__fullscreen-icon{
+	display: none;
+}
+.fotorama__wrap--css2.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__arr:focus,.fotorama__wrap--css2.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__fullscreen-icon:focus{
+	display: block;
+}
+.fotorama__wrap--css2.fotorama__wrap--video .fotorama__arr,.fotorama__wrap--css2.fotorama__wrap--video .fotorama__fullscreen-icon{
+	display: none!important;
+}
+.fotorama__wrap--css3.fotorama__wrap--no-controls.fotorama__wrap--slide.fotorama__wrap--toggle-arrows .fotorama__fullscreen-icon:not(:focus){
+	transform: translate3d(32px,-32px,0);
+	webkit-transform: translate3d(32px,-32px,0);
+}
+.fotorama__wrap--css3.fotorama__wrap--no-controls.fotorama__wrap--slide.fotorama__wrap--toggle-arrows .fotorama__arr--prev:not(:focus){
+	transform: translate3d(-48px,0,0);
+	webkit-transform: translate3d(-48px,0,0);
+}
+.fotorama__wrap--css3.fotorama__wrap--no-controls.fotorama__wrap--slide.fotorama__wrap--toggle-arrows .fotorama__arr--next:not(:focus){
+	transform: translate3d(48px,0,0);
+	webkit-transform: translate3d(48px,0,0);
+}
+.fotorama__wrap--css3.fotorama__wrap--video .fotorama__fullscreen-icon{
+	transform: translate3d(32px,-32px,0)!important;
+	webkit-transform: translate3d(32px,-32px,0)!important;
+}
+.fotorama__wrap--css3.fotorama__wrap--video .fotorama__arr--prev{
+	transform: translate3d(-48px,0,0)!important;
+	webkit-transform: translate3d(-48px,0,0)!important;
+}
+.fotorama__wrap--css3.fotorama__wrap--video .fotorama__arr--next{
+	transform: translate3d(48px,0,0)!important;
+	webkit-transform: translate3d(48px,0,0)!important;
+}
+.fotorama__wrap--css3 .fotorama__arr:not(:focus),.fotorama__wrap--css3 .fotorama__fullscreen-icon:not(:focus),.fotorama__wrap--css3 .fotorama__video-close:not(:focus),.fotorama__wrap--css3 .fotorama__video-play:not(:focus){
+	transition-duration: .3s;
+	transition-property: transform,opacity;
+	transition-property: -webkit-transform,opacity;
+}
+.fotorama__nav:after,.fotorama__nav:before,.fotorama__stage:after,.fotorama__stage:before{
+	background-repeat: no-repeat;
+	background-size: 1px 100%,5px 100%;
+	bottom: 0;
+	content: "";
+	display: block;
+	height: auto;
+	pointer-events: none;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+	width: 10px;
+	z-index: 10;
+}
+.fotorama__nav:before,.fotorama__stage:before{
+	/*background-image: linear-gradient(transparent,rgba(0,0,0,.2) 25%,rgba(0,0,0,.3) 75%,transparent),radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.4),transparent);
+	*/
+	background-position: 0 0,0 0;
+	left: -10px;
+}
+.fotorama__nav.fotorama__shadows--left:before,.fotorama__stage.fotorama__shadows--left:before{
+	left: 0;
+}
+.fotorama__nav:after,.fotorama__stage:after{
+	/*background-image: linear-gradient(transparent,rgba(0,0,0,.2) 25%,rgba(0,0,0,.3) 75%,transparent),radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.4),transparent);
+	*/
+	background-position: 100% 0,100% 0;
+	right: -10px;
+}
+.fotorama__nav.fotorama__shadows--right:after,.fotorama__stage.fotorama__shadows--right:after{
+	right: 0;
+}
+.fotorama--fullscreen .fotorama__nav:after,.fotorama--fullscreen .fotorama__nav:before,.fotorama--fullscreen .fotorama__stage:after,.fotorama--fullscreen .fotorama__stage:before,.fotorama__wrap--fade .fotorama__stage:after,.fotorama__wrap--fade .fotorama__stage:before,.fotorama__wrap--no-shadows .fotorama__nav:after,.fotorama__wrap--no-shadows .fotorama__nav:before,.fotorama__wrap--no-shadows .fotorama__stage:after,.fotorama__wrap--no-shadows .fotorama__stage:before{
+	display: none;
+}
+/*DasiyLiau Add Style-201505*/
+.fotorama__nav__shaft {
+  display: block;
+  text-align: center;
+}
+.fotorama__nav-wrap {
+  position: absolute;
+  bottom: 3px;
+}
+.fotorama__dot {
+	background: rgba(0, 0, 0, 0.51);
+	border-radius: 50%;
+	display: block;
+    height: 14px;
+    width: 14px;
+	/*left: 4px;
+	position: relative;
+	top: 12px;*/
+}
+.fotorama__active .fotorama__dot{
+  background: #75BDC1;
+}
+.fotorama__nav__frame {
+  cursor: pointer;
+  position: relative;
+}
+.fotorama__html div,
+.fotorama__html a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  /* Transparent links are not clickable in IE,
+     but non-existent background fixes this.
+    (Put an empty 1×1 image here to avoid
+     errors in console.) */
+  background: url(../../images/alpha.gif);
+  text-indent: -9999px;
+}
+.fotorama__caption{
+	display: none;
+}
+.videoBanner .fotorama__caption{
+	display: block;
+}
+/* 20180502 惟夫調整 把尺寸分界從768改成960 */
+@media screen and (min-width: 0px) and (max-width: 960px) {
+	.fotorama,.fotorama__stage__frame{
+		overflow: initial;
+	}
+	.fotorama__nav-wrap{
+		height: 25px;
+		top: -30px;
+		right: 4px;
+		transform: scale(0.7);
+		transform-origin: center right;
+	}
+	.pageB .fotorama__nav-wrap{
+		transform-origin: center center;
+	}
+	.fotorama__active .fotorama__dot{
+		background: #FFF;
+	}
+	.fotorama__nav__shaft{
+		text-align: right;
+	}
+	.fotorama__dot {
+		display: inline-block;
+	}
+	.hotBanner1 .fotorama__caption{
+		display: block;
+		font-size: 120%;
+		bottom: 0%;
+		background: rgba(0, 0, 0, 0.18);
+		text-align: left;
+		padding-left: 5px;
+	}
+	.fotorama__video-play {
+		margin-top: -65px;
+	}
+	.videoBanner .fotorama__caption{
+		display: block;
+		top: 61%;
+		font-size: 130%;
+	}
+	section.publicize .fotorama__arr--next ,
+	section.publicize .fotorama__arr--prev{
+	    width: 43px;
+	    height: 43px;
+	}
+	
+
+}
+   /*20170206 giini因應新聞專區顯示說明*/
+    /*#photoList .fotorama__caption__wrap{display: none;}*/
+	/*#photoList .fotorama__caption {display: block;}*/
+	/*#photoList .fotorama__caption .fotorama__caption__wrap{display: block;}*/
