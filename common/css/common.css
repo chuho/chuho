@@ -46,7 +46,7 @@ input[type="submit"]{
 }
 textarea{
     /* border: none;*/
-    width:100%;
+    /* width:100%;
     padding: 20px;
     font-size: 100%;
     font-family: "Microsoft JhengHei"; */
@@ -2322,11 +2322,9 @@ ul.npmPhoto {
     position: static;
     color: #fff;
 }
-/*20170809惟夫無障礙調整結束*/
 /*20170811惟夫*/
 #navMenu.mm-menu .mm-btn,
 #navMenu.mm-menu .mm-prev,
 #navMenu.mm-menu .mm-listview .mm-next.mm-fullsubopen{
     text-indent: -9999px;
 }
-/*20170811惟夫結束*/
