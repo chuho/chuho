@@ -173,16 +173,16 @@ function Check(txt)
 {
     TextCount=txt.value.length;  
 //获取文本框的长度
-    div1.innerText=TextCount;
+    p1.innerText=TextCount;
 //将长度显示在div中
-    div2.innerText=document.getElementById('txt1').value;
+    p2.innerText=document.getElementById('txt1').value;
 //将内容显示在div中
 }
 </script>
 </head>
-<div><textarea type=text id=txt1 onkeyup="Check(this) " onKeyDown="Check(this)"></textarea>
+<p class="zw"><textarea type=text id=txt1 onkeyup="Check(this) " onKeyDown="Check(this)"></textarea>
 </div><hr>
-<div id="div2"></div><hr>
-<div>當前字符數<div id="div1"></div>
+<p class="zw" id="p2"></div><hr>
+<div>當前字符數<p class="zw" id="p1"></div>
 </body>
 </html>
