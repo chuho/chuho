@@ -248,13 +248,13 @@ a:hover {color:#ff0000;text-decoration:underline;}
 					break;
 				case "Bin+2@~ !":case "Oct+8@\\&#x5c;~!":case "Dec+10@&#~;!":case "Hex+16@&#&#x78;~;!":case "Bin-2":case "Oct-8":case "Dec-10":case "Hex-16":
 					if(keys[i].substr(3,1)=="+"){
-						btn_event="var str_tmp,str_result;str_tmp=\'\';str_result=\'\';for(i=0;i<w_input.value.length;i++){str_tmp=w_input.value.charCodeAt(i).toString("+keys[i].substr(4,keys[i].search(/@/i)-4)+");str_result+=\'"+keys[i].substr(keys[i].search(/@/i)+1,keys[i].search(/~/i)-keys[i].search(/@/i)-1)+"\'+str_tmp+\'"+keys[i].substr(keys[i].search(/~/i)+1,keys[i].search(/!/i)-keys[i].search(/~/i)-1)+"\';}w_input.value=str_result;";
-						keys[i]=keys[i].substr(4,keys[i].search(/@/i)-4)+" &#36827;&#21046;&#32534;&#30721;";
+						btn_event="var str_tmp,str_result;str_tmp=\'\';str_result=\'\';for(i=0;i<w_input.value.length;i++){str_tmp=w_input.value.charCodeAt(i).toString("+keys[i].substr(4,keys[i].(/@/i)-4)+");str_result+=\'"+keys[i].substr(keys[i].(/@/i)+1,keys[i].(/~/i)-keys[i].(/@/i)-1)+"\'+str_tmp+\'"+keys[i].substr(keys[i].(/~/i)+1,keys[i].(/!/i)-keys[i].(/~/i)-1)+"\';}w_input.value=str_result;";
+						keys[i]=keys[i].substr(4,keys[i].(/@/i)-4)+" &#36827;&#21046;&#32534;&#30721;";
 						btn_color="cc0000";
 					}
 					else if(keys[i].substr(3,1)=="-"){
 						btn_event="var str_result=\'\';var arr_tmp=new Array();w_input.value=w_input.value.replace(\/[^A-Fa-f0-9]+\/g,\'#\');if(w_input.value.substr(0,1)!=\'#\')w_input.value=\'#\'+w_input.value;arr_tmp=w_input.value.split(\'#\');for(i=1;i<arr_tmp.length;i++){str_result+=String.fromCharCode(parseInt(arr_tmp[i],"+keys[i].substr(4)+"));}w_input.value=str_result;"
-						keys[i]=keys[i-1].substr(0,keys[i-1].search(/ /i))+" &#36827;&#21046;&#35299;&#30721;"
+						keys[i]=keys[i-1].substr(0,keys[i-1].(/ /i))+" &#36827;&#21046;&#35299;&#30721;"
 						btn_color="008800";
 					}
 					else{
