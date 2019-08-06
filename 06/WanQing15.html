@@ -25,17 +25,17 @@
 <script type="text/javascript" src="../common/js/jquery.mmenu.min.js"></script>
 <script src="../common/js/fotorama.js"></script>
 <script type="text/javascript">
-    if 「self === top」 {
-    var antiClickjack = document.getElementById「"antiClickjack"」;
-    antiClickjack.parentNode.removeChild「antiClickjack」;
+    if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
     } else {
     top.location = self.location;
     }
-    $「document」.ready「
-    function 「」 {
-    $「'form'」.attr「'autocomplete', 'off'」;
+    $(document).ready(
+    function () {
+    $('form').attr('autocomplete', 'off');
     }
-    」;
+    );
 </script>
 <!--zhuhe.結束文件頭-->
     <title>zhuhe</title>
@@ -134,21 +134,21 @@
 </nav>
 <!--zhuhe.結束菜單-->
 <script type="text/javascript">
-    「function 「$」 {
-$「window」.load「function 「」 {
-    //   $「"#navMenu"」.show「」;
-    $「"#navMenu"」.css「{ "visibility": "visible" }」;
-    // $「"#navUl"」.mCustomScrollbar「」;
-}」;
-       // setTimeout「function 「」 { $「"#navMenu a"」.attr「"title", "menu"」; }, 5000」;
-    }」「jQuery」;
+    (function ($) {
+$(window).load(function () {
+    //   $("#navMenu").show();
+    $("#navMenu").css({ "visibility": "visible" });
+    // $("#navUl").mCustomScrollbar();
+});
+       // setTimeout(function () { $("#navMenu a").attr("title", "menu"); }, 5000);
+    })(jQuery);
 </script>
 <!--zhuhe.開始主要部分-->
 <div class="top"></div><div class="zhishu"><!-- 去掉id="fullscreen"使div滑動-->
 <!--zhuhe.開始右側彈出-->
 <script type="text/javascript">
 //<![CDATA[
- $「document」.ready「function 「」 {$「"#navMenu"」.mmenu「{offCanvas: {position: "right"}}」;}」;
+ $(document).ready(function () {$("#navMenu").mmenu({offCanvas: {position: "right"}});});
  var arr=['zhuhe.tw'];
  var lang='1';
  Show1=false;Show2=false;Show3=false;Show4=true;Show5=false;Show6=false;
@@ -226,7 +226,7 @@ $「window」.load「function 「」 {
 </p><p class="zw">
 辛亥革命爆發，民國取代了清帝國。出乎人們預料，『大清新刑律』等一系列法律沒有隨清帝國的滅亡而被束之高閣，臨時政府一成立，司法部長伍廷芳立即向孫大總統報告：“本部現擬就前清制定之民律草案、第一次刑律草案、刑事民事訴訟法、法院編制法、商律、破產律、違警律中，除第一次刑律草案關於帝室之罪全章及關於內亂罪之死刑礙難適用外，余皆由民國政府聲明繼續有效。”<p class="zw">孫文同意並咨請參議院核準這個建議。「孫文：『咨參議院請核議暫行法律文』，『孫中山全集』第二卷276頁，中華書局1982年。」參議院批準了這個建議，於是，袁世凱就任臨時大總統後便在3月10日發布命令：“現在民國法律未經議定頒布，所有從前施行之法律及新刑律，除與民國國體抵觸各條應失效力外，余均暫行援用，以資遵守。”「參閱張國福：『中華民國法制簡史』，144—147頁，北京大學出版社1986年。」清帝國的基本法律略加刪改後繼續為新政權服務。
 </p><p class="zw">
-孫文、袁世凱政府各自的司法部長伍廷芳和王寵惠都是受過嚴格的西方法學教育的法學專家，他們卻一致肯定清末制定的法律，而且他們的認識是被當時的社會各界廣泛認同的。在革命熱情洋溢的臨時參議會批準伍廷芳的建議以前，各省早已紛紛表明了自己的態度。<p class="zw">武昌起義，“各省光復，各省知舊刑律不能再用，江蘇省議會首先就資政院法典股之修正案「即『大清新刑律』——引者」，去其與共和國體抵觸各條外，即用為暫行刑律。湘浙各省陸續仿之。”「闕庵：『十年來中國政治通覽·司法篇』，『東方雜誌』9卷7號，1913年1月。」以如此廣泛的共識為基礎，沿用清末新法律一事沒有受到值得一提的挑戰。
+孫文、袁世凱政府各自的司法部長伍廷芳和王寵惠都是受過嚴格的西方法學教育的法學專家，他們卻一致肯定清末制定的法律，而且他們的認識是被當時的社會各界廣泛認同的。在革命熱情洋溢的臨時參議會批準伍廷芳的建議以前，各省早已紛紛表明了自己的態度。<p class="zw">武昌起義，“各省光復，各省知舊刑律不能再用，江蘇省議會首先就資政院法典股之修正案(即『大清新刑律』——引者)，去其與共和國體抵觸各條外，即用為暫行刑律。湘浙各省陸續仿之。”「闕庵：『十年來中國政治通覽·司法篇』，『東方雜誌』9卷7號，1913年1月。」以如此廣泛的共識為基礎，沿用清末新法律一事沒有受到值得一提的挑戰。
 </p><p class="zw">
 1925年國民政府在廣州建立，特別是1927年成為全國政權後，中國法治進程因國民黨在包括立法、司法在內的各領域全面推行“黨化”而逆轉。但國民政府的民法、刑法等基本法律文本仍大體承襲了清末新政的成果，他們的專制統治是通過另外兩條途徑達到的：一是另外制定法例「例如，『訓政時期約法』、『戡亂時期危害國家緊急治罪條例』等等」，把現代公民應有的自由化為烏有；二是建立以民為敵的機關，嚴格管制公民的言行。<p class="zw">軍統、中統和國民黨中宣部及各級黨委宣傳部是其中最臭名昭彰的。他們開創了執政黨直接檢查和鉗制言論自由、學術自由的體制，冀圖以一黨的主義“齊一國民思想”。
 </p><p class="zw">
