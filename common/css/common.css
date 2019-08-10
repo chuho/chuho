@@ -130,6 +130,15 @@ a:hover:not(ul.verticalBtn > li > a){
   border-bottom:22px solid white;
   writing-mode: vertical-rl;
   -webkit-writing-mode: vertical-rl;/* float:right; div靠右 */ 
+	font-family:'cwTeXKai',Arial,Helvetica,"Microsoft JhengHei",Sans-Serif;
+  font-style: normal;
+  font-weight: 500;
+  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot);
+  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.ttf) format('truetype');
+	
   }
 /*==文字靠右==*/
 /*==HEADER==*/
