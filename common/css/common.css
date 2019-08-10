@@ -22,6 +22,20 @@ html::-webkit-scrollbar-thumb {
     background: rgba(0,0,0,0.2); 
     -webkit-box-shadow: inset 0 0 6px rgba(144,144,144,0.2); 
 }
+
+@font-face {
+
+/*楷體*/
+
+  font-family: 'cwTeXKai';
+  font-style: normal;
+  font-weight: 500;
+  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot);
+  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.ttf) format('truetype');
+}
 /*zhuhe.以上爲自定義滑動條*/
 body{
 	width: 100%;
@@ -30,15 +44,6 @@ body{
 	position: relative;
 	font-size: 26px;/*zhuhe.默認是18px*/
 	font-family:'cwTeXKai',Arial,Helvetica,"Microsoft JhengHei",Sans-Serif;
-  font-style: normal;
-  font-weight: 500;
-  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot);
-  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot?#iefix) format('embedded-opentype'),
-       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff2) format('woff2'),
-       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff) format('woff'),
-       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.ttf) format('truetype');
-	
-	
 	overflow: auto;/*zhuhe.正文滑動.非常重要.由hidden改auto*/
 	color: #2b2b2b;
 	-webkit-print-color-adjust:exact;
@@ -130,15 +135,6 @@ a:hover:not(ul.verticalBtn > li > a){
   border-bottom:22px solid white;
   writing-mode: vertical-rl;
   -webkit-writing-mode: vertical-rl;/* float:right; div靠右 */ 
-	font-family:'cwTeXKai',Arial,Helvetica,"Microsoft JhengHei",Sans-Serif;
-  font-style: normal;
-  font-weight: 500;
-  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot);
-  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot?#iefix) format('embedded-opentype'),
-       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff2) format('woff2'),
-       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff) format('woff'),
-       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.ttf) format('truetype');
-	
   }
 /*==文字靠右==*/
 /*==HEADER==*/
