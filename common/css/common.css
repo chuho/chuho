@@ -29,7 +29,16 @@ body{
 	background-repeat: no-repeat;
 	position: relative;
 	font-size: 26px;/*zhuhe.默認是18px*/
-	font-family: Arial,Helvetica,"Microsoft JhengHei",Sans-Serif;
+	font-family:'cwTeXKai',Arial,Helvetica,"Microsoft JhengHei",Sans-Serif;
+  font-style: normal;
+  font-weight: 500;
+  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot);
+  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.ttf) format('truetype');
+	
+	
 	overflow: auto;/*zhuhe.正文滑動.非常重要.由hidden改auto*/
 	color: #2b2b2b;
 	-webkit-print-color-adjust:exact;
