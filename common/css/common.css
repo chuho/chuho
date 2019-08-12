@@ -40,7 +40,7 @@ body{
 	height: 100%;
 	background-repeat: no-repeat;
 	position: relative;
-	font-size: 30px;/*zhuhe.默認是18px，調整楷體前衛26px*/
+	font-size: 26px;/*zhuhe.默認是18px*/
 	font-family:DFKai-sb,'cwTeXKai',Arial,Helvetica,"Microsoft JhengHei",Sans-Serif;
 	overflow: auto;/*zhuhe.正文滑動.非常重要.由hidden改auto*/
 	color: #2b2b2b;
