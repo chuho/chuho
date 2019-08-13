@@ -200,7 +200,7 @@ $(window).load(function () {
     $("#btnSearchMenu").bind("click", function () {
         var skey = "請輸入關鍵字";
         if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
-            window.location.href = "https://www.google.com/search?q=" + encodeURI($("#txtQueryMenu").val()) + "&siteurl=zhuhe.tw";
+            window.location.href = "https://www.google.com/search?q=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
         }
     });
 
