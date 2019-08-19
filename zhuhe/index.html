@@ -168,6 +168,15 @@ $(window).load(function () {
 <h2 align="right">本站信息</h2>
 <h3 align="right">資訊</h3>
 <HR>
+         <div class="top">
+            <!--不需要回列表時就把h2隱藏--> 
+            <ul class="fontSize">
+			<li><a id="btnPrint" title="列印" href="javascript:;" class="print">列印</a></li>
+			<li><a href="javascript:ResetFontSize(90);"  class="small" id="font90">最小字</a></li>
+			<li><a href="javascript:ResetFontSize(100);" class="middle now"  id="font100">一般字</a></li>
+			<li><a href="javascript:ResetFontSize(120);" class="big"  id="font120">最大字</a></li>
+			</ul>
+         </div>
 <h4 class="zw">&nbsp;&nbsp; 奉</h4>
 <h3 class="zw">皇明正朔</h3>
 <p class="zw">&nbsp;&nbsp; 姓	朱	故鄉	山西洪洞縣
@@ -179,3 +188,19 @@ $(window).load(function () {
 <p class="zw">&nbsp;&nbsp; 出生
 <p class="zw">皇明崇禎後三百六十二年 歲次己巳年</p>
 <p><p><p><img border="0" src="B07040314.JPG" width="20%" align="right">
+<script type="text/javascript">
+
+    function fnScrollTop() {
+        //$(window).scrollTop(10);
+        //$("html, body").animate({ scrollTop: 0 }, 1200);
+    }
+
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://www.google.com/search?q=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }
+    });
+</script>
