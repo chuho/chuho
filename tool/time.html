@@ -250,3 +250,12 @@ document.getElementById("result2").innerHTML=(day3-day2)/86400000;
 <span id=result2></span>天
 <br>
 <input type=button value="計算" onclick="calb()">
+<script type="text/javascript">
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }});
+</script>

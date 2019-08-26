@@ -179,3 +179,16 @@ $(window).load(function () {
 <p>Site:限制查詢在某一個特定站點內或網域內進行。用法：搜索關鍵字  + site:zhuhe.tw 或是在網域內搜索如 搜索關鍵字 + site:zhuhe.tw
 </p>
 <p>mp3:在百度網頁搜索中直接搜索mp3資源。用法: mp3:歌手名 (注,一定要加上冒號)
+</div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }});
+</script>

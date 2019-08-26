@@ -344,3 +344,12 @@ $(window).load(function () {
             <tr>
               <td><P>★ &#10032; ☆ &#10025; &#10027; &#10028; &#10029; &#10030; &#10017;</P></td>
             </tr>
+<script type="text/javascript">
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }});
+</script>

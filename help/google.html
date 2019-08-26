@@ -267,3 +267,16 @@ source:new_york_times］，提交這個查詢，Google將會顯示紐約時報�
 <a name="Google-commandW"></a>
 <p><font color="#1851ce">weather:</font> 當我們用weather提交查詢的時候，如果我們指出一個Google可以識別的地區或城市，Google會返回該地區或城市當前的天氣狀況。
 </p>
+</div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }});
+</script>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -216,3 +215,16 @@ $(window).load(function () {
 <p class="zw">DNS加密</p>
 <p class="zw"><a href="https://www.dnscrypt.org">官網地址</a></p>
 <p class="zw"><a href="https://github.com/dnscrypt">項目地址</a></p>
+</div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }});
+</script>

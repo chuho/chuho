@@ -212,3 +212,12 @@ $(window).load(function () {
 <li>v2.6.18.99 【<a href="https://dl.google.com/pinyin/GooglePinyinInstaller_x64.exe" target="_blank" rel="noopener noreferrer">点击这里</a>】</li>
 <li>v2.7.25.128 (x86-64) 【<a href="https://dl.google.com/pinyin/v2/GooglePinyinInstaller.exe" target="_blank" rel="noopener noreferrer">点击这里</a>】</li>
 <li>v3.0.1.98 【<a href="https://web.archive.org/web/20121104002242if_/http://dl.google.com/pinyin/v3/GooglePinyinInstaller.exe" target="_blank" rel="noopener noreferrer">点击这里</a>】</li>
+<script type="text/javascript">
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }});
+</script>

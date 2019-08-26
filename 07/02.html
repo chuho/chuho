@@ -184,8 +184,16 @@ $(window).load(function () {
 <p class="zw"><a href="https://yacy.net/en/index.html">開發版YaCy</a>一个開源的點對點搜索引擎</p>
 <p class="zw"><a href="https://www.givero.com">丹麥Givero</a>比Google更多隱私与慈善捐贈</p>
 <p class="zw"><a href="https://www.ecosia.org">德國Ecosia</a>部分收入捐贈给種植樹木</p>
-
 </div>
     </div>
 </body>
 </html>
+<script type="text/javascript">
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }});
+</script>

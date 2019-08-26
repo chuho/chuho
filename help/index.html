@@ -279,3 +279,16 @@ $(window).load(function () {
 <p class="zw">崇禎後民105年10月 zhuhe2.0</p>
 <p class="zw">崇禎後民105年10月 全站靜態化</p>
 <p class="zw">崇禎後民108年03月 zhuhe3.0</p>
+</div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }});
+</script>
