@@ -189,18 +189,12 @@ $(window).load(function () {
 <p class="zw">皇明崇禎後三百六十二年 歲次己巳年</p>
 <p><p><p><img border="0" src="B07040314.JPG" width="20%" align="right">
 <script type="text/javascript">
-
-    function fnScrollTop() {
-        //$(window).scrollTop(10);
-        //$("html, body").animate({ scrollTop: 0 }, 1200);
-    }
-
     var winWidth = $(window).width();
     //搜尋
     $("#btnSearchMenu").bind("click", function () {
         var skey = "請輸入關鍵字";
         if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
-            window.location.href = "https://www.google.com/search?q=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
         }
     });
 </script>
