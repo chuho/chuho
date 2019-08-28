@@ -168,12 +168,10 @@ $(window).load(function () {
 <h2 align="right">通史</h2>
 <h3 align="right">全球通史</h3>
 <HR>
-<A HREF="023.html" >后一頁</A><p class="zw">
-<A HREF="021.html" >前一頁</A><p class="zw"><A HREF="000.html" >回目錄</A>
-</strong>
-</TD>
+<p class="zw"><A HREF="023.html" >后一頁</A>
+<p class="zw"><A HREF="021.html" >前一頁</A>
+<p class="zw"><A HREF="000.html" >回目錄</A>
 <center><FONT COLOR="#FF5555"><H3 class="zw">中文版前言</H3></FONT></center>
-
 <p class="zw">
 　　當然，我很高興，也很滿意我的《全球通史》能与中國讀者見面。<p class="zw">不過，我也感到有點不安，因為我擔心中國讀者在閱讀時將不會給予足夠的批評。<p class="zw">人們閱讀任何東西都應提出批評，這是因為我們正生活在一個沒有任何東西能作為純真理或完整的模式而被人接受的時代。<p class="zw">
 <p class="zw">
@@ -193,10 +191,22 @@ $(window).load(function () {
 <p class="zw">
 　　愛伯特·愛因斯坦既是一位偉大的科學家，又是一位偉大的預言家。<p class="zw">廣島、長崎事件發生后，他立即警告我們：“原子彈的殺傷力已改變除我們的思想方法以外的一切，這樣，我們會逐漸陷入空前的大災難之中。”<p class="zw">不幸的是，愛因斯坦告誡我們所要避免的向大災難的陷入一直持續到現在。<p class="zw">我們有責任使人們警覺并認真考慮愛因斯坦對我們的警告。<p class="zw">人類的前途取決于人們的覺悟程度；我希望，我的書能對人們的覺悟有所貢獻。<p class="zw">
 <p class="zw">
+　　L·S·斯塔夫里阿諾斯
 <p class="zw">
-　　　　　　　　　　　　　　　　　　　L·S·斯塔夫里阿諾斯
-<p class="zw">
-<p class="zw">
-
-<A HREF="023.html" >后一頁</A><p class="zw">
-<A HREF="021.html" >前一頁</A><p class="zw"><A HREF="000.html" >回目錄</A>
+<p class="zw"><A HREF="023.html" >后一頁</A>
+<p class="zw"><A HREF="021.html" >前一頁</A>
+<p class="zw"><A HREF="000.html" >回目錄</A>
+</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }
+    });
+</script>
