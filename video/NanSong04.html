@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -164,29 +164,23 @@ $(window).load(function () {
 <a href="javascript:;"><h1>zhuhe</h1></a>
 </header>
 <!--zhuhe.開始頁面-->
-<h1 align="right">朱賀影音</h1>
-<h2 align="right">影音</h2>
-<h3 align="right">目錄</h3>
+<h1 align="right">紀錄片</h1>
+<h2 align="right">南宋</h2>
+<h3 align="right">第四集 宋畫江山</h3>
 <HR>
-<p class="zw"><a href="./heshan.html">★中國抗日戰爭紀錄片</a></p>
-<p class="zw"><a href="./DaGuoJueQi">★大国崛起</a></p>
-<p class="zw"><a href="./daminggong.html">★大明宫紀錄片</a></p>
-<p class="zw"><a href="./ChuGuo800.html">★楚國八百年紀錄片</a></p>
-<p class="zw"><a href="./yuanjian.html">★公視國家的遠見</a></p>
-<p class="zw"><a href="./shehuiwenti.html">★中國人民大學社會學課程<a></p>
-<p class="zw"><a href="./NanSong.html">★「南宋」大型歷史人文紀錄片</a></p>
-<p class="zw"><a href="./SheJian">★「舌尖上的中國」紀錄片</a></p>
-<p class="zw"><a href="./XiangYu">★漢代風雲人物之項羽</a></p>
-<p class="zw"><a href="./PengLingZhao.html">★自由女神</a></p>
-<p class="zw"><a href="./LiuJiaChang.html">★劉家昌演唱會</a></p>
-<p class="zw"><a href="./meiyanfang.html">★紀念梅艷芳</a></p>
-<p class="zw"><a href="./ouxiang.html">●偶像©</a></p>
-<p class="zw"><a href="./2015psbc.html">●青年文明号©</a></p>
-<p class="zw"><a href="./roc100.html">●永遠的記憶©</a></p>
-<p class="zw"><a href="./iphone.html">○蘋果原始音樂</a></p>
-<p class="zw"><a href="./Sugar.html">○糖中毒</a></p>
-<p class="zw"><a href="./mingen.html">○明恩房地產</a></p>
-<p class="zw">禁作賈傳播、版權系作者
+<video id="video" width="100%" controls="controls">
+  <source src="http://oa.zhuhe.tw:9000/video/d/NanSong/%e3%80%8a%e5%8d%97%e5%ae%8b%e3%80%8b%e5%a4%a7%e5%9e%8b%e6%ad%b7%e5%8f%b2%e4%ba%ba%e6%96%87%e7%b4%80%e9%8c%84%e7%89%87%20%e7%ac%ac4%e6%9c%9f20151228-%20%e5%ae%8b%e7%95%ab%e6%b1%9f%e5%b1%b1.mp4" type="video/mp4" />
+你的瀏覽器不支持播放視頻.
+</video>
+<script>
+	var nextURL = 'http://zhuhe.tw/video/NanSong05.html'
+	myVid=document.getElementById("video");
+	myVid.addEventListener("ended", function()
+		{
+		  window.location.href=nextURL;
+		}
+	);
+</script>
 </div>
     </div>
 </body>
