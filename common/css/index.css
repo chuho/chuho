@@ -124,7 +124,7 @@ section.publicize{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	 -webkit-line-clamp: 3; /*第3行要顯示點點點*/
+	 -webkit-line-clamp: 3; /*第3行要顯示點*/
 	-o-line-clamp: 3;
 	-ms-line-clamp: 3; 
 	-webkit-box-orient: vertical;
