@@ -7,11 +7,23 @@
 <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
 <link rel="apple-touch-icon" href="../images/appicon.png" />
 <link rel="stylesheet" type="text/css" href="../common/css/common.css?v=2" />
+<link rel="stylesheet" type="text/css" href="../common/css/index.css?v=2" />
+<link rel="stylesheet" type="text/css" id="link2"/>
 <link rel="stylesheet" type="text/css" href="../common/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="../common/css/fotorama.css?v=2" />
+<link rel="stylesheet" type="text/css" href="../common/css/carousel.css" />
+<link rel="stylesheet" type="text/css" href="../common/css/carousel-style.css" />
 <script type="text/javascript" src="../common/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../common/js/jquery-migrate-3.0.0.js"></script>
 <script type="text/javascript" src="../common/js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="../common/js/animate.js"></script>
+<script type="text/javascript" src="../common/js/customer.js?v=1"></script>
+<script type="text/javascript" src="../common/js/imgLiquid-min.js"></script>
+<script type="text/javascript" src="../common/js/jquery.HSlider.js"></script>
+<script type="text/javascript" src="../common/js/carousel.js"></script>
+<script type="text/javascript" src="../common/js/TabKeyCtl.js"></script>
 <script type="text/javascript" src="../common/js/jquery.mmenu.min.js"></script>
+<script src="../common/js/fotorama.js"></script>
 <script type="text/javascript">
     if (self === top) {
     var antiClickjack = document.getElementById("antiClickjack");
@@ -178,6 +190,7 @@ $(window).load(function () {
 </strong></p>
 <a name="Google-commandA"></a>
 <p><font color="#008000">allinanchor:</font> anchor是一處說明性的文字，它標注說明了這個鏈結可能跳轉到其他的網頁或跳轉到當前網頁的不同地方。當我們用allinanchor提交查詢的時候，Google會限制搜索結果必須是那些在anchor文字裏包含了我們所有查詢關鍵字的網頁。例[ allinanchor: best museums Sydney ] ,提交這個查詢，
+
 Google僅僅會返回在網頁anchor說明文字裏邊包含了關鍵字”best” “museums” 和”Sydney”的網面。</p>
 <p><font color="#008000">allintext:</font> 當我們用allintext提交查詢的時候，Google會限制搜索結果僅僅是在網頁正文裏邊包含了我們所有查詢關鍵字的網頁。例
 ［allintext: travel packing list］,提交這個查詢，Google僅僅會返回在一個網頁包含了三個關鍵字”travel” “packing”和”list”的網頁。</p>
@@ -186,7 +199,7 @@ Google僅僅會返回在網頁anchor說明文字裏邊包含了關鍵字”best�
 <p><font color="#008000">allinurl:</font> 當我們用allinurl提交查詢的時候，Google會限制搜索結果僅是那些在URL（網址）裏邊包含了我們所有查詢關鍵字的網頁。例
 ［allinurl: google faq］，提交這個查詢，Google僅會返回在URL裏邊包含了關鍵字”google”和”faq”的網頁，象www.google.com/help/faq.html等的網頁。</p>
 <p><font color="#efba00">author:</font> 當我們用author進行查詢的時候，Google會限制返回結果僅僅是那些在Google論壇裏邊，包含了特定作者的新聞文章。在這裏，作者
-名可以是全名，也可以是一部分或郵件位址。例［children author:zhuhe author:chuho］或［children zhuhe@zhuhe.tw］返回結果將是作者zhuhe chuho 或是
+名可以是全名，也可以是一部分或郵件位址。例［children author:zhuhe author:chuho］或［children zhuhe@zhuhe.tw］返回結果將是作者zhuhe chuho 或是 
 zhuhe@zhuhe.tw寫的，關於包含關鍵字children的文章。</p>
 <a name="Google-commandB"></a>
 <p><font color="#efba00">bphonebook:</font> 用bphonebook進行查詢的時候，返回結果將是那些商務電話資料。</p>
@@ -206,27 +219,27 @@ google收錄的時間算的。例　"Geri Halliwell" "Spice Girls" daterange:245
 <p><font color="#008000">filetype:</font> 當我們在查詢裏邊包含filetype:副檔名的時候，Google會限制查詢結果僅返回特定檔類型的網頁。例［資產評估　filetype:pdf］
 ，這個查詢將會返回所有檔類型為pdf的資產評估資訊。其他可用的特定檔類型格式查詢還有doc ,txt,ppt,xls.rtf,swf,ps等。</p>
 <a name="Google-commandG"></a>
-<p><font color="#efba00">group:</font> 當我們用group查詢的時候，Google會限制我們的論壇查詢結果僅是某幾個固定的論壇組或是某些特定主題組的新聞文章。例［sleep
+<p><font color="#efba00">group:</font> 當我們用group查詢的時候，Google會限制我們的論壇查詢結果僅是某幾個固定的論壇組或是某些特定主題組的新聞文章。例［sleep 
 group:misc.kids.moderated］，提交這個查詢，Google僅會返回在用戶組misc.kids.moderated裏邊包含了查詢關鍵字”sleep”的文章。</p>
 <a name="Google-commandI"></a>
 <p><font color="#1851ce">id:</font> 又是一個沒有證實的語法，效果很一般。</p>
-<p><font color="#008000">inanchor:</font> 當我們用inanchor提交查詢的時候，Google會限制結果是那些在網頁anchor鏈結裏邊包含了查詢關鍵字的網頁。例［restaurants
+<p><font color="#008000">inanchor:</font> 當我們用inanchor提交查詢的時候，Google會限制結果是那些在網頁anchor鏈結裏邊包含了查詢關鍵字的網頁。例［restaurants 
 inanchor:gourmet］，提交這個查詢，Google會查詢那些在anchor資訊裏包含了關鍵字”restaurants”和關鍵字”gourmet”的網頁。<p>
 <p><font color="#efba00">info:</font> 提交info:url，將會顯示需要查詢網站的一些資訊。例［info:gothotel.com］，提交這個查詢，將會返回網站gothotel.com的所有資訊
 。</p>
 <p><font color="#efba00">insubject:</font> 當我們用insubject進行查詢的時候，Google會限制論壇搜索結果僅是那些在主題裏邊包含了查詢關鍵字的網面。
 ［insubject:"falling asleep"］，提交這個查詢，Google會返回在文章主題裏邊包含了”falling asleep”的文章。</p>
-<p><font color="#008000">intext:</font> 當我們用intext進行查詢的時候，Google會返回那些在文本正文裏邊包含了我們查詢關鍵字的網頁。［Hamish Reid
+<p><font color="#008000">intext:</font> 當我們用intext進行查詢的時候，Google會返回那些在文本正文裏邊包含了我們查詢關鍵字的網頁。［Hamish Reid 
 intext:pandemonia］，提交這個查詢的時候，Google會返回在文本正文包含查詢關鍵字pandemonia，在其他任何地方包含關鍵字”Hamish”和”Reid”的網頁。（intext:後面直
 接跟查詢關鍵字，不能有空格）</p>
 <p><font color="#008000">intitle:</font> 當我們用intitle進行查詢的時候，Google會返回那些在網頁標題裏邊包含了我們查詢關鍵字的網頁。例［flu shot intitle:help］
 ，提交這個查詢，Google會返回在網頁標題包含了查詢關鍵字”help”，而在其他任何地文包含了查詢關鍵字”flu”和”shot”的網頁。（intitle:後面也不能有空格）</p>
-<p><font color="#008000">inurl:</font> 當我們用inurl進行查詢的時候，Google會返回那些在URL（網址）裏邊包含了我們查詢關鍵字的網頁。例［inurl:print
+<p><font color="#008000">inurl:</font> 當我們用inurl進行查詢的時候，Google會返回那些在URL（網址）裏邊包含了我們查詢關鍵字的網頁。例［inurl:print 
 site:zhuhe.tw］，提交這個查詢，Google會查找zhuhe.tw這個網站下面網址裏邊包含了查詢關鍵字”print”的網頁。</p>
 <a name="Google-commandL"></a>
 <p><font color="#efba00">link:</font> 當我們使用link:URL提交查詢的時候，Google會返回跟此URL做了鏈結的網站。例［link:zhuhe.tw］，提交這個查詢，我們將得到所有
 跟zhuhe.tw這個網站做了鏈結的網站。（link是個單獨的語法，只能單獨使用，且後面不能跟查詢關鍵字，跟能跟URL）</p>
-<p><font color="#efba00">location:</font> 當我們提交location進行Google新聞查詢的時候，Google僅會返回你當前指定區的跟查詢關鍵字相關的網頁。例[ queen
+<p><font color="#efba00">location:</font> 當我們提交location進行Google新聞查詢的時候，Google僅會返回你當前指定區的跟查詢關鍵字相關的網頁。例[ queen 
 location:canada ]，提交這個查詢，Google會返回加拿大的跟查詢關鍵字”queen”相匹配的網站。</p>
 <a name="Google-commandM"></a>
 <p><font color="#efba00">movie:</font> 當我們用movie提交查詢的時候，Google會返回跟查詢關鍵字相關的電影資訊。(當前只支持英文Google)</p>
@@ -243,7 +256,7 @@ location:canada ]，提交這個查詢，Google會返回加拿大的跟查詢關
 <p><font color="#008000">site:</font> 當我們用site提交查詢的時候，Google會限制查詢僅在某個網站，或是某個域下面進行。例［admissions site:zhuhe.tw］，提交這個
 查詢僅僅會搜索網站www.zhuhe.tw下面關於admissions的資訊。我們還可以限制搜索僅在域下面進行，例［javascript site:edu.cn］，提交這個查詢，僅僅在教育網查詢關於
 javscript的資訊。（site:後面不能跟空格，且site命令可以配合其他命令進行）</p>
-<p><font color="#efba00">source:</font> 當用source提交查詢的時候，Google新聞會限制我們的查詢僅是那些我們指定了特定ID或新聞源的網址。例［election
+<p><font color="#efba00">source:</font> 當用source提交查詢的時候，Google新聞會限制我們的查詢僅是那些我們指定了特定ID或新聞源的網址。例［election 
 source:new_york_times］，提交這個查詢，Google將會顯示紐約時報包含了查詢關鍵字”election”的相關文章。（我們也可以通過Google news高級搜索完成查詢）</p>
 <p><font color="#efba00">stocks:</font> 當我們用stocks提交查詢的時候，Google會返回跟查詢關鍵字相關的股票資訊，這些資訊一般來自於其他一些專業的財經網站。</p>
 <p><font color="#efba00">store:</font> 當我們用store提交查詢的時候，Google Froogle僅會顯示我們指定了store ID的結果。例［polo shirt store:llbean］，提交這個查

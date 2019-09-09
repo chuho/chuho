@@ -67,9 +67,9 @@ otherOutput = start + "!-- 步骤二: 用以下的链接打开一个新窗口 --
 if(howto == 'button') {
 otherOutput = start + "!-- 步骤二: 用以下的按钮代码打开一个新窗口-->\n" + start + "form>\n" + start + "input type=button value=\"Open the Popup Window\" onClick=\"javascript:popUp()\">\n" + start + "/form>";
 }
-scriptOutput = start + '!-- 请照以下步骤进行:\r\n'
-+ '<!-- STEP ONE: 将以下代码粘贴在<head>区 -->\r\n'
-+ '<HEAD>\r\n' + start + 'SCRIPT LANGUAGE="JavaScript">\r\n'
+scriptOutput = start + '!-- 请照以下步骤进行:\r\n\r\n'
++ '<!-- STEP ONE: 将以下代码粘贴在<head>区 -->\r\n\r\n'
++ '<HEAD>\r\n\r\n' + start + 'SCRIPT LANGUAGE="JavaScript">\r\n'
 + 'function pop' + 'Up() {\n';
 scriptOutput += "props=window.open('" + page + "', 'poppage', '" +
 ((toolbars) ? "toolbars=1, " : "toolbars=0, ") +
