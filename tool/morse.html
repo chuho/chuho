@@ -7,23 +7,11 @@
 <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
 <link rel="apple-touch-icon" href="../images/appicon.png" />
 <link rel="stylesheet" type="text/css" href="../common/css/common.css?v=2" />
-<link rel="stylesheet" type="text/css" href="../common/css/index.css?v=2" />
-<link rel="stylesheet" type="text/css" id="link2"/>
 <link rel="stylesheet" type="text/css" href="../common/css/jquery.mmenu.all.css" />
-<link rel="stylesheet" href="../common/css/fotorama.css?v=2" />
-<link rel="stylesheet" type="text/css" href="../common/css/carousel.css" />
-<link rel="stylesheet" type="text/css" href="../common/css/carousel-style.css" />
 <script type="text/javascript" src="../common/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../common/js/jquery-migrate-3.0.0.js"></script>
 <script type="text/javascript" src="../common/js/jquery-ui-1.8.17.custom.min.js"></script>
-<script type="text/javascript" src="../common/js/animate.js"></script>
-<script type="text/javascript" src="../common/js/customer.js?v=1"></script>
-<script type="text/javascript" src="../common/js/imgLiquid-min.js"></script>
-<script type="text/javascript" src="../common/js/jquery.HSlider.js"></script>
-<script type="text/javascript" src="../common/js/carousel.js"></script>
-<script type="text/javascript" src="../common/js/TabKeyCtl.js"></script>
 <script type="text/javascript" src="../common/js/jquery.mmenu.min.js"></script>
-<script src="../common/js/fotorama.js"></script>
 <script type="text/javascript">
     if (self === top) {
     var antiClickjack = document.getElementById("antiClickjack");
@@ -176,9 +164,7 @@ var respecterCasse = true;
 var ignorerCasse = false;
 var motsEntiers = true;
 var touteSousChaine = false;
-
 function rechercher(cible,terme,respecterCasse,motSeulement) {
-
   var ind = 0;
   var suivant = 0;
   if (!respecterCasse) {
@@ -198,8 +184,6 @@ function rechercher(cible,terme,respecterCasse,motSeulement) {
   }
   return false;
 }
-
-
 function remplacer(cible, ancienTerme,nouveauTerme,respecterCasse,motSeulement) {
   var travail = cible;
   var ind = 0;
@@ -217,18 +201,15 @@ function remplacer(cible, ancienTerme,nouveauTerme,respecterCasse,motSeulement) 
         continue;
       }
     }
-    cible = cible.substring(0,ind) + nouveauTerme + 
+    cible = cible.substring(0,ind) + nouveauTerme +
 cible.substring(ind+ancienTerme.length,cible.length);
-    travail = travail.substring(0,ind) + nouveauTerme + 
+    travail = travail.substring(0,ind) + nouveauTerme +
 travail.substring(ind+ancienTerme.length,travail.length);
     suivant = ind + nouveauTerme.length;
     if (suivant >= travail.length) { break; }
   }
   return cible;
 }
-
-
-
 function espace(check) {
   var espace = " ,/<>?!`';:%^&()=|{}" + '"' + "\\\n\t";
   for (var i = 0; i < espace.length; i++)
@@ -237,14 +218,12 @@ function espace(check) {
     if (check == null) { return true; }
   return false;
 }
-
 // STOP HIDING -->
 function creerMatrice(num) {  for (var i=1; i <= num; i++)    this[i] = "";  this.length = num;}
 var MORSE = new creerMatrice(26+6);
 var AVIATION = new creerMatrice(26+6);
-
 MORSE[01] = ".-"
-MORSE[02] = "-..." 
+MORSE[02] = "-..."
 MORSE[03] = "-.-."
 MORSE[04] = "-.."
 MORSE[05] = "."
@@ -275,31 +254,19 @@ MORSE[29] = "----"
 MORSE[30] = ".---."
 MORSE[31] = "...-."
 MORSE[32] = "..--"
-
 CARACTERES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ[@*]$#"
-
 function CODE(LETTRE){
-
 if(LETTRE == " "){
-
-return " " 
-
+return " "
 }
-
 for(tg=0; tg<=26+6; tg++) {
-
 var LT = CARACTERES.charAt(tg)
 if(LT == LETTRE){
-return MORSE[tg +1] 
-
+return MORSE[tg +1]
 }
-
 }
-
 return ""
-
 }
-
 function GO() {
 var text = document.forms[0].valeur.value
 text = text.toUpperCase()
@@ -307,7 +274,6 @@ var MSG = ""
 var LTR = ""
 NUM = text.length
 for(t = 0; t <= NUM-1; t++){
-
 if (text.charAt(t) == '^') {
 	LTR = text.charAt(++t)
 	switch (LTR) {
@@ -321,31 +287,22 @@ if (text.charAt(t) == '^') {
 } else {
 	LTR = text.charAt(t)
 }
-
 MSG = MSG + ( CODE(LTR) + " ") ;
-
 }
-
 document.forms[0].OUTPUT.value = MSG
-
 }
-
 function UNGO(){
 var text = document.forms[0].OUTPUT.value
 text = text.toUpperCase()
 var MSG = text + " "
-
 for(th=0;th<=25+6;th++){
-
 AA = MORSE[th +1]
-
 BB = CARACTERES.charAt(th)
 MSG = remplacer(MSG,AA,BB,false, true)}
 MSG = remplacer(MSG,"  ","%")
 MSG = remplacer(MSG," ","")
 MSG = remplacer(MSG,"%"," ")
 document.forms[0].valeur.value = MSG
-
 }
    </script>
    <base target="_self">

@@ -7,23 +7,11 @@
 <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
 <link rel="apple-touch-icon" href="../images/appicon.png" />
 <link rel="stylesheet" type="text/css" href="../common/css/common.css?v=2" />
-<link rel="stylesheet" type="text/css" href="../common/css/index.css?v=2" />
-<link rel="stylesheet" type="text/css" id="link2"/>
 <link rel="stylesheet" type="text/css" href="../common/css/jquery.mmenu.all.css" />
-<link rel="stylesheet" href="../common/css/fotorama.css?v=2" />
-<link rel="stylesheet" type="text/css" href="../common/css/carousel.css" />
-<link rel="stylesheet" type="text/css" href="../common/css/carousel-style.css" />
 <script type="text/javascript" src="../common/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../common/js/jquery-migrate-3.0.0.js"></script>
 <script type="text/javascript" src="../common/js/jquery-ui-1.8.17.custom.min.js"></script>
-<script type="text/javascript" src="../common/js/animate.js"></script>
-<script type="text/javascript" src="../common/js/customer.js?v=1"></script>
-<script type="text/javascript" src="../common/js/imgLiquid-min.js"></script>
-<script type="text/javascript" src="../common/js/jquery.HSlider.js"></script>
-<script type="text/javascript" src="../common/js/carousel.js"></script>
-<script type="text/javascript" src="../common/js/TabKeyCtl.js"></script>
 <script type="text/javascript" src="../common/js/jquery.mmenu.min.js"></script>
-<script src="../common/js/fotorama.js"></script>
 <script type="text/javascript">
     if (self === top) {
     var antiClickjack = document.getElementById("antiClickjack");
@@ -208,15 +196,10 @@ function gototaobao()
  window.open("http://s.taobao.com/?q="+encodeURI(document.theForm.q.value),"_blank");
  return false;
 }
-
 </script>
-
 </head>
-
 <body leftmargin=0 topmargin=0 >
-
 <form name=theForm onsubmit="return gotobaidu()">
-
 搜索<input type="text" name="q" size="25" maxlength="255" value=""></input><input type="button" name="bd" value="百 度" onclick="gotobaidu()"></input><input type="button" name="bing" value="bing" onclick="gotobing()"></input><input type="button" name="gg" value="google" onclick="gotogoogle()"></input><input type="button" name="ciba" value="查 词" onclick="gotociba()"></input><input type="button" name="taobao" value="淘 宝" onclick="gototaobao()"></input>
 <input type="checkbox" name="site" id=insite>站内
 </form>

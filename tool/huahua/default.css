@@ -6,21 +6,17 @@ body {
 	overflow: hidden;
 	font-family: Courier New;
 }
-
-a 
+a
 {
     color: Black;
 }
-
 #btnClear {
-
 }
 #configArea {
 	background: #fff;
 	padding: 10px;
 }
-
-#preview 
+#preview
 {
     border: 2px solid White;
     position: absolute;
@@ -32,26 +28,22 @@ a
     display: none;
     position: absolute;
 }
-
-.label 
+.label
 {
     float: left;
-
     margin-right: 1em;
 }
-.slider 
+.slider
 {
     float: left;
     width: 80px;
     margin-right: 2em;
     margin-top: 2px;
 }
-
 #lblPreview
 {
     padding: 0px 4px;
 }
-
 #welcomeScreen
 {
     padding: 10px;
@@ -61,7 +53,6 @@ a
     color: #666;
     font-size: 50px;
 }
-
 #aboutScreen
 {
     background: #a7d7f9;
@@ -69,15 +60,13 @@ a
     padding: 10px;
     display: none;
 }
-
 #aboutScreen h3
 {
     background: White;
     padding: 0px 2px;
     margin: 0;
 }
-
-#aboutScreen p 
+#aboutScreen p
 {
     margin: 10px 0px;
     padding: 0px 2px;

@@ -1,14 +1,10 @@
 ﻿var winWidth = 0;
 var sBannerMerga = false;
-
 var Dwinsize, Nwinsize;
-
 $(document).ready(function () {
-
     fnWidthChangeInit();
     //$(window).resize(function () { fnWidthChangeInit(); });
     //window.onresize = fnWidthChangeInit;
-
     /* 20180430 惟夫新增 */
     if ($(window).width() > 768) {
         Dwinsize = true;
@@ -16,53 +12,39 @@ $(document).ready(function () {
         Dwinsize = false;
     }
     /* 20180430 惟夫新增 結束 */
-
 });
-   
 $(window).resize(function () {
     /* 20180430 惟夫隱藏 */
     // var intStstus = fnCheckWidthStatus();
-
     // // alert(intStstus);
-
     // if((intStstus == 1) || (intStstus == 2)) {
     //     setTimeout(function () {window.location.reload();}, 1);
     // }
     /* 20180430 惟夫隱藏 結束 */
-
     if($(window).width() > 768) {
         Nwinsize = true;
     }else{
         Nwinsize = false;
     }
-
     if(Dwinsize != Nwinsize){
         $(window).off('resize');
         window.location.reload();
     }
 });
-
-
 //判斷螢幕寬度
 function fnCheckWidthStatus() {
-
     /* 20180430 惟夫隱藏 */
     //    var intStatus = 0;
-
     //    if (($(window).width() <= 768) && ((winWidth > 768) || (winWidth==0))) {
     //        //行動版
     //        intStatus = 1;
-
     //    } else if (($(window).width() > 768) && (winWidth < 768)) {
-    //        //桌機板 
+    //        //桌機板
     //        intStatus = 2;
     //    }
     //    setTimeout(function () { winWidth = $(window).width(); }, 1000);
-
         //alert(intStatus +  '-'+ $(window).width() + '-' + winWidth);
     /* 20180430 惟夫隱藏 結束 */
-
-
     /* 20180502 惟夫調整 把尺寸分界從768改成960 */
     if ($(window).width() <= 960) {
         intStatus = 1;
@@ -71,25 +53,18 @@ function fnCheckWidthStatus() {
     }
     return intStatus;
 }
-
    function fnWidthChangeInit() {
        var str = fnCheckWidthStatus();
       // alert(str);
-
        if (str == 2) {  //桌機
-       //  alert('桌機'); 
+       //  alert('桌機');
            $(".slider").HSlider();
            $(".publicize.fotorama").attr("data-height", "100%");
-
            //alert($(".bannerSilder.fotorama").attr("data-height"));
-
           $(".bannerSilder.fotorama").attr("data-height", "50%");
-
            //alert($(".bannerSilder.fotorama").attr("data-height"));
-
            //$(".bannerSilder.fotorama").attr("data-height", "200%");
           // $("#div21").attr("data-transition") = "dissolve";
-
            //$('#div21').fotorama({
            //    "data-width": "100%",
            //    "data-height": "50%",
@@ -99,14 +74,10 @@ function fnCheckWidthStatus() {
            //    "data-click": "false",
            //    "data-transition": "dissolve"
            //});
-
        }
        else if (str == 1) { //行動
-             
            $(".publicize.fotorama").attr("data-height", "50%");
-		   
-		   
-		   // alert('mobile－' + $(".publicize.fotorama").attr("data-height"));  
+		   // alert('mobile－' + $(".publicize.fotorama").attr("data-height"));
            //$(".bannerSilder.fotorama").attr("data-height", "200");
            //$(".publicize.fotorama").attr("data-height", "10%");
            //$(".bannerSilder.fotorama").attr("data-height", "50");
@@ -120,7 +91,6 @@ function fnCheckWidthStatus() {
            //    "data-click": "false",
            //    "data-transition": "slide"
            //});
-
            // $("#div21").css({"data-transition":"slide"});
           //   alert($("#div21").attr("data-transition"));
            //  $("#div21").fotorama();
@@ -130,11 +100,8 @@ function fnCheckWidthStatus() {
                sBannerMerga = true;
            }
          //  alert($(".hotBanner2 .bannerSilder .fotorama").html());
-
-         
        }
    }
-
    function dynamicRemove(removeName, thType) {
        var targetElement = (thType == "js") ? "script" : (thType == "css") ? "link" : "none";
        var targetAttr = (thType == "js") ? "src" : (thType == "css") ? "href" : "none";
@@ -148,8 +115,6 @@ function fnCheckWidthStatus() {
            }
        }
    }
-
-
    function dynamicInsert(insertName, thType) {
        if (thType == "js") {
            var diFile = document.createElement('script');
@@ -163,16 +128,10 @@ function fnCheckWidthStatus() {
        }
        if (typeof diFile != "undefined") {
            document.getElementsByTagName("head")[0].appendChild(diFile);
-
-         
        }
    }
-
-
-
    //判斷瀏覽器
    function fnGetBrowser() {
-
        var gAgent = navigator.userAgent;
        var gName = navigator.appName;
        var fullVer = "" + parseFloat(navigator.appVersion);
@@ -206,10 +165,5 @@ function fnCheckWidthStatus() {
                gName = navigator.appName;
            }
        }
-
-
        return gName;
-
    }
-
-

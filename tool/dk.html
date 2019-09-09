@@ -7,23 +7,11 @@
 <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
 <link rel="apple-touch-icon" href="../images/appicon.png" />
 <link rel="stylesheet" type="text/css" href="../common/css/common.css?v=2" />
-<link rel="stylesheet" type="text/css" href="../common/css/index.css?v=2" />
-<link rel="stylesheet" type="text/css" id="link2"/>
 <link rel="stylesheet" type="text/css" href="../common/css/jquery.mmenu.all.css" />
-<link rel="stylesheet" href="../common/css/fotorama.css?v=2" />
-<link rel="stylesheet" type="text/css" href="../common/css/carousel.css" />
-<link rel="stylesheet" type="text/css" href="../common/css/carousel-style.css" />
 <script type="text/javascript" src="../common/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../common/js/jquery-migrate-3.0.0.js"></script>
 <script type="text/javascript" src="../common/js/jquery-ui-1.8.17.custom.min.js"></script>
-<script type="text/javascript" src="../common/js/animate.js"></script>
-<script type="text/javascript" src="../common/js/customer.js?v=1"></script>
-<script type="text/javascript" src="../common/js/imgLiquid-min.js"></script>
-<script type="text/javascript" src="../common/js/jquery.HSlider.js"></script>
-<script type="text/javascript" src="../common/js/carousel.js"></script>
-<script type="text/javascript" src="../common/js/TabKeyCtl.js"></script>
 <script type="text/javascript" src="../common/js/jquery.mmenu.min.js"></script>
-<script src="../common/js/fotorama.js"></script>
 <script type="text/javascript">
     if (self === top) {
     var antiClickjack = document.getElementById("antiClickjack");
@@ -292,7 +280,6 @@ $(window).load(function () {
         lilv_array[12][1][10] = 0.06765; //商贷 5-30年 7.205%
         lilv_array[12][2][5] = 0.04125; //公积金 1～5年 4%
         lilv_array[12][2][10] = 0.04675; //公积金 5-30年 4.5%
-
         //2015年2月28日杨普法新增贷款利率
         //2015年3月1日基准利率
         lilv_array[13] = new Array;
@@ -334,10 +321,7 @@ $(window).load(function () {
         lilv_array[16][1][10] = 0.0649; //商贷 5-30年 7.205%
         lilv_array[16][2][5] = 0.03850; //公积金 1～5年 4%
         lilv_array[16][2][10] = 0.0440; //公积金 5-30年 4.5%
-
-
     </script>
-
     <script type="text/javascript">
         function exc_zuhe(fmobj, v) {
             if (fmobj.name == "calc11") {
@@ -355,7 +339,6 @@ $(window).load(function () {
                     document.getElementById("sdlv_li").style.display = '';
                     document.getElementById("gjlv_li").style.display = '';
                     fmobj.loanradiotype[2].checked = true;
-
                 } else {
                     document.getElementById("calc11_zuhe").style.display = 'none';
                     //document.getElementById("calc11_zuhe1").style.display = 'none';
@@ -377,13 +360,9 @@ $(window).load(function () {
                         fmobj.loanradiotype[1].checked = true;
                     }
                 }
-
-
-
             }
         }
         function exc_js(fmobj, v) {
-
             if (fmobj.name == "calc11") {
                 if (v == 1) {
                     document.getElementById("calc1_js_div1").style.display = '';
@@ -394,11 +373,9 @@ $(window).load(function () {
                 }
             }
         }
-
         function loanreset(fmobj) {
             var loanradiotype = document.getElementsByName("loanradiotype");
             var strloanradiotype;
-
             for (var i = 0; i < loanradiotype.length; i++) {
                 if (loanradiotype.item(i).checked) {
                     strloanradiotype = loanradiotype.item(i).getAttribute("value");
@@ -410,11 +387,6 @@ $(window).load(function () {
             fmobj.reset();
             exc_zuhe(fmobj, strloanradiotype);
         }
-
-
-
-
-
         function ext_loantotal(fmobj) {
             var loanradiotype = document.getElementsByName("loanradiotype"); //取房贷计算
             var price = parseInt(document.getElementById("price").value.toString()); //取房贷计算器单价
@@ -443,11 +415,9 @@ $(window).load(function () {
                     continue;
                 }
             }
-
             while ((k = fmobj.month_money2.length - 1) >= 0) {
                 fmobj.month_money2.options.remove(k);
             }
-
             var month = years * 12;
             fmobj.month1.value = month + "(月)";
             fmobj.month2.value = month + "(月)";
@@ -469,12 +439,9 @@ $(window).load(function () {
                 var daikuan_total = total_sy + total_gjj;
                 fmobj.daikuan_total1.value = daikuan_total;
                 fmobj.daikuan_total2.value = daikuan_total;
-
                 //月还款
                 var lilv_sd = fmobj.sdlv.value / 100; //得到商贷利率
                 var lilv_gjj = fmobj.gjlv.value / 100; //得到公积金利率
-
-
                 var all_total2 = 0;
                 var month_money2 = "";
                 for (j = 0; j < month; j++) {
@@ -490,7 +457,6 @@ $(window).load(function () {
                 fmobj.all_total2.value = Math.round(all_total2 * 100) / 100;
                 //支付利息款
                 fmobj.accrual2.value = Math.round((all_total2 - daikuan_total) * 100) / 100;
-
                 //2.本息还款
                 //月均还款
                 var month_money1 = getMonthMoney1(lilv_sd, total_sy, month) + getMonthMoney1(lilv_gjj, total_gjj, month); //调用函数计算
@@ -522,7 +488,6 @@ $(window).load(function () {
                 } else {
                     //------------ 根据贷款总额计算
                     if (fmobj.daikuan_total000.value.length == 0) { alert("请填写贷款总额"); fmobj.daikuan_total000.focus(); return false; }
-
                     //房款总额
                     fmobj.fangkuan_total1.value = "略";
                     fmobj.fangkuan_total2.value = "略";
@@ -546,14 +511,11 @@ $(window).load(function () {
                     //fmobj.month_money2.options[j] = new Option( (j+1) +"月," + huankuan + "(元)", huankuan);
                     month_money2 += (j + 1) + "月," + huankuan + "(元)\n";
                 }
-
                 fmobj.month_money2.value = month_money2;
                 //还款总额
                 fmobj.all_total2.value = Math.round(all_total2 * 100) / 100;
                 //支付利息款
                 fmobj.accrual2.value = Math.round((all_total2 - daikuan_total) * 100) / 100;
-
-
                 //2.本息还款
                 //月均还款
                 var month_money1 = getMonthMoney1(lilv, daikuan_total, month); //调用函数计算
@@ -563,7 +525,6 @@ $(window).load(function () {
                 fmobj.all_total1.value = Math.round(all_total1 * 100) / 100;
                 //支付利息款
                 fmobj.accrual1.value = Math.round((all_total1 - daikuan_total) * 100) / 100;
-
             }
             if (strradioben == 2) {
                 fmobj.fangkuan_total1.value = fmobj.fangkuan_total2.value;
@@ -574,7 +535,6 @@ $(window).load(function () {
                 fmobj.month1.value = fmobj.month2.value;
                 fmobj.month_money3.value = fmobj.month_money2.value;
             }
-
             //布码:代码执行时机改为点击“开始计算”成功返回计算结果后
             var loanType, loanMonthMoney;
             if (strRadiox == 1) {
@@ -584,14 +544,12 @@ $(window).load(function () {
             } else {
                 loanType = "组合型贷款";
             }
-
             loanMonthMoney = fmobj.month_money1.value.replace("(元)", "");
             _ub.city = $("#cityName").html(); //所在城市（中文）
             _ub.biz = 'g'; //固定
             _ub.location = 0; //方位 ，网通为0，电信为1，如果无法获取方位，记录0
             _ub.collect(13, { 'g2': encodeURIComponent(loanType), 'g3': encodeURIComponent(fmobj.money_first1.value/10000 + "万元"), 'g4': encodeURIComponent(loanMonthMoney + "元"), 'g6': month, 'g5': encodeURIComponent((fmobj.daikuan_total1.value / 10000) + "万元") });
         }
-
         function ext_loanbenjin(fmobj, v) {
             if (fmobj.name == "calc11") {
                 if (v == 2) {
@@ -603,12 +561,10 @@ $(window).load(function () {
                 }
             }
         }
-
         //验证是否为数字
         function reg_Num(str) {
             if (str.length == 0) { return false; }
             var Letters = "1234567890.";
-
             for (i = 0; i < str.length; i++) {
                 var CheckChar = str.charAt(i);
                 if (Letters.indexOf(CheckChar) == -1) { return false; }
@@ -624,23 +580,18 @@ $(window).load(function () {
                 return lilv_array[lilv_class][type][10];
             }
         }
-
         //本金还款的月还款额(参数: 年利率 / 贷款总额 / 贷款总月份 / 贷款当前月0～length-1)
         function getMonthMoney2(lilv, total, month, cur_month) {
             var lilv_month = lilv / 12; //月利率
             //return total * lilv_month * Math.pow(1 + lilv_month, month) / ( Math.pow(1 + lilv_month, month) -1 );
             var benjin_money = total / month;
             return (total - benjin_money * cur_month) * lilv_month + benjin_money;
-
-
         }
         //本息还款的月还款额(参数: 年利率/贷款总额/贷款总月份)
         function getMonthMoney1(lilv, total, month) {
             var lilv_month = lilv / 12; //月利率
             return total * lilv_month * Math.pow(1 + lilv_month, month) / (Math.pow(1 + lilv_month, month) - 1);
         }
-
-
         function ShowLilvNew(fmobj, month, lt) {
             var loanradiostr = document.getElementsByName("loanradiotype");
             var loanradiotype;
@@ -664,7 +615,6 @@ $(window).load(function () {
             fmobj.sdlv.value = myround(lilv_array[lt][1][indexNumSd] * 100, 2);
             fmobj.gjlv.value = myround(lilv_array[lt][2][indexNumGj] * 100, 2);
         }
-
         function myround(v, e) {
             var t = 1;
             e = Math.round(e);
@@ -672,7 +622,6 @@ $(window).load(function () {
             for (; e < 0; t /= 10, e++);
             return Math.round(v * t) / t;
         }
-
         function getArrayIndexFromYear(year, dkType) {
             var indexNum = 0;
             if (dkType == 1) {
@@ -694,7 +643,6 @@ $(window).load(function () {
             }
             return indexNum;
         }
-
         function displaySubMenu(li) {
             var subMenu = li.getElementsByTagName("ul")[0];
             subMenu.style.display = "block";
@@ -707,7 +655,6 @@ $(window).load(function () {
             $("#citydiv").toggle();
         }
     </script>
-
 </head>
                         <!--计算一 begin-->
                         <div id="calculate01" class="main">
@@ -809,10 +756,10 @@ $(window).load(function () {
                                                     <ul>
                                                         <li id="singlelv_li" style="display: block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="singlelv" type="text" class="red guestbook01" value="5.90" />
                                                             %</li>
-                                                        <li id="sdlv_li" style="display: none">商&nbsp;&nbsp;&nbsp;  业： 
+                                                        <li id="sdlv_li" style="display: none">商&nbsp;&nbsp;&nbsp;  业：
                                                             <input id="sdlv" type="text" class="red guestbook01" value="5.90" />
                                                             % </li>
-                                                        <li id="gjlv_li" style="display: none">公 积 金：  
+                                                        <li id="gjlv_li" style="display: none">公 积 金：
                                                             <input id="gjlv" type="text" class="red guestbook01" value="4.00" />
                                                             %</li>
                                                     </ul>

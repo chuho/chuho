@@ -2,17 +2,12 @@
  * imagesLoaded v3.0.2
  * JavaScript is all like "You images are done yet or what?"
  */
-
 ( function( window ) {
-
 'use strict';
-
 var $ = window.jQuery;
 var console = window.console;
 var hasConsole = typeof console !== 'undefined';
-
 // -------------------------- helpers -------------------------- //
-
 // extend objects
 function extend( a, b ) {
   for ( var prop in b ) {
@@ -20,12 +15,10 @@ function extend( a, b ) {
   }
   return a;
 }
-
 var objToString = Object.prototype.toString;
 function isArray( obj ) {
   return objToString.call( obj ) === '[object Array]';
 }
-
 // turn element or nodeList into an array
 function makeArray( obj ) {
   var ary = [];
@@ -43,11 +36,8 @@ function makeArray( obj ) {
   }
   return ary;
 }
-
 // --------------------------  -------------------------- //
-
 function defineImagesLoaded( EventEmitter, eventie ) {
-
   /**
    * @param {Array, Element, NodeList, String} elem
    * @param {Object or Function} options - if function, use as callback
@@ -62,41 +52,31 @@ function defineImagesLoaded( EventEmitter, eventie ) {
     if ( typeof elem === 'string' ) {
       elem = document.querySelectorAll( elem );
     }
-
     this.elements = makeArray( elem );
     this.options = extend( {}, this.options );
-
     if ( typeof options === 'function' ) {
       onAlways = options;
     } else {
       extend( this.options, options );
     }
-
     if ( onAlways ) {
       this.on( 'always', onAlways );
     }
-
     this.getImages();
-
     if ( $ ) {
       // add jQuery Deferred object
       this.jqDeferred = new $.Deferred();
     }
-
     // HACK check async to allow time to bind listeners
     var _this = this;
     setTimeout( function() {
       _this.check();
     });
   }
-
   ImagesLoaded.prototype = new EventEmitter();
-
   ImagesLoaded.prototype.options = {};
-
   ImagesLoaded.prototype.getImages = function() {
     this.images = [];
-
     // filter & find items if we have an item selector
     for ( var i=0, len = this.elements.length; i < len; i++ ) {
       var elem = this.elements[i];
@@ -113,7 +93,6 @@ function defineImagesLoaded( EventEmitter, eventie ) {
       }
     }
   };
-
   /**
    * @param {Image} img
    */
@@ -121,7 +100,6 @@ function defineImagesLoaded( EventEmitter, eventie ) {
     var loadingImage = new LoadingImage( img );
     this.images.push( loadingImage );
   };
-
   ImagesLoaded.prototype.check = function() {
     var _this = this;
     var checkedCount = 0;
@@ -132,12 +110,10 @@ function defineImagesLoaded( EventEmitter, eventie ) {
       this.complete();
       return;
     }
-
     function onConfirm( image, message ) {
       if ( _this.options.debug && hasConsole ) {
         console.log( 'confirm', image, message );
       }
-
       _this.progress( image );
       checkedCount++;
       if ( checkedCount === length ) {
@@ -145,14 +121,12 @@ function defineImagesLoaded( EventEmitter, eventie ) {
       }
       return true; // bind once
     }
-
     for ( var i=0; i < length; i++ ) {
       var loadingImage = this.images[i];
       loadingImage.on( 'confirm', onConfirm );
       loadingImage.check();
     }
   };
-
   ImagesLoaded.prototype.progress = function( image ) {
     this.hasAnyBroken = this.hasAnyBroken || !image.isLoaded;
     this.emit( 'progress', this, image );
@@ -160,7 +134,6 @@ function defineImagesLoaded( EventEmitter, eventie ) {
       this.jqDeferred.notify( this, image );
     }
   };
-
   ImagesLoaded.prototype.complete = function() {
     var eventName = this.hasAnyBroken ? 'fail' : 'done';
     this.isComplete = true;
@@ -171,27 +144,19 @@ function defineImagesLoaded( EventEmitter, eventie ) {
       this.jqDeferred[ jqMethod ]( this );
     }
   };
-
   // -------------------------- jquery -------------------------- //
-
   if ( $ ) {
     $.fn.imagesLoaded = function( options, callback ) {
       var instance = new ImagesLoaded( this, options, callback );
       return instance.jqDeferred.promise( $(this) );
     };
   }
-
-
   // --------------------------  -------------------------- //
-
   var cache = {};
-
   function LoadingImage( img ) {
     this.img = img;
   }
-
   LoadingImage.prototype = new EventEmitter();
-
   LoadingImage.prototype.check = function() {
     // first check cached any previous images that have same src
     var cached = cache[ this.img.src ];
@@ -201,7 +166,6 @@ function defineImagesLoaded( EventEmitter, eventie ) {
     }
     // add this to cache
     cache[ this.img.src ] = this;
-
     // If complete is true and browser supports natural sizes,
     // try to check for image status manually.
     if ( this.img.complete && this.img.naturalWidth !== undefined ) {
@@ -209,14 +173,12 @@ function defineImagesLoaded( EventEmitter, eventie ) {
       this.confirm( this.img.naturalWidth !== 0, 'naturalWidth' );
       return;
     }
-
     // If none of the checks above matched, simulate loading on detached element.
     var proxyImage = this.proxyImage = new Image();
     eventie.bind( proxyImage, 'load', this );
     eventie.bind( proxyImage, 'error', this );
     proxyImage.src = this.img.src;
   };
-
   LoadingImage.prototype.useCached = function( cached ) {
     if ( cached.isConfirmed ) {
       this.confirm( cached.isLoaded, 'cached was confirmed' );
@@ -228,13 +190,11 @@ function defineImagesLoaded( EventEmitter, eventie ) {
       });
     }
   };
-
   LoadingImage.prototype.confirm = function( isLoaded, message ) {
     this.isConfirmed = true;
     this.isLoaded = isLoaded;
     this.emit( 'confirm', this, message );
   };
-
   // trigger specified handler for event type
   LoadingImage.prototype.handleEvent = function( event ) {
     var method = 'on' + event.type;
@@ -242,29 +202,22 @@ function defineImagesLoaded( EventEmitter, eventie ) {
       this[ method ]( event );
     }
   };
-
   LoadingImage.prototype.onload = function() {
     this.confirm( true, 'onload' );
     this.unbindProxyEvents();
   };
-
   LoadingImage.prototype.onerror = function() {
     this.confirm( false, 'onerror' );
     this.unbindProxyEvents();
   };
-
   LoadingImage.prototype.unbindProxyEvents = function() {
     eventie.unbind( this.proxyImage, 'load', this );
     eventie.unbind( this.proxyImage, 'error', this );
   };
-
   // -----  ----- //
-
   return ImagesLoaded;
 }
-
 // -------------------------- transport -------------------------- //
-
 if ( typeof define === 'function' && define.amd ) {
   // AMD
   define( [
@@ -279,5 +232,4 @@ if ( typeof define === 'function' && define.amd ) {
     window.eventie
   );
 }
-
 })( window );

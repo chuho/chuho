@@ -1,35 +1,25 @@
 //�P�_�ù��e��
     function fnCheckWidthStatus() {
-
         var intStatus = 0;
-
         if (($(window).width() <= 768)) {
             //��ʪ�
             intStatus = 1;
         } else if (($(window).width() > 768)) {
-            //����O 
+            //����O
             intStatus = 2;
         }
-
         //if (($(window).width() <= 768) && (winWidth >= 768)) {
         //    //��ʪ�
         //    intStatus = 1;
         //} else if (($(window).width() > 768) && (winWidth < 768)) {
-        //    //����O 
+        //    //����O
         //    intStatus = 2;
         //}
-
         winWidth = $(window).width();
         return intStatus;
     }
-
-
-
-
-
     //�P�_�s����
     function fnGetBrowser() {
-
         var gAgent = navigator.userAgent;
         var gName = navigator.appName;
         var fullVer = "" + parseFloat(navigator.appVersion);
@@ -63,10 +53,5 @@
                 gName = navigator.appName;
             }
         }
-
-
         return gName;
-
     }
-  
-

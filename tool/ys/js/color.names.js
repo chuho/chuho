@@ -1,5 +1,5 @@
-window.Color.learn({ 
-	// 122 more "browser-supported" colors ( 128 names )		
+window.Color.learn({
+	// 122 more "browser-supported" colors ( 128 names )
 	'F0F8FF': 'Alice Blue',
 	'FAEBD7': 'Antique White',
 	'7FFFD4': 'Aquamarine',

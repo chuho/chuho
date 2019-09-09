@@ -39,13 +39,12 @@ body .leftArea{
 	overflow-y: hidden;
 	overflow-x:hidden;
 }
-
 /*████████████████↓↓共用↓↓████████████████*/
 .leftArea h6{
   color: #FFF;
   font-size: 133%;
   font-weight: normal;
-}  
+}
 .leftArea h2{
 	color: #FFF;
 	font-weight:normal;
@@ -99,7 +98,7 @@ body .leftArea{
 	height: 350px;
 	color: #FFF;
 	position: relative;
-	background-color:#75bdc1;/*預設的背景色*/ 
+	background-color:#75bdc1;/*預設的背景色*/
 	-o-transition: all .20s linear;
 	-webkit-transition: all .20s linear;
 	-moz-transition: all .20s linear;
@@ -108,8 +107,6 @@ body .leftArea{
 . li .btn:hover{
   background-color:#75bdc1;
 }
-
-
 . li .btn:hover{
 	-o-transition: all .20s linear;
 	-webkit-transition: all .20s linear;
@@ -226,7 +223,6 @@ body .leftArea{
 .list1A .leftArea h2{
 	font-size: 340%;
 }
-
 . li .btn h4{
 	font-size: 204%;
 	font-weight: normal;
@@ -249,7 +245,7 @@ body .leftArea{
 	transition: all .20s linear;
 }
 . li a.icoBtn:hover:after{
-	transform:scale(1.2); 
+	transform:scale(1.2);
 	-o-transition: all .20s linear;
 	-webkit-transition: all .20s linear;
 	-moz-transition: all .20s linear;
@@ -277,13 +273,13 @@ body .leftArea{
 	-o-transition: all .20s linear;
 	-webkit-transition: all .20s linear;
 	-moz-transition: all .20s linear;
-	transition: all .20s linear; 
+	transition: all .20s linear;
  }
 .albumBtn:hover:before{
 	width: 96px;
 	height: 96px;
 	margin-left: -48px;
-	margin-top: -78px;  	
+	margin-top: -78px;
 		-o-transition: all .10s linear;
 	-webkit-transition: all .10s linear;
 	-moz-transition: all .10s linear;
@@ -297,7 +293,7 @@ body .leftArea{
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 2; 
+	z-index: 2;
 }
 .albumBtn h5{
 	display: table;
@@ -412,7 +408,7 @@ body .leftArea{
 	display: -webkit-box;
 	 -webkit-line-clamp: 3;
 	-o-line-clamp: 3;
-	-ms-line-clamp: 3; 
+	-ms-line-clamp: 3;
 	-webkit-box-orient: vertical;
 	-o-box-orient: vertical;
 	-ms-box-orient: vertical;
@@ -420,16 +416,15 @@ body .leftArea{
 .list1B.oneBlock . li .btn.halfBtn h4{
     /*20170721 惟夫修改*/
 /*
-    -webkit-line-clamp: 2; 
+    -webkit-line-clamp: 2;
 	-o-line-clamp: 2;
-	-ms-line-clamp: 2; 
+	-ms-line-clamp: 2;
 */
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 3;
 	-o-line-clamp: 3;
 	-ms-line-clamp: 3;
     /*20170721 惟夫修改 結束*/
 }
-
 . li .btn.halfBtn u,. li .btn.album u{
 	display: block;
 	text-decoration: none;
@@ -463,7 +458,7 @@ body .leftArea{
 	-o-transition: all .20s linear;
 	-webkit-transition: all .20s linear;
 	-moz-transition: all .20s linear;
-	transition: all .20s linear;	
+	transition: all .20s linear;
 }
 . li .btn.album:hover .words{
 	bottom: 0px;
@@ -485,7 +480,7 @@ body .leftArea{
 	-o-transition: all .20s linear;
 	-webkit-transition: all .20s linear;
 	-moz-transition: all .20s linear;
-	transition: all .20s linear;	
+	transition: all .20s linear;
 }
 .btn.album:hover>.pic:after{
 	bottom: 229px;
@@ -542,21 +537,19 @@ ul.verticalBtn>li>a{
 	height:102px;
 	text-decoration: none;
 	padding-left:20%;
-	padding-right: 5%; 
+	padding-right: 5%;
 	font-size: 148%;
 	background-repeat: no-repeat;
 	background-position: -180px bottom;
 	background-size: contain;
-	cursor: pointer;  
+	cursor: pointer;
     line-height: 1.1;
-
 }
 ul.verticalBtn>li>a.focus,ul.verticalBtn>li>a:hover{
 	padding-left:40%;
 	background-position: 1px bottom;
 }
 ul.verticalBtn>li>a:hover{
-
 }
 ul.verticalBtn>li>a span{
 	display: table-cell;
@@ -585,7 +578,6 @@ ul.verticalBtn>li>ul>li>a{
 	background-color: inherit !important;
 }
 ul.verticalBtn>li>ul>li>a.focus{
-
 }
 ul.verticalBtn>li>ul>li>a:hover{
 	color: #3E3E3E;
@@ -604,12 +596,10 @@ ul.verticalBtn>li>ul>li>a.focus:before{
 	content: "►";
 	color: #f99620;
 }
-
 .list1B . li .btn.halfBtn,.list2.exhibition . li .btn.halfBtn{
 	overflow: hidden;
 	height: 0;
     padding-bottom: 35%;
-    
     /*20161125 惟夫 修改*/
     border-bottom: 1px solid #fff;
     box-sizing: border-box;
@@ -618,13 +608,11 @@ ul.verticalBtn>li>ul>li>a.focus:before{
 .list1B . li .btn.halfBtn:hover,.list2.exhibition . li .btn.halfBtn:hover{
     opacity: 1;
 }
-
 /*20161219 惟夫 新增*/
 .list1B . li .btn.halfBtn:hover > .words:after,.list2.exhibition . li .btn.halfBtn:hover > .words:after{
     right: 33px;
 }
 /*end*/
-
 .list1B .halfBtn>.pic,.list2.exhibition .halfBtn>.pic{
 	float: left;
 	width: 50%;
@@ -659,8 +647,7 @@ ul.verticalBtn>li>ul>li>a.focus:before{
 	-webkit-transition: all .20s linear;
 	-moz-transition: all .20s linear;
 	transition: all .20s linear;
-
-}  
+}
 .list1B .btn.halfBtn>.words h4,.list2.exhibition .btn.halfBtn>.words h4{
 	font-size: 150%;
 	padding: 1.5% 0 0 0;
@@ -670,14 +657,12 @@ ul.verticalBtn>li>ul>li>a.focus:before{
 	font-size: 109%;
 	padding-right: 92px;
 }
-
 /* 20161205 惟夫 新增 */
 .list1B . li .btn.halfBtn u>i {
     display: none;
     font-style: normal;
 }
 /* 結束 */
-
 .list1B . li .btn.halfBtn u b,.list2.exhibition . li .btn.halfBtn u b{
 	display: block;
 	font-weight: normal;
@@ -687,13 +672,11 @@ ul.verticalBtn>li>ul>li>a.focus:before{
     white-space: nowrap;
     width: 100%;
 }
-
 .list1B . li .btn.halfBtn u>*:nth-child(1),.list1B . li .btn.halfBtn u>*:nth-child(2){
     overflow: initial;
     text-overflow: initial;
     white-space: initial;
 }
-
 .list2.exhibition . li .btn.halfBtn u i{
     display: block;
     font-style: normal;
@@ -744,9 +727,7 @@ body.list2.calendar .leftArea{
 .list2.calendar .{
    /* padding-left: 35.3%;*/
 }
-
 .calendarArea #divDatepicker{
-
 }
 .calendarArea .ui-corner-all{
 	width: 100%;
@@ -779,7 +760,6 @@ body.list2.calendar .leftArea{
 .exhibition .calendarArea .ui-datepicker .ui-datepicker-prev,.exhibition .calendarArea .ui-datepicker .ui-datepicker-next{
 	background-color: #228b90;
 }
-
 .calendarArea .ui-state-hover,
 .calendarArea .ui-widget-content .ui-state-hover,
 .calendarArea .ui-widget-header .ui-state-hover,
@@ -851,7 +831,6 @@ body.list2.calendar .leftArea{
 	border: 0;
 	padding: 4px 8px;
 }
-
 .calendarArea .ui-state-highlight,
 .calendarArea .ui-widget-content .ui-state-highlight,
 .calendarArea .ui-widget-header .ui-state-highlight{
@@ -878,8 +857,8 @@ ul.choice{
 	margin:22px auto 10px auto;
 	/*overflow: hidden;*/
 }
-ul.choice:after { 
-    content: ".";  
+ul.choice:after {
+    content: ".";
     display: block;
     height: 0;
     clear: both;
@@ -916,7 +895,6 @@ ul.choice li a:hover,ul.choice li a.focus{
 .leftArea .year{
 	margin-top: 20px;
 }
-
 .list2 div.year ul.choice li {
   width: 47%;
   float: left;
@@ -943,15 +921,11 @@ display: table;
 	  background-color: #75bdc1;
 }
 /*████████████████↑↑共用↑↑████████████████*/
-
-
 /*===============第一層-活動===============(整理在後面了)
 .list1A.activity .leftArea{
 	background-color: #60a1c3;
 	background-image: url(../../images/listPageImg/activity.png);
 }*/
-
-
 /*--------第二層-當期活動--------(整理在後面了)
 .list2.activity .leftArea{
 	background-color: #60a1c3;
@@ -969,7 +943,6 @@ display: table;
 .list1B.exhibition ul.verticalBtn {
 	background-color:#4ea2a6;
 }*/
-
 /*--------第二層-焦點新聞--------(整理在後面了)
 .focusNews .leftArea{
   background-color: #be9dd1;
@@ -986,14 +959,12 @@ display: table;
 	right: 0;
 	background-image: url(../../images/listPageImg/focusNews.png);
 }*/
-
 /*--------第二層-展覽--------*/
 .list2.exhibition .leftArea{
 	/*background-image: url(../../images/listPageImg/activity_in.png);*/
 	/*background-size: 630px;*/
 	/*background-position: 36px bottom;*/
 }
-
 /*===============第一層-學習===============(整理在後面了)
 .learn .leftArea{
 	background-size: 65%;
@@ -1002,7 +973,6 @@ display: table;
 }*/
 /*--------第二層-學習--------*/
 .list2.learn .searchArea{
-
 }
 .list2.learn div.searchArea dl>*{
 	display: block;
@@ -1052,9 +1022,9 @@ display: table;
 		overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	 -webkit-line-clamp: 2; 
+	 -webkit-line-clamp: 2;
 	-o-line-clamp: 2;
-	-ms-line-clamp: 2; 
+	-ms-line-clamp: 2;
 	-webkit-box-orient: vertical;
 	-o-box-orient: vertical;
 	-ms-box-orient: vertical;
@@ -1082,8 +1052,6 @@ body.list_page.visit . h2,body.list_page.visit . h3,body.list_page.visit . h4{
 body.list_page.visit . h2 .btn{
 	background: url(../../images/icon/L_arrowsA_green.svg) no-repeat center/contain;
 }*/
-
-
 /*參觀指南*/
 .list1B.intro .btn.halfBtn>.words{
  display: table;
@@ -1148,26 +1116,22 @@ body.list_page.visit . h2 .btn{
 }
 .know ul.verticalBtn>li>a{
 	background-image: url(../../images/listPageImg/know_btn.png);
-	background-position: -172px 10px;	
+	background-position: -172px 10px;
 }
-
 body.list_page.know . h2 .btn{
 	background: url(../../images/icon/L_arrowsA_orange.svg) no-repeat center/contain;
 }
 .list1B.know ul.verticalBtn>li>ul{
 	  background-color: #cb4f2e;
 }*/
-
 /*===============第一層-加值服務===============(整理在後面了)
 body.service .leftArea{
 	background-color: #d98cbb;
-
 }
 .service.list1A .leftArea{
 	background-image: url(../../images/listPageImg/service.png);
 	  background-size: 86% auto;
 }*/
-
 /*電子賀卡*/
 .list2.service ul.choice li {
 	width: 100%;/*93*/
@@ -1194,7 +1158,7 @@ body.service .leftArea{
   padding: 0;
   display: table-cell;
   vertical-align: middle;
-}  
+}
 /*月曆桌布*/
 .list2.service.wallpaper li .halfBtn .pic{
 	height: 295px;
@@ -1229,7 +1193,6 @@ body.service .leftArea{
 	opacity: 1;
 	  margin-top: 19px;
 }
-
 .list2.service div.searchArea dt {
 	  width: initial;
 }
@@ -1267,11 +1230,7 @@ body.service .leftArea{
 .DIY .halfBtn .type a:hover {
   color: #FFF;
 }
-
-
-
 /*███████████████↓↓==控制不同單元顏色與圖片==↓↓███████████████*/
-
 	/*===============1.焦點訊息===============*/
 	.focusNews .leftArea{
 		background-color: #be9dd1;
@@ -1485,15 +1444,8 @@ body.service .leftArea{
 	}
 	.service div.searchArea input.btn {
 	  background-color: #b35990;
-	}  
-
+	}
 /*███████████████↑↑==控制不同單元顏色與圖片==↑↑███████████████*/
-
-
-
-
-
-
 /*████████搜尋區塊↓↓████████*/
 .leftArea.open u a.searchOpen {
 	background: url(../../images/icon/L_arrowsB.svg) no-repeat center/contain;
@@ -1526,7 +1478,6 @@ div.searchArea {
 	-webkit-transition-delay: .3s; /* Safari */
     transition-delay: .3s;
 }
-
 div.searchArea dl{
 	width: 100%;
 	display: block;
@@ -1635,9 +1586,7 @@ div.searchArea input.btn {
 	width: 13%;*/
 }
 div.searchArea input.btn:hover {
-	
 }
-
 /*雙語詞彙*/
 .mainSearch {
   margin-bottom: 12px;
@@ -1668,7 +1617,6 @@ height: 30px;
   padding: 0 22px;
   color: #FFF;
 }
-
 /*=====表格=====*/
 .searchArea select{
 	width: 100%;
@@ -1696,7 +1644,6 @@ input[type="text"]{
 .formstyle1 dl:nth-child(2)>*:nth-child(2){
 	width: 80%;
 }
-
 /*-------左邊選單右邊內頁的版-----------*/
 body.list_page .,body.pageSpecial .{
   background-color: #FFF;
@@ -1729,7 +1676,6 @@ body.list_page .{
 .path a:hover{
 	color: rgba(255, 255, 255, 0.74);
 }
-
 body.list_page . h2,body.pageSpecial . h2{
 	color: #000;
 	font-weight: normal;
@@ -1763,7 +1709,6 @@ body.list_page . h3,.wideList. h3{
 	height: 243px;
     padding-left: 50px;
 	display: table;
-	
 	/*chris新增*/
 	display: flex;
     align-items: center;
@@ -1774,7 +1719,6 @@ body.list_page . h3 span,.wideList. h3 span{
     vertical-align: middle;
     padding-right: 460px; */
 }
-
 body.learn.pageSpecial . h3{
 	color:#ff6d46;
 	background: none;
@@ -1820,7 +1764,7 @@ body.list_page . .top ul.fontSize,body.pageSpecial . .top ul.fontSize{
 	-webkit-animation-direction: normal;
 	transition: all 0.3s ease;
 }
-@keyframes 
+@keyframes
 goRotate {
 	 0% {
 	transform: rotate(0deg);
@@ -1829,7 +1773,7 @@ goRotate {
 	transform: rotate(360deg);
 	}
 }
- @-webkit-keyframes 
+ @-webkit-keyframes
 goRotate {
 	 0% {
 	-webkit-transform: rotate(0deg);
@@ -1838,7 +1782,6 @@ goRotate {
 	-webkit-transform: rotate(360deg);
 	}
 }
-
 .top ul.fontSize>li a{
 	display: block;
 	width: 40px;
@@ -1890,9 +1833,8 @@ goRotate {
 	background-image: url(../../images/icon/fontsize2.svg);
 	background-size: 58%;
 }
-
 body.list2.threeBlock .{
-	overflow-y: scroll;    
+	overflow-y: scroll;
 	min-height: 100vh;
 }
 body.list2.activity . {
@@ -1918,7 +1860,7 @@ body.list2.DIY . {
 	color: #46b8be;
 	font-size: 270%;
 	position: relative;
-	padding-left:66px; 
+	padding-left:66px;
 }
 .noResult h2:before{
   content: "";
@@ -1934,15 +1876,11 @@ body.list2.DIY . {
 	font-size: 167%;
 	margin-top: 40px;
 }*/
-
 /*打開*/
 .mobileOpenBtn{
 	display: none;
 }
-
-
 /*新LIST*/
-
 .wideListBtn .pic{
     width: 20%;
     height: 146px;
@@ -1981,7 +1919,7 @@ body.list2.DIY . {
 	transition: background .20s linear;
 }
 .wideListBtn .words{
-	padding:2% 6% 2% 4%; 
+	padding:2% 6% 2% 4%;
 	color: #424242;
 }
 .wideListBtn .words span{
@@ -2013,7 +1951,7 @@ body.list2.DIY . {
 	display: -webkit-box;
 	-webkit-line-clamp: 2; /*第3行要顯示點點點*/
 	-o-line-clamp: 2;
-	-ms-line-clamp: 2; 
+	-ms-line-clamp: 2;
 	-webkit-box-orient: vertical;
 	-o-box-orient: vertical;
 	-ms-box-orient: vertical;
@@ -2030,7 +1968,6 @@ body.list2.DIY . {
     display: block;
     font-size: 76%;
 }
-
 /*20161128 惟夫 修改*/
 .wideListBtn .words:after{
 	position: absolute;
@@ -2047,14 +1984,11 @@ body.list2.DIY . {
     -moz-transition: all .20s linear;
     transition: all .20s linear;
 }
-
 .wideList .grid>li:hover>a>.words:after{
     background: url(../../images/icon/R_arrowsC3.svg) center/contain;
     right: 40px;
 }
-
 /*結束*/
-
 a.applyBtn {
     background: #ff8a00;
     color: #FFF;
@@ -2072,11 +2006,9 @@ a.applyBtn:hover{
 .wideList.>.mCustomScrollBox>.mCSB_container{
 	position: static !important;
 }
-
 .list1B .leftArea .leftWrapper {
 	padding: 0;
 }
-
 .list2 .leftArea{
 }
 .list2 .leftArea:after {
@@ -2093,19 +2025,17 @@ a.applyBtn:hover{
     right: 0;
     z-index: -1;
 }
-
 .list2.learn div.searchArea i {
-    margin-top: 0; 
+    margin-top: 0;
 }
 .activiteTable tr {
     border-bottom: 1px solid #e8e8e8;
 }
 .activiteTable tr th:nth-child(1), .activiteTable tr td:nth-child(1) {width: 100px;min-width: 100px;padding: 0 ;
 	color: #a05d0d;}
-
 .activiteTable tr th, .activiteTable tr td {
     vertical-align: text-bottom;
-	padding: 13px 0;  
+	padding: 13px 0;
 }
 .CollectionBoxLeft a{
   display: block;
@@ -2118,9 +2048,7 @@ a.applyBtn:hover{
 #mCSB_2_scrollbar_vertical{
 	display: none !important;
 }
-
 /*-------*/
-
 .parkingMap{    position: relative;
     overflow: hidden;
     display: inline-block;}
@@ -2130,7 +2058,6 @@ a.applyBtn:hover{
     max-width: 900px;
     width: 100%;
 }
-
 .parkAll{
     padding: 0 !important;
     font-size: 80%;
@@ -2213,12 +2140,11 @@ ul.icons {
 }
 .icons>li:nth-child(1):before{ background-image: url(../../images/icon/arr_red.svg);}
 .icons>li:nth-child(2):before{ background-image: url(../../images/icon/arr_or.svg);}
-.icons>li:nth-child(3):before{  
+.icons>li:nth-child(3):before{
 	background-image: url(../../images/icon/parking2.svg);
 	background-color: #000;
 }
 /*---組織架構圖---*/
-
 .organization_chart{
     max-width: 724px;
     margin: 35px auto 40px auto;
@@ -2295,10 +2221,6 @@ ul.icons {
 .position_chart dl>*:nth-child(3){
 	width: 32%;
 }
-
-
-
-
 /*左邊區塊RWD調整*/
 @media screen and (max-width: 2020px)  {
 	.leftArea .leftWrapper {
@@ -2337,7 +2259,7 @@ ul.icons {
 /*20170524 惟夫 新增*/
 @media screen and (max-width: 1600px) {
     div.searchArea dd input.short {
-        font-size: 80%; 
+        font-size: 80%;
 	}
 }
 /*結束*/
@@ -2377,7 +2299,6 @@ ul.icons {
 	input#datepicker2 {
 	    margin-left: 0;
 	}
-    
     /*惟夫新增的地方*/
     .list1B . li .btn.halfBtn u, .list2.exhibition . li .btn.halfBtn u{
         font-size: 100%;
@@ -2405,7 +2326,7 @@ ul.icons {
 	}
 	div.searchArea img {
 		width: 20px;
-	}	
+	}
 	ul.choice li {
 		width: 42%;
 	}
@@ -2419,7 +2340,6 @@ ul.icons {
 	    width: 82%;
 	    margin-bottom: 6px;
 	}*/
-    
     /*惟夫新增的地方*/
     .list1B.oneBlock . li .btn.halfBtn h4{
         font-size: 130%;
@@ -2456,7 +2376,7 @@ ul.icons {
 		width:253px;
 	}
 	.list1B .leftArea h2 {
-		font-size:245%;  
+		font-size:245%;
 		font-size: 3.7vw;
 	    padding: 0 21px 0px 21px;
 	    height: 130px;
@@ -2534,9 +2454,6 @@ ul.icons {
     }
     /*結束*/
 }
-
-
-
 /*===========RWD=============*/
 @media screen and (min-width: 0px) and (max-width: 900px) {
 	. li .btn{
@@ -2674,7 +2591,6 @@ ul.icons {
         height: 290px;
         /*20170721惟夫修改 結束*/
 	}
-
 	.list1B .halfBtn>.words,.list2.exhibition .halfBtn>.words{
 		float: none;
 		width: 100%;
@@ -2792,7 +2708,6 @@ ul.icons {
 		overflow: initial !important;
 		position: initial !important;
 	}
-
 	/*左邊有清單的*/
 	.leftArea.mobileOpen .verticalBtn {
 	  display: block;
@@ -2855,7 +2770,7 @@ ul.icons {
 		height: 227px;
 	}
 	.list2.service.wallpaper li .halfBtn h4,.list2.service.DIY li .halfBtn h4 {
-		height: auto; 
+		height: auto;
 	}
 	.list2.service.eCard li .btn.halfBtn .pic{
 		height: 227px;
@@ -2889,7 +2804,6 @@ ul.icons {
 	.wideListBtn .words {
 	    padding: 5% 6%;
 	}
-
 	/*標題顏色*/
 	body.list_page . h3,.wideList. h3{
 		position: relative;
@@ -2965,7 +2879,6 @@ ul.icons {
 	body.list_page . h3 span, .wideList. h3 span {
 	    padding-right: 0;
 	}
-
 	.list1B.intro .btn.halfBtn>.words {
 	    display: block;
 	}
@@ -2974,7 +2887,6 @@ ul.icons {
         /*max-height: 32px;*/
         /*20170721 惟夫修改 結束*/
 		margin: 2% 0;
-
 	}
 }
 @media screen and (max-width: 500px){
@@ -3000,18 +2912,16 @@ ul.icons {
    		height: auto;
     }
 	.list1B.intro .btn.halfBtn>.words {
-	    min-height: auto; 
+	    min-height: auto;
 	}
 	.list1B .leftArea h2 {
 	  padding: 18px 38px 0px 22px;
 	}
 	.list1B .leftArea h3 {padding: 0 62px 25px 22px}
-
 	.textWrapper .activiteTable th,
 	.textWrapper .activiteTable td{
 	    display: block;padding: 0 ;
 	}
-
 	.textWrapper .activiteTable tr{
 		display: block;
 		padding: 20px 0;
@@ -3035,13 +2945,11 @@ ul.icons {
 	    background-position: right bottom;
 	}
 }
-
 @media screen and (max-height: 700px) {
 	.list2 .leftArea:after {
 		display: none;
-	}	
+	}
 }
-
 @media screen and (max-width: 1024px) {
 	ul.parkAll{position: relative;left: 0;top: 0;}
 	ul.parkAll>li{float: left;width: 33.3%;}
@@ -3049,7 +2957,6 @@ ul.icons {
 	    float: none;
 	    width: 100%;
     margin-top: 7px;
-
 	}
 	ul.parkAll.outside>li>ul>li {
 		float: left;
@@ -3097,7 +3004,7 @@ ul.icons {
 	    margin-bottom: 13px;
 	}
 	.parkAll>li>ul>li>ul {
-	     margin-bottom: 0; 
+	     margin-bottom: 0;
 	}
 	/*院區地圖*/
 	.npm_map>span {
@@ -3107,7 +3014,7 @@ ul.icons {
 	    overflow-y: scroll;
 	    overflow-x: scroll;
 	}
-	.npm_map{    
+	.npm_map{
 		width: 320px;
 	    margin: 0 auto;
 	    display: block;
@@ -3115,24 +3022,19 @@ ul.icons {
 	.npm_map img {
 	    width: 680px;
 	}
-
 	.list2.learn.threeBlock . li .btn.album {
 	  height: 264px;
 	}
 }
-
 .drive iframe {
     margin-top: 10px;
 }
-
 @media screen and (max-width: 375px) {
 .parkingMap {
     width: 100%;
 }
 }
-
 /*-------*/
-
 /* 20180305填寫舉報功能 */
 .contactNew dt, .contactNew dd{
 	min-height: 35px;
