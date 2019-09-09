@@ -7,7 +7,11 @@ display:none; \0 display:none; \9 display:none !important;
 }
 .top {display:none; \0 display:none; \9 display:none !important;
 }
+
+
+
 /*@media print {*/
+
 	.floorAll .floorMap{height: 500px}
     /*活動*/
     .grid li {
@@ -16,6 +20,7 @@ display:none; \0 display:none; \9 display:none !important;
         position:initial !important;
         float: left !important;
     }
+
 	.Main {
 		height: auto;
 	}
@@ -60,13 +65,17 @@ display:none; \0 display:none; \9 display:none !important;
 	.list2.service.wallpaper li .halfBtn .pic {
 	    height: auto !important;
 	}
+
 	.pageB.learn . .image-row img{
 		display: block !important;
 	}
+
+
 	.floorAll .floorMap img,
 	.floorAll .floorIcon img{
-		display: block !important;
+		display: block !important;	
 	}
+
 	.pageB .leftArea{
 		background: #FFF !important;
 	}

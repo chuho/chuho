@@ -2,6 +2,7 @@
     either  NONE  or  'fraction'  or  'fraction'  +  one  of  'fraction1'...'fraction10'.
         fraction  sets  box-sizing:  border-box,  so  that  padding  on  the  element  is  taken  out  ;
     either  NONE  or  'center'  or  'right'
+
 */
 .m-carousel  {
     position:  relative;
@@ -40,6 +41,7 @@
         margin-left:  41.667%;  }
     .m-carousel  img  {
         -ms-interpolation-mode:  bicubic;  }
+
 .m-carousel-inner  {
     position:  relative;
     white-space:  nowrap;

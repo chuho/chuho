@@ -12,15 +12,15 @@ html::-webkit-scrollbar {
     width: 0px;/*zhuhe.是否隱藏滾動條，這裏取消隱藏右側的滑動*/
 }
 html::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
 html::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: rgba(0,0,0,0.2);
-    -webkit-box-shadow: inset 0 0 6px rgba(144,144,144,0.2);
+    background: rgba(0,0,0,0.2); 
+    -webkit-box-shadow: inset 0 0 6px rgba(144,144,144,0.2); 
 }
 /*先去掉楷體
 @font-face {
@@ -65,7 +65,7 @@ textarea{
 }
 form{
 	width: 100%;
-	height: 100%;
+	height: 100%;	
 }
 select{
     font-family: "Microsoft JhengHei";
@@ -132,7 +132,7 @@ a:hover:not(ul.verticalBtn > li > a){
   height: 75%;writing-mode:tb-rl;
   border-bottom:22px solid white;
   writing-mode: vertical-rl;
-  -webkit-writing-mode: vertical-rl;/* float:right; div靠右 */
+  -webkit-writing-mode: vertical-rl;/* float:right; div靠右 */ 
   }
 /*==文字靠右==*/
 /*==HEADER==*/
@@ -199,6 +199,7 @@ a:hover:not(ul.verticalBtn > li > a){
 	-moz-transition: all .20s linear;
 	transition: all .20s linear;
 }
+
 .subNav.closeBar {
 	padding-right: 100px;
 	top: -52px;
@@ -324,6 +325,7 @@ a.subNavBtn {
 	z-index: 999;
 }
 .subNav .share li{
+
 }
 .subNav .share ul a{
 	text-indent: -9999px;
@@ -425,11 +427,14 @@ a.subNavBtn {
 	-moz-transition: all .20s linear;
 	transition: all .20s linear;
 }
+
 .subNav .lang ul li:last-child a{
 	line-height: 150%;
 	line-height: 110%;
     padding-top: 3px;
 }
+
+
 /*==Footer==*/
 .Footer{
 	padding-right: 6%;/*zhuhe.改成right*/
@@ -547,7 +552,7 @@ width: 100%;
 }
 .Footer .add p>span:before{
 	content:"";
-	display: block;
+	display: block; 
 }
 /*.Footer .address {
   width: 100%;
@@ -662,6 +667,7 @@ width: 100%;
 	color: #1F787D;
 	background-color: #FFF;
 	border-radius: 6px;*/
+    
     /*20161125 惟夫 修改*/
     content: "";
     position: absolute;
@@ -685,6 +691,7 @@ width: 100%;
 	border-style: solid;
 	border-width: 5px 10px 5px 0;
 	border-color: transparent #ffffff transparent transparent;*/
+    
     /*20161125 惟夫 修改*/
     content: "";
     display: block;
@@ -931,7 +938,9 @@ width: 100%;
 	padding-top: 10px;
 	padding-bottom: 25px;
 }
+
 /*=====表格=====*/
+
 .textWrapper .tableList,
 .textWrapper .tableDownload,
 .textWrapper .newsTable{
@@ -1049,6 +1058,7 @@ width: 100%;
 .textWrapper .newsTable table tr>*:last-child{
     padding: 10px 0px 10px 25px;
 }
+
 .textWrapper .newsTable table tr>*:last-child > a,.textWrapper .footable-row-detail-row>*:last-child a,.footable-row-detail-row>*:last-child a{
     background: #ff8a00;
     color: #FFF;
@@ -1208,10 +1218,10 @@ ul.CollectionList li a.focus:before {
   height: 40px;
   width: 40px;
   line-height: 41px;
-  /*20170525 惟夫 修改*/
+  /*20170525 惟夫 修改*/  
   color: #fff;
   background-color: #d3d3d3;
-  /*結束*/
+  /*結束*/      
 }
 .pageNum a:last-child,.pageNum a:first-child{
 border-radius: 5px;
@@ -1286,7 +1296,7 @@ ul.timeline {
 	vertical-align: top;
     margin:0.3em;
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 20px;	
 }
 .director_container .pic{
 	height: 100%;
@@ -1302,9 +1312,11 @@ ul.timeline {
 .desc_content  {
 	margin-left: 30px;
 }
+
 .clear{
 	clear: both;
 }
+
 .director_top{
 	height: 20px;
 }
@@ -1317,7 +1329,8 @@ ul.timeline {
 .director_title b{
 	font-weight:normal !important;
 	}
-.director_subtitle{
+
+.director_subtitle{	
 	background-color:#c2e8ea;
 	padding:10px 0px 10px 20px;
 }
@@ -1452,7 +1465,7 @@ span.anti_titleC b {
 	padding-bottom: 47%;
 	background-image: url(../../images/textArea/floor_map_antiquities2.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: cover;	
 }
 .visiting_antiquities3{
 	width: 80%;
@@ -1460,7 +1473,7 @@ span.anti_titleC b {
 	padding-bottom: 47%;
 	background-image: url(../../images/textArea/floor_map_antiquities3.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: cover;	
 }
 .visiting_other{
 	width: 80%;
@@ -1468,7 +1481,7 @@ span.anti_titleC b {
 	padding-bottom: 56%;
 	background-image: url(../../images/textArea/floor_map_other.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: cover;	
 }
 .visiting_icon{
 	width: 80%;
@@ -1537,9 +1550,9 @@ a.bus19{background-image:url(../../images/textArea/bus19.gif); }
 .mm-listview > li.others.typeA{bottom: -68px;}
 .mm-listview > li.others.typeA a{ padding: 0;  line-height: 1.2;}
 #navMenu .mm-listview > li.others.sitemap{left: 9%;}
-#navMenu .mm-listview > li.others.qa{left:30%;}
-#navMenu .mm-listview > li.others.contact{left: 51%;}
-#navMenu .mm-listview > li.others.sBranch{left: 72%;}
+#navMenu .mm-listview > li.others.qa{left:30%;} 
+#navMenu .mm-listview > li.others.contact{left: 51%;}  
+#navMenu .mm-listview > li.others.sBranch{left: 72%;} 
 #navMenu .mm-listview > li.others.searchA {
 	top: 22px;
 	left: 18px;
@@ -1657,6 +1670,7 @@ a.bus19{background-image:url(../../images/textArea/bus19.gif); }
     border-bottom: 1px dashed #9C9C9D;
 }
 .layoutMap ul>li>ul{
+
 }
 .layoutMap ul>li>ul span {
     display: inline-block;
@@ -1725,6 +1739,7 @@ ul.mapIcons li img {
 	opacity: 0;
 	z-index: -1;
 }
+
 th#award8 {
     width: 10.8%;
 }
@@ -1753,8 +1768,8 @@ body.msg . h2:before{
   left: 0;
 }
 body.msg . h3 span{
-    display: inline-block !important;
-    padding-right: 0 !important;
+    display: inline-block !important; 
+    padding-right: 0 !important; 
 }
 .noResultAll{
     width: 100%;
@@ -1770,7 +1785,7 @@ body.msg . h3 span{
 	color: #46b8be;
 	font-size: 270%;
 	position: relative;
-	padding-left:66px;
+	padding-left:66px; 
 }
 .noResult h2:before{
   content: "";
@@ -1845,7 +1860,7 @@ body.msg . h3 span{
 	    width: 51vw;
 	}
 	.exhibition.msg .noResultAll,.activity.msg .noResultAll{
-	    width: auto;
+	    width: auto; 
 	    margin-left: -10vw;
 	}
     /*20161230 惟夫 新增*/
@@ -1935,6 +1950,7 @@ body.msg . h3 span{
 	section{
 		width: 100%;
 	}
+
 	.MobileHidden{
 		display: none !important;
 	}
@@ -1985,7 +2001,7 @@ body.msg . h3 span{
 	/*padding:86% 0px 30px 5%;
 	background-color: #eae7e0;
 	height: 0px;
-	 padding-bottom:30.25%;
+	 padding-bottom:30.25%; 
 	background-image: url("../../images/textArea/president2017.jpg");
 	background-size:100% auto;
 	background-position:top center ;
@@ -2054,6 +2070,7 @@ body.msg . h3 span{
 	li.others {
 	    font-size: 90%;
 	}
+
 	#navMenu .mm-listview > li.others {
 	    font-size: 90%;
 	}
@@ -2072,7 +2089,7 @@ body.msg . h3 span{
 	    -o-transition: all 0s linear;
 	    -webkit-transition: all 0s linear;
 	    -moz-transition: all 0s linear;
-	    transition: all 0s linear;
+	    transition: all 0s linear;    
 	    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 	}
 	.fixedBtn:hover{
@@ -2087,7 +2104,7 @@ body.msg . h3 span{
 	    display: table-cell;
 	    padding-top: 25px;
 	    vertical-align: middle;
-	    text-align: center;
+	    text-align: center;    
 	    line-height: 1.1;
 	    display: none;
 	}
@@ -2099,6 +2116,7 @@ body.msg . h3 span{
 	    bottom:125px;
 	    background:#f99620 url(../../images/icon/goBack.svg) no-repeat center 7px/46% 46%;
 	}
+
 	.president_img span {
 	    left: 36%
 	}
@@ -2124,6 +2142,7 @@ body.msg . h3 span{
 	.organization_chart ul li:last-child{
 		border-bottom:none;
 	}
+
     .president_img span{
 /*		position: relative;
 	    width: auto;
@@ -2163,16 +2182,18 @@ body.msg . h3 span{
 	    background: #e7e1d1 url(../../images/noResult_bg3.png) no-repeat right bottom/contain;
 	}
 	.mm-listview > li.others.typeA {bottom: -72px;}
+
 }
 @media screen  and (max-width: 500px) {
 	#navMenu .mm-listview > li.others.sitemap{left: 7%;}
-	#navMenu .mm-listview > li.others.qa{left:29%;}
-	#navMenu .mm-listview > li.others.contact{left: 52%;}
-	#navMenu .mm-listview > li.others.sBranch{left: 74%;}
+	#navMenu .mm-listview > li.others.qa{left:29%;} 
+	#navMenu .mm-listview > li.others.contact{left: 52%;}  
+	#navMenu .mm-listview > li.others.sBranch{left: 74%;} 
+
 	.mm-listview > li.others.fanpage{left:5%;}
 	.mm-listview > li.others.youtube{left: 27.6%;}
 	.mm-listview > li.others.app{left: 49.5%;}
-	.mm-listview > li.others.eshop{left: 72.2%;}
+	.mm-listview > li.others.eshop{left: 72.2%;}	
 }
 @media screen  and (max-width: 350px) {
 	#navMenu .mm-listview > li.others {
@@ -2180,9 +2201,9 @@ body.msg . h3 span{
 	}
 	.mm-listview > li.others.typeA {bottom: -55px;}
 	#navMenu .mm-listview > li.others.sitemap{left:4%;}
-	#navMenu .mm-listview > li.others.qa{left:28%;}
-	#navMenu .mm-listview > li.others.contact{left: 51%;}
-	#navMenu .mm-listview > li.others.sBranch{left: 75%;}
+	#navMenu .mm-listview > li.others.qa{left:28%;} 
+	#navMenu .mm-listview > li.others.contact{left: 51%;}  
+	#navMenu .mm-listview > li.others.sBranch{left: 75%;} 
 	.mm-listview > li.others.typeB {
 	    bottom: -160px;
 	}
@@ -2305,7 +2326,7 @@ ul.npmPhoto {
     z-index: 9999;
     color: #000;
     font-weight: bold;
-}
+}    
 .Main . h3>a:focus{
     position: static;
 }

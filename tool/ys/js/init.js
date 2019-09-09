@@ -72,15 +72,15 @@ var MGR = {
 		MGR.start();
 		// load some colored swatches...
 		MGR.initSwatches();
-		},
+		},	
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	 NAMED SWATCHES...
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-	// remotely get swatches
+	// remotely get swatches	
 	getSwatches: function( lastpointer ){
 		// add in remote call later on...
 		return Color._names;
-		},
+		}, 
 	// load some swatches...
 	loadSwatches: function(){
 		var obj = MGR.getSwatches(), i = 0, hex, html,
@@ -89,7 +89,7 @@ var MGR = {
 		for ( hex in obj ){
 			html = '<div class="swatch" style="background-color:#'+( hex )+'" '
 				+'title="'+( obj[ hex ].split(",")[0] )+'">&nbsp;</div>';
-			$( html ).appendTo( $section );
+			$( html ).appendTo( $section ); 
 			if ( i++ > 999 ) break;
 			}
 		MGR.$swatchesDiv.append( $section );
@@ -97,9 +97,9 @@ var MGR = {
 		},
 	// animate some swatches...
 	moveSwatches: function( x, auto ){
-		//if ( MGR.swatchesStopped )
+		//if ( MGR.swatchesStopped ) 
 			return;
-		MGR.swatchesTimer = setTimeout( function(){
+		MGR.swatchesTimer = setTimeout( function(){					 
 			// find the new position...
 			var pos = ( auto ? x * MGR.swatchDir : x ) + MGR.lastPos;
 			// pan to the right...
@@ -107,13 +107,13 @@ var MGR = {
 			// pan to the left...
 			else if ( auto && pos >= 0 ) MGR.swatchDir = -1;
 			// limit the positon...
-			pos = Math.max( Math.min( pos, 0 ), MGR.viewport - MGR.section );
+			pos = Math.max( Math.min( pos, 0 ), MGR.viewport - MGR.section ); 
 			// set the new position...
 			MGR.$swatchesSection.animate({ left: pos }, 300, "linear" );
-			// remember
+			// remember 
 			MGR.lastPos = pos;
 			// recurse
-			MGR.moveSwatches( x, auto );
+			MGR.moveSwatches( x, auto ); 
 			}, 300 );
 		},
 	stopSwatches: function( x ){
@@ -122,7 +122,7 @@ var MGR = {
 		if ( x ) MGR.moveSwatches( x );
 		else MGR.swatchesStopped = true;
 		},
-	// initialize the animation props
+	// initialize the animation props	
 	startSwatches: function( $section, num ){
 		return;
 		MGR.stopSwatches();
@@ -154,7 +154,7 @@ var MGR = {
 		// event delegation...
 		$('.swatch', MGR.$swatchesDiv ).live("click",function(){
 			var clr = $( this ).css("background-color");
-			if ( clr = Color( clr ) ) window.location = clr.hex();
+			if ( clr = Color( clr ) ) window.location = clr.hex();									 
 			});
 		MGR.loadSwatches();
 		},
@@ -168,7 +168,7 @@ var MGR = {
 		var $elem = $( this ).html(""),
 		img = new Image();
 		img.title = hex;
-		img.onload = function(){
+		img.onload = function(){ 
 			$elem.append( img );
 			};
 		img.src = 'img/'+ type +'.php?x='+ hex;
@@ -178,13 +178,15 @@ var MGR = {
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	 RGB SLIDERS...
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	 HSL PICKER...
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	
 	// no trailing commas...
 	iesucks: true
 	};
 // attach to the body/dom.ready event
 $( document.body ).bind( "ready", MGR.init );
-/******************************************************************************/
+/******************************************************************************/		  
 })( jQuery, Color );

@@ -22,7 +22,9 @@
 	})();
     </script>
     <script type="text/javascript">
+	
 	(function ($) {
+
 	function Vector(x, y) {
 	    this.x = x;
 	    this.y = y;
@@ -57,6 +59,7 @@
 	        return this;
 	    }
 	};
+
 	function Petal(stretchA, stretchB, startAngle, angle, growFactor, bloom) {
 	    this.stretchA = stretchA;
 	    this.stretchB = stretchB;
@@ -92,6 +95,7 @@
 	        }
 	    }
 	}
+
 	function Bloom(p, r, c, pc, garden) {
 	    this.p = p;
 	    this.r = r;
@@ -125,6 +129,7 @@
 	        }
 	    }
 	}
+
 	function Garden(ctx, element) {
 	    this.blooms = [];
 	    this.element = element;
@@ -160,6 +165,7 @@
 	        this.ctx.clearRect(0, 0, this.element.width, this.element.height);
 	    }
 	}
+
 	Garden.options = {
 	    petalCount: {
 	        min: 5,
@@ -206,7 +212,9 @@
 	    return Garden.rgba(Math.round(Garden.random(min, max)), Math.round(Garden.random(min, max)), Math.round(Garden.random(min, max)), a);
 	};
 	Garden.previewColor = "rgba(127,127,127,0.4)";
+
 	$(function () {
+
 	    function renderPreview(caller) {
 	        clearInterval(previewInterval);
 	        previewInterval = setInterval(function () {
@@ -220,21 +228,25 @@
 	            left: $caller.position().left - 40
 	        }, 100).fadeIn("slow");
 	    }
+
 	    function previewBloomRadius() {
 	        $lblPreview.html("Size [left: min, right: max]");
 	        preview.createBloom(80, 100, Garden.options.bloomRadius.min, Garden.previewColor, Garden.options.petalCount.min);
 	        preview.createBloom(220, 100, Garden.options.bloomRadius.max, Garden.previewColor, Garden.options.petalCount.max);
 	    }
+
 	    function previewPetalCount() {
 	        $lblPreview.text("Petals [left: min, right: max]");
 	        preview.createBloom(80, 100, 30, Garden.previewColor, Garden.options.petalCount.min);
 	        preview.createBloom(220, 100, 30, Garden.previewColor, Garden.options.petalCount.max);
 	    }
+
 	    function previewPetalStretch() {
 	        $lblPreview.text("Bezier stretch factor");
 	        preview.createBloom(80, 100, 30, Garden.previewColor, Garden.options.petalCount.min);
 	        preview.createBloom(220, 100, 30, Garden.previewColor, Garden.options.petalCount.max);
 	    }
+
 	    function previewColor() {
 	        $lblPreview.text("Color variability");
 	        for (var i = 1; i < 5; i++) {
@@ -243,45 +255,62 @@
 	            }
 	        }
 	    }
+
 	    function onChangeBloomRadius(v, caller) {
 	        saveValues("bloomRadius", v);
 	        renderPreview(caller);
 	        previewBloomRadius();
 	    }
+
 	    function onChangePetalCount(v, caller) {
 	        saveValues("petalCount", v);
 	        renderPreview(caller);
 	        previewPetalCount();
 	    }
+
 	    function onChangePetalStretch(v, caller) {
 	        saveValues("petalStretch", v);
 	        renderPreview(caller);
 	        previewPetalStretch();
 	    }
+
 	    function onChangeColor(v, caller) {
 	        saveValues("color", v);
 	        renderPreview(caller);
 	        previewColor();
 	    }
+
 	    function saveValues(name, values) {
 	        Garden.options[name].min = values[0];
 	        Garden.options[name].max = values[1];
 	    }
+
 	    // variables
+
 	    var mousePressed = false, lastPos = new Vector(0, 0), actualPos = new Vector(0, 0), $window = $(window), $lblPreview = $("#lblPreview");
+
 	    // garden
+
 	    var gardenCtx, gardenCanvas, $garden, garden, previewInterval;
+
 	    // preview
+
 	    var previewCtx, previewCanvas, $preview, preview, $previewArea;
+
 	    // saveCanvas
+
 	    var saveCtx, saveCanvas;
+
 	    // setup save
+
 	    saveCanvas = $("#save")[0];
 	    saveCanvas.width = $window.width();
 	    saveCanvas.height = $window.height();
 	    saveCtx = saveCanvas.getContext("2d");
 	    saveCtx.globalCompositeOperation = "lighter";
+
 	    // setup garden
+
 	    $garden = $("#garden");
 	    gardenCanvas = $garden[0];
 	    gardenCanvas.width = $window.width();
@@ -289,18 +318,24 @@
 	    gardenCtx = gardenCanvas.getContext("2d");
 	    gardenCtx.globalCompositeOperation = "lighter";
 	    garden = new Garden(gardenCtx, gardenCanvas);
+
 	    // setup preview
+
 	    $preview = $("#preview");
 	    $previewArea = $("#previewArea");
 	    previewCanvas = $preview[0];
 	    previewCtx = previewCanvas.getContext("2d");
 	    previewCtx.globalCompositeOperation = "lighter";
 	    preview = new Garden(previewCtx, previewCanvas);
+
 	    // renderLoop
+
 	    setInterval(function () {
 	        garden.render();
 	    }, Garden.options.growSpeed);
+
 	    // sliders
+
 	    $("#sliderBloomRadius").slider({
 	        range: true,
 	        min: 3,
@@ -313,6 +348,7 @@
 	            onChangeBloomRadius(ui.values, this);
 	        }
 	    });
+
 	    $("#sliderPetalCount").slider({
 	        range: true,
 	        min: 3,
@@ -325,6 +361,7 @@
 	            onChangePetalCount(ui.values, this);
 	        }
 	    });
+
 	    $("#sliderPetalStretch").slider({
 	        range: true,
 	        min: 0.2,
@@ -337,6 +374,7 @@
 	            onChangePetalStretch(ui.values, this);
 	        }
 	    });
+
 	    $("#sliderColor").slider({
 	        range: true,
 	        min: 0,
@@ -349,7 +387,9 @@
 	            onChangeColor(ui.values, this);
 	        }
 	    });
+
 	    // events
+
 	    $garden.bind("mouseover", function (e) {
 	        clearInterval(previewInterval);
 	        $previewArea.fadeOut("slow");
@@ -386,16 +426,21 @@
 	        saveCtx.drawImage(gardenCanvas, 0, 0);
 	        window.open(saveCanvas.toDataURL('image/png'), 'FlowerPowerImage');
 	    });
+
 	    // Welcome screen
+
 	    $("#welcomeScreen").css({
 	        top: $window.height() - 100,
 	        left: $window.width() / 2 - 300
 	    }).fadeIn("slow");
+
 	    $("body").bind("click", function (e) {
 	        $("#welcomeScreen").fadeOut("slow");
 	        $(this).unbind("click");
 	    });
+
 	    // About
+
 	    $("#btnAbout").toggle(function (e) {
 	        $("#aboutScreen").css({
 	            width: $("#configArea div.label:first").width() - 20,
@@ -405,10 +450,13 @@
 	    }, function (e) {
 	        $("#aboutScreen").fadeOut("slow");
 	    });
+
 	});
 	})(jQuery);
+	
 	</script>
 </head>
+
 <body>
     <div id="aboutScreen">
     <h3>朱賀旗下</h3>
@@ -431,7 +479,7 @@ zhuhe@zhuhe.tw
     <div class="label">大小</div>
     <div class="slider"><div id="sliderBloomRadius" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header" style="left: 5.405405405405405%; width: 40.54054054054055%; "></div><a href="FlowerPower.htm" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 5.405405405405405%; "></a><a href="FlowerPower.htm" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 45.94594594594595%; "></a></div></div>
     <div class="label">花瓣</div>
-    <div class="slider"><div id="sliderPetalCount" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header" style="left: 9.090909090909092%; width: 45.454545454545446%; "></div><a href="FlowerPower.htm" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 9.090909090909092%; "></a><a href="FlowerPower.htm" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 54.54545454545454%; "></a></div></div>
+    <div class="slider"><div id="sliderPetalCount" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header" style="left: 9.090909090909092%; width: 45.454545454545446%; "></div><a href="FlowerPower.htm" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 9.090909090909092%; "></a><a href="FlowerPower.htm" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 54.54545454545454%; "></a></div></div>    
     <div class="label">曲線</div>
     <div class="slider"><div id="sliderPetalStretch" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header" style="left: 0%; width: 58.333333333333336%; "></div><a href="FlowerPower.htm" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%; "></a><a href="FlowerPower.htm" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 58.333333333333336%; "></a></div></div>
     <div class="label">配色</div>

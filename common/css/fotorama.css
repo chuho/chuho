@@ -16,14 +16,18 @@
 	min-width: 0!important;
 	padding: 0!important;
 }
+
 /* 20161205 惟夫 新增 */
 /*
 .fotorama__grab > div:nth-child(1) > .fotorama__img{
     left: 0 !important;
-    width: 100% !important; 20170520
+    width: 100% !important; 20170520 
 }
+
 giini 拿掉  因為部分圖形會變形 20170518問題單*/
+
 /* 結束 */
+
 .fotorama__wrap .fotorama__grab{
 	cursor: grab;
 	cursor: move;
@@ -683,6 +687,8 @@ section.publicize .fotorama__arr--next{
 	    width: 43px;
 	    height: 43px;
 	}
+	
+
 }
    /*20170206 giini因應新聞專區顯示說明*/
     /*#photoList .fotorama__caption__wrap{display: none;}*/

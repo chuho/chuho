@@ -1,13 +1,13 @@
 body {
 	margin: 0;
 	padding: 0;
-	background: #191919 url("layout/bg_gradient.gif") repeat-y center top;
+	background: #191919 url("layout/bg_gradient.gif") repeat-y center top;	
 	color: #FFF;
 	text-align: center;
 	font: 14px/18px Arial, Helvetica, sans-serif;
-	}
+	}	
 a {
-	color: #33F;
+	color: #33F;	
 	}
 #logo {
 	display: block;
@@ -53,7 +53,7 @@ a {
 	}
 	*/
 #swatches {
-	margin: 5px 40px;
+	margin: 5px 40px;	
 	margin: 5px 0;
 	height: 30px;
 	/*overflow: hidden;*/
@@ -61,7 +61,7 @@ a {
 	}
 #swatches .sect {
 	/*
-	position: absolute;
+	position: absolute; 
 	top: 0;
 	left: 0;
 	*/

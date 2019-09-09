@@ -1,4 +1,4 @@
-/* @license
+/* @license 
  * jQuery.print, version 1.3.3
  *  (c) Sathvik Ponangi, Doers' Guild
  * Licence: CC-By (http://creativecommons.org/licenses/by/3.0/)
@@ -18,6 +18,7 @@
         }
         return jqObj;
     }
+
     function printFrame(frameWindow, timeout) {
         // Print the selected window/iframe
         var def = $.Deferred();
@@ -42,6 +43,7 @@
         }
         return def;
     }
+
     function printContentInNewWindow(content, timeout) {
         // Open a new window and print selected content
         var w = window.open();
@@ -49,6 +51,7 @@
         w.document.close();
         return printFrame(w, timeout);
     }
+
     function isNode(o) {
         /* http://stackoverflow.com/a/384380/937891 */
         return !!(typeof Node === "object" ? o instanceof Node : o && typeof o === "object" && typeof o.nodeType === "number" && typeof o.nodeName === "string");
