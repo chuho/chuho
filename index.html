@@ -1,31 +1,706 @@
 <!DOCTYPE html>
-<html lang="zh">
-  <head>
-    <meta charset="UTF-8">
-    <title>ChuHo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/zhuhestyle.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/zhuhelight.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">ChuHo</h1>
-      <h2 class="project-tagline">chuho|Republic Of China</h2>
-      <a href="/404" class="btn">輕聽</a>
-      <a href="/404" class="btn">肇基</a>
+<html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+<link rel="apple-touch-icon" href="./images/appicon.png" />
+<link rel="stylesheet" type="text/css" href="./common/css/common.css?v=2" />
+<link rel="stylesheet" type="text/css" href="./common/css/index.css?v=2" />
+<link rel="stylesheet" type="text/css" id="link2"/>
+<link rel="stylesheet" type="text/css" href="./common/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="./common/css/fotorama.css?v=2" />
+<link rel="stylesheet" type="text/css" href="./common/css/carousel.css" />
+<link rel="stylesheet" type="text/css" href="./common/css/carousel-style.css" />
+<script type="text/javascript" src="./common/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./common/js/jquery-migrate-3.0.0.js"></script>
+<script type="text/javascript" src="./common/js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="./common/js/animate.js"></script>
+<script type="text/javascript" src="./common/js/customer.js?v=1"></script>
+<script type="text/javascript" src="./common/js/imgLiquid-min.js"></script>
+<script type="text/javascript" src="./common/js/jquery.HSlider.js"></script>
+<script type="text/javascript" src="./common/js/carousel.js"></script>
+<script type="text/javascript" src="./common/js/TabKeyCtl.js"></script>
+<script type="text/javascript" src="./common/js/jquery.mmenu.min.js"></script>
+<script src="./common/js/fotorama.js"></script>
+<script src="./common/js/zhuhe.js"></script>
+<script type="text/javascript">
+    var Show1 = false; var Show2 = false; var Show3 = false; var Show4 = false; var Show5 = false; var Show6 = false;
+    $(function () {
+    $(".channelPic").imgLiquid({ fill: true });
+    //  $(".slider").HSlider();
+    });
+    //====20150910=================================================
+    var gName = fnGetBrowser();
+    if ((gName == "Netscape") || (gName == "IE")) {
+    
+    var headID = document.getElementsByTagName("head")[0];
+    var newCss = document.createElement('link');
+    newCss.type = 'text/css';
+    newCss.rel = "stylesheet";
+    newCss.href = "../common/css/all-ie-only.css";
+    headID.appendChild(newCss);
+    }
+//============================================================================================
+</script>
+<script type="text/javascript">
+    $(function () {     
+    //友站資訊
+    $(".m-item ul").each(function (index) {
+    if ($(this).find("li").length == 0) {
+    $(this).parent(".m-item").remove();
+    }
+    });
+    $(".m-item div").each(function (index) {
+    if ($(this).find("a").length == 0) {
+    $(this).parent(".m-item").remove();
+    }
+    });
+//$('#m-carousel_news,#m-carousel_news1,#m-carousel_news2,m-carousel_news3').carousel();
+//$('#m-carousel_news').carousel();    
+//$('#m-carousel_news1').carousel();     
+//$('#m-carousel_news2').carousel();   
+//$('#m-carousel_news3').carousel();   
+    $('#m-carousel_news,#m-carousel_news1,#m-carousel_news2,#m-carousel_news3').carousel();
+    $('.latest2 .leftBtn').click(function () { $('#m-carousel_news').carousel('prev'); });
+    $('.latest2 .rightBtn').click(function () { $('#m-carousel_news').carousel('next'); });
+    $('.eduActive .leftBtn').click(function () { $('#m-carousel_news1').carousel('prev'); });
+    $('.eduActive .rightBtn').click(function () { $('#m-carousel_news1').carousel('next'); });
+    $('.latest .leftBtn').click(function () { $('#m-carousel_news2').carousel('prev'); });
+    $('.latest .rightBtn').click(function () { $('#m-carousel_news2').carousel('next'); });
+    $('.friendLink .leftBtn').click(function () { $('#m-carousel_news3').carousel('prev'); });
+    $('.friendLink .rightBtn').click(function () { $('#m-carousel_news3').carousel('next'); });
+    $('.friendLink.mobileAdd .leftBtn').click(function () {  $('#m-carousel_news4').carousel('prev'); });
+    $('.friendLink.mobileAdd .rightBtn').click(function () { $('#m-carousel_news4').carousel('next'); });
+        });
+</script>
+<style id="antiClickjack">
+    body {
+    display: none !important;
+    }
+</style>
+<script type="text/javascript">
+    if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+    top.location = self.location;
+    }
+    $(document).ready(
+    function () {
+    $('form').attr('autocomplete', 'off');
+    }
+    );
+</script>
+<!--zhuhe.結束文件頭-->
+    <title>zhuhe</title>
+	</head>
+<!--zhuhe.開始菜單-->
+<body>
+<nav id="navMenu" class="Nav" style="visibility: hidden">
+    <ul>
+<li class="others typeA searchA"><label for="txtQueryMenu"></label>
+ <input class="text" name="" type="text" value="" placeholder ="Google搜索zhuhe"  id="txtQueryMenu" accesskey="S" />
+ <input class="btn" type="submit" name="" value="搜尋"  aria-label="搜尋" id="btnSearchMenu" />
+</li>
+<li >
+<span class="MobileHidden">最新資訊</span>
+<ul>
+	<li ><a href="02new.html">最新消息</a></li>
+	<li ><a href="/00/news.html">新聞專區</a></li>
+</ul>
+</li>
+<li >
+<span>朱賀本紀</span>
+<ul>
+	<li ><a href="../01/benji.html">本紀</a></li>
+	<li ><a href="../01/">實錄</a></li>
+	<li ><a href="../09">上諭檔</a></li>
+</ul>
+</li>
+<li >
+<span>中國歷史</span>
+<ul>
+	<li ><a href="./his-24/a01/a01.htm">正史</a></li>
+	<li ><a href="./his-24/a01/a02.htm">典籍</a></li>
+	<li class="MobileHidden"><a href="./his-24/a01/a03.htm">其他</a></li>
+</ul>
+</li>
+<li >
+<span>世界通史</span>
+<ul>
+	<li ><a href="/04">通史</a></li>
+	<li ><a href="01xuexi.html">一戰</a></li>
+	<li ><a href="01xuexi.html">二戰</a></li>
+	<li ><a href="01xuexi.html">其他</a></li>
+</ul>
+</li>
+<li >
+<span>典藏資源</span>
+<ul>
+	<li ><a href="https://oa.zhuhe.tw:5001">武英殿二十四史</a></li>
+	<li ><a href="/05/">四書五經</a></li>
+	<li ><a href="/EDU">新勸學篇</a></li>
+	<li ><a href="/05/">中外文獻</a></li>
+	<li ><a href="https://archive.org" >互聯網檔案館</a></li>
+</ul>
+</li>
+<li >
+<span>傳統文化</span>
+<ul>
+	<li ><a href="/06/00.html">中華文明</a></li>
+	<li ><a href="/06/01.html">西洋文化</a></li>
+	<li ><a href="/06/02.html">東夷文化</a></li>
+	<li ><a href="/06/03.html">北虜文化</a></li>
+	<li ><a href="/06/04.html">南蠻文化</a></li>
+</ul>
+</li>
+<li >
+<span>文明開化</span>
+<ul>
+	<li ><a href="/07/01.html">認識世界</a></li>
+	<li ><a href="/07/02.html">科技信息</a></li>
+	<li ><a href="/07/03.html">自然信息</a></li>
+	<li ><a href="/07/04.html">地理信息</a></li>
+</ul>
+</li>
+<li >
+<span>其他資源</span>
+<ul>
+	<li ><a href="https://oa.zhuhe.tw:5001" target="_blank">其他資源</a></li>
+	<li ><a href="https://ctext.org" target="_blank">電子計劃</a></li>
+	<li ><a href="/tool">網路工具</a></li>
+	<li ><a href="/tool/html5.html">瀏覽器支援</a></li>
+	<li ><a href="/tool/jsquanjiajiemi.html">JS加密解密</a></li>
+	<li ><a href="/tool/morse.html">摩斯密碼</a></li>
+	<li ><a href="/tool/zhuanhuan.html">編碼轉換</a></li>
+	<li ><a href="/tool/htmltanchu.html">彈出測試</a></li>
+</ul>
+</li>
+<li class="others typeA sitemap"><a href="/tool">網站導覽</a></li>
+<li class="others typeA qa"><a href="/help">朱賀幫助</a></li>
+<li class="others typeA contact"><a href="mailto:zhuhe@zhuhe.tw" target ="_self">聯絡我們</a></li>
+<li class="others typeA sBranch"><a href="https://9.zhuhe.tw/" target="_blank">康正官網</a></li>
+<li class="others typeB fanpage"><a href="https://google.com" target="_blank">Google</a></li>
+<li class="others typeB youtube"><a href="https://youtube.com" target="_blank">YouTube</a></li>
+<li class="others typeB app"><a href="https://twitter.com">Twitter</a></li>
+<li class="others typeB eshop"><a href="/video">Video</a></li>
+    </ul>
+</nav>
+<!--zhuhe.結束菜單-->
+<script type="text/javascript">
+    (function ($) {
+$(window).load(function () {
+    //   $("#navMenu").show();
+    $("#navMenu").css({ "visibility": "visible" });
+    // $("#navUl").mCustomScrollbar();
+});
+       // setTimeout(function () { $("#navMenu a").attr("title", "menu"); }, 5000);
+    })(jQuery);
+</script>
+<!--zhuhe.開始主要部分-->
+    <div id="fullscreen">
+<!--zhuhe.開始右側彈出-->
+<script type="text/javascript">
+//<![CDATA[
+ $(document).ready(function () {$("#navMenu").mmenu({offCanvas: {position: "right"}});});
+ var arr=['zhuhe.tw'];
+ var lang='1';
+ Show1=false;Show2=false;Show3=false;Show4=true;Show5=false;Show6=false;
+ //]]>
+</script>
+<!--zhuhe.結束右側彈出-->
+<div class="Wrapper">
+<header class="Header">
+<a href="#navMenu" class="navBtn" title="主選單">
+<img src="./images/icon/navbtn.svg" alt="選單圖示" />
+<img src="./images/icon/foto_right2.svg" alt="" />
+</a>
+<a href="javascript:;"><h1>zhuhe</h1></a>
+</header>
+    <div class="subNav">
+    <ul>
+    <li><a href="#" id="accesskeyo" title=":::上方選單連結" accesskey="o" ><span class="accesskeytypeHome" >:::</span></a>
+	<a href="./" title="刷新本頁">本站導覽</a>
+	</li>
+    <li id="subLiNavQA"><a href="mailto:zhuhe@zhuhe.tw">朱賀郵箱</a></li>
+    <li id="ltlContactUs"><a href="https://oa.zhuhe.tw:5001" >辦公系統</a></li>
+    <li><a href="https://9.zhuhe.tw" >康正小站</a></li>       
+    <li><a href="./" title="網路商城" >網路商城</a></li> 
+    <li class="share"><a href="javascript:;">分享</a>
+	<ul>
+    <li class="line"><a href="javascript: void(window.open('http://line.me/R/msg/text/?'+encodeURIComponent(document.title) ));" target="_blank">line</a></li>
+    <li class="fb"><a href="javascript: void(window.open('http://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&t='+encodeURIComponent(document.title)));">Facebook</a></li>
+    <li class="gplus"><a href="javascript: void(window.open('https://plus.google.com/share?url=' + encodeURIComponent('https://support.google.com/plus/answer/3365138?src=socgp'), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600'));">gplus</a></li>
+    <li class="twitter"><a href="javascript: void(window.open('http://twitter.com/home/?status='.concat(encodeURIComponent(document.title)) .concat(' ') .concat(encodeURIComponent(location.href))));">twitter</a></li>
+    <li class="plurk"><a href="javascript: void(window.open('http://www.plurk.com/?qualifier=shares&status=' .concat(encodeURIComponent(location.href)) .concat(' ') .concat('(') .concat(encodeURIComponent(document.title)) .concat(')')));">plurk</a></li>
+    </ul>
+    </li>
+    <li class="lang">
+    <a href="javascript:;">語言選擇</a>
+    <ul>
+	<li><a lang="zh-tw" href="./">正體中文</a></li>
+	<li><a lang="en" href="./en/">English</a></li>
+	</ul>
+    </li>
+    <li class="">
+    <input class="text" name="" type="text" value="" id="txtQuery" placeholder ="請輸入關鍵字"  />
+    <input class="btn" type="submit" name="" value="搜尋" aria-label="搜尋" id="btn" />
+    </li>
+    </ul>
+    <a href="javascript:;" class="subNavBtn">開啟</a>
+    </div>
+<!--zhuhe.開始頁面-->
+    <div class="Main">
+    <div class="slider">
+    <a href="#" id="accesskeyc" title=":::主要內容顯示區" accesskey="c" name="pageTop">
+	<span class="accesskeytypeHome" >:::</span></a>
+    <section class="publicize">
+    <div id="Sec1"  class="fotorama" data-loop="true" data-autoplay="true" data-width="100%" data-height="100%" data-fit="cover" data-nav="none" data-arrows="true" data-click="true" data-swipe="true" data-transition="dissolve">
+    <div data-img="./att/banner/00000363.jpg" ><span></span></div>
+    <div data-img="./att/banner/00000372.jpg" ><a style="curosr:default;"  href="/" title="國寶再現—書畫菁華特展">國寶再現—書畫菁華特展</a></div>
+    </div>
     </section>
-    <section class="main-content">
-<div>
-<h3><span aria-hidden="true"></span>朱賀歡迎您...</h3>
-明禮以導民、定律以繩頑</p>
+<!--zhuhe.主要部分第二選項卡-->
+<section id="section2" class="exhibition">
+    <div class="boxWrap">
+    <div class="title"><h2>朱賀本紀</h2></div>
+<div class="hotBanner1"><h2>熱門展覽</h2> 
+    <div class="bannerSilder">
+    <div id="div21" class="fotorama" data-width="100%" data-height="50%" data-fit="cover" data-autoplay="4000" data-arrows="true" data-click="false" data-transition="dissolve" data-loop="true">
+    <div data-img="./att/banner/00000369.jpg" data-caption="百卉清供－瓶花與盆景畫特展"><a style="curosr:default;"  href="/" title="百卉清供－瓶花與盆景畫特展">百卉清供－瓶花與盆景畫特展</a></div>
+    <div data-img="./att/banner/00000371.jpg" data-caption="筆墨見真章─歷代書法選萃"><a style="curosr:default;"  href="/" title="筆墨見真章─歷代書法選萃">筆墨見真章─歷代書法選萃</a></div>
+    <div data-img="./att/banner/00000373.jpg" data-caption="實幻之間－院藏戰國至漢代玉器特展"><a style="curosr:default;"  href="/" title="實幻之間－院藏戰國至漢代玉器特展">實幻之間－院藏戰國至漢代玉器特展</a></div>
+    <div data-img="./att/banner/00000347.jpg" data-caption="天香茄楠—香玩文化特展"><a style="curosr:default;"  href="/" title="天香茄楠—香玩文化特展">天香茄楠—香玩文化特展</a></div>
+    <div data-img="./att/banner/00000279.jpg" data-caption="適於心—明代永樂皇帝的瓷器"><a style="curosr:default;"  href="/" title="適於心—明代永樂皇帝的瓷器">適於心—明代永樂皇帝的瓷器</a></div>
+    </div>
+    </div>
 </div>
-<h3><span aria-hidden="true"></span>朱賀的聯絡方式</h3>
-<a href="http://mail.zhuhe.tw">電子郵箱</a>：zhuhe@zhuhe.tw</p>
-<a href="http://sms.zhuhe.tw">在綫留言</a></p>
-<footer class="site-footer">
-<span class="site-footer-owner"><a href="/">ChuHo</a> is maintained by <a href="/zhuhe">zhuhe</a>.</span>
-Republic Of China 106</a>.</span>
+<div class="hotBanner2"><h2>熱門展覽</h2>
+    <div class="bannerSilder">
+    <div class="fotorama" data-width="100%" data-height="50%" data-fit="cover" data-autoplay="5000" data-arrows="true" data-click="false" data-transition="dissolve" data-loop="true">
+    <div data-img="./att/banner/00000378.jpg" data-caption="故宮花蝶館－新媒體藝術展"><a style="curosr:default;"  href="/" title="故宮花蝶館－新媒體藝術展">故宮花蝶館－新媒體藝術展</a></div>
+    <div data-img="./att/banner/00000377.jpg" data-caption="動物大觀園"><a style="curosr:default;"  href="/" title="動物大觀園">動物大觀園</a></div>
+    <div data-img="./att/banner/00000348.jpg" data-caption="乘風破浪同安船 同安船桌上遊戲工作坊成果暨故宮新媒體藝術展 "><a style="curosr:default;"  href="Article.aspx?sNo=04010158" title="乘風破浪同安船 同安船桌上遊戲工作坊成果暨故宮新媒體藝術展 ">乘風破浪同安船 同安船桌上遊戲工作坊成果暨故宮新媒體藝術展 </a></div>
+    </div>
+    </div>
+</div>
+<a href="/01/benji.html" class="btn current"><h2>本紀</h2></a>
+<a href="/01/" class="btn changes"><h2>實錄</h2></a>
+<a href="/09/" class="btn ViewRoute"><h2>上諭</h2></a>
+<a href="http://mail.zhuhe.tw" class="btn calendar"><h2>廷寄</h2></a><!--默認為btn calendar-->
+    </div>
+</section>
+<!--zhuhe.主要部分第三選項卡-->
+<section id="section3" class="visit">
+<div class="boxWrap">
+<div class="title"><h2>康正本紀</h2></div>
+<a href="https://9.zhuhe.tw" class="btn time"><h2>成長之路</h2></a>
+<a href="https://9.zhuhe.tw" class="btn reserve"><h2>本紀</h2></a>
+<a href="https://9.zhuhe.tw" class="btn guide"><h2>實錄</h2></a>
+<a href="https://9.zhuhe.tw" class="btn food"><h2>展示</h2></a>
+<a href="https://9.zhuhe.tw" class="btn traffic"><h2>年譜</h2></a>
+<a href="https://9.zhuhe.tw" class="btn Accessibility"><h2>遊戲</h2></a>
+</div>
+</section>
+<!--zhuhe.主要部分第四選項卡-->
+<section id="section4" class="video">
+<div class="boxWrap">
+<div class="title"><h2>影音</h2></div>
+<div class="videoBanner">
+<div class="bannerSilder1">
+<div id="Sec4" class="fotorama" data-width="100%" data-height="50%" data-fit="cover" data-arrows="true" data-click="false" data-autoplay="false" data-transition="dissolve">
+<a data-video="true"  href="https://youtu.be/84wrGGZHqLQ?rel=0&autoplay=1" data-caption="實幻之間－院藏戰國至漢代玉器"><img src="./att/banner/00000379.jpg"  alt="實幻之間－院藏戰國至漢代玉器" /></a>
+<a data-video="true"  href="https://youtu.be/3Xt9ZlXxx_4?rel=0&autoplay=1" data-caption="故事的宮殿：記憶在手心"><img src="./att/banner/00000335.jpg"  alt="故事的宮殿：記憶在手心" /></a>
+<a data-video="true"  href="https://youtu.be/-GYYAms4h2E?rel=0&autoplay=1" data-caption="國寶星遊記"><img src="./att/banner/00000334.jpg"  alt="國寶星遊記" /></a>
+<a data-video="true"  href="https://youtu.be/CmxCCp683c8?rel=0&autoplay=1" data-caption="故宮x青春"><img src="./att/banner/00000307.jpg"  alt="故宮x青春" /></a>
+<a data-video="true"  href="https://youtu.be/uUwWmwEhYoQ?rel=0" data-caption="「筆墨行旅」動畫影片"><img src="./att/banner/00000280.jpg"  alt="「筆墨行旅」動畫影片" /></a>
+</div>
+</div>
+</div>
+<a href="/video/"  class="channel">
+<div class="channelPic"><img src="./images/indexlmg/channel.jpg" alt="影訊頻道" /></div><h2>影訊頻道</h2></a>
+<a href="#navMenu"  class="selections"><h2>典藏精選</h2></a>
+<a href="https://youtube.com"  class="btn youtube"><h2>YouTube</h2></a>
+<a href="/"  class="btn app"><h2>App</h2></a>
+<a href="https://facebook.com"  class="btn facebook"><h2>Facebook</h2></a>
+<a href="https://artsandculture.google.com/partner/national-palace-museum-taiwan"  class="btn googleArt"><h2>Art Project</h2></a>
+</div>
+</section>
+<!--zhuhe.主要部分第五選項卡-->
+<section id="section5" class="activity">
+<div class="boxWrap">
+<div class="title"><h2>活動&學習</h2></div>
+<div id="hotBanner4" class="hotBanner4"><h2>熱門活動</h2> 
+<div class="bannerSilder">
+<div id="div1" class="fotorama" data-width="100%" data-height="50%" data-fit="cover" data-autoplay="4000" data-arrows="true" data-click="false" data-transition="dissolve" data-loop="true">
+<div  data-img="./att/banner/00000344.jpg" ><a style="curosr:default;"  href="/EDU/" title="新學中心">新學中心</a></div>
+</div>
+</div>
+</div>
+<a href="/EDU/" title="兒童園地　另開新視窗"  class="btn kidsGarden"><h2>兒童園地</h2></a>
+<a href="mailto:zhuhe@zhuhe.tw" title="上書請使用電郵"  class="btn apply"><h2>上書</h2></a>
+<div class="eduActive slideNews">
+<div class="newsBox">
+<h2>活動更新
+<span class="newsBtn">
+<a href="javascript:void(0);" class="leftBtn"></a>
+<a href="javascript:void(0);" class="rightBtn"></a>
+</span>
+</h2>
+<div class="runNews">
+<div id="m-carousel_news1" class="m-carousel m-fluid">
+<div class="m-carousel-inner">
+<div class="m-item">
+<div class="contentNews"><a href="/EDU/003930208.html" >
+<div class="date"><b>工部</b>歲次庚子年 春</div>
+<div class="words">【作業系統】基礎信息研習</div></a><a href="/EDU/003930209.html" >
+<div class="date"><b>戶部</b>歲次庚子年 春</div>
+<div class="words">【作業系統】虛擬磁片和資料夾</div></a>
+</div>
+</div>
+<div class="m-item"><div class="contentNews"><a href="/EDU/003910213.html"  >
+<div class="date"><b>吏部</b>歲次戊戌年 春</div>
+<div class="words">【文書處理】生成Word目錄</div></a><a href="/EDU/003910214.html" >
+<div class="date"><b>工部</b>歲次庚子年 春</div>
+<div class="words">【學試算表】天字第一課 批量匯入文檔</div></a>
+</div>
+</div>
+<div class="m-item">
+<div class="contentNews"><a href="/EDU/003910215.html" >
+<div class="date"><b>禮部</b>歲次庚子年 春</div>
+<div class="words">【學試算表】甲字第一課 試算表Excel的運算符</div></a>
+</div>
+</div>
+</div>
+</div>
+</div><a href="/EDU/" class="more">更多</a>
+</div>
+</div>
+<a href="/EDU/"  class="btn eduActive2"><h2>教育活動</h2></a>
+<a href="/EDU/003930208.html"  class="btn eduBox"><h2>教學工具</h2></a>
+<a href="https://google.com"  class="btn library"><h2>文獻來源</h2></a>
+</div>
+</section>
+<!--zhuhe.主要部分第六選項卡-->
+<section id="section6" class="focusNews">
+<div class="boxWrap">
+<div class="title"><h2>文明開化</h2></div>
+<div class="latest slideNews">
+<div class="newsBox">
+<h2>最新消息<a href="/Rss" class="rss" title="Rss">Rss</a>
+<span class="newsBtn">
+<a href="javascript:void(0);" class="leftBtn"></a>
+<a href="javascript:void(0);" class="rightBtn"></a>
+</span>
+</h2>
+<div class="runNews">
+<div id="m-carousel_news2" class="m-carousel m-fluid">
+<div class="m-carousel-inner">
+<div class="m-item">
+<div class="contentNews">
+<a><div class="date">崇禎後庚子年春2020-02-15</div><div class="words">上諭：非互聯網更新3.0系統</div></a><!--去掉href="./" -->
+<a><div class="date">崇禎後已亥年冬2019-11-28</div><div class="words">上諭：非互聯網優化3.0系統</div></a>
+<a><div class="date">崇禎後已亥年秋2019-09-26</div><div class="words">上諭：非互聯網增加研習模塊</div></a>
+<a><div class="date">崇禎後已亥年夏2019-07-22</div><div class="words">廷寄：官網更新</div></a>
+<a><div class="date">崇禎後已亥年春2019-03-22</div><div class="words">上諭：非互聯網更新</div></a>
+</div>
+</div>
+<div class="m-item">
+<div class="contentNews">
+<a><div class="date">崇禎後戊戌年冬2018-12-20</div><div class="words">上諭：停止更新</div></a>
+<a><div class="date">崇禎後戊戌年秋2018-08-19</div><div class="words">上諭：Tor&IPFS&L2P&Dat&ZeroNet更新</div></a>
+<a><div class="date">崇禎後戊戌年夏2018-06-05</div><div class="words">上諭：保留站點信息</div></a>
+<a><div class="date">崇禎後戊戌年春2018-01-01</div><div class="words">上諭：關閉網站</div></a>
+</div></div><div class="m-item"><div class="contentNews">
+</div>
+</div>
+</div>
+</div>
+</div><a href="/help" class="more" title="更多最新消息">更多</a>
+</div>
+</div>
+<div class="latest2"><h2>最新消息</h2>
+<div class="runNews">
+<a href="javascript:void(0);" class="leftBtn"></a>
+<div id="m-carousel_news" class="m-carousel m-fluid">
+<div class="m-carousel-inner">
+<div class="m-item">
+<div class="contentNews"><a href="./" > <div class="date">崇禎後庚子年春2020-02-15</div> <div class="words">刪除不顯示</div></a></div>
+</div>
+</div>
+</div>
+<a href="javascript:;" class="rightBtn"></a>
+    </div>
+    <a href="/" class="more" title="刷新">更多</a>
+</div>
+<div class="hotBanner3 mobileAdd">
+    <div class="bannerSilder">
+<div class="fotorama" data-width="100%" data-height="50%" data-fit="cover" data-autoplay="3000" data-arrows="true" data-click="false" data-swipe="false" data-transition="dissolve">
+<div  data-img="./att/banner/00000380.jpg"><a style="curosr:default;"  href="mailto:zhuhe@zhuhe.tw" title="授業解惑">關於大明朝幾個迷思</a></div>
+</div>
+    </div>
+    </div>
+<a href="/zhuhe"  class="creation"><h2>大明王朝</h2></a>  
+<a href="http://theme.npm.edu.tw/opendata/"  class="opendata"><h2>Open Data資料開放平台</h2></a>   
+<a href="mailto:zhuhe@zhuhe.tw"  class="cultural"><h2>侵權舉報</h2></a>   
+<a href="https://oa.zhuhe.tw:5001"  class="dbms"><h2>典藏資料庫</h2></a> 
+<div class="newsZone" style="display: none">
+    <div class="newsBox">
+<h2>朝廷專區<a href="/Rss" class="rss" title="Rss">Rss</a></h2>
+<a href="/" class="more" title="刷新">更多</a>
+    </div>
+</div>
+<div class="friendLink slideNews">
+    <div class="newsBox">
+<h2>朝廷資訊
+   <span class="newsBtn">
+       <a href="javascript:void(0);" class="leftBtn"></a>
+       <a href="javascript:void(0);" class="rightBtn"></a>
+   </span>
+       </h2>
+       <div class="runNews">
+   <div id="m-carousel_news3" class="m-carousel m-fluid">
+       <div class="m-carousel-inner">
+   <div class="m-item">
+       <ul>
+       <li><a>【上諭】官網暫停更新</a></li><!--刪除href="/" -->
+       <li><a>【上諭】康正留守冠縣</a></li>
+       <li><a>【上諭】暫停維護官網</a></li>
+       <li><a>【上諭】康正回歷下</a></li>
+       <li><a>【上諭】康正留守冠縣</a></li>
+       </ul>
+	</div><div class="m-item"><ul></ul></div>
+       </div>
+   </div>
+       </div><a href="/" class="more">更多</a>
+   </div>
+</div>
+<a href="/00" class="btn newsZone"><h2>重慶殿</h2></a>
+<a href="mailto:zhuhe@zhuhe.tw" class="btn jobInfo"><h2>上疏</h2></a>
+<div class="hotBanner3">
+   <div class="bannerSilder">
+       <div class="fotorama" data-width="100%"
+   data-height="50%" data-fit="cover" data-autoplay="3000" data-arrows="true" data-click="false" data-transition="dissolve">
+   <div data-img="./att/banner/00000380.jpg" >
+       <a href="mailto:zhuhe@zhuhe.tw" >關於朱賀的幾個迷思</a>
+   </div>
+       </div>
+   </div>
+</div>
+<a href="/404"  class="btn government"><h2>新聞專區</h2></a>
+<a href="mailto:zhuhe@zhuhe.tw"  class="btn volunteer"><h2>上書</h2></a>
+<a href="/404"  class="btn gender"><h2>統計專區</h2></a>
+<a href="/zhuhe"  class="btn menber"><h2>宗人府</h2></a>
+<a href="/404"  class="btn lobby"><h2>資訊專區</h2></a>
+<a href="mailto:zhuhe@zhuhe.tw"  class="btn edm"><h2>訂閱</h2></a>
+<div class="friendLink slideNews mobileAdd">
+   <div class="newsBox">
+       <h2>其他資訊
+   <span class="newsBtn">
+       <a href="javascript:void(0);" class="leftBtn"></a>
+       <a href="javascript:void(0);" class="rightBtn"></a>
+   </span>
+       </h2>
+       <div class="runNews">
+   <div id="m-carousel_news4" class="m-carousel m-fluid">
+       <div class="m-carousel-inner">
+   <div class="m-item">
+       <ul>
+       <li><a>【上諭】官網暫停更新</a></li><!--刪除href="/" -->
+       <li><a>【上諭】康正留守冠縣</a></li>
+       <li><a>【上諭】暫停維護官網</a></li>
+       <li><a>【上諭】康正回歷下</a></li>
+       <li><a>【上諭】康正留守冠縣</a></li>
+       </ul></div>
+		<div class="m-item"><ul></ul></div>
+       </div>
+   </div>
+       </div>
+       <a href="/" class="more">更多</a>
+   </div>
+</div>
+    </div>
+</section>
+<!--zhuhe.結束主要部分第六選項卡-->
+    </div>
+<!--zhuhe.結束主要部分-->
+    <div class="Footer2"></p>明崇禎戊戌年<br />地址：大明山東承宣布政使司東昌府<br />+86-*******1989<p class="mEmail">電子郵件：<a href="mailto:zhuhe@zhuhe.tw">zhuhe@zhuhe.tw</a></p>
+    </div>
+    </div>
+<!--zhuhe.結束頁面-->
+<!--zhuhe.開始底部-->
+<footer class="Footer">
+<a href="javascript:;">展開/收合清單</a>
+<div class="var">
+    <p> <a href="#" id="accesskeyb" title=":::下方選單連結" accesskey="b" ><span class="accesskeytypeHome" >:::</span></a>
+       <span>皇明崇禎戊戌年</span><b>建議瀏覽器：IE9.0以上，Google Chrome最新版本 (螢幕設定最佳顯示效果為1680*1050)</b>
+    </p>
+      </div>
+    <ul class="site">
+<li>
+<a href="/00/" id="Focus" title="訊息專區" class="title">訊息專區</a>
+<ul>
+<li><a href="/zhuhe/">關於朱賀</a></li>
+<li><a href="/00/">最新消息</a></li>
+<li><a href="/help/">本站幫助</a></li>
+</ul>
+</li>
+<li><a class="title">歷史</a>
+<ul>
+<li><a href="#navMenu">正史</a></li>
+<li><a href="/04">通史</a></li>
+<li><a href="/05">典籍</a></li>
+</ul>
+</li>
+<li><a href="/" class="title">文獻</a>
+<ul>
+<li><a href="/06/quanxue.html">勸學篇</a></li>
+<li><a href="/06/yingzhaotongchouquanjuzhe.html">奏折</a></li>
+</ul>
+</li>
+<li><a class="title">活動</a>
+<ul>
+<li><a href="mailto:zhuhe@zhuhe.tw">活動報名</a></li>
+<li><a href="mailto:zhuhe@zhuhe.tw">活動預告</a></li>
+</ul>
+</li>
+<li><a href="/EDU"  class="title">學習</a>
+<ul>
+<li><a href="https://tech2.npm.edu.tw/Museum/" >圖書文獻館</a></li>
+<li><a href="http://theme.npm.edu.tw/children/zh-tw/index.html" >兒童園地</a></li>
+<li><a href="http://theme.npm.edu.tw/resources/zh-TW/" >教學百寶箱</a></li>
+<li><a href="http://theme.npm.edu.tw/opendata/" >Open Data</a></li>
+</ul>
+</li>
+<li><a class="title">説明</a>
+<ul>
+<li><a href="/zhuhe" >説明</a></li>
+</ul>
+</li>
+<li><a href="/video" class="title">影音</a>
+<ul>
+<li><a href="https://google.com" >YouTube</a></li>
+<li><a href="https://youtube.com" >YouTube</a></li>
+<li><a href="https://facebook.com" >Facebook</a></li>
+<li><a href="https://twitter.com" >Twitter</a></li>
+</ul>
+</li>
+<li><a href="/05" class="title">典藏資源</a>
+<ul></ul>
+</li>
+<li><a href="/zhuhe" class="title">認識朝廷</a>
+<ul></ul>
+</li>
+<li><a href="/" class="title">法規單元</a>
+<ul></ul>
+</li>
+<li><a href="/" class="title">行政資源</a>
+<ul></ul>
+</li>
+<li><a href="mailto:zhuhe@zhuhe.tw" class="title">常見問答</a>
+<ul></ul>
+</li>
+<li><a href="/00" class="title">其他資訊</a>
+<ul></ul>
+</li>
+<li><a href="mailto:zhuhe@zhuhe.tw" class="title">增值服務</a>
+    <ul></ul>
+</li>
+    </ul>
+<!--zhuhe.底部聲明-->
+      <div class="add">
+<p><b>地址：大明山東承宣布政使司東昌府<a href="https://map.google.com">地圖</a></b><b>電話：+01******1989</b>
+    <span>電子郵件<a href="mailto:zhuhe@zhuhe.tw">zhuhe@zhuhe.tw</a></span>
+    <u>始建于：<i>崇禎戊子年[崇禎後381年]</i></u>
+    <u>【<a href="https://github.com">網站資料開放</a>】</u>
+</p>
+      </div>
 </footer>
-    </section>
-  </body>
+       </div>
+</form>
+    </div>
+</body>
 </html>
+<script type="text/javascript">
+//行動版
+if (($(window).width() <= 960)) {
+    var $fotoramaDiv = $('#Sec4').fotorama();
+    var fotorama = $fotoramaDiv.data('fotorama');
+    fotorama.stopAutoplay();
+    fotorama.playVideo();
+}
+else {
+    $(".pagination li a").on("click", function () {
+var dataIndex = $(this).attr("data-index");
+video41(dataIndex);
+    })
+    $("#fullscreen").bind('mousewheel DOMMouseScroll', function (event) {
+event.preventDefault();
+var delta = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+indexNow = $("section.active").data("index");
+video41(indexNow);
+    });
+}
+    });
+    video41 = function (iIndex) {
+var $fotoramaStop = $('.fotorama').fotorama()
+var fotoramaStop = $fotoramaStop.data('fotorama');
+fotoramaStop.stopAutoplay();
+var dataIndex = iIndex;
+var $fotoramaDiv = $('#Sec' + iIndex).fotorama();
+var fotorama = $fotoramaDiv.data('fotorama');
+if (
+     ((dataIndex == 1) && (Show1 == true)) ||
+     ((dataIndex == 2) && (Show2 == true)) ||
+     ((dataIndex == 3) && (Show3 == true)) ||
+     ((dataIndex == 4) && (Show4 == true)) 
+    ) {
+    fotorama.stopAutoplay();
+    setTimeout(function () { fotorama.playVideo(); }, 500);
+}
+else {
+   // alert(fotorama);
+    if (fotorama != undefined) {
+fotorama.stopVideo();
+    }
+}
+    }
+    //videoIndex1 = function () { //第一個頁籤
+    //videoIndex4 = function () { //第4個頁籤
+    function sIP(url) {
+var i = 0;
+for (i = 0; i <= arr.length - 1 ; i = i + 1) {
+    if (url.indexOf(arr[i]) >= 0) { return true; }
+}
+return false;
+    }
+    function fnHrefShare(str) {
+var res = str.substring(0, 10);
+if (res == "javascript") {
+    return false
+}
+else {
+    return true
+}
+    }
+    // 當滑鼠在 $control 上移動時
+    $("#div21").mousemove(function (e) {
+// 取得目前滑鼠在control 對應的 x 及 y 座標
+_x = e.offsetX || e.layerX || 0,
+_y = e.offsetY || e.layerY || 0;
+//alert(_x);
+e.pageX = _x + 10;
+e.pageY = _y + 10;
+    });
+</script>
+<script type="text/javascript">
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }});
+</script>
