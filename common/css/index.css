@@ -353,7 +353,7 @@ JUMP2 {
 	background-image: url(../../images/icon/exhibitionNewsletter.svg);
 }
 .boxWrap a.btn.calendar:after{
-	background-image: url(../../images/icon/child.svg);
+	background-image: url(../../images/icon/edm.svg);
 }
 .boxWrap a.btn.ViewRoute:after{
 	background-image: url(../../images/icon/ViewRoute.svg);
