@@ -1,303 +1,141 @@
-<!DOCTYPE html>
-<html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml">
+﻿<html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
-<link rel="apple-touch-icon" href="../images/appicon.png" />
-<link rel="stylesheet" type="text/css" href="../common/css/common.css?v=2" />
-<link rel="stylesheet" type="text/css" href="../common/css/index.css?v=2" />
-<link rel="stylesheet" type="text/css" id="link2"/>
-<link rel="stylesheet" type="text/css" href="../common/css/jquery.mmenu.all.css" />
-<link rel="stylesheet" href="../common/css/fotorama.css?v=2" />
-<link rel="stylesheet" type="text/css" href="../common/css/carousel.css" />
-<link rel="stylesheet" type="text/css" href="../common/css/carousel-style.css" />
-<script type="text/javascript" src="../common/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="../common/js/jquery-migrate-3.0.0.js"></script>
-<script type="text/javascript" src="../common/js/jquery-ui-1.8.17.custom.min.js"></script>
-<script type="text/javascript" src="../common/js/animate.js"></script>
-<script type="text/javascript" src="../common/js/customer.js?v=1"></script>
-<script type="text/javascript" src="../common/js/imgLiquid-min.js"></script>
-<script type="text/javascript" src="../common/js/jquery.HSlider.js"></script>
-<script type="text/javascript" src="../common/js/carousel.js"></script>
-<script type="text/javascript" src="../common/js/TabKeyCtl.js"></script>
-<script type="text/javascript" src="../common/js/jquery.mmenu.min.js"></script>
-<script src="../common/js/fotorama.js"></script>
-<script type="text/javascript">
-    if (self === top) {
-    var antiClickjack = document.getElementById("antiClickjack");
-    antiClickjack.parentNode.removeChild(antiClickjack);
-    } else {
-    top.location = self.location;
-    }
-    $(document).ready(
-    function () {
-    $('form').attr('autocomplete', 'off');
-    }
-    );
-</script>
-<!--zhuhe.結束文件頭-->
-    <title>zhuhe</title>
-	</head>
-<!--zhuhe.開始菜單-->
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>網站歷史</title>
+
+<link rel="stylesheet" type="text/css" href="css/timeAxis1.css">
+
+</head>
 <body>
-<nav id="navMenu" class="Nav" style="visibility: hidden">
-    <ul>
-<li class="others typeA searchA"><label for="txtQueryMenu"></label>
- <input class="text" name="" type="text" value="" placeholder ="Google搜索zhuhe"  id="txtQueryMenu" accesskey="S" />
- <input class="btn" type="submit" name="" value="搜尋"  aria-label="搜尋" id="btnSearchMenu" />
-</li>
-<li >
-<span class="MobileHidden">最新資訊</span>
-<ul>
-	<li ><a href="02new.html">最新消息</a></li>
-	<li ><a href="/00/news.html">新聞專區</a></li>
-</ul>
-</li>
-<li >
-<span>朱賀本紀</span>
-<ul>
-	<li ><a href="../01/benji.html">本紀</a></li>
-	<li ><a href="../01/">實錄</a></li>
-	<li ><a href="../09">上諭檔</a></li>
-</ul>
-</li>
-<li >
-<span>中國歷史</span>
-<ul>
-	<li ><a href="./his-24/a01/a01.htm">正史</a></li>
-	<li ><a href="./his-24/a01/a02.htm">典籍</a></li>
-	<li class="MobileHidden"><a href="./his-24/a01/a03.htm">其他</a></li>
-</ul>
-</li>
-<li >
-<span>世界通史</span>
-<ul>
-	<li ><a href="/04">通史</a></li>
-	<li ><a href="01xuexi.html">一戰</a></li>
-	<li ><a href="01xuexi.html">二戰</a></li>
-	<li ><a href="01xuexi.html">其他</a></li>
-</ul>
-</li>
-<li >
-<span>典藏資源</span>
-<ul>
-	<li ><a href="https://oa.zhuhe.tw:5001">武英殿二十四史</a></li>
-	<li ><a href="/05/">四書五經</a></li>
-	<li ><a href="/EDU">新勸學篇</a></li>
-	<li ><a href="/05/">中外文獻</a></li>
-	<li ><a href="https://archive.org" >互聯網檔案館</a></li>
-</ul>
-</li>
-<li >
-<span>傳統文化</span>
-<ul>
-	<li ><a href="/06/00.html">中華文明</a></li>
-	<li ><a href="/06/01.html">西洋文化</a></li>
-	<li ><a href="/06/02.html">東夷文化</a></li>
-	<li ><a href="/06/03.html">北虜文化</a></li>
-	<li ><a href="/06/04.html">南蠻文化</a></li>
-</ul>
-</li>
-<li >
-<span>文明開化</span>
-<ul>
-	<li ><a href="/07/01.html">認識世界</a></li>
-	<li ><a href="/07/02.html">科技信息</a></li>
-	<li ><a href="/07/03.html">自然信息</a></li>
-	<li ><a href="/07/04.html">地理信息</a></li>
-</ul>
-</li>
-<li >
-<span>其他資源</span>
-<ul>
-	<li ><a href="https://oa.zhuhe.tw:5001" target="_blank">其他資源</a></li>
-	<li ><a href="https://ctext.org" target="_blank">電子計劃</a></li>
-	<li ><a href="/tool">網路工具</a></li>
-	<li ><a href="/tool/html5.html">瀏覽器支援</a></li>
-	<li ><a href="/tool/jsquanjiajiemi.html">JS加密解密</a></li>
-	<li ><a href="/tool/morse.html">摩斯密碼</a></li>
-	<li ><a href="/tool/zhuanhuan.html">編碼轉換</a></li>
-	<li ><a href="/tool/htmltanchu.html">彈出測試</a></li>
-</ul>
-</li>
-<li class="others typeA sitemap"><a href="/tool">網站導覽</a></li>
-<li class="others typeA qa"><a href="/help">朱賀幫助</a></li>
-<li class="others typeA contact"><a href="mailto:zhuhe@zhuhe.tw" target ="_self">聯絡我們</a></li>
-<li class="others typeA sBranch"><a href="https://9.zhuhe.tw/" target="_blank">康正官網</a></li>
-<li class="others typeB fanpage"><a href="https://google.com" target="_blank">Google</a></li>
-<li class="others typeB youtube"><a href="https://youtube.com" target="_blank">YouTube</a></li>
-<li class="others typeB app"><a href="https://twitter.com">Twitter</a></li>
-<li class="others typeB eshop"><a href="/video">Video</a></li>
-    </ul>
-</nav>
-<!--zhuhe.結束菜單-->
+
+<div class="cx-time-main" id="cxTime"></div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/timeAxis1.js"></script>
 <script type="text/javascript">
-    (function ($) {
-$(window).load(function () {
-    //   $("#navMenu").show();
-    $("#navMenu").css({ "visibility": "visible" });
-    // $("#navUl").mCustomScrollbar();
-});
-       // setTimeout(function () { $("#navMenu a").attr("title", "menu"); }, 5000);
-    })(jQuery);
+	var oTimeAxiosFun = null;
+	$(function () {
+		var timeList = [
+   {name:'皇明崇禎丁亥年',time:'崇禎380年西元2007-09-01',value:'開始策劃建立自己的網站'},
+   {name:'皇明崇禎丁亥年',time:'崇禎380年西元2007-09-01',value:'<B>幸福時代2007-01-01</B>'},
+   {name:'皇明崇禎丁亥年',time:'崇禎380年西元2007-09-01',value:'不知道IP是什麼不知道什麼是網站、網頁、</p>根本也不懂得語法與語言只會上MSN和QQ和ICQ、'},
+   {name:'皇明崇禎戊子年',time:'崇禎381年西元2008-02-28',value:'<B>幸運時代2008-02-28</B>'},
+   {name:'皇明崇禎戊子年',time:'崇禎381年西元2008-02-28',value:'因228事件停用外部軟體</p>'},
+   {name:'皇明崇禎戊子年',time:'崇禎381年西元2008-02-28',value:'初試FTP 在國外網站上</p>『我只記得很小、含有j、a、r、y四個字母』'},
+   {name:'皇明崇禎戊子年',time:'崇禎381年西元2008-02-28',value:'</p>直接用FTP的絕對地址訪問申請zhuhe.3322.org功能'},
+   {name:'皇明崇禎己丑年',time:'崇禎382年西元2009-01-01',value:'初步建立傻瓜是的第一個網頁'},
+   {name:'皇明崇禎己丑年',time:'崇禎382年西元2009-01-01',value:'進步時代2009-01-01'},
+   {name:'皇明崇禎己丑年',time:'崇禎382年西元2009-01-01',value:'開始認識、接觸、尋找一些主機</p>使用mzoka.cc建立我印像中的第二個網頁</p>'},
+   {name:'皇明崇禎己丑年',time:'崇禎382年西元2009-01-01',value:'zhuhe.3322.org停止並啟用zoka.cc</p>學會了在國外主機上安裝程式</p>包括bbs和blog和帝國系統'},
+   {name:'皇明崇禎庚寅年',time:'崇禎383年西元2010-01-01',value:'<B>緩衝時代2010-01-01</B>'},
+   {name:'皇明崇禎庚寅年',time:'崇禎383年西元2010-01-01',value:'啟用zhuhe.tk隨即zoka.cc停止服務</p>第三個網頁建立</p>使用過程中、開始出現惡意攻擊現象</p>建立zhuhe.tk/5論壇註冊用戶達15人'},
+   {name:'皇明崇禎庚寅年',time:'崇禎383年西元2010-01-01',value:'<B>開放時代2010-01-01</B>'},
+   {name:'皇明崇禎庚寅年',time:'崇禎383年西元2010-01-02',value:'建立http://licai.zhuhe.tk'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-01',value:'第四次大規模服務器遷移'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-02',value:'駭客攻擊。為節省資源</p>改為http://zhuhe.tk/licai』'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-03',value:'駭客攻擊。為節省資源</p>改為http://zhuhe.tk/tv'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-04',value:'建立http://bbs.zhuhe.tk'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-05',value:'建立http://blog.zhuhe.tk'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-06',value:'駭客攻擊。為節省資源</p>服務器遷至google'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-07',value:'建立http://sms.zhuhe.tk</p>已失去核心服務、現停止服務'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-08',value:'建立http://dll.zhuhe.tk'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-09',value:'建立http://ys.zhuhe.tk'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-10',value:'建立http://video.zhuhe.tk</p>失去核心服務、現停止服務'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-11',value:'駭客攻擊。為節省資源改為http://zhuhe.tk/ys'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-11',value:'建立http://c.zhuhe.tk'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-12',value:'駭客攻擊。為節省資源改為http://zhuhe.tk/c'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-13',value:'建立http://mail.zhuhe.tk現已完全開放註冊'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-14',value:'建立http://m.zhuhe.tk現已完全開放手機平臺'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-15',value:'建立http://g.zhuhe.tk</p>群聊系統、目前已刪除'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-01-16',value:'建立http://picture.zhuhe.tk</p>未使用photo、當年按所有的相冊、500多張照片</p>隨著服務器的崩潰、付諸東流、淚奔'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-08-01',value:'<B>憧憬時代2011-08-01</B>'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-08-01',value:'zhuhe.tk被惡意劫持</p>兇手玉米花功能變數名稱</p>居然讓我掏錢！『被迫罵人』'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-10-10',value:'部分存儲移植google'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-10-10',value:'部分存儲移植microsoft'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-12-12',value:'恢復主頁http://zhuhe.tk訪問權'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-12-13',value:'恢復主頁http://dll.zhuhe.tk訪問權'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-12-14',value:'恢復主頁http://tv.zhuhe.tk訪問權</p>隨即刪除'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-12-15',value:'恢復主頁http://m.zhuhe.tk訪問權</p>而且已經完善跳轉代碼'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-12-16',value:'恢復主頁http://blog.zhuhe.tk訪問權'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-12-17',value:'恢復主頁http://love.zhuhe.tk訪問權</p>隨即刪除'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-12-18',value:'恢復主頁http://licai.zhuhe.tk訪問權</p>隨即刪除'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-12-19',value:'恢復主頁http://d.zhuhe.tk訪問權</p>隨即刪除'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-12-20',value:'恢復主頁http://zhuhe.zhuhe.tk訪問權</p>隨即刪除'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-12-21',value:'建立網頁http://zhuhe.tk/calendar'},
+   {name:'皇明崇禎辛卯年',time:'崇禎384年西元2011-12-22',value:'恢復主頁http://old.zhuhe.tk訪問權</p>隨即刪除'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-03-01',value:'壓抑時代2013-03-01'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-03-01',value:'部分服務器遷至國外'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-03-02',value:'遷回3月遷出的服務'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-03-03',value:'考慮放棄by'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-03-04',value:'by刪除zhuhe.tk'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-03-05',value:'000webhost惡意捆綁zhuhe.tk'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-03-06',value:'第五次大規模服務器遷移'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-06-06',value:'全部服務遷回中華大陸地區'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-06-07',value:'重新建立服務器'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-07',value:'全部檔存入linux:zhuhe@zhuheROC'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-08',value:'修復zhuhe.tk主頁'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-09',value:'修復m.zhuhe.tk</p>因服務器提供商按功能變數名稱收費</p>我把m.zhuhe.tk刪了』'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-10',value:'隨即恢復http://zhuhe.tk/m</p>而且第四次修改手機版代碼'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-11',value:'修繕blog.zhuhe.tk'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-12',value:'修繕http://zhuhe.tk標頭</p>考慮時候更新全新的介面'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-13',value:'更新全新的介面『版本6』'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-14',value:'恢復video.zhuhe.tk</p>目前未開放正在測試'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-15',value:'修繕主頁左欄代碼'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-16',value:'修繕主頁部分功能'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-17',value:'網絡供應商第二次催我繳費</p>因服務器提供商按功能變數名稱收費</p>我把能徹的功能變數名稱全徹了'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-18',value:'收費問題提至議程'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-07-19',value:'再次優化首頁'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-08-08',value:'優化手機頁面大小'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-09-09',value:'轉移服務器'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-10-10',value:'調整服務器'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-11-11',value:'停止picture'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-12-12',value:'進軍雅虎圖片'},
+   {name:'皇明崇禎癸巳年',time:'崇禎386年西元2013-12-12',value:'刪除雅虎服務'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-01-01',value:'更換mail服務器'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-02-02',value:'停止企業服務'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-02-03',value:'忘記更新'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-02-04',value:'忘記延伸功能變數名稱'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-03-02',value:'功能變數名稱過期'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-04-08',value:'功能變數名稱供應商拒絕恢復功能變數名稱'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-04-09',value:'主功能變數名稱宕機'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-04-10',value:'zhuhe.tk被迫停止'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-04-11',value:'中國現任政權圖片被迫停止'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-04-12',value:'zhuhe.tw恢復'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-05-05',value:'video加速建設中'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-06-06',value:'video測試中'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-06-07',value:'video正式上線1.0版本'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-07-07',value:'php轉化'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-11-06',value:'修正php亂碼'},
+   {name:'皇明崇禎甲午年',time:'崇禎387年西元2014-11-06',value:'zhuhe.tw修正'},
+   {name:'皇明崇禎乙未年',time:'崇禎388年西元2015-10-10',value:'引入CSS'},
+   {name:'皇明崇禎乙未年',time:'崇禎388年西元2015-10-10',value:'zhuhe.tw大規模修改源代碼'},
+   {name:'皇明崇禎乙未年',time:'崇禎388年西元2015-10-10',value:'全網支援萬國語翻譯翻譯-Google'},
+   {name:'皇明崇禎丙申年',time:'崇禎389年西元2016-10-10',value:'暗黑時代2016-10-10'},
+   {name:'皇明崇禎丙申年',time:'崇禎389年西元2016-10-10',value:'zhuhe2.0十月 全站靜態化'},
+   {name:'皇明崇禎己亥年',time:'崇禎392年西元2019-03-02',value:'zhuhe3.0'},
+   {name:'皇明崇禎己亥年',time:'崇禎392年西元2019-03-02',value:'奉旨刪除關鍵連結'},
+		];//参数列表
+		var param = {
+			data: timeList, // 数据
+			id: 'cxTime', //dom节点ID
+			index: 0, // 选中时间节点
+			sort: 'just', // 正序just，反序back, 其他表示不排序
+			sortKey: 'time', //排序的参数key
+			// activeColor: '#26a69a', // 选中颜色
+			props: ['name','time','value'], //展示的key
+			then: function (data) {
+				console.log(data);
+			}, //点击事件回调方法
+			// format: function (key, val) {
+			// 	console.log(key, val);
+			// 	return val
+			// }, //数据格式化处理
+		}
+		oTimeAxiosFun = new oTimeAxios(param);
+	})
 </script>
-<!--zhuhe.開始主要部分-->
-<div class="top"></div><div class="zhishu"><!-- 去掉id="fullscreen"使div滑動-->
-<!--zhuhe.開始右側彈出-->
-<script type="text/javascript">
-//<![CDATA[
- $(document).ready(function () {$("#navMenu").mmenu({offCanvas: {position: "right"}});});
- var arr=['zhuhe.tw'];
- var lang='1';
- Show1=false;Show2=false;Show3=false;Show4=true;Show5=false;Show6=false;
- //]]>
-</script>
-<!--zhuhe.結束右側彈出-->
-<div >
-<header class="Header">
-<a href="#navMenu" class="navBtn" title="主選單">
-<img src="../images/icon/navbtn.svg" alt="選單圖示" />
-<img src="../images/icon/foto_right2.svg" alt="" />
-</a>
-<a href="javascript:;"><h1>zhuhe</h1></a>
-</header>
-<!--zhuhe.開始頁面-->
-<h1 align="right">朱賀幫助</h1>
-<h2 align="right">幫助簡介</h2>
-<h3 align="right">簡介</h3>
-<HR>
-<p class="zw"><a href="google.html">谷歌</a>○
-<a href="baidu.html">百度</a>○
-<a href="sousuo.html">拓展</a>○
-<h4 class="zw">簡介</h4>
-<p class="zw">崇禎後民96年
-<p class="zw">開始策劃建立自己的網站</p>
-<h4 class="zw">幸福時代</h4>
-<p class="zw">崇禎後民96年
-<p class="zw">不知道域名是什麼</p>
-<p class="zw">不知道IP是什麼</p>
-<p class="zw">不知道什麼是網站、網頁、根本也不懂得語法與語言</p>
-<p class="zw">只能上MSN\QQ\ICQ、</p>
-<h4 class="zw">幸運時代</h4>
-<p class="zw">崇禎後民97年
-<p class="zw">228事件</p>
-<p class="zw">因228事件停用外部軟體、正式停用QQ軟體</p>
-<p class="zw">初試FTP 在國外網站上[我只記得很小、含有j、a、r、y四個字母]</p>
-<p class="zw">直接用FTP的絕對地址訪問、很羞啊、帳號密碼都在呢</p>
-<p class="zw">申請zhuhe.3322.org域名</p>
-<p class="zw">將傻瓜地址貼在域名下、97年下半年初步建立傻瓜是的第一個網頁</p>
-<h4 class="zw">進步時代</h4>
-<p class="zw">崇禎後民98年
-<p class="zw">開始認識、接觸、尋找一些主機</p>
-<p class="zw">使用mzoka.cc建立我印像中的第二個網頁、具備初級的網站內容</p>
-<p class="zw">zhuhe.3322.org停止服務</p>
-<p class="zw">使用zoka.cc、學會了在國外主機上安裝程序、包括bbs\blog\帝國系統</p>
-<h4 class="zw">緩衝時代</h4>
-<p class="zw">崇禎後民99年
-<p class="zw">深得zhuhe.tk、『隨即zoka.cc停止服務』很巧</p>
-<p class="zw">第三個網頁建立、使用過程中、開始出現惡意攻擊現象、</p>
-<p class="zw">建立zhuhe.tk/5論壇、註冊用戶達15人、</p>
-<h4 class="zw">開放時代</h4>
-<p class="zw">崇禎後民99年
-<p class="zw">建立http://licai.zhuhe.tk[於崇禎後民101的黑客攻擊|為節省資源|改為http://zhuhe.tk/licai]</p>
-<p class="zw">建立http://bbs.zhuhe.tk[於崇禎後民101的黑客攻擊|為節省資源|改為http://zhuhe.tk/tv]</p>
-<p class="zw">建立http://blog.zhuhe.tk[於崇禎後民101的黑客攻擊|為節省資源|服務器遷至google]</p>
-<p class="zw">建立http://sms.zhuhe.tk[已失去核心服務、之後始終未建立起來、停止服務]</p>
-<p class="zw">建立http://dll.zhuhe.tk</p>
-<p class="zw">建立http://video.zhuhe.tk[失去核心服務、之後始終未建立起來、停止服務]</p>
-<p class="zw">建立http://ys.zhuhe.tk[於崇禎後民101的黑客攻擊|為節省資源|改為http://zhuhe.tk/ys]</p>
-<p class="zw">建立http://c.zhuhe.tk[於崇禎後民101的黑客攻擊|為節省資源|改為http://zhuhe.tk/c]</p>
-<p class="zw">建立http://mail.zhuhe.tk[現已完全開放註冊]</p>
-<p class="zw">建立http://m.zhuhe.tk[現已完全開放手機平台]</p>
-<p class="zw">建立http://g.zhuhe.tk[群聊系統、目前已刪除、不久考慮恢復]</p>
-<p class="zw">建立http://picture.zhuhe.tk[一般的網絡用photo、因為我英文不好、但唯獨記得picture的意思、所有未使用photo、當年按所有的相冊、500多張照片、隨著服務器的崩潰、付諸東流、淚奔]</p>
-<p class="zw">部分存儲功能遷移至5944、因為黑客攻擊、大量有價值『對我而言』的數據轉瞬之間丟失、</p>
-<p class="zw">崇禎後民100年
-<p class="zw">第四次大規模服務器遷移</p>
-<h4 class="zw">憧憬時代</h4>
-<p class="zw">崇禎後民100年
-<p class="zw">八月 zhuhe.tk被惡意劫持、兇手玉米花域名！居然讓我掏錢！操『被迫罵人』</p>
-<p class="zw">十月 部分存儲移植google</p>
-<p class="zw">十月 部分存儲移植microsoft</p>
-<p class="zw">十二月 恢復主頁http://zhuhe.tk訪問權</p>
-<p class="zw">十二月 恢復主頁http://dll.zhuhe.tk訪問權</p>
-<p class="zw">十二月 恢復主頁http://tv.zhuhe.tk訪問權『隨即刪除』</p>
-<p class="zw">十二月 恢復主頁http://m.zhuhe.tk訪問權『而且已經完善跳轉代碼』</p>
-<p class="zw">十二月 恢復主頁http://blog.zhuhe.tk訪問權</p>
-<p class="zw">十二月 恢復主頁http://love.zhuhe.tk訪問權『隨即刪除』</p>
-<p class="zw">十二月 恢復主頁http://licai.zhuhe.tk訪問權『隨即刪除』</p>
-<p class="zw">十二月 恢復主頁http://d.zhuhe.tk訪問權『隨即刪除』</p>
-<p class="zw">十二月 恢復主頁http://zhuhe.zhuhe.tk訪問權『隨即刪除』</p>
-<p class="zw">十二月 建立網頁http://zhuhe.tk/calendar</p>
-<p class="zw">十二月 恢復主頁http://old.zhuhe.tk訪問權『隨即刪除』</p>
-<h4 class="zw">壓抑時代</h4>
-<p class="zw">崇禎後民102年
-<p class="zw">三月 部分服務器遷至國外</p>
-<p class="zw">四月 遷回3月遷出的服務</p>
-<p class="zw">四月 考慮放棄by</p>
-<p class="zw">五月 by刪除zhuhe.tk</p>
-<p class="zw">五月 000webhost惡意捆綁zhuhe.tk</p>
-<p class="zw">五月 第五次大規模服務器遷移</p>
-<p class="zw">六月 全部服務遷回中華<p class="zw">崇禎後民大陸地區</p>
-<p class="zw">六月 重新建立服務器</p>
-<p class="zw">七月 全部文件存入linux:zhuhe@zhuheROC</p>
-<p class="zw">七月 修復zhuhe.tk主頁</p>
-<p class="zw">七月 修復m.zhuhe.tk『因服務器提供商按域名收費、我把m.zhuhe.tk刪了』</p>
-<p class="zw">七月 隨即恢復http://zhuhe.tk/m『而且第四次修改手機版代碼』</p>
-<p class="zw">七月 修繕blog.zhuhe.tk</p>
-<p class="zw">七月 修繕http://zhuhe.tk標頭、考慮時候更新全新的界面</p>
-<p class="zw">七月 更新全新的界面『版本6』</p>
-<p class="zw">七月 恢復video.zhuhe.tk『目前未開放|正在測試』</p>
-<p class="zw">七月 修繕主頁左欄代碼</p>
-<p class="zw">七月 修繕主頁部分功能</p>
-<p class="zw">七月 網絡供應商第二次催我繳費『因服務器提供商按域名收費、我把能徹的域名全徹了』</p>
-<p class="zw">七月 收費問題提至議程</p>
-<p class="zw">八月 再次優化首頁</p>
-<p class="zw">八月 優化手機頁面大小</p>
-<p class="zw">九月 轉移服務器</p>
-<p class="zw">十月 調整服務器</p>
-<p class="zw">十一月 停止picture</p>
-<p class="zw">十二月 進軍雅虎圖片</p>
-<p class="zw">十二月 刪除雅虎服務</p>
-<p class="zw">崇禎後民103年
-<p class="zw">一月 更換mail服務器</p>
-<p class="zw">一月 停止企業服務</p>
-<p class="zw">二月 忘記更新</p>
-<p class="zw">二月 忘記延伸域名</p>
-<p class="zw">三月 域名過期</p>
-<p class="zw">三月 域名供應商拒絕恢復域名</p>
-<p class="zw">四月 主域名宕機</p>
-<p class="zw">四月 zhuhe.tk被迫停止</p>
-<p class="zw">四月 中國現任政權圖片被迫停止</p>
-<p class="zw">四月 zhuhe.tw恢復</p>
-<p class="zw">五月 video加速建設中</p>
-<p class="zw">六月 video測試中</p>
-<p class="zw">六月 video正式上線1.0版本</p>
-<p class="zw">七月 php轉化</p>
-<p class="zw">十一月 修正php亂碼</p>
-<p class="zw">十一月 zhuhe.tw修正</p>
-<p class="zw">崇禎後民104年
-<p class="zw">十月 引入CSS</p>
-<p class="zw">十月 zhuhe.tw大規模修改源代碼</p>
-<p class="zw">十月 全網支援萬國語翻譯翻譯-Google</p>
-<h4 class="zw">暗黑時代</h4>
-<p class="zw">崇禎後民105年
-<p class="zw">十月 zhuhe2.0</p>
-<p class="zw">十月 全站靜態化</p>
-<p class="zw">崇禎後民108年
-<p class="zw">三月 zhuhe3.0</p>
-</div>
-    </div>
-</body>
+	
+</body>	
 </html>
-<script type="text/javascript">
-    var winWidth = $(window).width();
-    //搜尋
-    $("#btnSearchMenu").bind("click", function () {
-        var skey = "請輸入關鍵字";
-        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
-            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
-        }});
-</script>
