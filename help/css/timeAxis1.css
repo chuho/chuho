@@ -1,15 +1,15 @@
 html,body{
 	margin: 0;
-		font-size: 20px;/*zhuhe.默認是18px*/
+	font-size: 20px;/*zhuhe.默認是18px*/
 	font-family:DFKai-sb,'cwTeXKai',Arial,Helvetica,"Microsoft JhengHei",Sans-Serif; /* 朱賀新增 */
-		width: 98%;
+	width: 98%;
 }
 .cx-time-main{
 	padding: 20px 0;
 }
 zh{
-	background: #26a69a;
-	border: 2px solid #26a69a;
+	background: #499fa4;  /* 朱賀#26a69a */
+	border: 2px solid #499fa4; /* 朱賀#26a69a */
 }
 ul{
 	white-space:nowrap;
@@ -76,8 +76,8 @@ ul li{
 	right: calc(50% + 6px);
 }
 .active::before {
-	background: #26a69a;
-	border: 2px solid #26a69a;
+	background: #499fa4;   /* 朱賀#26a69a */
+	border: 2px solid #499fa4; /* 朱賀#26a69a */
 }
 .cx-time-main ul li::before,.cx-time-main ul li::after{
 	content: '';
@@ -86,7 +86,7 @@ ul li{
 	width: 2px;
 	height: calc(50% - 8px);
 	left: 50%;
-	background: #26a69a;
+	background: #499fa4; /* 朱賀#26a69a */
 	margin-left: -2px;
 }
 .cx-time-main ul li::after {
