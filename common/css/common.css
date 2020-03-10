@@ -63,6 +63,11 @@ textarea{
     font-size: 100%;
     font-family: "Microsoft JhengHei"; */
 }
+xmp{ /*zhuhe.20200310.格式化.不支持字體*/
+	white-space:normal;/*zhuhe.20200310.新增經過考慮未使用code和pre*/
+    padding-top: 0em;/*zhuhe.20200310.控制行距.貌似不起作用*/
+	padding-left:2em;/*zhuhe.20200310.控制行距.貌似不起作用*/
+}
 form{
 	width: 100%;
 	height: 100%;	
@@ -874,7 +879,7 @@ width: 100%;
 /*結束*/
 .textArea .note {
   width: 100%;
-  padding: 20px;
+  padding-left:2em;/*zhuhe.20200310.padding: 16px改*/
   background-color: #EAF5D9;
   color: #608C1A;
 }
