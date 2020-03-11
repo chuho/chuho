@@ -138,8 +138,47 @@ a:hover:not(ul.verticalBtn > li > a){
   border-bottom:22px solid white;
   writing-mode: vertical-rl;
   -webkit-writing-mode: vertical-rl;/* float:right; div靠右 */ 
+  text-indent:0em;/*20200311.正文全部縮進兩格 */ 
+  padding-top:2em;/*20200311.正文全部縮進兩格*/ 
   }
 /*==文字靠右==*/
+.t1g {
+  float: right;
+  height: 75%;writing-mode:tb-rl;
+  border-bottom:22px solid white;
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;/*20200311.抬一格 */
+  text-indent:-1em;
+  padding-top:2em;
+  }
+.t2g {
+  float: right;
+  height: 75%;writing-mode:tb-rl;
+  border-bottom:22px solid white;
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;/*20200311.抬兩格 */
+  text-indent:-2em;
+  padding-top:2em;
+  }
+.t3g {
+  float: right;
+  height: 75%;writing-mode:tb-rl;
+  border-bottom:22px solid white;
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;/*20200311.用處較少如太上皇.皇太后*/ 
+  text-indent:-3em;/*20200311.此時正文依然縮進兩格*/ 
+  padding-top:3em;/*20200311.皇字和太字會突出hr線，有大逆不道的效果*/ 
+  /*20200311.解決辦法：一是考慮正文縮進三字符，二是另寫一個縮進三格的正文class*/ 
+  }
+.zw3 {
+  float: right;
+  height: 75%;writing-mode:tb-rl;
+  border-bottom:22px solid white;
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;/* float:right; div靠右 */ 
+  text-indent:0em;/*20200311.正文全部縮進三格 */ 
+  padding-top:3em;/*20200311.正文全部縮進三格*/ 
+  }
 /*==HEADER==*/
 .Header{
 	width: 6%;
