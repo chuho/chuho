@@ -58,10 +58,10 @@ input[type="submit"]{
 }
 textarea{
     /* border: none;*/
-    /* width:100%;
-    padding: 20px;
+    width:100%; 
+    padding: 0.5em;/*zhuhe.20200311.20px*/
     font-size: 100%;
-    font-family: "Microsoft JhengHei"; */
+    /*font-family: "Microsoft JhengHei";*/
 }
 xmp{ /*zhuhe.20200310.格式化.不支持字體*/
 	white-space:normal;/*zhuhe.20200310.新增經過考慮未使用code和pre*/
