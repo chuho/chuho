@@ -22,6 +22,10 @@ a {
   writing-mode: vertical-rl;
   -webkit-writing-mode: vertical-rl;/* float:right; div靠右 */ 
   }
+sup {
+  color: red;
+	}
+
 div{
   height:400px;writing-mode:tb-rl;
   width:100%;
