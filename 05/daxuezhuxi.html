@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
+<link rel="apple-touch-icon" href="../images/appicon.png" />
+<link rel="stylesheet" type="text/css" href="../common/css/common.css?v=2" />
+<link rel="stylesheet" type="text/css" href="../common/css/index.css?v=2" />
+<link rel="stylesheet" type="text/css" id="link2"/>
+<link rel="stylesheet" type="text/css" href="../common/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="../common/css/fotorama.css?v=2" />
+<link rel="stylesheet" type="text/css" href="../common/css/carousel.css" />
+<link rel="stylesheet" type="text/css" href="../common/css/carousel-style.css" />
+<script type="text/javascript" src="../common/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../common/js/jquery-migrate-3.0.0.js"></script>
+<script type="text/javascript" src="../common/js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="../common/js/animate.js"></script>
+<script type="text/javascript" src="../common/js/customer.js?v=1"></script>
+<script type="text/javascript" src="../common/js/imgLiquid-min.js"></script>
+<script type="text/javascript" src="../common/js/jquery.HSlider.js"></script>
+<script type="text/javascript" src="../common/js/carousel.js"></script>
+<script type="text/javascript" src="../common/js/TabKeyCtl.js"></script>
+<script type="text/javascript" src="../common/js/jquery.mmenu.min.js"></script>
+<script src="../common/js/fotorama.js"></script>
+<script type="text/javascript">
+    if (self === top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+    top.location = self.location;
+    }
+    $(document).ready(
+    function () {
+    $('form').attr('autocomplete', 'off');
+    }
+    );
+</script>
+<!--zhuhe.結束文件頭-->
+    <title>zhuhe</title>
+	</head>
+<!--zhuhe.開始菜單-->
+<body>
+<nav id="navMenu" class="Nav" style="visibility: hidden">
+    <ul>
+<li class="others typeA searchA"><label for="txtQueryMenu"></label>
+ <input class="text" name="" type="text" value="" placeholder ="Google搜索zhuhe"  id="txtQueryMenu" accesskey="S" />
+ <input class="btn" type="submit" name="" value="搜尋"  aria-label="搜尋" id="btnSearchMenu" />
+</li>
+<li >
+<span class="MobileHidden">最新資訊</span>
+<ul>
+	<li ><a href="02new.html">最新消息</a></li>
+	<li ><a href="/00/news.html">新聞專區</a></li>
+</ul>
+</li>
+<li >
+<span>朱賀本紀</span>
+<ul>
+	<li ><a href="../01/benji.html">本紀</a></li>
+	<li ><a href="../01/">實錄</a></li>
+	<li ><a href="../09">上諭檔</a></li>
+</ul>
+</li>
+<li >
+<span>中國歷史</span>
+<ul>
+	<li ><a href="./his-24/a01/a01.htm">正史</a></li>
+	<li ><a href="./his-24/a01/a02.htm">典籍</a></li>
+	<li class="MobileHidden"><a href="./his-24/a01/a03.htm">其他</a></li>
+</ul>
+</li>
+<li >
+<span>世界通史</span>
+<ul>
+	<li ><a href="/04">通史</a></li>
+	<li ><a href="01xuexi.html">一戰</a></li>
+	<li ><a href="01xuexi.html">二戰</a></li>
+	<li ><a href="01xuexi.html">其他</a></li>
+</ul>
+</li>
+<li >
+<span>典藏資源</span>
+<ul>
+	<li ><a href="https://oa.zhuhe.tw:5001">武英殿二十四史</a></li>
+	<li ><a href="/05/">四書五經</a></li>
+	<li ><a href="/EDU">新勸學篇</a></li>
+	<li ><a href="/05/">中外文獻</a></li>
+	<li ><a href="https://archive.org" >互聯網檔案館</a></li>
+</ul>
+</li>
+<li >
+<span>傳統文化</span>
+<ul>
+	<li ><a href="/06/00.html">中華文明</a></li>
+	<li ><a href="/06/01.html">西洋文化</a></li>
+	<li ><a href="/06/02.html">東夷文化</a></li>
+	<li ><a href="/06/03.html">北虜文化</a></li>
+	<li ><a href="/06/04.html">南蠻文化</a></li>
+</ul>
+</li>
+<li >
+<span>文明開化</span>
+<ul>
+	<li ><a href="/07/01.html">認識世界</a></li>
+	<li ><a href="/07/02.html">科技信息</a></li>
+	<li ><a href="/07/03.html">自然信息</a></li>
+	<li ><a href="/07/04.html">地理信息</a></li>
+</ul>
+</li>
+<li >
+<span>其他資源</span>
+<ul>
+	<li ><a href="https://oa.zhuhe.tw:5001" target="_blank">其他資源</a></li>
+	<li ><a href="https://ctext.org" target="_blank">電子計劃</a></li>
+	<li ><a href="/tool">網路工具</a></li>
+	<li ><a href="/tool/html5.html">瀏覽器支援</a></li>
+	<li ><a href="/tool/jsquanjiajiemi.html">JS加密解密</a></li>
+	<li ><a href="/tool/morse.html">摩斯密碼</a></li>
+	<li ><a href="/tool/zhuanhuan.html">編碼轉換</a></li>
+	<li ><a href="/tool/htmltanchu.html">彈出測試</a></li>
+</ul>
+</li>
+<li class="others typeA sitemap"><a href="/tool">網站導覽</a></li>
+<li class="others typeA qa"><a href="/help">朱賀幫助</a></li>
+<li class="others typeA contact"><a href="mailto:zhuhe@zhuhe.tw" target ="_self">聯絡我們</a></li>
+<li class="others typeA sBranch"><a href="https://9.zhuhe.tw/" target="_blank">康正官網</a></li>
+<li class="others typeB fanpage"><a href="https://google.com" target="_blank">Google</a></li>
+<li class="others typeB youtube"><a href="https://youtube.com" target="_blank">YouTube</a></li>
+<li class="others typeB app"><a href="https://twitter.com">Twitter</a></li>
+<li class="others typeB eshop"><a href="/video">Video</a></li>
+    </ul>
+</nav>
+<!--zhuhe.結束菜單-->
+<script type="text/javascript">
+    (function ($) {
+$(window).load(function () {
+    //   $("#navMenu").show();
+    $("#navMenu").css({ "visibility": "visible" });
+    // $("#navUl").mCustomScrollbar();
+});
+       // setTimeout(function () { $("#navMenu a").attr("title", "menu"); }, 5000);
+    })(jQuery);
+</script>
+<!--zhuhe.開始主要部分-->
+<div class="top"></div><div class="zhishu"><!-- 去掉id="fullscreen"使div滑動-->
+<!--zhuhe.開始右側彈出-->
+<script type="text/javascript">
+//<![CDATA[
+ $(document).ready(function () {$("#navMenu").mmenu({offCanvas: {position: "right"}});});
+ var arr=['zhuhe.tw'];
+ var lang='1';
+ Show1=false;Show2=false;Show3=false;Show4=true;Show5=false;Show6=false;
+ //]]>
+</script>
+<!--zhuhe.結束右側彈出-->
+<div >
+<header class="Header">
+<a href="#navMenu" class="navBtn" title="主選單">
+<img src="../images/icon/navbtn.svg" alt="選單圖示" />
+<img src="../images/icon/foto_right2.svg" alt="" />
+</a>
+<a href="javascript:;"><h1>zhuhe</h1></a>
+</header>
+<!--zhuhe.開始頁面-->
+<h1 align="right">典藏資源</h1>
+<h2 align="right">勸學新篇</h2>
+<h3 align="right">作業系統</h3>
+<HR>
+<p class="t2g">大學章句◎朱熹〇
+<p class="t1g">大<sup>〇</sup>舊音泰<sup>〇</sup>今讀如字
+
+<p class="t2g"><a>子程子曰</a>『大學』<sup>〇</sup>孔氏之遺書<sup>〇</sup>而初學入德之門也<sup>〇</sup>
+<p class="zw">於今可見古人為學次第者<sup>〇</sup>獨賴此篇之存<sup>〇</sup>而『論』<sup>〇</sup>『孟』次之<sup>〇</sup>學者必由是而學焉<sup>〇</sup>則庶乎其不差矣
+<h4 class="zw"><hr color="#EE9B73"></h4>
+<h4 class="t2g">大學之道<sup>〇</sup>在明明德<sup>〇</sup>在親民<sup>〇</sup>在止於至善<sup>〇</sup>
+<h3 class="zw"><hr></h3>
+<p class="t1g"><a>程子曰</a>親<sup>〇</sup>當作新
+<p class="t1g"><a>大學者</a><sup>〇</sup>大人之學也<sup>〇</sup>明<sup>〇</sup>明之也
+<p class="t1g"><a>明德者</a><sup>〇</sup>人之所得乎天<sup>〇</sup>而虛靈不昧<sup>〇</sup>以具衆理而應萬事者也<sup>〇</sup>但為氣稟所拘<sup>〇</sup>人欲所蔽<sup>〇</sup>則有時而昏<sup>〇</sup>然其本體之明<sup>〇</sup>則有未嘗息者<sup>〇</sup>故學者當因其所發而遂明之<sup>〇</sup>以復其初也
+<p class="t1g"><a>新者</a><sup>〇</sup>革其舊之謂也<sup>〇</sup>言既自明其明德<sup>〇</sup>又當推以及人<sup>〇</sup>使之亦有以去其舊染之污也
+<p class="t1g"><a>止者</a><sup>〇</sup>必至於是而不遷之意
+<p class="t1g"><a>至善</a><sup>〇</sup>則事理當然之極也<sup>〇</sup>言明明德<sup>〇</sup>新民<sup>〇</sup>皆當至於至善之地而不遷<sup>〇</sup>蓋必其有以盡夫天理之極<sup>〇</sup>而無一毫人欲之私也
+<p class="t1g">此三者<sup>〇</sup>大學之綱領也<sup>〇</sup>
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">知止而后有定<sup>〇</sup>定而后能靜<sup>〇</sup>靜而后能安<sup>〇</sup>安而后能慮<sup>〇</sup>慮而后能得<sup>〇</sup></h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">止者<sup>〇</sup>所當止之地<sup>〇</sup>即至善之所在也
+<p class="zw">知之<sup>〇</sup>則志有定向
+<p class="zw">靜<sup>〇</sup>謂心不妄動
+<p class="zw">安<sup>〇</sup>謂所處而安
+<p class="zw">慮<sup>〇</sup>謂處事精詳
+<p class="zw">得<sup>〇</sup>謂得其所止
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">物有本末<sup>〇</sup>事有終始<sup>〇</sup>知所先後<sup>〇</sup>則近道矣<sup>〇</sup></h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">明德為本<sup>〇</sup>新民為末
+<p class="zw">知止為始<sup>〇</sup>能得為終
+<p class="zw">本始所先<sup>〇</sup>末終所後
+<p class="zw">此結上文兩節之意
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">古之欲明明德於天下者<sup>〇</sup>先治其國<sup>〇</sup>欲治其國者<sup>〇</sup>先齊其家<sup>〇</sup>欲齊其家者<sup>〇</sup>先脩其身<sup>〇</sup>欲脩其身者<sup>〇</sup>先正其心<sup>〇</sup>欲正其心者<sup>〇</sup>先誠其意<sup>〇</sup>欲誠其意者<sup>〇</sup>先致其知<sup>〇</sup>致知在格物<sup>〇</sup></h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">治<sup>〇</sup>平聲<sup>〇</sup>後放此
+<p class="zw">明明德於天下者<sup>〇</sup>使天下之人皆有以明其明德也
+<p class="zw">心者<sup>〇</sup>身之所主也
+<p class="zw">誠<sup>〇</sup>實也<sup>〇</sup>意者<sup>〇</sup>心之所發也<sup>〇</sup>實其心之所發<sup>〇</sup>欲其一於善而無自欺也
+<p class="zw">致<sup>〇</sup>推極也
+<p class="zw">知<sup>〇</sup>猶識也<sup>〇</sup>推極吾之知識<sup>〇</sup>欲其所知無不盡也
+<p class="zw">格<sup>〇</sup>至也
+<p class="zw">物<sup>〇</sup>猶事也物<sup>〇</sup>窮至事物之理<sup>〇</sup>欲其極處無不到也
+<p class="zw">此八者<sup>〇</sup>大學之條目也
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">物格而后知至<sup>〇</sup>知至而后意誠<sup>〇</sup>意誠而后心正<sup>〇</sup>心正而后身脩<sup>〇</sup>身脩而后家齊<sup>〇</sup>家齊而后國治<sup>〇</sup>國治而后天下平<sup>〇</sup></h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">治<sup>〇</sup>去聲<sup>〇</sup>後放此
+<p class="zw">物格者<sup>〇</sup>物理之極處無不到也
+<p class="zw">知至者<sup>〇</sup>吾心之所知無不盡也
+<p class="zw">知既盡<sup>〇</sup>則意可得而實矣<sup>〇</sup>意既實<sup>〇</sup>則心可得而正矣
+<p class="zw">脩身以上<sup>〇</sup>明明德之事也
+<p class="zw">齊家以下<sup>〇</sup>新民之事也
+<p class="zw">物格知至<sup>〇</sup>則知所止矣
+<p class="zw">意誠以下<sup>〇</sup>則皆得所止之序也
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">自天子以至於庶人<sup>〇</sup>壹是皆以脩身為本<sup>〇</sup></h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">壹是<sup>〇</sup>一切也
+<p class="zw">正心以上<sup>〇</sup>皆所以脩身也
+<p class="zw">齊家以下<sup>〇</sup>則舉此而措之耳
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">其本亂而末治者<sup>〇</sup>否矣<sup>〇</sup>其所厚者薄<sup>〇</sup>而其所薄者厚<sup>〇</sup>未之有也<sup>〇</sup></h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">本<sup>〇</sup>謂身也
+<p class="zw">所厚<sup>〇</sup>謂家也
+<p class="zw">此兩節結上文兩節之意
+
+<h4 class="zw"><hr color="#EE9B73"></h4>
+<h4 class="t2g">右經一章<sup>〇</sup>蓋孔子之言<sup>〇</sup>而曾子述之<sup>〇</sup><a>凡二百五字</a>其傳十章<sup>〇</sup>則曾子之意而門人記之也<sup>〇</sup>舊本頗有錯簡<sup>〇</sup>今因程子所定<sup>〇</sup>而更考經文<sup>〇</sup>别為序次如左<sup>〇</sup><a>凡千五百四十六字</a></h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">凡傳文<sup>〇</sup>雜引經傳<sup>〇</sup>若無統紀<sup>〇</sup>然文理接續<sup>〇</sup>血脈貫通<sup>〇</sup>深淺始終<sup>〇</sup>至為精密
+<p class="zw">熟讀詳味<sup>〇</sup>久當見之<sup>〇</sup>今不盡釋也
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">『康誥』曰「克明德」</h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">『康誥』周書<sup>〇</sup>克<sup>〇</sup>能也
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">『大甲』曰「顧諟天之明命」</h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">大<sup>〇</sup>讀作泰
+<p class="zw">諟<sup>〇</sup>古是字
+<p class="zw">『大甲』商書
+<p class="zw">顧<sup>〇</sup>謂常目在之也
+<p class="zw">諟<sup>〇</sup>猶此也<sup>〇</sup>或曰審也
+<p class="zw">天之明命<sup>〇</sup>即天之所以與我<sup>〇</sup>而我之所以為德者也
+<p class="zw">常目在之<sup>〇</sup>則無時不明矣
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">『帝典』曰「克明峻德」</h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">峻<sup>〇</sup>書作俊<sup>〇</sup>『帝典』堯典<sup>〇</sup>虞書
+<p class="zw">峻<sup>〇</sup>大也
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">皆自明也<sup>〇</sup></h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">結所引書<sup>〇</sup>皆言自明己德之意
+
+<h4 class="zw"><hr color="#EE9B73"></h4>
+<h4 class="t2g">右傳之首章<sup>〇</sup>釋明明德<sup>〇</sup></h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">此通下三章至「止於信」<sup>〇</sup>舊本誤在「沒世不忘」之下
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">湯之盤銘曰「苟日新<sup>〇</sup>日日新<sup>〇</sup>又日新」</h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">盤<sup>〇</sup>沐浴之盤也
+<p class="zw">銘<sup>〇</sup>名其器以自警之辭也
+<p class="zw">苟<sup>〇</sup>誠也
+<p class="zw">湯以人之洗濯其心以去惡<sup>〇</sup>如沐浴其身以去垢
+<p class="zw">故銘其盤<sup>〇</sup>言誠能一日有以滌其舊染之汙而自新<sup>〇</sup>則當因其已新者<sup>〇</sup>而日日新之<sup>〇</sup>又日新之<sup>〇</sup>不可略有間斷也
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">『康誥』曰「作新民」</h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">鼓之舞之之謂作<sup>〇</sup>言振起其自新之民也
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">『詩』曰「周雖舊邦<sup>〇</sup>其命惟新」</h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">『詩』大雅文王之篇
+<p class="zw">言周國雖舊<sup>〇</sup>至於文王<sup>〇</sup>能新其德以及於民<sup>〇</sup>而始受天命也
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">是故君子無所不用其極</h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">自新新民<sup>〇</sup>皆欲止於至善也
+
+<h4 class="zw"><hr color="#EE9B73"></h4>
+<h4 class="t2g">右傳之二章<sup>〇</sup>釋新民<sup>〇</sup></h4>
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">『詩』云「邦畿千里<sup>〇</sup>惟民所止<sup>〇</sup>」</h4>
+<h3 class="zw"><hr></h3>
+<p class="zw">『詩』商頌玄鳥之篇
+<p class="zw">邦畿<sup>〇</sup>王者之都也
+<p class="zw">止<sup>〇</sup>居也<sup>〇</sup>言物各有所當止之處也
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">『詩』云「緡蠻黃鳥<sup>〇</sup>止于丘隅」子曰「於止<sup>〇</sup>知其所止<sup>〇</sup>可以人而不如鳥乎<sup>〇</sup>」</h4>
+<h3 class="zw"><hr></h3>
+
+<p class="zw">緡<sup>〇</sup>『詩』作綿
+<p class="zw">『詩』小雅綿蠻之篇
+<p class="zw">緡蠻<sup>〇</sup>鳥聲
+<p class="zw">丘隅<sup>〇</sup>岑蔚之處
+<p class="zw">子曰以下<sup>〇</sup>孔子說『詩』之辭
+<p class="zw">言人當知所當止之處也
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">『詩』云「穆穆文王<sup>〇</sup>於緝熙敬止<sup>〇</sup>」為人君<sup>〇</sup>止於仁<sup>〇</sup>為人臣<sup>〇</sup>止於敬<sup>〇</sup>為人子<sup>〇</sup>止於孝<sup>〇</sup>為人父<sup>〇</sup>止於慈<sup>〇</sup>與國人交<sup>〇</sup>止於信<sup>〇</sup></h4>
+<h3 class="zw"><hr></h3>
+
+<p class="zw">於緝之於<sup>〇</sup>音烏
+<p class="zw">『詩』文王之篇
+<p class="zw">穆穆<sup>〇</sup>深遠之意
+<p class="zw">於<sup>〇</sup>歎美辭
+<p class="zw">緝<sup>〇</sup>繼續也
+<p class="zw">熙<sup>〇</sup>光明也
+<p class="zw">敬止<sup>〇</sup>言其無不敬而安所止也
+<p class="zw">引此而言聖人之止<sup>〇</sup>無非至善
+<p class="zw">五者乃其目之大者也
+<p class="zw">學者於此<sup>〇</sup>究其精微之蘊<sup>〇</sup>而又推類以盡其餘<sup>〇</sup>則於天下之事<sup>〇</sup>皆有以知其所止而無疑矣
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">『詩』云「瞻彼淇澳<sup>〇</sup>菉竹猗猗<sup>〇</sup>有斐君子<sup>〇</sup>如切如磋<sup>〇</sup>如琢如磨<sup>〇</sup>瑟兮僩兮<sup>〇</sup>赫兮喧兮<sup>〇</sup>有斐君子<sup>〇</sup>終不可諠兮<sup>〇</sup>」「如切如磋」者<sup>〇</sup>道學也<sup>〇</sup>「如琢如磨」者<sup>〇</sup>自脩也<sup>〇</sup>「瑟兮僩兮」者<sup>〇</sup>恂慄也<sup>〇</sup>「赫兮喧兮」者<sup>〇</sup>威儀也<sup>〇</sup>「有斐君子<sup>〇</sup>終不可諠兮」者<sup>〇</sup>道盛德至善<sup>〇</sup>民之不能忘也<sup>〇</sup></h4>
+<h3 class="zw"><hr></h3>
+
+<p class="zw">澳<sup>〇</sup>於六反
+<p class="zw">菉<sup>〇</sup>『詩』作綠
+<p class="zw">猗<sup>〇</sup>協韻音阿
+<p class="zw">僩<sup>〇</sup>下版反
+<p class="zw">喧<sup>〇</sup>『詩』作咺<sup>〇</sup>諠<sup>〇</sup>『詩』作諼<sup>〇</sup>並況晚反
+恂<sup>〇</sup>鄭氏讀作峻
+<p class="zw">『詩』衛風淇澳之篇
+<p class="zw">淇<sup>〇</sup>水名
+<p class="zw">澳<sup>〇</sup>隈也
+<p class="zw">猗猗<sup>〇</sup>美盛貌<sup>〇</sup>興也
+<p class="zw">斐<sup>〇</sup>文貌<sup>〇</sup>切以刀鋸<sup>〇</sup>琢以椎鑿<sup>〇</sup>皆裁物使成形質也
+<p class="zw">磋以鑢鍚<sup>〇</sup>磨以沙石<sup>〇</sup>皆治物使其滑澤也<sup>〇</sup>
+<p class="zw">治骨角者<sup>〇</sup>既切而復磋之<sup>〇</sup>治玉石者<sup>〇</sup>既琢而復磨之<sup>〇</sup>皆言其治之有緒<sup>〇</sup>而益致其精也
+<p class="zw">瑟<sup>〇</sup>嚴密之貌
+<p class="zw">僩<sup>〇</sup>武毅之貌
+<p class="zw">赫喧<sup>〇</sup>宣著盛大之貌
+<p class="zw">諠<sup>〇</sup>忘也
+<p class="zw">道<sup>〇</sup>言也
+<p class="zw">學<sup>〇</sup>謂講習討論之事<sup>〇</sup>自脩者<sup>〇</sup>省察克治之功
+<p class="zw">恂慄<sup>〇</sup>戰懼也
+<p class="zw">威<sup>〇</sup>可畏也
+<p class="zw">儀<sup>〇</sup>可象也
+<p class="zw">引『詩』而釋之<sup>〇</sup>以明明明德者之止於至善<sup>〇</sup>道學自脩<sup>〇</sup>言其所以得之之由
+<p class="zw">恂慄<sup>〇</sup>威儀<sup>〇</sup>言其德容表裏之盛
+<p class="zw">卒乃指其實而歎美之也
+
+<h3 class="zw"><hr></h3>
+<h4 class="t2g">『詩』云：「於戲前王不忘！」君子賢其賢，而親其親。小人樂其樂，而利其利。此以沒世不忘也。</h4>
+<h3 class="zw"><hr></h3>
+
+<p class="zw">於戲，音嗚呼。樂，音洛。『詩』周頌烈文之篇。於戲，歎辭。前王，謂文、武也。君子，謂其後賢後王。小人，謂後民也。此言前王所以新民者止於至善，能使天下後世無一物不得其所，所以既沒世而人思慕之，愈久而不忘也。此兩節詠歎淫泆，其味深長，當熟玩之。〉
+
+<h4 class="zw"><hr color="#EE9B73"></h4>
+<h4 class="t2g">右傳之三章<sup>〇</sup>釋止於至善<sup>〇</sup></h4>
+<p class="zw">此章內自引淇澳『詩』以下<sup>〇</sup>舊本誤在誠意章下
+
+<p class="zw">子曰：「聽訟，吾猶人也，必也使無訟乎！」無情者不得盡其辭，大畏民志。此謂知本。〈猶人，不異於人也。情，實也。引夫子之言，而言聖人能使無實之人不敢盡其虛誕之辭。蓋我之明德既明，自然有以畏服民之心志，故訟不待聽而自無也。觀於此言，可以知本末之先後矣。〉
+
+<h4 class="zw"><hr color="#EE9B73"></h4>
+<h4 class="t2g">右傳之四章。釋本末。〈此章舊本誤在「止於信」下。〉
+
+<p class="zw">此謂知本，〈程子曰：「衍文也。」〉此謂知之至也。〈此句之上别有闕文，此特其結語耳。〉
+
+<h4 class="zw"><hr color="#EE9B73"></h4>
+<h4 class="t2g">右傳之五章，蓋釋格物、致知之義，而今亡矣。〈此章舊本通下章，誤在經文之下。〉閒嘗竊取程子之意以補之曰：「所謂致知在格物者：言欲至吾之知，在即物而窮其理也，蓋人心之靈莫不有知，而天下之物莫不有理。惟於理有未窮，故其知有不盡也。是以大學始教，必使學者即凡天下之物。莫不因其已知之理而益窮之，以求至乎其極。至於用力之久，而一旦豁然貫通焉。則衆物之表裏精粗，無不到，而吾心之全體大用，無不明矣。此謂物格。此謂知之至也。」
+
+<p class="zw">所謂誠其意者：毋自欺也，如惡惡臭，如好好色。此之謂自謙。故君子必慎其獨也。〈惡、好上字，皆去聲。謙讀為慊，苦劫反。誠其意者，自脩之首也。毋者，禁止之辭。自欺云者，知為善以去惡，而心之所發有未實也。謙，快也，足也。獨者，人所不知而己所獨知之地也。言欲自脩者知為善以去其惡，則當實用其力，而禁止其自欺。使其惡惡則如惡惡臭，好善則如好好色，皆務決去，而求必得之，以自快足於己，不可徒苟且以殉外而為人也。然其實與不實，蓋有他人所不及知而己獨知之者，故必謹之於此以審其幾焉。〉小人閒居為不善，無所不至，見君子，而后厭然。揜其不善，而著其善。人之視己，如見其肺肝然，則何益矣？此謂誠於中，形於外。故君子必慎其獨也。〈閒，音閑。厭，鄭氏讀為黶。閒居，獨處也。厭然，消沮閉藏之貌。此言小人陰為不善，而陽欲揜之，則是非不知善之當為與惡之當去也；但不能實用其力以至此耳。然欲揜其惡而卒不可揜，欲詐為善而卒不可詐，則亦何益之有哉！此君子所以重以為戒，而必謹其獨也。〉曾子曰：「十目所視，十手所指，其嚴乎。」〈引此以明上文之意。言雖幽獨之中，而其善惡之不可揜如此。可畏之甚也。〉富潤屋，德潤身。心廣，體胖。故君子必誠其意。〈胖，步丹反。胖，安舒也。言富則能潤屋矣，德則能潤身矣，故心无愧怍，則廣大寬平，而體常舒泰，德之潤身者然也。蓋善之實於中而形於外者如此，故又言此以結之。〉
+
+<h4 class="zw"><hr color="#EE9B73"></h4>
+<h4 class="t2g">右傳之六章。釋誠意。〈經曰：「欲誠其意，先致其知。」又曰：「知至而后意誠。」蓋心體之明有所未盡，則其所發必有不能實用其力，而苟焉以自欺者。然或己明而不謹乎此，則其所明又非己有，而無以為進德之基。故此章之指，必承上章而通考之，然後有以見其用力之始終，其序不可亂而功不可闕如此云。〉
+
+<p class="zw">所謂脩身在正其心者：身有所忿懥，則不得其正。有所恐懼，則不得其正。有所好樂，則不得其正。有所憂患，則不得其正。〈程子曰：「身有之身當作心。」忿，弗粉反。懥，敕值反。好、樂，並去聲。忿懥，怒也。蓋是四者，皆心之用，而人所不能無者。然一有之而不能察，則欲動情勝，而其用之所行，或不能不失其正矣。〉心不在焉，視而不見，聽而不聞，食而不知其味。〈心有不存，則無以檢其身，是以君子必察乎此而敬以直之，然後此心常存而身無不脩也。〉此謂脩身在正其心。
+
+<h4 class="zw"><hr color="#EE9B73"></h4>
+<h4 class="t2g">右傳之七章。釋正心脩身。〈此亦承上章以起下章。蓋意誠則真無惡而實有善矣，所以能存是心以檢其身。然或但知誠意，而不能密察此心之存否，則又無以直內而脩身也。自此以下，並以舊文為正。〉
+
+<p class="zw">所謂齊其家在脩其身者：人之其所親愛，而辟焉。之其所賤惡，而辟焉。之其所畏敬，而辟焉。之其所哀矜，而辟焉。之其所敖惰，而辟焉。故好而知其惡，惡而知其美者，天下鮮矣。〈辟，讀為僻。惡而之惡、敖、好，並去聲。鮮，上聲。人，謂衆人。之，猶於也。辟，猶偏也。五者，在人本有當然之則；然常人之情惟其所向而不加審焉，則必陷於一偏而身不脩矣。〉故諺有之曰，「人莫知其子之惡，莫知其苗之碩。」〈諺，音彥。碩，協韻，時若反。諺，俗語也。溺愛者不明，貪得者無厭，是則偏之為害，而家之所以不齊也。〉此謂身不脩，不可以齊其家。
+
+<h4 class="t2g">右傳之八章。釋脩身齊家。
+
+<p class="zw">所謂治國必先齊其家者：其家不可教，而能教人者，無之。故君子不出家，而成教於國。孝者，所以事君也；弟者，所以事長也；慈者，所以使衆也。〈弟，去聲。長，上聲。身脩，則家可教矣；孝、弟、慈，所以脩身而教於家者也；然而國之所以事君事長使衆之道不外乎此。此所以家齊於上，而教成於下也。〉『康誥』曰：「如保赤子，心誠求之。」雖不中、不遠矣，未有學養子，而后嫁者也。〈中，去聲。此引書而釋之，又明立教之本不假强為，在識其端而推廣之耳。〉一家仁，一國興仁；一家讓，一國興讓；一人貪戾，一國作亂。其機如此，此謂一言僨事，一人定國。〈僨，音奮。一人，謂君也。機，發動所由也。僨，覆敗也。此言教成於國之效。〉堯舜帥天下以仁，而民從之。桀紂帥天下以暴，而民從之。其所令反其所好，而民不從。是故君子，有諸己，而后求諸人。無諸己，而后非諸人。所藏乎身不恕，而能喻諸人者，未之有也。〈好，去聲。此又承上文一人定國而言。有善於己，然後可以責人之善；無惡於己，然後可以正人之惡。皆推己以及人，所謂恕也，不如是，則所令反其所好，而民不從矣。喻，曉也。〉故治國在齊其家。〈通結上文。〉『詩』云：「桃之夭夭，其葉蓁蓁，之子于歸，宜其家人。」宜其家人，而后可以教國人。〈夭，平聲。蓁，音臻。『詩』周南桃夭之篇。夭夭，少好貌。蓁蓁，美盛貌。興也。之子，猶言是子，此指女子之嫁者而言也。婦人謂嫁曰歸。宜，猶善也。〉『詩』云：「宜兄宜弟。」宜兄宜弟，而后可以教國人。〈『詩』小雅蓼蕭篇。〉『詩』云：「其儀不忒，正是四國。」其為父子兄弟足法，而后民法之也。〈『詩』曹風鳴鳩篇。忒，差也。〉此謂治國，在齊其家。〈此三引詩，皆以詠歎上文之事，而又結之如此。其味深長，最宜潛玩。〉
+
+<h4 class="t2g">右傳之九章。釋齊家治國。
+
+<p class="zw">所謂平天下在治其國者：上老老而民興孝，上長長而民興弟，上恤孤而民不倍。是以君子有絜矩之道也。〈長，上聲。弟，去聲。倍，與背同。絜，胡結反。老老，所謂老吾老也。興，謂有所感發而興起也。孤者，幼而無父之稱。絜，度也。矩，所以為方也。言此三者，上行下效，捷於影響，所謂家齊而國治也。亦可以見人心之所同，而不可使有一夫之不獲矣。是以君子必當因其所同，推以度物，使彼我之間各得分願，則上下四旁均齊方正，而天下平矣。〉所惡於上，毋以使下。所惡於下，毋以事上。所惡於前，毋以先後。所惡於後，毋以從前。所惡於右，毋以交於左。所惡於左，毋以交於右。此之謂絜矩之道。〈惡、先，並去聲。此覆解上文絜矩二字之義。如不欲上之無禮於我，則必以此度下之心，而亦不敢以此無禮使之。不欲下之不忠於我，則必以此度上之心，而亦不敢以此不忠事之。至於前後左右，無不皆然，則身之所處，上下、四旁、長短、廣狹，彼此如一，而無不方矣。彼同有是心而興起焉者，又豈有一夫之不獲哉。所操者約，而所及者廣，此平天下之要道也。故章內之意，皆自此而推之。〉『詩』云：「樂只君子，民之父母。」民之所好好之，民之所惡惡之，此之謂民之父母。〈樂，音洛。只，音紙。好、惡，並去聲，下並同。『詩』小雅南山有臺之篇。只，語助辭。言能絜矩而以民心為己心，則是愛民如子，而民愛之如父母矣。〉『詩』云：「節彼南山，維石巖巖。赫赫師尹，民具爾瞻。」有國者不可以不慎，辟則為天下僇矣。〈節，讀為截。闢，讀為僻。僇，與戮同。『詩』小雅節南山之篇。節，截然高大貌。師尹，周太師尹氏也。具，俱也。辟，偏也。言在上者人所瞻仰，不可不謹。若不能絜矩而好惡殉於一己之偏，則身弒國亡，為天下之大戮矣。〉『詩』云：「殷之未喪師，克配上帝。儀監於殷，峻命不易。」道得衆，則得國；失衆，則失國。〈喪，去聲。儀，詩作宜。峻，詩作駿。易，去聲。『詩』文王篇。師，衆也。配，對也。配上帝，言其為天下君，而對乎上帝也。監，視也。峻，大也。不易，言難保也。道，言也。引詩而言此，以結上文兩節之意。有天下者，能存此心而不失，則所以絜矩而與民同欲者，自不能已矣。〉是故君子先慎乎德。有德，此有人；有人，此有土；有土，此有財；有財，此有用。〈先慎乎德，承上文不可不慎而言。德，即所謂明德。有人，謂得衆。有土，謂得國。有國則不患無財用矣。〉德者本也，財者末也。〈本上文而言。〉外本內末，爭民施奪。〈人君以德為外，以財為內，則是爭鬭其民，而施之以劫奪之教也。蓋財者人之所同欲，不能絜矩而欲專之，則民亦起而爭奪矣。〉是故財聚則民散，財散則民聚。〈外本內末故財聚，爭民施奪故民散，反是則有德而有人矣。〉是故言悖而出者，亦悖而入。貨悖而入者，亦悖而出。〈悖，布內反。悖，逆也。此以言之出入，明貨之出入也。自先慎乎德以下至此，又因財貨以明能絜矩與不能者之得失也。〉『康誥』曰：「惟命不於常。」道善則得之，不善則失之矣。〈道，言也。因上文引文王詩之意而申言之，其丁寧反覆之意益深切矣。〉楚書曰：「楚國無以為寶，惟善以為寶。」〈楚書，楚語。言不寶金玉而寶善人也。〉舅犯曰：「亡人無以為寶，仁親以為寶。」〈舅犯，晉文公舅狐偃，字子犯。亡人，文公時為公子，出亡在外也。仁，愛也。事見檀弓。此兩節又明不外本而內末之意。〉『秦誓』曰：「若有一个臣，斷斷兮，無他技，其心休休焉，其如有容焉。人之有技，若己有之。人之彥聖，其心好之。不啻若自其出口。寔能容之，以能保我子孫黎民，尚亦有利哉。人之有技，媢嫉以惡之。人之彥聖而違之，俾不通。寔不能容，以不能保我子孫黎民，亦曰殆哉。」〈个，古賀反，書作介。斷，丁亂反。媢，音冒。秦誓，周書。斷斷，誠一之貌。彥，美士也。聖，通明也。尚，庶幾也。媢，忌也。違，拂戾也。殆，危也。〉唯仁人放流之，迸諸四夷，不與同中國。此謂唯仁人為能愛人，能惡人。〈迸，讀為屏，古字通用。迸，猶逐也。言有此媢疾之人，妨賢而病國，則仁人必深惡而痛絕之。以其至公無私，故能得好惡之正如此也。〉見賢而不能舉，舉而不能先，命也。見不善而不能退，退而不能遠，過也。〈命，鄭氏云：「當作慢。」程子云：「當作怠。」未詳孰是。遠，去聲。若此者，知所愛惡矣，而未能盡愛惡之道，蓋君子而未仁者也。〉好人之所惡，惡人之所好，是謂拂人之性，菑必逮夫身。〈菑，古災字。夫，音扶。拂，逆也。好善而惡惡，人之性也；至於拂人之性，則不仁之甚者也。自秦誓至此，又皆以申言好惡公私之極，以明上文所引南山有臺、節南山之意。〉是故君子有大道，必忠信以得之，驕泰以失之。〈君子，以位言之。道，謂居其位而修己治人之術。發己自盡為忠，循物無違謂信。驕者矜高，泰者侈肆。此因上所引文王、康誥之意而言。章內三言得失，而語益加切，蓋至此而天理存亡之幾決矣。〉生財有大道，生之者衆，食之者寡。為之者疾，用之者舒，則財恆足矣。〈恒，胡登反。呂氏曰：「國無游民，則生者衆矣；朝無幸位，則食者寡矣；不奪農時，則為之疾矣；量入為出，則用之舒矣。」愚按：此因有土有財而言，以明足國之道在乎務本而節用，非必外本內末而後財可聚也。自此以至終篇，皆一意也。〉仁者以財發身，不仁者以身發財。〈發，猶起也。仁者散財以得民，不仁者亡身以殖貨。〉未有上好仁而下不好義者也，未有好義其事不終者也，未有府庫財非其財者也。〈上好仁以愛其下，則下好義以忠其上；所以事必有終，而府庫之財無悖出之患也。〉孟獻子曰：畜馬乘，不察於雞豚。伐冰之家，不畜牛羊。百乘之家，不畜聚斂之臣。與其有聚斂之臣，寧有盜臣。此謂國不以利為利，以義為利也。〈畜，許六反。乘、斂，並去聲。孟獻子，魯之賢大夫仲孫蔑也。畜馬乘，士初試為大夫者也。伐冰之家，卿大夫以上，喪祭用冰者也。百乘之家，有采地者也。君子寧亡己之財，而不忍傷民之力；故寧有盜臣，而不畜聚斂之臣。此謂以下，釋獻子之言也。〉長國家而務財用者，必自小人矣。彼為善之，小人之使為國家，菑害並至。雖有善者，亦無如之何矣。此謂國不以利為利，以義為利也。〈長，上聲。「彼為善之」，此句上下，疑有闕文誤字。自，由也，言由小人導之也。此一節，深明以利為利之害，而重言以結之，其丁寧之意切矣。〉
+
+<h4 class="t2g">右傳之十章。釋治國平天下。〈此章之義，務在與民同好惡而不專其利，皆推廣絜矩之意也。能如是，則親賢樂利各得其所，而天下平矣。〉凡傳十章：前四章統論綱領指趣，後六章細論條目功夫。其第五章乃明善之要，第六章乃誠身之本，在初學尤為當務之急，讀者不可以其近而忽之也。
+</div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var winWidth = $(window).width();
+    //搜尋
+    $("#btnSearchMenu").bind("click", function () {
+        var skey = "請輸入關鍵字";
+        if (($("#txtQueryMenu").val() != skey) && ($("#txtQueryMenu").val() != "")) {
+            window.location.href = "https://metager.org/meta/meta.ger3?eingabe=" + encodeURI($("#txtQueryMenu").val()) + "+site%3Azhuhe.tw";
+        }});
+</script>
