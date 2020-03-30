@@ -168,32 +168,13 @@ $(window).load(function () {
 <h2 align="right">勸學新篇</h2>
 <h3 align="right">作業系統</h3>
 <HR>
-<title>㊣伺服器的連接思路</title>
-<h4 class="t1g">伺服器的連接思路</h4>
-<p class="t2g">一是lxde桌面系統
-<p class="zw">除lxde以外<sup>〇</sup>還有很多如gnome xfce Mate 
-<p class="t2g">二是VNC遠程檢視
-<p class="zw">sudo apt-get update
-<p class="zw">sudo apt-get upgrade
-<p class="t1g">①安裝tightvncserver或其他
-<p class="zw">sudo apt-get install tightvncserver
-<p class="t1g">②啟動並建立vnc密碼
-<p class="zw">vncserver
-<p class="zw">依照提示設置密碼
-<p class="t1g">③修改密碼
-<p class="zw">運行vncpasswd即可
-<p class="t1g">④停止vncserver
-<p class="zw">vncserver -kill :1
-<p class="zw">vncserver -kill :2
-<p class="t1g">⑤重啟服务
-<p class="zw">service vncserver restart
-<p class="t2g">三是中文語言的支持字體
-<p class="zw">sudo apt-get install ttf-wqy-zenhei
-<p class="zw"><a href="https://www.linode.com/docs/applications/remote-desktop/install-vnc-on-ubuntu-16-04">參考一</a>
-<p class="zw"><a href="https://zhuanlan.zhihu.com/p/26843097">參考二</a>
-<p class="zw"><a href="https://allenlu2007.wordpress.com/2017/09/25/ubuntu-16-04-%E5%AE%89%E8%A3%9D-vnc-%E5%8F%8A-mate-%E6%A1%8C%E9%9D%A2%E7%92%B0%E5%A2%83">參考三</a>
-<p class="zw"><a href="https://blog.csdn.net/weixin_34237596/article/details/93689591">參考四</a>
-
+<title>㊣識別與Cloudflare的代理兼容的端口</title>
+<h4 class="t1g">識別與Cloudflare的代理兼容的端口</h4>
+<p class="zw">Cloudflare開CDN之後ping通<sup>〇</sup>無法訪問
+<p class="zw">能通說明沒有被封<sup>〇</sup>可能是端口的問題<sup>〇</sup>查閱了官網Cloudflare只代理特定的端口
+<p class="zw">左側為Cloudflare官方解釋
+<p class="zw"><a href="https://support.cloudflare.com/hc/zh-cn/articles/200169156-%E8%AF%86%E5%88%AB%E4%B8%8E-Cloudflare-%E7%9A%84%E4%BB%A3%E7%90%86%E5%85%BC%E5%AE%B9%E7%9A%84%E7%BD%91%E7%BB%9C%E7%AB%AF%E5%8F%A3">參考一</a>
+<p class="zw"><a href="https://support.cloudflare.com/hc/zh-cn/articles/200169626-%E8%AF%86%E5%88%AB%E4%B8%8E-Cloudflare-%E7%9A%84%E4%BB%A3%E7%90%86%E5%85%BC%E5%AE%B9%E7%9A%84%E5%AD%90%E5%9F%9F">參考二</a>
 </div>
     </div>
 </body>
