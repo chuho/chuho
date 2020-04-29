@@ -191,6 +191,7 @@ $(window).load(function () {
 <h4 class="zw"><hr color="#EE9B73" size="1" width="94%" ></HR></h4>
 <p class="zw">import pandas as pd
 <p class="zw">df = pd.DataFrame({'區號':['0635','0531'],'名稱':['聊城','濟南'],'數據':['是','否']})
+<p class="zw">df = df.set_index('區號')#索引
 <p class="zw">df.to_excel('D:ProgramData/out.xlsx')
 <p class="zw">print ('DONE!')
 <h4 class="zw"><hr color="#EE9B73" size="1" width="94%" ></HR></h4>
