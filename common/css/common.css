@@ -25,7 +25,12 @@ html::-webkit-scrollbar-thumb {
 
 @font-face {
       font-family: "Hanyi Senty Yongle Encyclopedia";
-      src: url("https://zhuhe.tw/HanyiSentyYongleEncyclopedia-2020.ttf");
+      src: local("Hanyi Senty Yongle Encyclopedia"),
+	  url("https://zhuhe.tw/HanyiSentyYongleEncyclopedia-2020.ttf");
+	  url("https://zhuhe.tw/HanyiSentyYongleEncyclopedia-2020.woff");
+	  url("https://zhuhe.tw/HanyiSentyYongleEncyclopedia-2020.woff2");
+	  url("https://zhuhe.tw/HanyiSentyYongleEncyclopedia-2020.otf");
+	  url("https://zhuhe.tw/HanyiSentyYongleEncyclopedia-2020.eot");
 }
 
 /*zhuhe.以上爲自定義滑動條*/
