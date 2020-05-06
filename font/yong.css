@@ -3,9 +3,7 @@
 	src: url('https://zhuhe.tw/font/yong.ttf') format('TrueType'),
 	     url('https://zhuhe.tw/font/yong.woff') format('woff'),
 	     url('https://zhuhe.tw/font/yong.eot') format('embedded-opentype');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
+
 }
 bady {
 	font-family: 'yong';
