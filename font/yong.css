@@ -1,12 +1,12 @@
 ﻿@font-face {
 	font-family: '153CED7DCD29A9B4';
-	src: url('https://hellowebfonts.oss-cn-beijing.aliyuncs.com/698F3099-E62F-4C3B-B30A-04FB735069FE/202005/153CED7DCD29A9B4.ttf') format('TrueType'),
-	     url('https://hellowebfonts.oss-cn-beijing.aliyuncs.com/698F3099-E62F-4C3B-B30A-04FB735069FE/202005/153CED7DCD29A9B4.woff') format('woff'),
-	     url('https://hellowebfonts.oss-cn-beijing.aliyuncs.com/698F3099-E62F-4C3B-B30A-04FB735069FE/202005/153CED7DCD29A9B4.eot') format('embedded-opentype');
+	src: url('https://zhuhe.tw/font/yong.ttf') format('TrueType'),
+	     url('https://zhuhe.tw/font/yong.woff') format('woff'),
+	     url('https://zhuhe.tw/font/yong.eot') format('embedded-opentype');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
-.css153CED7DCD29A9B4 {
-	font-family: '153CED7DCD29A9B4';
+bady {
+	font-family: 'yong';
 }
