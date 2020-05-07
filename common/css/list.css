@@ -2563,7 +2563,7 @@ ul.icons {
 /* 20180502 惟夫調整 把尺寸分界從768改成960 */
 @media screen  and (max-width: 960px) {
 	body{
-		font-size:100%;
+		font-size:1.2em;/* zhuhe.修改默認100% */
 	}
 	.Main{
 		margin-top: 45px;
