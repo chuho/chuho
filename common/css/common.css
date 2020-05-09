@@ -27,7 +27,6 @@ html::-webkit-scrollbar-thumb {
       font-family: "Hanyi Senty Yongle Encyclopedia";
       src: local("Hanyi Senty Yongle Encyclopedia"),
 	  url("https://zhuhe.tw/HanyiSentyYongleEncyclopedia-2020.ttf");
-	  url("https://zhuhe.tw/kaiu.ttf");
 }
 
 /*zhuhe.以上爲自定義滑動條*/
