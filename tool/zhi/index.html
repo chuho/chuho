@@ -1,1 +1,35 @@
-ds g
+<h2>仿古文字竪排</h2>
+<p>仿古排版</p>
+<hr/>
+<div class="main"> 
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="content" > 
+    <tr>
+      <td valign="top" class="area">
+      <textarea id=srcText style="font-size:14px;width:98%;height:200px;padding:5px;background-color:#f5f5f5;line-height:140%;" name=S1></textarea> 
+  <table width="100%" border="0" cellpadding="10" cellspacing="0" bgcolor="#EFEFEF"> 
+     <tr style="margin:auto 0; "> 
+       <td width="50%" style="padding:10px;">分個字符：
+          <input id=iS style="width:35px;height:26px;margin-right:1em; line-height:26px;" size=3 value=| name=T1> 
+          頁寬： 
+          <input id=iW style="width:35px;height:26px;margin-right:1em; line-height:26px;" size=3 value=9 name=T2> 
+          頁高： 
+          <input id=iH style="width:35px;height:26px; line-height:26px;" size=3 value=12 name=T3>
+       </td>
+       <td>繁體
+       <img id=iC0 style="display:block;cursor:pointer;float:left;" onclick=javascript:cbig5(); height=20 src="ccheck0.png" width=20 border=0>
+       <img id=iC1 style="display:none;cursor:pointer;float:left;" onclick=javascript:cbig5(); height=20 src="ccheck1.png" width=20 border=0>
+       <img style="cursor:pointer;float:right;margin-right:10px;" onclick=h(); height=20 src="cbtn.gif" width=60 border=0></td> 
+     </tr> 
+  </table> 
+        <textarea name=S2 wrap="OFF" id=tarText style="font-size:14px;width:98%;height:280px;padding:5px;background-color:#f5f5f5;line-height:1em;"></textarea>
+		<div><b>使用說明：</b><br>仿古書排版豎排工具</div><br>
+        <div>設置一些條件改變樣式：<br>
+        <span style="color:#0066ff">分隔字符</span>：可以隨意使用字符，包括漢字，亦可以多個字符。<br>
+        <span style="color:#0066ff">頁寬</span>：設置文字的列數。<br>
+        <span style="color:#0066ff">頁高</span>：設置文字列高字符數。<br>
+        <span style="color:#0066ff">繁體</span>：支持繁簡轉換。</div><br>
+        <div><b>提示：</b><br>敬請靈活設置分隔符、頁寬和頁高</div></td> 
+    </tr>
+  </table>
+</div> 
+<script language="JavaScript" src="shupai.js" charset="utf-8"></script>
