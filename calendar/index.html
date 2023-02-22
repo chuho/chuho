@@ -763,7 +763,9 @@ function drawCld(SY,SM) {
    var i,sD,s,size;
    cld = new calendar(SY,SM);
 
-   if(SY>1627) yDisplay = '崇禎後' + (((SY-1627)==1)?'元':SY-1627);
+   if(SY>1627 && SY<1989) yDisplay = '崇禎後' + (((SY-1627)==1)?'元':SY-1627);
+   if(SY>1627 && SY<1989) yDisplay = '崇禎後' + (((SY-1627)==1)?'元':SY-1627);
+   if(SY>1988) yDisplay = '成憲' + (((SY-1988)==1)?'元':SY-1988);
 
    document.getElementById("GZ").innerHTML = yDisplay +'年 皇明歲次' + cyclical(SY-1900+36) + '年 【'+Animals[(SY-4)%12]+'】';
 
