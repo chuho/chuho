@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV 数据查询工具 (日期范围)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* System fonts */
+            padding: 20px;
+            background-color: #f0f2f5;
+            line-height: 1.6; /* Better readability */
+        }
+        .container {
+            max-width: 950px; /* Wider for date inputs */
+            margin: auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Slightly more shadow */
+        }
+        h1, h2 {
+            color: #1f2937; /* Darker heading */
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px; /* Tighter label spacing */
+            font-weight: 600; /* Semibold label */
+            color: #4b5563; /* Grayer label */
+            font-size: 0.9rem; /* Slightly smaller label */
+        }
+        select, button, input[type="file"], input[type="date"] { /* Added input[type="date"] */
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #d1d5db; /* Grayer border */
+            border-radius: 6px; /* Softer radius */
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1rem;
+            background-color: #fff; /* Ensure white background */
+        }
+        input[type="file"] {
+            background-color: #f9fafb;
+            cursor: pointer;
+            color: #374151;
+        }
+        /* Style for date input placeholder text */
+        input[type="date"]:invalid {
+             color: #9ca3af;
+        }
+        button {
+            background-color: #3b82f6; /* Blue button */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+            font-weight: 500;
+        }
+        button:hover:not(:disabled) {
+            background-color: #2563eb; /* Darker blue on hover */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button:disabled {
+            background-color: #e5e7eb; /* Lighter disabled color */
+            color: #9ca3af; /* Grayer disabled text */
+            cursor: not-allowed;
+            opacity: 1; /* Remove default opacity change if using specific colors */
+        }
+        /* Flex container for date inputs */
+        .date-range-container {
+            display: flex;
+            gap: 20px; /* Space between date inputs */
+            align-items: flex-end; /* Align items at the bottom */
+            margin-bottom: 15px; /* Space below the container */
+        }
+        .date-range-container > div {
+            flex: 1; /* Each date input takes half the space */
+        }
+         /* Remove margin bottom from inputs inside the flex container */
+        .date-range-container input[type="date"] {
+             margin-bottom: 0;
+        }
+
+        #progressContainer {
+            width: 100%;
+            background-color: #e5e7eb;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            display: none;
+        }
+        #progressBar {
+            width: 0%;
+            height: 24px;
+            background-color: #10b981; /* Emerald green */
+            text-align: center;
+            line-height: 24px;
+            color: white;
+            font-weight: 600; /* Bolder progress text */
+            transition: width 0.4s ease;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        #fileInfo {
+            margin-top: 15px;
+            margin-bottom: 20px; /* More space below file info */
+            font-style: normal; /* Remove italic */
+            color: #4b5563;
+            padding: 10px 15px;
+            background-color: #f3f4f6;
+            border-radius: 6px;
+            display: none; /* Initially hidden */
+            border: 1px solid #e5e7eb;
+        }
+        #resultsTableContainer {
+            margin-top: 25px;
+            max-height: 500px; /* Even more height */
+            overflow-y: auto;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); /* Inner shadow */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 12px 15px; /* More padding */
+            text-align: left;
+            white-space: nowrap;
+        }
+        th {
+            background-color: #f9fafb;
+            position: sticky;
+            top: 0;
+            z-index: 10; /* Ensure header is above content */
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.9rem;
+            text-transform: uppercase; /* Uppercase headers */
+            letter-spacing: 0.5px;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        tbody tr:hover {
+             background-color: #f3f4f6; /* Slightly darker hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSV 数据查询</h1>
+
+        <label for="csvFile">上传 CSV 文件:</label>
+        <input type="file" id="csvFile" accept=".csv">
+
+        <div id="progressContainer">
+            <div id="progressBar">0%</div>
+        </div>
+
+        <p id="fileInfo"></p> <label for="ccyPairSelect">选择货币对 (ccyPair):</label>
+        <select id="ccyPairSelect" disabled>
+            <option value="">-- 请先上传文件 --</option>
+        </select>
+
+        <div class="date-range-container">
+            <div>
+                <label for="startDateInput">开始日期 (Start Date):</label>
+                <input type="date" id="startDateInput" disabled>
+            </div>
+            <div>
+                <label for="endDateInput">结束日期 (End Date):</label>
+                <input type="date" id="endDateInput" disabled>
+            </div>
+        </div>
+        <button id="queryButton" disabled>查询</button>
+
+        <h2>查询结果:</h2>
+        <div id="resultsTableContainer">
+            <p>请先上传文件并进行查询。</p>
+        </div>
+
+        <button id="exportButton" disabled>导出结果为 CSV</button>
+    </div>
+
+    <script>
+        // --- DOM Element References ---
+        const fileInput = document.getElementById('csvFile');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const fileInfo = document.getElementById('fileInfo');
+        const ccyPairSelect = document.getElementById('ccyPairSelect');
+        // ** MODIFIED: Removed timestampSelect, Added date inputs **
+        const startDateInput = document.getElementById('startDateInput');
+        const endDateInput = document.getElementById('endDateInput');
+        // ** END MODIFICATION **
+        const queryButton = document.getElementById('queryButton');
+        const resultsTableContainer = document.getElementById('resultsTableContainer');
+        const exportButton = document.getElementById('exportButton');
+
+        // --- Global State Variables ---
+        let parsedData = []; // Stores raw parsed data: Array of objects
+        let filteredData = []; // Stores data after applying filters
+        let csvHeaders = []; // Stores header strings from the CSV
+
+        // --- Event Listeners ---
+        fileInput.addEventListener('change', handleFileSelect, false);
+        queryButton.addEventListener('click', handleQuery, false);
+        exportButton.addEventListener('click', handleExport, false);
+
+        // --- Core Functions ---
+
+        /**
+         * Handles the file selection event. Reads and parses the CSV.
+         * @param {Event} event - The file input change event.
+         */
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (!file.name.toLowerCase().endsWith('.csv')) {
+                alert("错误：请上传 .csv 文件。");
+                fileInput.value = '';
+                return;
+            }
+
+            parsedData = [];
+            filteredData = [];
+            csvHeaders = [];
+            resetUI(); // Reset before processing
+
+            progressContainer.style.display = 'block';
+            updateProgress(0, '准备读取...');
+
+            const reader = new FileReader();
+
+            reader.onprogress = (event) => {
+                if (event.lengthComputable) {
+                    const percentLoaded = Math.round((event.loaded / event.total) * 100);
+                    updateProgress(Math.min(percentLoaded, 99), `${percentLoaded}% 读取中...`);
+                }
+            };
+
+            reader.onload = (event) => {
+                updateProgress(100, '读取完成，正在解析...');
+                try {
+                    parseCSV(event.target.result);
+
+                    // ** MODIFIED: Check only for parsedData and headers, not timestamp specific headers here **
+                    if (parsedData.length > 0 && csvHeaders.length > 0) {
+                        updateProgress(100, '解析完成！');
+                        populateSelectors(); // ** Only populates ccyPair now **
+                        displayFileInfo();
+                        enableControls();    // ** Enables date inputs now **
+                        fileInfo.style.display = 'block'; // Show file info
+                    } else {
+                         // Updated error message
+                        throw new Error("无法解析 CSV 文件或文件缺少数据/表头。请检查文件格式（逗号分隔，第一行为表头）。");
+                    }
+                } catch (error) {
+                    console.error("处理文件时出错:", error);
+                    updateProgress(0, '处理出错!');
+                    alert(`错误: ${error.message}`);
+                    resetUI();
+                    fileInput.value = '';
+                }
+                 setTimeout(() => {
+                     if (progressBar.textContent === '解析完成！') {
+                          progressContainer.style.display = 'none';
+                          updateProgress(0, '');
+                     }
+                 }, 2500);
+            };
+
+            reader.onerror = (event) => {
+                console.error("文件读取错误:", reader.error);
+                updateProgress(0, '文件读取错误!');
+                alert("读取文件时发生错误。");
+                resetUI();
+                 fileInput.value = '';
+            };
+
+            reader.readAsText(file);
+        }
+
+        /**
+         * Updates the progress bar display.
+         * @param {number} percent - Percentage complete (0-100).
+         * @param {string} message - Text message to display on the bar.
+         */
+        function updateProgress(percent, message) {
+            const safePercent = Math.max(0, Math.min(100, percent));
+            progressBar.style.width = safePercent + '%';
+            progressBar.textContent = message || (safePercent + '%');
+        }
+
+        /**
+         * Parses CSV text into an array of objects.
+         * Handles basic comma separation and trims whitespace.
+         * Populates `parsedData` and `csvHeaders`.
+         * @param {string} csvText - The raw CSV text content.
+         */
+        function parseCSV(csvText) {
+            const lines = csvText.trim().replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+
+            if (lines.length < 2) {
+                parsedData = [];
+                csvHeaders = [];
+                console.warn("CSV文件行数不足（至少需要表头和一行数据）。");
+                return;
+            }
+
+            csvHeaders = lines[0].split(',').map(header => header.trim());
+            parsedData = [];
+
+             if (csvHeaders.some(h => h === '')) {
+                 console.warn("CSV 表头包含空列名。");
+             }
+             // ** MODIFIED: Check for 'timestamp' header presence for date filtering later **
+             if (!csvHeaders.includes('timestamp')) {
+                 console.warn("CSV 文件缺少 'timestamp' 列，日期范围过滤将不可用。");
+                 // We don't stop parsing here, but date filtering won't work correctly
+             }
+
+
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line === '') continue;
+
+                const values = line.split(',').map(value => value.trim());
+
+                if (values.length === csvHeaders.length) {
+                    const entry = {};
+                    let hasRequiredCols = true; // Basic check for ccyPair, timestamp existence added
+
+                    csvHeaders.forEach((header, index) => {
+                        entry[header || `_col${index}`] = values[index];
+                    });
+
+                     // Basic check if ccyPair exists (can be empty, but should exist)
+                     if (typeof entry.ccyPair === 'undefined') {
+                         console.warn(`第 ${i+1} 行数据缺少 'ccyPair' 列信息，已跳过。 行内容: ${line}`);
+                         hasRequiredCols = false;
+                     }
+                     // Check if timestamp column exists (value can be empty/invalid, checked later)
+                     if (typeof entry.timestamp === 'undefined') {
+                         console.warn(`第 ${i+1} 行数据缺少 'timestamp' 列信息，已跳过。 行内容: ${line}`);
+                          hasRequiredCols = false;
+                     }
+
+
+                    if (hasRequiredCols) {
+                        parsedData.push(entry);
+                    }
+                } else {
+                    console.warn(`第 ${i+1} 行数据列数 (${values.length}) 与表头 (${csvHeaders.length}) 不匹配，已跳过。 行内容: ${line}`);
+                }
+            }
+            console.log(`成功解析 ${parsedData.length} 条基本有效数据。`);
+        }
+
+
+        /**
+         * Populates ONLY the 'ccyPair' dropdown selector.
+         * Requires `parsedData` and `csvHeaders` to be populated.
+         */
+        function populateSelectors() {
+            // ** MODIFIED: Only check for ccyPair **
+            if (!csvHeaders.includes('ccyPair')) {
+                 // This should ideally not happen if parseCSV ran correctly, but safety check
+                 alert("内部错误: 缺少 'ccyPair' 列，无法填充选择器。");
+                 resetUI();
+                 return;
+            }
+
+            // Populate ccyPair selector (same logic as before)
+            const uniquePairs = [...new Set(parsedData.map(item => item.ccyPair).filter(Boolean))].sort();
+            ccyPairSelect.innerHTML = '<option value="">-- 所有货币对 --</option>';
+            uniquePairs.forEach(pair => {
+                const option = document.createElement('option');
+                option.value = pair;
+                option.textContent = pair;
+                ccyPairSelect.appendChild(option);
+            });
+
+            // ** REMOVED timestampSelect population logic entirely **
+        }
+
+        /**
+         * Displays the date extracted from the first data row's timestamp.
+         * (No changes needed here, still useful context)
+         */
+        function displayFileInfo() {
+            if (parsedData.length > 0 && parsedData[0].timestamp) {
+                const dateMatch = String(parsedData[0].timestamp).match(/^\d{4}-\d{2}-\d{2}/);
+                if (dateMatch) {
+                    fileInfo.textContent = `文件日期 (基于首条记录): ${dateMatch[0]} | 共 ${parsedData.length} 条记录`; // Added record count
+                } else {
+                    fileInfo.textContent = `文件已加载 (${parsedData.length} 条记录)，日期格式无法识别。`;
+                }
+            } else {
+                fileInfo.textContent = `文件已加载 (${parsedData.length} 条记录)，但无时间戳信息。`;
+            }
+            fileInfo.style.display = 'block'; // Make visible
+        }
+
+        /** Enables the interactive controls after file loading. */
+        function enableControls() {
+            ccyPairSelect.disabled = false;
+            // ** MODIFIED: Enable date inputs **
+            startDateInput.disabled = false;
+            endDateInput.disabled = false;
+            // ** END MODIFICATION **
+            queryButton.disabled = false;
+        }
+
+        /** Resets the UI elements to their initial state. */
+        function resetUI() {
+            progressContainer.style.display = 'none';
+            updateProgress(0, '');
+            fileInfo.textContent = '';
+            fileInfo.style.display = 'none';
+
+            ccyPairSelect.innerHTML = '<option value="">-- 请先上传文件 --</option>';
+            ccyPairSelect.disabled = true;
+
+            // ** MODIFIED: Reset and disable date inputs **
+            startDateInput.value = '';
+            endDateInput.value = '';
+            startDateInput.disabled = true;
+            endDateInput.disabled = true;
+            // ** END MODIFICATION **
+
+            queryButton.disabled = true;
+            exportButton.disabled = true;
+            resultsTableContainer.innerHTML = '<p>请先上传文件并进行查询。</p>';
+        }
+
+
+        /**
+         * Handles the query button click. Filters data based on ccyPair selection
+         * and the date range from start/end date inputs. Displays results.
+         */
+        function handleQuery() {
+            // ** MODIFIED: Get values from date inputs **
+            const selectedPair = ccyPairSelect.value;
+            const startDate = startDateInput.value; // Format: "YYYY-MM-DD" or ""
+            const endDate = endDateInput.value;     // Format: "YYYY-MM-DD" or ""
+            // ** END MODIFICATION **
+
+            // Input Validation: Check if end date is before start date
+            if (startDate && endDate && startDate > endDate) {
+                alert("查询错误：结束日期不能早于开始日期。");
+                return; // Stop query execution
+            }
+            // Check if timestamp header exists for filtering
+            if ((startDate || endDate) && !csvHeaders.includes('timestamp')) {
+                alert("查询警告：CSV 文件缺少 'timestamp' 列，无法按日期范围过滤。将仅按货币对过滤。");
+                // Proceed without date filtering if timestamp column is missing
+            }
+
+            filteredData = parsedData.filter(item => {
+                // 1. Filter by Currency Pair
+                const pairMatch = !selectedPair || item.ccyPair === selectedPair;
+
+                // 2. Filter by Date Range (only if timestamp header exists)
+                let dateMatch = true; // Default to true (matches if no date filter applied or timestamp missing)
+                if ((startDate || endDate) && csvHeaders.includes('timestamp')) { // Only filter if dates are set AND timestamp col exists
+                    if (typeof item.timestamp === 'string' && item.timestamp.length >= 10) {
+                        // Extract "YYYY-MM-DD" from the item's timestamp
+                        const itemDate = item.timestamp.substring(0, 10);
+
+                        // Compare with start date (if provided)
+                        // String comparison works for "YYYY-MM-DD" format
+                        const startMatch = !startDate || itemDate >= startDate;
+
+                        // Compare with end date (if provided)
+                        const endMatch = !endDate || itemDate <= endDate;
+
+                        // Item matches date range if both conditions are met
+                        dateMatch = startMatch && endMatch;
+
+                    } else {
+                        // If timestamp format is invalid/short, it doesn't match the date range
+                        dateMatch = false;
+                         console.warn(`行数据时间戳格式无效或过短 (${item.timestamp})，已在日期范围过滤中排除。`);
+                    }
+                }
+                // ** END Date Range Filtering Logic **
+
+                // Return true only if both currency and date conditions are met
+                return pairMatch && dateMatch;
+            });
+
+            displayResults(filteredData); // Display the filtered results
+
+            // Enable/disable export button based on results
+            exportButton.disabled = filteredData.length === 0;
+        }
+
+
+        /**
+         * Renders the filtered data into the results table.
+         * @param {Array<object>} data - The array of data objects to display.
+         */
+        function displayResults(data) {
+            resultsTableContainer.innerHTML = ''; // Clear previous results
+
+            if (!Array.isArray(data) || data.length === 0) {
+                resultsTableContainer.innerHTML = '<p>没有找到匹配的记录。</p>';
+                return;
+            }
+
+            if (csvHeaders.length === 0) {
+                 console.error("无法显示结果：CSV 表头丢失。");
+                 resultsTableContainer.innerHTML = '<p>错误：无法显示结果，缺少表头信息。</p>';
+                 return;
+            }
+
+            const table = document.createElement('table');
+            const thead = table.createTHead();
+            const headerRow = thead.insertRow();
+
+            csvHeaders.forEach(headerText => {
+                const th = document.createElement('th');
+                th.textContent = headerText;
+                headerRow.appendChild(th);
+            });
+
+            const tbody = table.createTBody();
+            data.forEach(item => {
+                const row = tbody.insertRow();
+                csvHeaders.forEach(header => {
+                    const cell = row.insertCell();
+                    const value = item[header];
+                    cell.textContent = (value !== undefined && value !== null) ? value : '';
+                });
+            });
+
+            resultsTableContainer.appendChild(table);
+        }
+
+
+        /** Handles the export button click. */
+        function handleExport() {
+            if (filteredData.length === 0) {
+                alert("没有可导出的数据。请先进行查询并确保有结果。");
+                return;
+            }
+            // Generate filename with date range if available
+            const startDateStr = startDateInput.value ? `_from_${startDateInput.value}` : '';
+            const endDateStr = endDateInput.value ? `_to_${endDateInput.value}` : '';
+            const pairStr = ccyPairSelect.value ? `_${ccyPairSelect.value.replace('/', '-')}` : ''; // Sanitize pair
+            const filename = `filtered_results${pairStr}${startDateStr}${endDateStr}_${Date.now()}.csv`;
+
+            exportToCSV(filteredData, filename);
+        }
+
+        /**
+         * Converts an array of objects to a CSV string and triggers download.
+         * Uses `csvHeaders` for column order and inclusion. Handles quoting.
+         * @param {Array<object>} data - Data to export.
+         * @param {string} filename - Desired filename for the download.
+         */
+        function exportToCSV(data, filename) {
+             if (csvHeaders.length === 0) {
+                 console.error("无法导出 CSV：未找到表头信息。");
+                 alert("无法导出：未找到表头信息。")
+                 return;
+             }
+
+            const csvRows = [];
+            // Add header row, ensuring headers are quoted
+            csvRows.push(csvHeaders.map(header => `"${String(header).replace(/"/g, '""')}"`).join(','));
+
+            // Add data rows
+            data.forEach(row => {
+                const values = csvHeaders.map(header => {
+                    let value = (row[header] !== undefined && row[header] !== null) ? String(row[header]) : '';
+                    // Quote fields containing commas, double quotes, or newlines
+                    if (/[",\n\r]/.test(value)) {
+                        value = `"${value.replace(/"/g, '""')}"`;
+                    }
+                    return value;
+                });
+                csvRows.push(values.join(','));
+            });
+
+            const csvString = csvRows.join('\n');
+            // Add BOM for Excel UTF-8 compatibility
+            const blob = new Blob(["\ufeff" + csvString], { type: 'text/csv;charset=utf-8;' });
+
+            // Create and trigger download link
+            const link = document.createElement('a');
+            if (link.download !== undefined) {
+                const url = URL.createObjectURL(blob);
+                link.setAttribute('href', url);
+                link.setAttribute('download', filename);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            } else {
+                alert('您的浏览器不支持自动下载。请尝试手动复制结果或使用其他浏览器。');
+            }
+        }
+    </script>
+</body>
+</html>
