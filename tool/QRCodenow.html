@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即時更新 QR Code 生成器</title>
+    <style>
+        /* CSS 樣式與之前相同，此處省略以節省空間... */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column; /* 改為垂直排列主要區域 */
+            align-items: center; /* 居中內容 */
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* 允許換行 */
+            gap: 20px;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 900px; /* 限制最大寬度 */
+        }
+        .config-section, .output-section {
+            flex: 1; /* 佔據可用空間 */
+            min-width: 300px; /* 最小寬度，避免過窄 */
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+        h2, h3 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .control-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="color"],
+        select,
+        textarea {
+            width: calc(100% - 22px); /* 減去 padding 和 border */
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        input[type="color"] {
+            padding: 0; /* 顏色選擇器不需要內邊距 */
+            height: 40px; /* 調整高度 */
+            cursor: pointer;
+        }
+        .color-inputs {
+            display: flex;
+            gap: 10px;
+        }
+        .color-inputs > div {
+            flex: 1;
+        }
+        .button-group {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button.secondary {
+            background-color: #6c757d;
+        }
+        button.secondary:hover {
+            background-color: #5a6268;
+        }
+        button.danger {
+            background-color: #dc3545;
+        }
+        button.danger:hover {
+            background-color: #c82333;
+        }
+        #qrcode-output {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 256px; /* 預設高度 */
+            background-color: #f8f8f8;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+            margin-top: 10px;
+            padding: 10px;
+            position: relative; /* For potential overlays later */
+        }
+        #qrcode-output img,
+        #qrcode-output canvas {
+             /* The library might generate either, style both */
+            max-width: 100%;
+            height: auto;
+            display: block; /* Prevent extra space below */
+        }
+        .placeholder-text {
+            color: #888;
+            text-align: center;
+        }
+
+         /* 響應式調整 */
+        @media (max-width: 650px) {
+            .container {
+                flex-direction: column;
+            }
+            .config-section, .output-section {
+                min-width: unset; /* 移除最小寬度 */
+                width: 100%; /* 佔滿父容器寬度 */
+                box-sizing: border-box; /* 包含 padding 和 border */
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <h1>即時更新 QR Code 生成器</h1>
+    <p style="color: #555; margin-bottom: 15px;">修改下方任何選項，QR Code 將自動更新。</p>
+
+    <div class="container">
+        <div class="config-section">
+            <h2>配置選項</h2>
+
+            <div class="control-group">
+                <label for="text-input">輸入內容:</label>
+                <textarea id="text-input" placeholder="輸入任何文字、URL、Wi-Fi 資訊等..."></textarea>
+            </div>
+
+            <div class="control-group">
+                 <h3>格式預設</h3>
+                 <div class="button-group preset-group">
+                     <button id="preset-text">純文字</button>
+                     <button id="preset-url">URL</button>
+                     <button id="preset-wifi">Wi-Fi</button>
+                 </div>
+            </div>
+
+
+            <div class="control-group">
+                <label for="qr-size">尺寸 (寬度 & 高度 px):</label>
+                <input type="number" id="qr-size" value="256" min="50" max="1000">
+            </div>
+
+            <div class="control-group">
+                <label>顏色:</label>
+                <div class="color-inputs">
+                    <div>
+                        <label for="color-dark">深色 (點):</label>
+                        <input type="color" id="color-dark" value="#000000">
+                    </div>
+                    <div>
+                        <label for="color-light">淺色 (背景):</label>
+                        <input type="color" id="color-light" value="#ffffff">
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="error-level">容錯等級:</label>
+                <select id="error-level">
+                    <option value="L">L (Low ~7%)</option>
+                    <option value="M">M (Medium ~15%)</option>
+                    <option value="Q">Q (Quartile ~25%)</option>
+                    <option value="H" selected>H (High ~30%)</option>
+                </select>
+            </div>
+
+             <div class="button-group action-group">
+                 <button id="generate-btn" class="secondary">手動更新</button>
+                 <button id="clear-btn" class="danger">清除</button>
+                 <button id="download-btn" class="secondary">下載 PNG</button>
+            </div>
+
+        </div>
+
+        <div class="output-section">
+            <h2>QR Code 預覽</h2>
+            <div id="qrcode-output">
+                <span class="placeholder-text">請在左側輸入內容或修改選項。</span>
+                </div>
+            <div id="status-message" style="margin-top: 10px; text-align: center; color: green;"></div>
+        </div>
+    </div>
+
+    <script>
+        // --- DOM Element References ---
+        const textInput = document.getElementById('text-input');
+        const qrSizeInput = document.getElementById('qr-size');
+        const colorDarkInput = document.getElementById('color-dark');
+        const colorLightInput = document.getElementById('color-light');
+        const errorLevelSelect = document.getElementById('error-level');
+        const qrcodeOutput = document.getElementById('qrcode-output');
+        const generateBtn = document.getElementById('generate-btn'); // Still keep the button reference
+        const clearBtn = document.getElementById('clear-btn');
+        const downloadBtn = document.getElementById('download-btn');
+        const statusMessage = document.getElementById('status-message');
+
+        // Preset buttons
+        const presetTextBtn = document.getElementById('preset-text');
+        const presetUrlBtn = document.getElementById('preset-url');
+        const presetWifiBtn = document.getElementById('preset-wifi');
+
+        // --- State ---
+        let currentQRCodeInstance = null; // Holds the qrcode.js instance
+        let debounceTimer = null;         // Timer for debouncing
+
+        // --- Debounce Function ---
+        function debounce(func, delay) {
+            return function(...args) {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    func.apply(this, args);
+                }, delay);
+            };
+        }
+
+        // --- Core QR Code Generation Logic (Mostly Unchanged) ---
+        function generateQrCode() {
+            // Clear any pending debounce timer if triggered manually or immediately
+            clearTimeout(debounceTimer);
+
+            const text = textInput.value.trim();
+            const size = parseInt(qrSizeInput.value, 10);
+            const colorDark = colorDarkInput.value;
+            const colorLight = colorLightInput.value;
+            const errorLevel = errorLevelSelect.value; // L, M, Q, H
+
+            qrcodeOutput.innerHTML = '';
+            statusMessage.textContent = '';
+            currentQRCodeInstance = null;
+
+            if (!text) {
+                qrcodeOutput.innerHTML = '<span class="placeholder-text">請輸入內容以生成 QR Code。</span>';
+                downloadBtn.disabled = true; // Disable download if no content
+                return;
+            }
+            if (isNaN(size) || size < 50 || size > 1000) {
+                qrcodeOutput.innerHTML = '<span class="placeholder-text" style="color:red;">無效的尺寸 (請介於 50-1000 px)。</span>';
+                downloadBtn.disabled = true;
+                return;
+            }
+
+            try {
+                // Display a temporary loading message for better UX
+                qrcodeOutput.innerHTML = '<span class="placeholder-text">生成中...</span>';
+
+                // Use requestAnimationFrame to ensure the "Loading..." message is rendered before potentially blocking QR code generation
+                requestAnimationFrame(() => {
+                    // Clear again before drawing the actual QR code
+                    qrcodeOutput.innerHTML = '';
+                    currentQRCodeInstance = new QRCode(qrcodeOutput, {
+                        text: text,
+                        width: size,
+                        height: size,
+                        colorDark: colorDark,
+                        colorLight: colorLight,
+                        correctLevel: QRCode.CorrectLevel[errorLevel]
+                    });
+                    statusMessage.textContent = 'QR Code 已更新！';
+                    statusMessage.style.color = 'green';
+                    downloadBtn.disabled = false; // Enable download
+                });
+
+            } catch (error) {
+                 // Ensure loading message is removed on error too
+                qrcodeOutput.innerHTML = '';
+                console.error("QR Code generation failed:", error);
+                qrcodeOutput.innerHTML = `<span class="placeholder-text" style="color:red;">生成失敗: ${error.message}</span>`;
+                statusMessage.textContent = '生成失敗。';
+                statusMessage.style.color = 'red';
+                currentQRCodeInstance = null;
+                downloadBtn.disabled = true;
+            }
+        }
+
+        // --- Download Logic (Unchanged) ---
+        function downloadQrCode() {
+             if (!currentQRCodeInstance) {
+                 alert("請先生成一個 QR Code！");
+                 return;
+             }
+             const imgElement = qrcodeOutput.querySelector('img');
+             const canvasElement = qrcodeOutput.querySelector('canvas');
+             let dataUrl = null;
+             if (imgElement && imgElement.src) { dataUrl = imgElement.src; }
+             else if (canvasElement) { try { dataUrl = canvasElement.toDataURL('image/png'); } catch (e) { console.error("Error getting data URL:", e); alert("無法從 Canvas 獲取圖像數據。"); return; }}
+             if (!dataUrl) { alert("找不到可下載的 QR Code 圖像數據。"); return; }
+             const link = document.createElement('a');
+             link.href = dataUrl;
+             link.download = 'qrcode.png';
+             document.body.appendChild(link); link.click(); document.body.removeChild(link);
+        }
+
+        // --- Clear Logic (Unchanged) ---
+        function clearAll() {
+            clearTimeout(debounceTimer); // Clear pending generation if clearing
+            textInput.value = '';
+            qrcodeOutput.innerHTML = '<span class="placeholder-text">請配置選項並點擊生成按鈕。</span>';
+            statusMessage.textContent = '';
+            currentQRCodeInstance = null;
+            downloadBtn.disabled = true;
+        }
+
+         // --- Preset Logic (Apply and Trigger Immediate Update) ---
+         function applyPreset(type) {
+            clearTimeout(debounceTimer); // Clear pending generation
+            switch(type) {
+                case 'text': textInput.value = '在這裡輸入您的純文字內容。'; break;
+                case 'url': textInput.value = 'https://www.google.com'; break;
+                case 'wifi': textInput.value = 'WIFI:S:Your_Network_Name;T:WPA;P:Your_Password;;'; break;
+            }
+            generateQrCode(); // Trigger generation immediately after preset
+         }
+
+        // --- Event Listeners for Real-time Update ---
+
+        // Debounced listener for inputs that fire rapidly
+        const debouncedGenerate = debounce(generateQrCode, 400); // 400ms delay
+
+        textInput.addEventListener('input', debouncedGenerate);
+        qrSizeInput.addEventListener('input', debouncedGenerate);
+        colorDarkInput.addEventListener('input', debouncedGenerate);
+        colorLightInput.addEventListener('input', debouncedGenerate);
+
+        // Immediate listener for select change (doesn't need debounce)
+        errorLevelSelect.addEventListener('change', generateQrCode);
+
+        // Keep other button listeners
+        generateBtn.addEventListener('click', generateQrCode); // Manual update
+        clearBtn.addEventListener('click', clearAll);
+        downloadBtn.addEventListener('click', downloadQrCode);
+
+        // Preset buttons now trigger generation directly
+        presetTextBtn.addEventListener('click', () => applyPreset('text'));
+        presetUrlBtn.addEventListener('click', () => applyPreset('url'));
+        presetWifiBtn.addEventListener('click', () => applyPreset('wifi'));
+
+
+        // --- Initial State ---
+        downloadBtn.disabled = true; // Initially disable download button
+        // Optional: Generate QR code on load if there's initial text
+        if (textInput.value.trim()) {
+            generateQrCode();
+        } else {
+             qrcodeOutput.innerHTML = '<span class="placeholder-text">請在左側輸入內容或修改選項。</span>';
+        }
+
+    </script>
+</body>
+</html>

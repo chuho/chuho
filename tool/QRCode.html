@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code 生成器</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            height: 95vh;
+            margin: 20px;
+            gap: 20px; /* 左右兩欄的間隔 */
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            gap: 20px;
+        }
+        .input-section, .output-section {
+            flex: 1; /* 讓兩邊等寬 */
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+        textarea {
+            width: 98%;
+            height: 200px; /* 可調整高度 */
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            resize: vertical; /* 允許垂直調整大小 */
+        }
+        #char-count {
+            font-size: 0.9em;
+            color: #666;
+            text-align: right;
+        }
+        #qrcode-output {
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center;     /* 垂直居中 */
+            min-height: 250px;       /* 確保有足夠空間顯示QR Code */
+            background-color: #f8f8f8;
+            border-radius: 4px;
+            padding: 20px; /* 增加內邊距 */
+            flex-grow: 1; /* 讓它填滿剩餘空間 */
+        }
+        /* 提示文字樣式 */
+        .hint {
+             font-size: 0.9em;
+             color: #888;
+             margin-bottom: 10px;
+        }
+        /* 當文字過長時的提示 */
+        .warning {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* 響應式設計：在較小螢幕上堆疊顯示 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            textarea {
+                height: 150px; /* 在小螢幕上減少高度 */
+            }
+            #qrcode-output {
+                 min-height: 200px; /* 在小螢幕上減少高度 */
+            }
+        }
+
+    </style>
+    <script src="qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="input-section">
+            <h2>輸入文字</h2>
+            <label for="text-input" class="hint">請輸入要生成 QR Code 的文字（建議不超過 300 字符）：</label>
+            <textarea id="text-input" placeholder="在此輸入文字..."></textarea>
+            <div id="char-count">0 / 300</div>
+        </div>
+
+        <div class="output-section">
+            <h2>QR Code 結果</h2>
+            <div id="qrcode-output">
+                請在左側輸入文字以生成 QR Code。
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const textInput = document.getElementById('text-input');
+        const qrcodeOutput = document.getElementById('qrcode-output');
+        const charCount = document.getElementById('char-count');
+        const maxChars = 300; // 最大建議字符數
+
+        // 初始化 QR Code 生成器實例
+        // 注意：這裡我們先不創建實例，而是在需要時創建或更新
+        let qrcode = null; // 用於存放 QR Code 實例
+
+        function generateQrCode() {
+            const inputText = textInput.value;
+            const currentLength = inputText.length;
+
+            // 更新字符計數
+            charCount.textContent = `${currentLength} / ${maxChars}`;
+            if (currentLength > maxChars) {
+                charCount.classList.add('warning'); // 超過長度加上警告樣式
+            } else {
+                charCount.classList.remove('warning'); // 未超過則移除
+            }
+
+            // 清空之前的 QR Code 或提示訊息
+            qrcodeOutput.innerHTML = '';
+
+            if (inputText.trim() === '') {
+                // 如果輸入為空，顯示提示文字
+                qrcodeOutput.textContent = '請在左側輸入文字以生成 QR Code。';
+                qrcode = null; // 清除實例引用
+                return;
+            }
+
+            // 如果 QR Code 實例不存在，則創建一個
+            // 這裡使用 qrcode.js 的標準用法，將其渲染到指定的 DOM 元素中
+             try {
+                 // 每次都創建新的 QRCode 實例，因為 text 內容是初始化時設定的
+                 // 或者也可以用 makeCode 方法更新 (見下方備註)
+                qrcode = new QRCode(qrcodeOutput, {
+                    text: inputText,
+                    width: 200,  // QR Code 寬度
+                    height: 200, // QR Code 高度
+                    colorDark : "#000000", // 前景色
+                    colorLight : "#ffffff", // 背景色
+                    correctLevel : QRCode.CorrectLevel.H // 容錯率，H 最高
+                });
+
+                /*
+                // --- 或者，使用 makeCode 方法更新 (更推薦) ---
+                if (!qrcode) { // 首次創建
+                     qrcode = new QRCode(qrcodeOutput, {
+                         width: 200,
+                         height: 200,
+                         colorDark : "#000000",
+                         colorLight : "#ffffff",
+                         correctLevel : QRCode.CorrectLevel.H
+                     });
+                }
+                qrcode.makeCode(inputText); // 更新 QR Code 內容
+                // --- 更新方法結束 ---
+                */
+
+             } catch (error) {
+                 console.error("QR Code 生成失敗:", error);
+                 qrcodeOutput.textContent = 'QR Code 生成失敗，請檢查輸入內容或控制台錯誤訊息。';
+                 qrcode = null;
+             }
+        }
+
+        // 監聽 textarea 的 input 事件，即時更新 QR Code
+        textInput.addEventListener('input', generateQrCode);
+
+        // 頁面載入時可以選擇性地調用一次，處理可能的初始值（雖然這裡 textarea 是空的）
+        // generateQrCode(); // 如果 textarea 有預設值可以取消註解這行
+
+    </script>
+</body>
+</html>
