@@ -556,7 +556,7 @@
             // Generate filename with date range if available
             const startDateStr = startDateInput.value ? `_from_${startDateInput.value}` : '';
             const endDateStr = endDateInput.value ? `_to_${endDateInput.value}` : '';
-            const pairStr = ccyPairSelect.value ? `_${ccyPairSelect.value.replace('/', '-')}` : ''; // Sanitize pair
+            const pairStr = ccyPairSelect.value ? `_${ccyPairSelect.value.replace('/', '_')}` : ''; // Sanitize pair
             const filename = `filtered_results${pairStr}${startDateStr}${endDateStr}_${Date.now()}.csv`;
 
             exportToCSV(filteredData, filename);
