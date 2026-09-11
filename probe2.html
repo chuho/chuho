@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>進階瀏覽器特徵探測工具 (優化版)</title>
+  <style>
+    body { font-family: monospace; padding: 20px; background: #f5f5f5; color: #333; line-height: 1.5; }
+    .card { background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 15px; }
+    pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 4px; overflow-x: auto; max-height: 500px; font-size: 14px; }
+    button { padding: 8px 16px; margin-right: 10px; cursor: pointer; font-weight: bold; border: 1px solid #ccc; border-radius: 4px; background: #fff; transition: background 0.2s; }
+    button:hover { background: #e9e9e9; }
+    .highlight { color: #d9534f; font-weight: bold; margin-left: 10px; }
+    .header-bar { display: flex; align-items: center; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h2>🔍 進階客戶端瀏覽器環境特徵探測</h2>
+  
+  <div class="card">
+    <div class="header-bar">
+      <button onclick="copyData()">📋 複製 JSON 報告</button>
+      <button onclick="downloadData()">💾 下載 JSON 檔案</button>
+      <span id="status" class="highlight"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>探測結果 (JSON)</h3>
+    <pre id="output">正在進行深度探測，請稍候...</pre>
+  </div>
+
+  <script>
+    // 全域變數儲存最終結果
+    let finalJsonStr = "";
+
+    // 1. WebGL 探測 (保留原有邏輯，增強錯誤捕捉)
+    function getWebGLInfo() {
+      try {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) return { supported: false };
+        
+        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+        return {
+          supported: true,
+          vendor: debugInfo ? gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) : gl.getParameter(gl.VENDOR),
+          renderer: debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER)
+        };
+      } catch (e) {
+        return { supported: false, error: e.message };
+      }
+    }
+
+    // 2. 優化版：使用 iframe 參照法探測注入的全域變數 (避免寫死清單與 CORS 崩潰)
+    function checkInjectedGlobals() {
+      const injected = [];
+      let iframe = null;
+      try {
+        iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        const cleanWindow = iframe.contentWindow;
+
+        for (const key in window) {
+          try {
+            // 跳過標準事件監聽器前綴
+            if (key.indexOf('on') === 0) continue;
+            
+            // 如果乾淨的 iframe 中沒有這個屬性，代表可能是被注入的
+            if (!(key in cleanWindow)) {
+              injected.push({ key: key, type: typeof window[key] });
+            }
+          } catch (e) {
+            // 靜默捕捉屬性存取錯誤（如跨域 iframe 限制），避免中斷迴圈
+          }
+        }
+      } catch (e) {
+        return { error: '無法建立或存取 iframe 參照環境: ' + e.message };
+      } finally {
+        if (iframe && iframe.parentNode) {
+          document.body.removeChild(iframe);
+        }
+      }
+      return injected;
+    }
+
+    // 3. 優化版：安全的 API 相容性探測 (移除 eval，完全符合 CSP 規範)
+    function checkKeyAPIs() {
+      return {
+        hasGlobalThis: typeof globalThis !== 'undefined',
+        hasIntlRelativeTime: typeof Intl !== 'undefined' && typeof Intl.RelativeTimeFormat !== 'undefined',
+        hasPromiseAllSettled: typeof Promise !== 'undefined' && typeof Promise.allSettled !== 'undefined',
+        hasArrayFlat: typeof Array.prototype.flat !== 'undefined',
+        hasBigInt: typeof BigInt !== 'undefined',
+        hasUserAgentData: typeof navigator !== 'undefined' && typeof navigator.userAgentData !== 'undefined'
+      };
+    }
+
+    // 4. 新增：非同步獲取現代 Client Hints (應對 WebGL 遭閹割的環境)
+    async function getClientHints() {
+      if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+        try {
+          // 要求高熵值以獲取更詳細的硬體與系統版本
+          const hints = await navigator.userAgentData.getHighEntropyValues([
+            "architecture", "model", "platform", "platformVersion", "fullVersionList"
+          ]);
+          return hints;
+        } catch(e) {
+          return { error: e.message };
+        }
+      }
+      return { supported: false };
+    }
+
+    // 主程式：組合所有特徵
+    async function generateReport() {
+      const report = {
+        timestamp: new Date().toISOString(),
+        navigator: {
+          userAgent: navigator.userAgent,
+          appVersion: navigator.appVersion,
+          platform: navigator.platform,
+          vendor: navigator.vendor,
+          language: navigator.language,
+          languages: navigator.languages,
+          hardwareConcurrency: navigator.hardwareConcurrency || 'N/A',
+          deviceMemory: navigator.deviceMemory || 'N/A',
+          cookieEnabled: navigator.cookieEnabled,
+          webdriver: navigator.webdriver || false
+        },
+        screen: {
+          width: screen.width,
+          height: screen.height,
+          availWidth: screen.availWidth,
+          availHeight: screen.availHeight,
+          colorDepth: screen.colorDepth,
+          pixelRatio: window.devicePixelRatio
+        },
+        webGL: getWebGLInfo(),
+        clientHints: await getClientHints(), // 非同步等待 Client Hints 回傳
+        potentialInjectedAPIs: checkInjectedGlobals(),
+        apiCompatMatrix: checkKeyAPIs()
+      };
+
+      finalJsonStr = JSON.stringify(report, null, 2);
+      document.getElementById('output').textContent = finalJsonStr;
+    }
+
+    // 複製與下載功能
+    function copyData() {
+      if (!finalJsonStr) return;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(finalJsonStr).then(showDone).catch(legacyCopy);
+      } else {
+        legacyCopy();
+      }
+    }
+
+    function legacyCopy() {
+      const ta = document.createElement('textarea');
+      ta.value = finalJsonStr;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showDone();
+      } catch (err) {
+        console.error('複製失敗', err);
+      }
+      document.body.removeChild(ta);
+    }
+
+    function showDone() {
+      const s = document.getElementById('status');
+      s.textContent = '✅ 已成功複製到剪貼簿！';
+      setTimeout(() => { s.textContent = ''; }, 3000);
+    }
+
+    function downloadData() {
+      if (!finalJsonStr) return;
+      const blob = new Blob([finalJsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `browser_fingerprint_${new Date().getTime()}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // 頁面載入後自動執行探測
+    window.onload = () => {
+      generateReport().catch(err => {
+        document.getElementById('output').textContent = "探測發生錯誤: " + err.message;
+      });
+    };
+  </script>
+</body>
+</html>
