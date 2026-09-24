@@ -454,6 +454,9 @@
                         const dashIndex = displayTitle.indexOf('-');
                         if (dashIndex !== -1) {
                             displayTitle = `<div><strong>${displayTitle.substring(0, dashIndex)}</strong></div><div style="font-size:0.9em; margin-top:3px; opacity:0.8;">${displayTitle.substring(dashIndex + 1)}</div>`;
+                        } else if (displayTitle.indexOf('】') !== -1) {
+                            const bIndex = displayTitle.indexOf('】');
+                            displayTitle = `<div><strong>${displayTitle.substring(0, bIndex + 1)}</strong></div><div style="font-size:0.9em; margin-top:3px; opacity:0.8;">${displayTitle.substring(bIndex + 1)}</div>`;
                         }
                         
                         li.innerHTML = `<div class="task-date ${typeClass}-date">${task.start}</div><div class="task-title">${displayTitle}</div>`;
@@ -526,6 +529,9 @@
                             const dashIndex = displayTitle.indexOf('-');
                             if (dashIndex !== -1) {
                                 displayTitle = `<div><strong>${displayTitle.substring(0, dashIndex)}</strong></div><div style="font-size:0.9em; margin-top:3px; opacity:0.8;">${displayTitle.substring(dashIndex + 1)}</div>`;
+                            } else if (displayTitle.indexOf('】') !== -1) {
+                                const bIndex = displayTitle.indexOf('】');
+                                displayTitle = `<div><strong>${displayTitle.substring(0, bIndex + 1)}</strong></div><div style="font-size:0.9em; margin-top:3px; opacity:0.8;">${displayTitle.substring(bIndex + 1)}</div>`;
                             }
                             
                             li.innerHTML = `<div class="task-title">${displayTitle}</div>`;
@@ -645,11 +651,22 @@
                         let title = arg.event.title;
                         title = trans(title, currentLang);
                         
+                        let part1 = title;
+                        let part2 = "";
+                        let hasDash = false;
+                        
                         const dashIndex = title.indexOf('-');
                         if (dashIndex !== -1) {
-                            const part1 = title.substring(0, dashIndex);
-                            const part2 = title.substring(dashIndex + 1);
-                            
+                            part1 = title.substring(0, dashIndex);
+                            part2 = title.substring(dashIndex + 1);
+                            hasDash = true;
+                        } else if (title.indexOf('】') !== -1) {
+                            const bIndex = title.indexOf('】');
+                            part1 = title.substring(0, bIndex + 1);
+                            part2 = title.substring(bIndex + 1);
+                        }
+                        
+                        if (part2) {
                             if (window.innerWidth <= 768) {
                                 return {
                                     html: `<div style="display:flex; flex-direction:column; width:100%; text-align:left;">
@@ -660,7 +677,7 @@
                             } else {
                                 return {
                                     html: `<div style="text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
-                                             <span style="font-weight:bold;">${part1}-</span><span style="font-size:0.95em;">${part2}</span>
+                                             <span style="font-weight:bold;">${part1}${hasDash ? '-' : ''}</span><span style="font-size:0.95em;">${part2}</span>
                                            </div>`
                                 };
                             }
