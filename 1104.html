@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明屬 山東承宣布政使司 濟南府 承辦</title>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.6.12/lunar.js"></script>
+    <script src="1104tasks.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            padding: 15px 20px 20px 20px;
+            box-sizing: border-box;
+        }
+        .header-container {
+            margin-bottom: 12px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        h1 { 
+            margin: 0; 
+            font-size: 34px; 
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: baseline;
+        }
+        
+        .main-layout {
+            display: flex;
+            align-items: stretch;
+            gap: 20px;
+            flex-grow: 1; 
+            min-height: 0; 
+        }
+        
+        .sidebar {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            height: 100%;
+        }
+        .sidebar.expanded { width: 300px; flex-shrink: 0; }
+        .sidebar.collapsed {
+            width: 40px; flex-shrink: 0; cursor: pointer;
+            background-color: #f1f3f5; border: 1px solid #e9ecef;
+        }
+        .sidebar.collapsed:hover { background-color: #e9ecef; }
+
+        .sidebar-collapsed-text {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            display: flex; align-items: center; justify-content: center;
+            color: #495057; font-weight: bold; letter-spacing: 4px; font-size: 14px;
+            writing-mode: vertical-rl; text-orientation: upright; pointer-events: none;
+        }
+        .sidebar.expanded .sidebar-collapsed-text { display: none; }
+
+        .sidebar-content-wrapper {
+            width: 300px; height: 100%;
+            display: flex; flex-direction: column;
+            padding: 18px; box-sizing: border-box;
+            transition: opacity 0.2s; opacity: 1;
+        }
+        .sidebar.collapsed .sidebar-content-wrapper { opacity: 0; pointer-events: none; }
+        
+        .sidebar-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 2px solid #f0f2f5; padding-bottom: 12px; margin-bottom: 15px; flex-shrink: 0;
+        }
+        .sidebar-header h3 { margin: 0; color: #0d6efd; font-size: 17px; font-weight: 600; }
+        .close-btn { cursor: pointer; color: #868e96; font-size: 13px; font-weight: 500; }
+        .close-btn:hover { color: #343a40; }
+        
+        .scrollable-list { flex-grow: 1; overflow-y: auto; padding-right: 6px; }
+        .scrollable-list::-webkit-scrollbar { width: 6px; }
+        .scrollable-list::-webkit-scrollbar-track { background: #f8f9fa; border-radius: 4px; }
+        .scrollable-list::-webkit-scrollbar-thumb { background: #ced4da; border-radius: 4px; }
+        
+        .task-item {
+            padding: 12px; background: #f8f9fa; border-radius: 8px;
+            margin-bottom: 10px; border-left: 4px solid #ccc;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .task-item:hover { transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .task-item.submit { border-left-color: #dc3545; }
+        .task-item.review { border-left-color: #0d6efd; }
+        
+        .task-date { font-weight: 600; font-size: 13px; margin-bottom: 5px; }
+        .task-date.submit-date { color: #dc3545; }
+        .task-date.review-date { color: #0d6efd; }
+        .task-title { font-size: 14px; color: #212529; font-weight: 500; line-height: 1.5; }
+
+        .calendar-wrapper {
+            flex-grow: 1; min-width: 0; height: 100%;
+            background: white; border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            padding: 18px; box-sizing: border-box;
+        }
+        
+        .fc { height: 100%; }
+        .fc-theme-standard td, .fc-theme-standard th { border-color: #f1f3f5; }
+        .fc-col-header-cell { padding: 10px 0; background-color: #f8f9fa; font-size: 15px; font-weight: 600; color: #495057; }
+        .fc-daygrid-day-top { display: block !important; padding: 0 !important; }
+        .fc-daygrid-day-number { display: block !important; width: 100%; padding: 0 !important; text-decoration: none !important; }
+        
+        .custom-cell-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 4px 6px; }
+        .custom-cell-date { font-size: 18px; font-weight: 700; color: #343a40; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; letter-spacing: -0.5px; }
+        .custom-cell-date.is-holiday { color: #e03131; }
+        
+        .custom-cell-info { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+        .custom-lunar-text { font-size: 12px; color: #868e96; display: flex; align-items: center; gap: 4px; font-weight: 500; }
+        .custom-lunar-text.is-holiday { color: #e03131; font-weight: 600; }
+        
+        .custom-badge { font-size: 10px; color: white; padding: 2px 4px; border-radius: 3px; font-weight: 600; line-height: 1; }
+        .custom-badge.holiday { background: #fa5252; }
+        .custom-badge.work { background: #868e96; }
+        
+        .custom-weather { font-size: 11px; color: #f59f00; font-weight: 600; margin-top: 1px; }
+
+        .fc-event {
+            cursor: pointer; padding: 2px 4px !important; margin: 1px 3px 2px 3px !important;
+            border: none; border-radius: 4px !important; font-size: 12px !important; font-weight: 600;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .fc-event-main { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .fc-day-today { background-color: #fff9db !important; }
+        .fc-day-sun .custom-cell-date, .fc-day-sat .custom-cell-date { color: #e03131; }
+        
+        /* 右侧面板今日详情样式 */
+        .today-number { font-size: 52px; font-weight: 800; color: #1864ab; line-height: 1; margin-bottom: 8px; letter-spacing: -1px; }
+        .today-desc { font-size: 15px; color: #495057; margin-bottom: 15px; font-weight: 500; }
+        .today-festival { display: inline-block; background: #ffe3e3; color: #e03131; font-size: 14px; font-weight: 700; padding: 5px 10px; border-radius: 6px; margin-bottom: 20px; }
+        .today-weather-box { display: flex; align-items: center; gap: 15px; background: #e7f5ff; padding: 15px; border-radius: 10px; margin-bottom: 25px; }
+        .today-weather-icon { font-size: 32px; }
+        .today-weather-detail { font-size: 14px; color: #1864ab; display: flex; flex-direction: column; gap: 3px; }
+        .today-weather-detail strong { font-size: 17px; font-weight: 700; }
+
+        /* --- 移动端响应式适配 (H5) --- */
+        @media (max-width: 768px) {
+            html, body { overflow: auto; height: auto; padding: 10px; }
+            h1 { font-size: 19px; flex-wrap: nowrap; }
+            h1 span[style*="18px"] { font-size: 14px !important; margin-left: 6px !important; }
+            
+            /* 将主布局变为纵向流动，并通过 order 重排顺序 */
+            .main-layout { flex-direction: column; gap: 15px; height: auto; }
+            .calendar-wrapper { order: 1; height: auto; min-height: 400px; padding: 10px; }
+            #rightSidebar { order: 2; }
+            #sidebar { order: 3; }
+            
+            /* 统一覆盖两个侧边栏的移动端样式：100%宽，自然流动，不折叠 */
+            #sidebar, #rightSidebar {
+                width: 100% !important; height: auto; min-height: 300px;
+                margin-top: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            }
+            #sidebar.collapsed, #sidebar.expanded, 
+            #rightSidebar.collapsed, #rightSidebar.expanded { width: 100% !important; }
+            
+            #sidebar .sidebar-collapsed-text, 
+            #rightSidebar .sidebar-collapsed-text { display: none; }
+            
+            #sidebar .sidebar-content-wrapper, 
+            #rightSidebar .sidebar-content-wrapper { width: 100%; opacity: 1; pointer-events: auto; padding: 15px; }
+            
+            #closeSidebar, #closeRightSidebar { display: none; }
+            
+            .fc-toolbar { flex-direction: column; gap: 10px; }
+            .fc-toolbar-title { font-size: 1.2em !important; }
+            
+            .custom-weather { display: block; font-size: 9px; margin-top: 2px; text-align: center; line-height: 1.1; transform: scale(0.9); }
+            
+            .custom-cell-header { flex-direction: column; align-items: center; padding: 4px 0; width: 100%; }
+            .custom-cell-date { font-size: 16px; text-align: center; width: 100%; }
+            .custom-cell-info { align-items: center; width: 100%; }
+            
+            .custom-lunar-text { 
+                font-size: 10px; margin-top: 2px; 
+                flex-direction: column; 
+                gap: 2px; justify-content: center; width: 100%; text-align: center;
+                line-height: 1.1;
+            }
+            .custom-badge { font-size: 9px; padding: 1px 3px; border-radius: 2px; }
+            
+            .fc-event { font-size: 10px !important; padding: 1px 2px !important; text-align: left !important; margin: 1px 2px !important; }
+            .fc-event-main { display: block !important; overflow: hidden; white-space: nowrap; text-overflow: clip; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1 id="pageTitle">
+            <span style="color: #00863F;">明屬 山東承宣布政使司 濟南府</span> 
+            <span style="color: #0d6efd; font-size: 18px; margin-left: 8px;">承辦</span>
+        </h1>
+        <div style="display: flex; gap: 8px;">
+            <select id="langSelector" style="padding: 6px 10px; border-radius: 6px; border: 1px solid #ced4da; background-color: white; font-size: 14px; font-weight: 500; color: #495057; outline: none; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <option value="auto">Auto</option>
+                <option value="zh-CN">简体</option>
+                <option value="zh-TW">繁體</option>
+            </select>
+            <select id="citySelector" style="padding: 6px 10px; border-radius: 6px; border: 1px solid #ced4da; background-color: white; font-size: 14px; font-weight: 500; color: #495057; outline: none; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"></select>
+        </div>
+    </div>
+
+    <div class="main-layout">
+        <!-- 左侧边栏：当月所有任务 -->
+        <div id="sidebar" class="sidebar expanded">
+            <div class="sidebar-collapsed-text" id="sidebarCollapsedText">▶ 展开列表</div>
+            <div class="sidebar-content-wrapper">
+                <div class="sidebar-header">
+                    <h3 id="sidebarMonthTitle">当月任务</h3>
+                    <span id="closeSidebar" class="close-btn">✖ 收起</span>
+                </div>
+                <div id="taskList" class="scrollable-list"></div>
+            </div>
+        </div>
+
+        <!-- 日历主体 -->
+        <div class="calendar-wrapper">
+            <div id="calendar"></div>
+        </div>
+        
+        <!-- 右侧边栏：今日日程 -->
+        <div id="rightSidebar" class="sidebar expanded">
+            <div class="sidebar-collapsed-text" id="rightSidebarCollapsedText">◀ 今日日程</div>
+            <div class="sidebar-content-wrapper">
+                <div class="sidebar-header">
+                    <h3 id="rightSidebarTitle" style="color:#e67e22;">今日日程</h3>
+                    <span id="closeRightSidebar" class="close-btn">✖ 收起</span>
+                </div>
+                <div id="todayInfo"></div>
+                
+                <h4 id="todayTasksHeader" style="margin: 0 0 10px 0; font-size: 14px; color: #495057;">工作安排</h4>
+                <div id="todayTasks" class="scrollable-list" style="flex-grow: 1;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const holidays2026 = {
+            '2026-01-01': { isWork: false, name: '元旦' },
+            '2026-02-16': { isWork: false, name: '除夕' },
+            '2026-02-17': { isWork: false, name: '春节' },
+            '2026-02-18': { isWork: false, name: '春节' },
+            '2026-02-19': { isWork: false, name: '春节' },
+            '2026-02-20': { isWork: false, name: '春节' },
+            '2026-02-21': { isWork: false, name: '春节' },
+            '2026-02-22': { isWork: false, name: '春节' },
+            '2026-02-14': { isWork: true, name: '班' },
+            '2026-02-15': { isWork: true, name: '班' },
+            '2026-04-04': { isWork: false, name: '清明' },
+            '2026-04-05': { isWork: false, name: '清明' },
+            '2026-04-06': { isWork: false, name: '清明' },
+            '2026-05-01': { isWork: false, name: '劳动节' },
+            '2026-05-02': { isWork: false, name: '劳动节' },
+            '2026-05-03': { isWork: false, name: '劳动节' },
+            '2026-05-04': { isWork: false, name: '劳动节' },
+            '2026-05-05': { isWork: false, name: '劳动节' },
+            '2026-04-26': { isWork: true, name: '班' },
+            '2026-05-09': { isWork: true, name: '班' },
+            '2026-06-19': { isWork: false, name: '端午' },
+            '2026-06-20': { isWork: false, name: '端午' },
+            '2026-06-21': { isWork: false, name: '端午' },
+            '2026-09-25': { isWork: false, name: '中秋' },
+            '2026-09-26': { isWork: false, name: '中秋' },
+            '2026-09-27': { isWork: false, name: '中秋' },
+            '2026-10-01': { isWork: false, name: '国庆节' },
+            '2026-10-02': { isWork: false, name: '国庆节' },
+            '2026-10-03': { isWork: false, name: '国庆节' },
+            '2026-10-04': { isWork: false, name: '国庆节' },
+            '2026-10-05': { isWork: false, name: '国庆节' },
+            '2026-10-06': { isWork: false, name: '国庆节' },
+            '2026-10-07': { isWork: false, name: '国庆节' },
+            '2026-10-10': { isWork: true, name: '班' }
+        };
+
+        const SHANDONG_CITIES = {
+            "济南": { lat: 36.6512, lon: 117.1201 },
+            "青岛": { lat: 36.0671, lon: 120.3826 },
+            "淄博": { lat: 36.8139, lon: 118.0550 },
+            "枣庄": { lat: 34.8105, lon: 117.3238 },
+            "东营": { lat: 37.4341, lon: 118.6748 },
+            "烟台": { lat: 37.4638, lon: 121.4480 },
+            "潍坊": { lat: 36.7068, lon: 119.1617 },
+            "济宁": { lat: 35.4149, lon: 116.5930 },
+            "泰安": { lat: 36.1928, lon: 117.1291 },
+            "威海": { lat: 37.5131, lon: 122.1204 },
+            "日照": { lat: 35.4164, lon: 119.4612 },
+            "临沂": { lat: 35.1045, lon: 118.3564 },
+            "德州": { lat: 37.4346, lon: 116.3575 },
+            "聊城": { lat: 36.4560, lon: 115.9854 },
+            "滨州": { lat: 37.3821, lon: 118.0170 },
+            "菏泽": { lat: 35.2338, lon: 115.4807 },
+            "莱芜": { lat: 36.2144, lon: 117.6599 }
+        };
+
+        // 简繁转化词典
+        const s2tMap = {
+            '明属': '明屬', '山东': '山東', '承办': '承辦', '济南': '濟南', '青岛': '青島', 
+            '枣庄': '棗莊', '东营': '東營', '烟台': '煙台', '潍坊': '濰坊', '济宁': '濟寧', 
+            '临沂': '臨沂', '滨州': '濱州', '菏泽': '菏澤', '莱芜': '萊蕪', '当月任务': '當月任務', 
+            '展开列表': '展開列表', '所选日程': '所選日程', '无任务': '無任務', '当日': '當日', 
+            '劳逸结合': '勞逸結合', '气温': '氣溫', '暂无该日天气数据': '暫無該日天氣數據',
+            '多云': '多雲', '阴': '陰', '阵雨': '陣雨', '阵雪': '陣雪', '上报': '上報', '审核': '審核', 
+            '非现场': '非現場', '县域': '縣域', '月报': '月報', '周': '週', '春节': '春節', 
+            '劳动节': '勞動節', '国庆节': '國慶節', '收起': '收起', '回到今天': '回到今天',
+            '工作安排': '工作安排', '本月无任务': '本月無任務', '今日日程': '今日日程', '节日': '節日',
+            '农历': '農曆', '假期': '假期', '第一批次': '第一批次', '第二批次': '第二批次',
+            '默认': '默認'
+        };
+        const t2sMap = {};
+        for (const k in s2tMap) t2sMap[s2tMap[k]] = k;
+
+        const isMainland = /zh-(cn|sg|hans)/i.test(navigator.language);
+        const autoLang = isMainland ? 'zh-CN' : 'zh-TW';
+        let userSelectedLang = 'auto';
+        let currentLang = autoLang;
+
+        function trans(text, lang) {
+            if (!text) return text;
+            let res = text;
+            const map = lang === 'zh-TW' ? s2tMap : t2sMap;
+            for (const k in map) {
+                res = res.split(k).join(map[k]);
+            }
+            return res;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 初始化语言下拉框
+            const langSelector = document.getElementById('langSelector');
+            langSelector.value = userSelectedLang;
+            
+            // 更新页面中的静态文字
+            const updateStaticUI = () => {
+                const autoOpt = document.querySelector('#langSelector option[value="auto"]');
+                if (autoOpt) autoOpt.innerText = trans('Auto', currentLang);
+                
+                document.getElementById('sidebarCollapsedText').innerText = trans('▶ 展开列表', currentLang);
+                document.getElementById('closeSidebar').innerText = trans('✖ 收起', currentLang);
+                document.getElementById('rightSidebarTitle').innerText = trans('今日日程', currentLang);
+                document.getElementById('closeRightSidebar').innerText = trans('✖ 收起', currentLang);
+                document.getElementById('todayTasksHeader').innerText = trans('工作安排', currentLang);
+                
+                const isMobileTitle = window.innerWidth <= 768;
+                const titleSpan1 = document.querySelector('#pageTitle span:first-child');
+                if (titleSpan1) titleSpan1.innerText = trans(isMobileTitle ? `山东承宣布政使司 ${currentCityName}府` : `明属 山东承宣布政使司 ${currentCityName}府`, currentLang);
+                
+                const titleSpan2 = document.querySelector('#pageTitle span:last-child');
+                if (titleSpan2) titleSpan2.innerText = trans(`承办`, currentLang);
+                
+                document.title = trans(`明属 山东承宣布政使司 ${currentCityName}府 承办`, currentLang);
+                
+                Array.from(citySelector.options).forEach(opt => {
+                    opt.innerText = trans(opt.value, currentLang); // 移除市字
+                });
+            };
+
+            // --- 侧边栏折叠逻辑 ---
+            const setupSidebar = (sidebarId, closeBtnId) => {
+                const sidebar = document.getElementById(sidebarId);
+                const closeBtn = document.getElementById(closeBtnId);
+                
+                sidebar.addEventListener('click', function(e) {
+                    if (this.classList.contains('collapsed')) {
+                        this.classList.remove('collapsed');
+                        this.classList.add('expanded');
+                        setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+                    }
+                });
+                
+                closeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    sidebar.classList.remove('expanded');
+                    sidebar.classList.add('collapsed');
+                    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+                });
+            };
+            
+            setupSidebar('sidebar', 'closeSidebar');
+            setupSidebar('rightSidebar', 'closeRightSidebar');
+
+            let weatherData = {};
+            let calendarInstance = null;
+            let currentCityName = "济南";
+
+            const getWeatherDesc = (code) => {
+                if (code === 0) return { icon: '☀️', text: '晴' };
+                if (code === 1 || code === 2) return { icon: '⛅', text: '多云' };
+                if (code === 3) return { icon: '☁️', text: '阴' };
+                if (code >= 45 && code <= 48) return { icon: '🌫️', text: '雾' };
+                if (code >= 51 && code <= 57) return { icon: '🌧️', text: '阵雨' };
+                if (code >= 61 && code <= 67) return { icon: '🌧️', text: '雨' };
+                if (code >= 71 && code <= 77) return { icon: '❄️', text: '雪' };
+                if (code >= 80 && code <= 82) return { icon: '🌦️', text: '阵雨' };
+                if (code >= 85 && code <= 86) return { icon: '🌨️', text: '阵雪' };
+                if (code >= 95) return { icon: '⛈️', text: '雷阵雨' };
+                return { icon: '🌤️', text: '未知' };
+            };
+
+            const checkHoliday = (date) => {
+                const dateStr = date.getFullYear() + '-' + String(date.getMonth()+1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+                if (holidays2026[dateStr]) return holidays2026[dateStr];
+                const holidayObj = HolidayUtil.getHoliday(date.getFullYear(), date.getMonth()+1, date.getDate());
+                if (holidayObj) return { isWork: holidayObj.isWork(), name: holidayObj.getName() };
+                return null;
+            };
+
+            // --- 渲染左侧：当月任务 ---
+            const renderSidebarTasks = (activeStart, activeEnd) => {
+                const listEl = document.getElementById('taskList');
+                listEl.innerHTML = '';
+                if (typeof CALENDAR_TASKS === 'undefined') return;
+
+                const sortedTasks = CALENDAR_TASKS.slice().sort((a, b) => new Date(a.start) - new Date(b.start));
+                let count = 0;
+                
+                sortedTasks.forEach(task => {
+                    const taskDate = new Date(task.start);
+                    if (taskDate >= activeStart && taskDate < activeEnd) {
+                        count++;
+                        const li = document.createElement('div');
+                        const isSubmit = task.title.includes('上报') || task.title.includes('上報');
+                        li.className = 'task-item ' + (isSubmit ? 'submit' : 'review');
+                        
+                        let displayTitle = trans(task.title, currentLang);
+                        const dashIndex = displayTitle.indexOf('-');
+                        if (dashIndex !== -1) {
+                            displayTitle = `<div><strong>${displayTitle.substring(0, dashIndex)}</strong></div><div style="font-size:0.9em; margin-top:3px; opacity:0.8;">${displayTitle.substring(dashIndex + 1)}</div>`;
+                        }
+                        
+                        li.innerHTML = `<div class="task-date ${isSubmit ? 'submit-date' : 'review-date'}">${task.start}</div><div class="task-title">${displayTitle}</div>`;
+                        listEl.appendChild(li);
+                    }
+                });
+                if (count === 0) listEl.innerHTML = `<div style="color:#999; text-align:center; margin-top:20px; font-size:13px;">${trans('本月无任务', currentLang)}</div>`;
+            };
+            
+            // --- 渲染右侧：动态日程 ---
+            const renderAgenda = (targetDate, scrollToView = false) => {
+                const dateToRender = targetDate || new Date();
+                const d = Lunar.fromDate(dateToRender);
+                const holidayInfo = checkHoliday(dateToRender);
+                const dateStr = dateToRender.getFullYear() + '-' + String(dateToRender.getMonth()+1).padStart(2, '0') + '-' + String(dateToRender.getDate()).padStart(2, '0');
+                
+                const isToday = new Date().toDateString() === dateToRender.toDateString();
+                document.getElementById('rightSidebarTitle').innerText = isToday ? trans('今日日程', currentLang) : `${dateToRender.getMonth()+1}${trans('月', currentLang)}${dateToRender.getDate()}日`;
+                document.getElementById('rightSidebarCollapsedText').innerText = isToday ? trans('◀ 今日日程', currentLang) : trans('◀ 所选日程', currentLang);
+                
+                let infoHtml = `
+                    <div class="today-number">${dateToRender.getDate()}</div>
+                    <div class="today-desc">${dateToRender.getFullYear()}年${dateToRender.getMonth()+1}月 ${trans('星期', currentLang)}${trans(d.getWeekInChinese(), currentLang)} · ${trans('农历', currentLang)}${trans(d.getMonthInChinese(), currentLang)}月${trans(d.getDayInChinese(), currentLang)}</div>
+                `;
+                
+                let festivalText = [];
+                const solarTerms = trans(d.getJieQi(), currentLang);
+                if (solarTerms) festivalText.push(solarTerms);
+                const festivals = d.getFestivals();
+                if (festivals.length > 0) festivalText.push(trans(festivals.join(' '), currentLang));
+                if (holidayInfo && !holidayInfo.isWork) festivalText.push(trans(holidayInfo.name, currentLang));
+                
+                if (festivalText.length > 0) {
+                    infoHtml += `<div class="today-festival">🎉 ${festivalText.join(' · ')}</div>`;
+                }
+                
+                if (weatherData[dateStr]) {
+                    const w = weatherData[dateStr];
+                    infoHtml += `
+                    <div class="today-weather-box">
+                        <div class="today-weather-icon">${w.icon}</div>
+                        <div class="today-weather-detail">
+                            <strong>${trans(w.text, currentLang)}</strong>
+                            <span>${trans('气温', currentLang)}：${w.min}°C ~ ${w.max}°C</span>
+                        </div>
+                    </div>`;
+                } else {
+                    infoHtml += `<div class="today-weather-box" style="justify-content:center; color:#999; font-size:12px;">${trans('暂无该日天气数据', currentLang)}</div>`;
+                }
+                
+                document.getElementById('todayInfo').innerHTML = infoHtml;
+                
+                const taskListEl = document.getElementById('todayTasks');
+                taskListEl.innerHTML = '';
+                let count = 0;
+                
+                if (typeof CALENDAR_TASKS !== 'undefined') {
+                    CALENDAR_TASKS.forEach(task => {
+                        if (task.start === dateStr) {
+                            count++;
+                            const isSubmit = task.title.includes('上报') || task.title.includes('上報');
+                            const li = document.createElement('div');
+                            li.className = 'task-item ' + (isSubmit ? 'submit' : 'review');
+                            
+                            let displayTitle = trans(task.title, currentLang);
+                            const dashIndex = displayTitle.indexOf('-');
+                            if (dashIndex !== -1) {
+                                displayTitle = `<div><strong>${displayTitle.substring(0, dashIndex)}</strong></div><div style="font-size:0.9em; margin-top:3px; opacity:0.8;">${displayTitle.substring(dashIndex + 1)}</div>`;
+                            }
+                            
+                            li.innerHTML = `<div class="task-title">${displayTitle}</div>`;
+                            taskListEl.appendChild(li);
+                        }
+                    });
+                }
+                
+                if (count === 0) {
+                    taskListEl.innerHTML = `
+                    <div style="text-align:center; padding:30px 10px; background:#f8f9fa; border-radius:6px; margin-top:10px;">
+                        <div style="font-size:30px; margin-bottom:10px;">☕</div>
+                        <div style="color:#7f8c8d; font-size:13px; font-weight:bold;">${trans('当日无任务安排', currentLang)}</div>
+                        <div style="color:#999; font-size:12px; margin-top:4px;">${trans('好好休息，劳逸结合', currentLang)}</div>
+                    </div>`;
+                }
+                
+                const rightSidebar = document.getElementById('rightSidebar');
+                if (rightSidebar.classList.contains('collapsed')) {
+                    rightSidebar.classList.remove('collapsed');
+                    rightSidebar.classList.add('expanded');
+                    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+                }
+                
+                if (window.innerWidth <= 768 && scrollToView) {
+                    rightSidebar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            };
+
+            const initCalendar = () => {
+                var calendarEl = document.getElementById('calendar');
+                const isMobile = window.innerWidth <= 768;
+                calendarInstance = new FullCalendar.Calendar(calendarEl, {
+                    height: isMobile ? 'auto' : '100%',
+                    contentHeight: isMobile ? 'auto' : undefined,
+                    locale: currentLang === 'zh-TW' ? 'zh-tw' : 'zh-cn',
+                    firstDay: 1,
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,dayGridWeek'
+                    },
+                    buttonText: { 
+                        today: trans('回到今天', currentLang), 
+                        month: trans('月', currentLang), 
+                        week: trans('周', currentLang) 
+                    },
+                    events: typeof CALENDAR_TASKS !== 'undefined' ? CALENDAR_TASKS : [],
+                    datesSet: function(info) {
+                        document.getElementById('sidebarMonthTitle').innerText = info.view.title + ' ' + trans('当月任务', currentLang);
+                        renderSidebarTasks(info.view.activeStart, info.view.activeEnd);
+                    },
+                    dateClick: function(info) {
+                        renderAgenda(info.date, true);
+                    },
+                    dayCellContent: function(arg) {
+                        const date = arg.date;
+                        const d = Lunar.fromDate(date);
+                        const solar = Solar.fromDate(date);
+                        
+                        let lunarText = d.getDayInChinese();
+                        if (lunarText === '初一') lunarText = d.getMonthInChinese() + '月';
+                        
+                        const festivals = d.getFestivals();
+                        const solarTerms = d.getJieQi();
+                        const solarFestivals = solar.getFestivals();
+                        if (solarTerms) lunarText = solarTerms;
+                        else if (festivals.length > 0) lunarText = festivals[0];
+                        else if (solarFestivals.length > 0) lunarText = solarFestivals[0];
+                        
+                        const holidayInfo = checkHoliday(date);
+                        let isHoliday = false;
+                        let isWork = false;
+                        
+                        if (holidayInfo) {
+                            if (holidayInfo.isWork) isWork = true;
+                            else { isHoliday = true; if (holidayInfo.name) lunarText = holidayInfo.name; }
+                        } else if (date.getDay() === 0 || date.getDay() === 6) {
+                            isHoliday = true;
+                        }
+
+                        // Translate the lunar text / holiday name
+                        lunarText = trans(lunarText, currentLang);
+
+                        if (isMobile && lunarText.length > 4) {
+                            lunarText = lunarText.substring(0, 3) + '..';
+                        }
+                        
+                        let html = `
+                        <div class="custom-cell-header">
+                            <div class="custom-cell-date ${isHoliday ? 'is-holiday' : ''}">${date.getDate()}</div>
+                            <div class="custom-cell-info">
+                                <div class="custom-lunar-text ${isHoliday ? 'is-holiday' : ''}">
+                                    ${lunarText} 
+                                    ${isHoliday && holidayInfo && !holidayInfo.isWork ? '<span class="custom-badge holiday">' + trans('休', currentLang) + '</span>' : ''}
+                                    ${isWork ? '<span class="custom-badge work">' + trans('班', currentLang) + '</span>' : ''}
+                                </div>`;
+                                
+                        const dateStr = date.getFullYear() + '-' + String(date.getMonth()+1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+                        if (weatherData[dateStr]) {
+                            const w = weatherData[dateStr];
+                            html += `<div class="custom-weather" title="${trans(w.text, currentLang)}, ${trans('最高/最低气温', currentLang)}">${w.icon} ${trans(w.text, currentLang)} ${w.min}°~${w.max}°</div>`;
+                        }
+                        
+                        html += `</div></div>`;
+                        return { html: html };
+                    },
+                    dayCellDidMount: function(arg) {
+                        const date = arg.date;
+                        const holidayInfo = checkHoliday(date);
+                        if (!arg.isToday) {
+                            if (holidayInfo && !holidayInfo.isWork) arg.el.style.backgroundColor = '#fff0f0';
+                            else if (date.getDay() === 0 || date.getDay() === 6) arg.el.style.backgroundColor = '#fdfdfd';
+                        }
+                    },
+                    eventContent: function(arg) {
+                        let title = arg.event.title;
+                        title = trans(title, currentLang);
+                        
+                        const dashIndex = title.indexOf('-');
+                        if (dashIndex !== -1) {
+                            const part1 = title.substring(0, dashIndex);
+                            const part2 = title.substring(dashIndex + 1);
+                            
+                            if (window.innerWidth <= 768) {
+                                return {
+                                    html: `<div style="display:flex; flex-direction:column; width:100%; text-align:left;">
+                                             <div style="font-weight:bold;">${part1}</div>
+                                             <div style="font-size:0.85em; opacity:0.9; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${part2}</div>
+                                           </div>`
+                                };
+                            } else {
+                                return {
+                                    html: `<div style="text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                                             <span style="font-weight:bold;">${part1}-</span><span style="font-size:0.95em;">${part2}</span>
+                                           </div>`
+                                };
+                            }
+                        }
+                        return { html: `<div style="text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${title}</div>` };
+                    },
+                    eventClick: function(info) {
+                        renderAgenda(info.event.start, true);
+                    }
+                });
+                calendarInstance.render();
+            };
+
+            // 初始化城市下拉框
+            const citySelector = document.getElementById('citySelector');
+            for (const city in SHANDONG_CITIES) {
+                const opt = document.createElement('option');
+                opt.value = city;
+                opt.innerText = trans(city, currentLang);
+                if (city === "济南") opt.selected = true;
+                citySelector.appendChild(opt);
+            }
+
+            const fetchWeatherForCity = (cityName) => {
+                const coords = SHANDONG_CITIES[cityName];
+                currentCityName = cityName;
+                
+                updateStaticUI();
+
+                fetch(`https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FShanghai&past_days=15&forecast_days=16`)
+                .then(res => res.json())
+                .then(data => {
+                    weatherData = {};
+                    if(data && data.daily) {
+                        const days = data.daily.time;
+                        for(let i=0; i<days.length; i++) {
+                            weatherData[days[i]] = {
+                                ...getWeatherDesc(data.daily.weathercode[i]),
+                                max: Math.round(data.daily.temperature_2m_max[i]),
+                                min: Math.round(data.daily.temperature_2m_min[i])
+                            };
+                        }
+                    }
+                    if (!calendarInstance) {
+                        initCalendar();
+                    } else {
+                        calendarInstance.destroy();
+                        initCalendar();
+                    }
+                    renderAgenda();
+                }).catch(err => {
+                    if (!calendarInstance) initCalendar();
+                    renderAgenda();
+                });
+            };
+
+            citySelector.addEventListener('change', (e) => {
+                fetchWeatherForCity(e.target.value);
+            });
+            
+            langSelector.addEventListener('change', (e) => {
+                userSelectedLang = e.target.value;
+                currentLang = (userSelectedLang === 'auto') ? autoLang : userSelectedLang;
+                updateStaticUI();
+                if (calendarInstance) {
+                    calendarInstance.destroy();
+                    initCalendar();
+                }
+                renderAgenda();
+            });
+
+            // 监听窗口尺寸改变，以便动态增减手机端的大标题文字
+            window.addEventListener('resize', () => {
+                updateStaticUI();
+            });
+
+            // 初次加载
+            updateStaticUI();
+            fetchWeatherForCity("济南");
+        });
+    </script>
+</body>
+</html>
