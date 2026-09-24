@@ -702,5 +702,197 @@ const CALENDAR_TASKS = [
     "borderColor": "#0a58ca",
     "textColor": "#ffffff",
     "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-01-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-01-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-02-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-02-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-03-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-03-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-04-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-04-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-05-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-05-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-06-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-06-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-07-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-07-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-08-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-08-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-09-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-09-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-10-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-10-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-11-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-11-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【下发】EAST",
+    "start": "2026-12-15",
+    "backgroundColor": "#198754",
+    "borderColor": "#157347",
+    "textColor": "#ffffff",
+    "allDay": true
+  },
+  {
+    "title": "【上报】EAST",
+    "start": "2026-12-20",
+    "backgroundColor": "#dc3545",
+    "borderColor": "#c82333",
+    "textColor": "#ffffff",
+    "allDay": true
   }
 ];

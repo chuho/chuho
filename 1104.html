@@ -104,10 +104,12 @@
         .task-item:hover { transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
         .task-item.submit { border-left-color: #dc3545; }
         .task-item.review { border-left-color: #0d6efd; }
+        .task-item.issue { border-left-color: #198754; }
         
         .task-date { font-weight: 600; font-size: 13px; margin-bottom: 5px; }
         .task-date.submit-date { color: #dc3545; }
         .task-date.review-date { color: #0d6efd; }
+        .task-date.issue-date { color: #198754; }
         .task-title { font-size: 14px; color: #212529; font-weight: 500; line-height: 1.5; }
 
         .calendar-wrapper {
@@ -326,7 +328,7 @@
             '劳动节': '勞動節', '国庆节': '國慶節', '收起': '收起', '回到今天': '回到今天',
             '工作安排': '工作安排', '本月无任务': '本月無任務', '今日日程': '今日日程', '节日': '節日',
             '农历': '農曆', '假期': '假期', '第一批次': '第一批次', '第二批次': '第二批次',
-            '默认': '默認'
+            '默认': '默認', '下发': '下發'
         };
         const t2sMap = {};
         for (const k in s2tMap) t2sMap[s2tMap[k]] = k;
@@ -441,8 +443,12 @@
                     if (taskDate >= activeStart && taskDate < activeEnd) {
                         count++;
                         const li = document.createElement('div');
-                        const isSubmit = task.title.includes('上报') || task.title.includes('上報');
-                        li.className = 'task-item ' + (isSubmit ? 'submit' : 'review');
+                        
+                        let typeClass = 'review';
+                        if (task.title.includes('上报') || task.title.includes('上報')) typeClass = 'submit';
+                        else if (task.title.includes('下发') || task.title.includes('下發')) typeClass = 'issue';
+                        
+                        li.className = 'task-item ' + typeClass;
                         
                         let displayTitle = trans(task.title, currentLang);
                         const dashIndex = displayTitle.indexOf('-');
@@ -450,7 +456,7 @@
                             displayTitle = `<div><strong>${displayTitle.substring(0, dashIndex)}</strong></div><div style="font-size:0.9em; margin-top:3px; opacity:0.8;">${displayTitle.substring(dashIndex + 1)}</div>`;
                         }
                         
-                        li.innerHTML = `<div class="task-date ${isSubmit ? 'submit-date' : 'review-date'}">${task.start}</div><div class="task-title">${displayTitle}</div>`;
+                        li.innerHTML = `<div class="task-date ${typeClass}-date">${task.start}</div><div class="task-title">${displayTitle}</div>`;
                         listEl.appendChild(li);
                     }
                 });
@@ -508,9 +514,13 @@
                     CALENDAR_TASKS.forEach(task => {
                         if (task.start === dateStr) {
                             count++;
-                            const isSubmit = task.title.includes('上报') || task.title.includes('上報');
                             const li = document.createElement('div');
-                            li.className = 'task-item ' + (isSubmit ? 'submit' : 'review');
+                            
+                            let typeClass = 'review';
+                            if (task.title.includes('上报') || task.title.includes('上報')) typeClass = 'submit';
+                            else if (task.title.includes('下发') || task.title.includes('下發')) typeClass = 'issue';
+                            
+                            li.className = 'task-item ' + typeClass;
                             
                             let displayTitle = trans(task.title, currentLang);
                             const dashIndex = displayTitle.indexOf('-');
